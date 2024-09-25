@@ -1,0 +1,297 @@
+﻿
+@model Model.Models.FacilityRTD.MeterReadingModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_LayoutFacility.cshtml";
+    // var message = TempData["Failure1"] ?? string.Empty;
+}
+
+<link href="~/css/SeatCSS.css" rel="stylesheet" />
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Add Meter Details</li>
+    </ol>
+</div>
+
+
+
+<style>
+
+    .divform {
+        max-width: 500px;
+        padding: 20px;
+        box-shadow: 0px 0px 16px 4px rgba(0,0,0,0.1)
+    }
+
+    fieldset.inputTextWrap {
+        margin: 0 0 30px 0;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+        fieldset.inputTextWrap legend {
+            background: #001f57;
+            padding: 4px 10px;
+            color: #000;
+            margin: 0 auto;
+            display: block;
+            width: 47%;
+            font-size: 1.6rem;
+            color: #FFF;
+            text-align: center;
+        }
+
+        fieldset.inputTextWrap .inputWrap {
+            margin: 0 0 12px 0;
+            width: 100%;
+        }
+
+            fieldset.inputTextWrap .inputWrap label {
+                margin: 0 0 3px 0;
+                display: block;
+            }
+
+            fieldset.inputTextWrap .inputWrap input {
+                padding: 4px 10px;
+                font-size: 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+            }
+</style>
+<div class="row">
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+    }
+
+
+
+    <div class="col-md-12">
+        @using (Html.BeginForm("SaveMeterDetails", "FacilityRTD", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveMeterDetails" }))
+        {
+
+            <div class="panel panel-default articles">
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="form-label"> Year</label>
+                                    @*@Html.DropDownListFor(m => m.WeekId, new { @class = "form-control", @required = "required", @maxlength = "500", @id = "WeekId" })
+                    @Html.ValidationMessageFor(model => model.WeekId, "", new { @class = "text-danger" })*@
+
+                                    @Html.DropDownListFor(m => m.YearId, (SelectList)ViewBag.consecutiveYear, "---Select--", new { @class = "form-control", @id = "YearId", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.YearId, "", new { @class = "text-danger" })
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Month</label>
+
+                                    @Html.DropDownListFor(m => m.MonthId, (SelectList)ViewBag.month, "---Select--", new { @class = "form-control", @id = "MonthId", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.MonthId, "", new { @class = "text-danger" })
+
+                                    @*<input type="text" class="form-control" readonly />*@
+                                    @*<textarea class="form-control"></textarea>*@
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Category</label>
+
+                                    @Html.DropDownListFor(m => m.CategoryId, (SelectList)ViewBag.category, "---Select--", new { @class = "form-control", @id = "CategoryId", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Sub-Category</label>
+
+                                    @Html.DropDownListFor(m => m.SubcategoryId, new List<SelectListItem>(), "---Select--", new { @class = "form-control", @id = "SubcategoryId", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.SubcategoryId, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Units Consumed (KwH)</label>
+
+                                    @Html.TextBoxFor(m => m.MeterReading, new { @class = "form-control", @id = "MeterReading", autofocus = "autofocus", @maxlength = "10" , @onkeypress = "FloatOnlyVal(event)" })
+                                    @Html.ValidationMessageFor(model => model.MeterReading, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                        </div>
+                            <br />
+
+                            <div class="row">
+                                <div class="col-xs-12 text-center">
+                                    <input type="submit" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+
+        }
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#CategoryId').change(function () {
+            GetSubCatListfun();
+        });
+
+        // GetSubCatListfun();
+
+    });
+
+    function GetSubCatListfun() {
+
+        //alert("GetIPListfun")
+
+        var categoryId = $('#CategoryId').val();
+        //alert(categoryId)
+
+        if (categoryId == null || categoryId == undefined || categoryId == "") {
+            categoryId = 0
+        }
+
+        $.ajax({
+            type: "post",
+            // url: "/MileStone/GetActionId",
+            url: "@Url.Action("GetSubCategoryId", "FacilityRTD")",
+
+            data: { CategoryId: categoryId },
+            datatype: "json",
+            traditional: true,
+            success: function (data) {
+                //console.log("data")
+                //console.log(data)
+
+                var contact = $('#SubcategoryId');
+
+                console.log(contact)
+
+                contact.empty();
+
+                contact.append($('<option></option>').text("--Select--").val(""));
+
+                $.each(data, function (index, item) { // item is now an object containing properties ID and Text
+                    //console.log(item.Text)
+                    //contact.append($('<option></option>').text(item.Text).val(item.Value));
+                    if (item.Value == contact)
+                        contact.append($('<option selected></option>').text(item.Text).val(item.Value));
+                    else
+                        contact.append($('<option></option>').text(item.Text).val(item.Value));
+                });
+
+            }
+        });
+    }
+</script>
+<script>
+    function NumOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9.]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function NumOnlyVal1(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+</script>
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                               // window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+
+
+
+
+
+
+
+
+

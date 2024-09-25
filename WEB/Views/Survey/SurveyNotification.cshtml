@@ -1,0 +1,175 @@
+﻿@model IEnumerable<Model.Models.Survey.GetAssignSurveyModel>
+@*@model Model.Models.Survey.SurveyModel*@
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Survey</li>
+    </ol>
+</div>
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">List of Survey Assigned</h1>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        @if (TempData["Success"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+        }
+        @if (TempData["Failure"] != null)
+        {
+            <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+        }
+
+        <!--List of assigned survey -->
+        <div class="panel panel-default articles">
+            <div class="panel-body articles-container table-size">
+                <div class="table-size-a">
+
+
+
+
+
+                    <table id="table_id" class="table table-bordered table-hover" style="width:100%">
+
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Survey Name</th>
+                                @*<th>Survey Amount</th>*@
+                                <th>Assigned Date</th>
+                                <th>End Date</th>
+                                <th>Survey Status</th>
+                                @*<th>Payment Status</th>*@
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @foreach (var lstSurvey in Model)
+                            {
+
+                                <tr>
+                                    <td>@lstSurvey.SurveyName</td>
+                                    @*<td>@lstSurvey.SurveyAmount</td>*@
+                                    <td>@lstSurvey.CreatedDate.ToString("dd-MM-yyyy") </td>
+                                    <td>@lstSurvey.EndDate.ToString("dd-MM-yyyy")</td>
+                                    <td>@lstSurvey.SurveyStatus</td>
+                                    @*<td>@lstSurvey.PaymentStatus</td>*@
+                                    @if (lstSurvey.EndDate >= System.DateTime.Now && (lstSurvey.SurveyStatusId == 23 || lstSurvey.SurveyStatusId == 24))
+                                    {
+                                        <td> @Html.ActionLink("Start Survey", "StartSurvey", new { AssignSurveyId = lstSurvey.AssignSurveyId, SurveyId = lstSurvey.SurveyId, pageNo = 1, NoOfPages = lstSurvey.NoOfPages, SurveyName = lstSurvey.SurveyName })</td>
+                                    }
+
+                                    else
+                                    {
+                                <td>
+                                    @if (lstSurvey.SurveyStatus == "Complete")
+                                    {
+                                        @Html.ActionLink("View Answers", "UserSurveyQA", new { UserId = lstSurvey.UserID, SurveyId = lstSurvey.SurveyId })
+                                    }
+
+                                </td>
+                                    }
+
+
+                                </tr>
+                            }
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!--List of assigned survey -->
+
+    </div>
+
+    <!-- content ene -->
+</div>
+<!-- end slider -->
+<!-- /.col-lg-9 -->
+@*<script src="~/Scripts/customScripts.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#table_id').DataTable({
+            responsive: true,
+            ordering: true
+        });
+    });
+</script>
+
+
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+@if (TempData["Failure"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+
+
+                                $.confirm({
+                                    title: '@(TempData["Failure"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}

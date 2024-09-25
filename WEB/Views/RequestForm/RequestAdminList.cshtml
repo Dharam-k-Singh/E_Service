@@ -1,0 +1,845 @@
+﻿@model Model.Models.RequestForm.RequestAdminListCommonModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int number = 0;
+}
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Request List</li>
+    </ol>
+</div>
+
+@*<div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Request List</h1>
+        </div>
+    </div>*@
+
+<div class="row">
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+
+    }
+
+    <style>
+        textarea.xyz {
+            overflow: hidden;
+            border: 0;
+            width: 95%;
+        }
+
+        .checka-a button {
+            display: block;
+            width: 70%;
+            margin: 20px auto 10px auto;
+            height: 37px;
+        }
+
+            .checka-a button .fa {
+                display: none;
+            }
+
+
+        ul.ulli-s {
+            list-style-type: none;
+            clear: both;
+            width: 100%;
+            display: inline;
+        }
+        .form-control.w-50 {
+            width: 50%;
+        }
+    </style>
+    <div class="col-md-12 ">
+
+        <div class="panel panel-default articles">
+            <div class="panel-body articles-container">
+                <div class="">
+                    <div class="row">
+
+
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab">
+
+
+                                <label class="control-label  lfz" id="basic-addon3">Search</label>
+                                <input type="text" class="form-control w-50" id="myInput" onkeyup="myFunction()" aria-describedby="basic-addon3">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <a style="float:right;" href='@Url.Action("RequestAdminList","RequestForm")' class="btn btn-primary">Refresh</a>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="ulli-s" id="myUL">
+                    @foreach (var GetReqList in Model.RequestListAdmin)
+                    {
+                        <li class="row">
+                            <section class='statis_a text-center'>
+
+                                <div class="box bg-primary_lfz bcv">
+                                    <div hidden>
+                                        @GetReqList.RequestId
+                                    </div>
+                                    <i class="ifal fa">@GetReqList.RaisedOnDate</i>
+
+                                    <div class="col-md-3">
+                                        <div class="img-left-pr-a">
+
+                                            <h5 class="comp-name-a">@GetReqList.Enterprise</h5>
+                                            @if (GetReqList.ReportType == "Enquiry")
+                                            {
+
+
+                                                <p class="requ-id rep-enq">
+                                                    @GetReqList.ReportType <span class="reqspan">#@GetReqList.RequestId  </span>
+                                                </p>
+                                            }
+
+                                            @if (GetReqList.ReportType == "Complaint")
+                                            {
+
+
+                                                <p class="requ-id rep-com">@GetReqList.ReportType <span class="reqspan">#@GetReqList.RequestId   </span></p>
+                                            }
+
+                                            @if (GetReqList.ReportType == "Request")
+                                            {
+
+
+                                                <p class="requ-id rep-req">@GetReqList.ReportType <span class="reqspan">#@GetReqList.RequestId    </span></p>
+                                            }
+                                            @if (GetReqList.ReportType == "Suggestion")
+                                            {
+
+
+                                                <p class="requ-id rep-sus">@GetReqList.ReportType <span class="reqspan">#@GetReqList.RequestId    </span></p>
+                                            }
+
+                                            @if (GetReqList.RequestStatus == "Initial")
+                                            {
+
+
+                                                <p class="categ-sect init-back">@GetReqList.RequestStatus</p>
+
+                                            }
+
+                                            @*@if (GetReqList.RequestStatus == "Initial" && GetReqList.ReOpenedRequestId != 0)
+        {
+            <p class="categ-sect init-back">Reopened</p>
+        }*@
+
+                                            @if (GetReqList.RequestStatus == "Allocated")
+                                            {
+
+
+                                                <p class="categ-sect alloc-back">@GetReqList.RequestStatus</p>
+                                            }
+
+                                            @if (GetReqList.RequestStatus == "Pending Zone Response")
+                                            {
+
+
+                                                <p class="categ-sect pen-back">@GetReqList.RequestStatus</p>
+                                            }
+
+                                            @if (GetReqList.RequestStatus == "Work In Progress")
+                                            {
+
+
+                                                <p class="categ-sect wip-back">@GetReqList.RequestStatus</p>
+                                            }
+
+                                            @if (GetReqList.RequestStatus == "Awaiting info from Enterprise")
+                                            {
+
+
+                                                <p class="categ-sect await-back">@GetReqList.RequestStatus</p>
+                                            }
+                                            @if (GetReqList.RequestStatus == "Closed")
+                                            {
+
+
+                                                <p class="categ-sect clos-back">@GetReqList.RequestStatus</p>
+                                            }
+
+                                            @if (GetReqList.RequestStatus == "Reopened")
+                                            {
+
+
+                                                <p class="categ-sect init-back">@GetReqList.RequestStatus</p>
+                                            }
+                                            @*<p class="requ-id">@GetReqList.ReportType <span class="reqspan">#@GetReqList.RequestId</span></p>
+
+        <p class="categ-sect">@GetReqList.RequestStatus</p>*@
+
+
+                                            <!-- <p>Raised On:<span class="">@GetReqList.RaisedOnDate</span></p>-->
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        <div class="img-left-pr-b datacenter">
+
+
+                                            <p>@GetReqList.RequestDescription</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="img-left-pr-b checka-a anch-his">
+
+
+                                            <p class="cont-name">Contact Person <span class=""> @GetReqList.ContactPersonName</span></p>
+                                            @if (GetReqList.RequestStatus == "Initial")
+                                            {
+                                                <button id="myBtn_@GetReqList.RequestId" class="btn-b btn-primary btnSubmit" value="@GetReqList.RequestId" name="testId" onclick="myFunction(@GetReqList.RequestId)">Action <i class="fa fa-check icon-a"></i></button>
+
+                                            }
+                                            else
+                                            {
+                                                <div hidden>
+                                                    <button id="myBtn_@GetReqList.RequestId" class="btn-b btn-primary btnSubmit" value="@GetReqList.RequestId" name="testId" onclick="myFunction(@GetReqList.RequestId)" hidden>Action <i class="fa fa-check icon-a"></i></button>
+                                                </div>
+                                            }
+
+                                            @*<button id="myBtn_@GetReqList.RequestId" class="btn-b btn-primary btnSubmit" value="@GetReqList.RequestId" name="testId" onclick="myFunction()">Action <i class="fa fa-check icon-a"></i></button>*@
+                                            @*<input type='button' class="btn-b btn-primary btnSubmit" id='myBtn_@GetReqList.RequestId' onclick="FunModel(@GetReqList.RequestId)" placeholder="0" onkeypress="NumOnlyVal(event)" value="Action" />*@
+
+
+                                            @Html.ActionLink("View History", "RequestHistoryDetails", new { id = @GetReqList.RequestId })
+
+                                            @*@if (GetReqList.ReOpenedRequestId != 0)
+                                                {
+                                                    <p>Reopened for @GetReqList.ReOpenedRequestId</p>
+                                                 }*@
+
+
+                                            @*<button class="btn-a btn-primary">View History<i class="fa fa-ellipsis-v icon-b" aria-hidden="true"></i></button>*@
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="img-left-pr-b">
+
+
+
+                                            <h2 class="hwqe-a"><span class="nam-lef">Reported By</span> <span class="nam-righ">&nbsp;&nbsp;@GetReqList.ReportedBy</span></h2>
+                                            <h2 class="hwqe-a"><span class="nam-lef">Department</span> <span class="nam-righ">&nbsp;&nbsp;@GetReqList.Department</span></h2>
+                                            <h2 class="hwqe-a"><span class="nam-lef">Category</span> <span class="nam-righ">&nbsp;&nbsp;@GetReqList.Category</span></h2>
+                                            <h2 class="hwqe-a"><span class="nam-lef">Sub-Category</span> <span class="nam-righ">&nbsp;&nbsp;@GetReqList.SubCategory</span></h2>
+
+                                            <h2 class="hwqe-a"><span class="nam-lef">Priority</span> <span class="nam-righ">&nbsp;&nbsp;@GetReqList.Priority</span></h2>
+                                            <h2 class="hwqe-a"><span class="nam-lef">Severity</span> <span class="nam-righ">&nbsp;&nbsp;@GetReqList.Severity</span></h2>
+
+                                            <h2 class="hwqe-a">
+                                                <span class="nam-lef">Supporting Documents</span> <span class="nam-righ" style="flex-direction: column;">
+                                                    <style>
+                                                        /*
+                                                        *  STYLE 4
+                                                        */
+
+                                                        #scroller-style::-webkit-scrollbar-track {
+                                                            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                                                            background-color: #F5F5F5;
+                                                        }
+
+                                                        #scroller-style::-webkit-scrollbar {
+                                                            width: 10px;
+                                                            background-color: #F5F5F5;
+                                                        }
+
+                                                        #scroller-style::-webkit-scrollbar-thumb {
+                                                            background-color: #000000;
+                                                            border: 2px solid #555555;
+                                                        }
+                                                    </style>
+
+
+
+
+                                                    <ul style="padding-left:0px; overflow-x:hidden;  max-height:100px;   overflow-y: auto;" id="scroller-style">
+                                                        @if (GetReqList.UploadPath != null)
+                                                        {
+                                                            if (GetReqList.UploadPath.Contains(","))
+                                                            {
+                                                                string[] img = GetReqList.UploadPath.Split(new string[] { "," }, StringSplitOptions.None);
+                                                                for (int j = 0; j < img.Length; j++)
+                                                                {
+
+                                                                    <li style="padding: 5px 0px; list-style-type:none; text-align:left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                                        <span class="">
+                                                                            <a class="bottom" title="@img[j].Trim()" style="line-height: 1.2; text-decoration:none;" href="~/Uploads/RequestUpload/@img[j].Trim()" target="_blank">&nbsp;&nbsp;&nbsp; @(number += 1). @img[j].Trim()</a>
+                                                                        </span>
+                                                                    </li>
+
+
+                                                                }
+                                                                <span hidden> @(number = 0)</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                if (GetReqList.UploadPath != null && GetReqList.UploadPath != "")
+                                                                {
+                                                                    <li style="padding: 5px 0px; list-style-type:none; text-align:left;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                                        <span class="">
+                                                                            <a title="@GetReqList.UploadPath" style="line-height: 1.2; text-decoration:none;" href="~/Uploads/RequestUpload/@GetReqList.UploadPath" target="_blank">&nbsp;&nbsp;@GetReqList.UploadPath</a>&nbsp;
+                                                                        </span>
+                                                                    </li>
+                                                                }
+
+                                                            }
+                                                        }
+                                                    </ul>
+                                                </span>
+                                            </h2>
+
+                                            <h2 class="hwqe-a">
+                                                <span class="nam-lef">Department Uploads</span> <span class="nam-righ" style="flex-direction: column;">
+                                                    <style>
+                                                        /*
+                                                        *  STYLE 4
+                                                        */
+
+                                                        #scroller-style::-webkit-scrollbar-track {
+                                                            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                                                            background-color: #F5F5F5;
+                                                        }
+
+                                                        #scroller-style::-webkit-scrollbar {
+                                                            width: 10px;
+                                                            background-color: #F5F5F5;
+                                                        }
+
+                                                        #scroller-style::-webkit-scrollbar-thumb {
+                                                            background-color: #000000;
+                                                            border: 2px solid #555555;
+                                                        }
+                                                    </style>
+
+
+
+
+                                                    <ul style="padding-left:0px; overflow-x:hidden;  max-height:100px;   overflow-y: auto;" id="scroller-style">
+                                                        @if (GetReqList.DepartmentUploadPath != null)
+                                                        {
+                                                            if (GetReqList.DepartmentUploadPath.Contains(","))
+                                                            {
+                                                                string[] img = GetReqList.DepartmentUploadPath.Split(new string[] { "," }, StringSplitOptions.None);
+                                                                for (int j = 0; j < img.Length; j++)
+                                                                {
+
+                                                                    <li style="padding: 5px 0px; list-style-type:none; text-align:left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                                        <span class="">
+                                                                            <a class="bottom" title="@img[j].Trim()" style="line-height: 1.2; text-decoration:none;" href="~/Uploads/DepartmentUserActionUploadPath/@img[j].Trim()" target="_blank">&nbsp;&nbsp;&nbsp; @(number += 1). @img[j].Trim()</a>
+                                                                        </span>
+                                                                    </li>
+
+
+                                                                }
+                                                                <span hidden> @(number = 0)</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                if (GetReqList.DepartmentUploadPath != null && GetReqList.DepartmentUploadPath != "")
+                                                                {
+                                                                    <li style="padding: 5px 0px; list-style-type:none; text-align:left;  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                                        <span class="">
+                                                                            <a title="@GetReqList.DepartmentUploadPath" style="line-height: 1.2; text-decoration:none;" href="~/Uploads/DepartmentUserActionUploadPath/@GetReqList.DepartmentUploadPath" target="_blank">&nbsp;&nbsp;@GetReqList.DepartmentUploadPath</a>&nbsp;
+                                                                        </span>
+                                                                    </li>
+                                                                }
+
+                                                            }
+                                                        }
+                                                    </ul>
+                                                </span>
+                                            </h2>
+                                            @if (GetReqList.ReOpenedComments != null)
+                                            {
+                                                <h2 class="hwqe-a"><span class="nam-lef" style="font-weight:800;">ReOpened Comments</span> <span class="nam-righ" id="style-3" style="background: #6e6e70; color: #FFF; text-align: left; overflow: auto; max-height: 65px; padding: 3px 5px 3px 5px; ">@GetReqList.ReOpenedComments</span></h2>
+                                            }
+
+
+
+                                        </div>
+                                    </div>
+                                    <i class="ifar fa fa-exclamation toggle" id="tgol_@GetReqList.RequestId"> </i>
+                                    <div id="target_@GetReqList.RequestId" style="display:none;">
+                                        <div class="img-left-pr-ba">
+
+                                            @*<h2 class="hwqe-a"><span class="nam-lef vbn">Name</span> <span class="nam-righ badge badge-warning">@GetReqList.ContactPersonName</span></h2>*@
+                                            <h2 class="hwqe-a"><span class="nam-lef-a vbn">Mobile No</span> <span class="nam-righ">&nbsp;&nbsp;@GetReqList.MobileNo</span></h2>
+                                            <h2 class="hwqe-a"><span class="nam-lef-a vbn">Email Id</span> <span class="nam-righ">&nbsp;&nbsp;@GetReqList.EmailId</span></h2>
+                                            @*<h2 class="hwqe-a"><span class="nam-lef vbn">Sub-Category</span> <span class="nam-righ badge badge-warning">New Connection</span></h2>*@
+
+                                        </div>
+                                    </div>
+
+                                    <!-- <p class="date-span-p"><span class="date-span">@GetReqList.RaisedOnDate</span></p>-->
+                                </div>
+
+                            </section>
+                        </li>
+
+
+                    }
+                </ul>
+            </div>
+
+            <div id="myModal" class="modal">
+                <div class="popup popupzxc">
+
+                    <h2><span>Action</span>  <button class="close">×</button></h2>
+
+
+
+                    <div class="content">
+                        <div class="user-dashboard bgcols">
+                            <!--<h1>Dashboard</h1>-->
+
+                            <div class="row">
+                                @using (Html.BeginForm("SaveActionDetails", "RequestForm", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveAllocation" }))
+                                {
+
+                                    <div class="col-md-12 col-sm-5 col-xs-12 gutter ">
+
+                                        @Html.HiddenFor(m => m.RequestSaveActionAdmin.RequestId, new { @id = "RequestId" })
+
+                                        @*@Html.HiddenFor(m => m.RequestSaveActionAdmin.EscLevel1EmailId, new { @id = "EscLevel1EmailId" })*@
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="firstname" class="control-label lfz">Assign To Department</label>
+                                                    @Html.DropDownListFor(m => m.RequestSaveActionAdmin.DepartmentID, (SelectList)ViewBag.department, "-- Select--", new { @class = "form-control", @required = "required", @id = "DepartmentID" })
+                                                    @Html.ValidationMessageFor(m => m.RequestSaveActionAdmin.DepartmentID, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            @*<div class="col-md-6">
+                                                    <div class="form-group form-group-lg">
+                                                        <label for="firstname" class="control-label  lfz">Status</label>
+                                                        @Html.DropDownListFor(m => m.RequestSaveActionAdmin.RequestStatusID, (SelectList)ViewBag.status, "-- Select--", new { @class = "form-control", @required = "required", @id = "RequestStatusID" })
+                                                        @Html.ValidationMessageFor(m => m.RequestSaveActionAdmin.RequestStatusID, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>*@
+
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label for="firstname" class="control-label  lfz">Priority</label>
+                                                    @Html.DropDownListFor(m => m.RequestSaveActionAdmin.PriorityID, (SelectList)ViewBag.Severity, "-- Select--", new { @class = "form-control", @required = "required", @id = "PriorityID" })
+                                                    @Html.ValidationMessageFor(m => m.RequestSaveActionAdmin.PriorityID, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="firstname" class="control-label  lfz">Date Of Commitment</label>
+                                                    @*<input type="date" class="form-control" placeholder="Date Of Commitment" />*@
+                                                    @Html.TextBoxFor(m => m.RequestSaveActionAdmin.Commitementdate, new { @class = "form-control", @id = "Commitementdate", @required = "required", @type = "date" })
+                                                    @Html.ValidationMessageFor(model => model.RequestSaveActionAdmin.Commitementdate, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="firstname" class="control-label  lfz">Escalate If Not Close By</label>
+                                                    @*<input type="date" class="form-control" placeholder="" />*@
+                                                    @Html.TextBoxFor(m => m.RequestSaveActionAdmin.EscalateOndate, new { @class = "form-control", @id = "EscalateOndate", @required = "required", @type = "date" })
+                                                    @Html.ValidationMessageFor(model => model.RequestSaveActionAdmin.EscalateOndate, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            @*<div class="col-md-6">
+                                                    <div class="form-group form-group-lg">
+                                                        <label for="firstname" class="control-label  lfz">Escaltion Level 1</label>
+                                                        @Html.TextBoxFor(m => m.RequestSaveActionAdmin.EscLevel1EmailId, new { @class = "form-control", @id = "EscLevel1EmailId", @required = "required", })
+                                                        @Html.ValidationMessageFor(model => model.RequestSaveActionAdmin.EscLevel1EmailId, "", new { @class = "text-danger" })
+
+                                                        @*<input type="text" id="EscLevel1EmailId" class="form-control" readonly="readonly">
+                                                    </div>
+                                                </div>*@
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="firstname" class="control-label  lfz">Escalation Level</label>
+                                                    @Html.TextBoxFor(m => m.RequestSaveActionAdmin.EscLevel1EmailId, new { @class = "form-control", @id = "EscLevel1EmailId", @required = "required", @maxlength = "100", @readonly = "true" })
+                                                    @Html.ValidationMessageFor(model => model.RequestSaveActionAdmin.EscLevel1EmailId, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="firstname" class="control-label  lfz">Upload Document</label>
+                                                    @Html.TextBoxFor(m => m.RequestSaveActionAdmin.UploadPath, new
+                                               {
+                                                   @class = "form-control",
+                                                   @type = "file",
+                                                   @Name = "UploadPath",
+                                                   @id = "UploadPath" + "0",
+                                                   @accept = "image/jpeg,image/png,image/jpg,application/pdf",
+                                                   @multiple = "multiple",
+                                                   @onchange = "ShowDynamicFile(0)"
+                                               })
+                                                    @*@Html.ValidationMessageFor(model => model.InvestorProfileModel.LogoPath, "", new { @style = "color:red" })*@
+                                                    <span id='FilePreview_0' name='FilePreview_0'> </span>
+                                                    <label for="concept" class="col-sm-12 control-label" id="Uploaderror" style="display:none;color:red;"></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="firstname" class="control-label  lfz">Comments</label>
+                                                    @Html.TextAreaFor(m => m.RequestSaveActionAdmin.RequestComments, new { @class = "form-control", @id = "RequestComments" })
+                                                    @Html.ValidationMessageFor(model => model.RequestSaveActionAdmin.RequestComments, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 text-center">
+
+                                                <button style="margin-top: 35px; width: 120px; text-align: center;" type="submit" name="SaveAction" id="SaveAction" class="btn btn-primary" onclick="loader();">Submit</button>
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        <div class="row">
+
+                                        </div>
+
+
+                                    </div>
+
+                                }
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+<script>
+    function validateform() {
+        var departmentID = document.getElementById("DepartmentID").value;
+        var priorityId = document.getElementById("PriorityID").value;
+        var commitdt = document.getElementById("Commitementdate").value;
+        var esclatedt = document.getElementById("EscalateOndate").value;
+        var esclationemail = document.getElementById("EscLevel1EmailId").value;
+
+        if (departmentID == "" || priorityId == "" || commitdt == "" || esclatedt == "" || esclationemail == "") {
+            alert("All fields must be filled out");
+            return false;
+        }
+
+        // Show loader
+        document.getElementById(showLoadingSweetAlert("Loading")).style.display = "block";
+
+
+        // Simulate form submission (replace with actual form submission)
+        setTimeout(function () {
+            // Hide loader
+            document.getElementById(showLoadingSweetAlert('Loading')).style.display = "none";
+
+            // Show confirmation message
+            document.getElementById(showSweetAlert('Allocated', 'sucessfully', 'success')).style.display = "block";
+
+            // Reset form
+            document.getElementById("SaveAllocation").reset();
+
+            // Hide confirmation message after 3 seconds
+            setTimeout(function () {
+                document.getElementById(showSweetAlert('Allocated', 'sucessfully', 'success')).style.display = "none";
+            }, 3000);
+        }, 2000); // Simulating 2 seconds delay for submission
+        return false; // Prevent actual form submission
+    }
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#DepartmentID').change(function () {
+            GetEscalationEmailIdfun();
+        });
+
+        //  GetCatListfun();
+
+    });
+
+    function GetEscalationEmailIdfun() {
+
+       var departmentId = $('#DepartmentID').val();
+        //alert(profileId)
+
+        if (departmentId == null || departmentId == undefined || departmentId == "") {
+            departmentId = 0
+        }
+
+
+     $.ajax({
+            type: "post",
+            // url: "/MileStone/GetActionId",
+            url: "@Url.Action("GetEscalationEmailId", "RequestForm")",
+
+         data: { DepartmentID: departmentId },
+            datatype: "json",
+            traditional: true,
+
+         success: function (data) {
+                //console.log("LineItem");
+                console.log(data)
+                $('#EscLevel1EmailId').val(data.EscalationEmailLevel1);
+
+
+            }
+        });
+    }
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        @foreach (var GG in Model.RequestListAdmin)
+        {
+
+         <text>   var modal = document.getElementById('myModal');</text>
+         <text>   var btn = document.getElementById('myBtn_' + @GG.RequestId);</text>
+         <text>  var span = document.getElementsByClassName('close')[0];</text>
+         <text>  btn.onclick = function() {
+            modal.style.display = "block";
+            modal.style.display = "block";
+            $("#RequestId").val(@GG.RequestId);
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        </text>
+        <text>
+        $('#tgol_' + @GG.RequestId).click(function() {
+
+            var modal1 = document.getElementById('target_' + @GG.RequestId);
+            @*alert('target_' + @GG.RequestId);*@
+            //modal1.style.display = "block";
+            $('#target_' + @GG.RequestId).toggle('slow');
+        });
+        </text>
+        }
+
+
+
+    });
+</script>
+
+<script>
+    function myFunction(Id) {
+
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById('myBtn_' + Id);
+        var span = document.getElementsByClassName('close')[0];
+        btn.onclick = function () {
+            modal.style.display = "block";
+            modal.style.display = "block";
+            $("#RequestId").val(Id);
+            //$("#RequestId1").val(Id);
+            console.log(RequestId)
+
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        //$('#tgol_' + Id ).click(function () {
+
+        //    var modal1 = document.getElementById('target_' + Id);
+
+        //    $('#target_' + Id ).toggle('slow');
+        //});
+    }
+</script>
+<script>
+    function myFunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        ul = document.getElementById("myUL");
+        li = ul.getElementsByTagName("li");
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("div")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
+<script>
+
+    document.getElementsByClassName('save')[0].onclick = function () {
+        //save element for the removing of the class after the timeout.
+        var elem = event.target;
+        //add classes to the html and clicked button.
+        event.target.className += " wait";
+        document.getElementsByTagName('html')[0].className += "wait";
+        //set timeout for removing the classes after 3 seconds.
+        window.setTimeout(function () {
+            elem.className -= " wait";
+            document.getElementsByTagName('html')[0].className -= "wait";
+        }, 8000);
+    }
+</script>
+<script>
+    var sizealert = "File is exceeding the allowed limit of 10 MB.";
+    var extalert = 'Only files allowed(.png, .jpeg, .jpg ,.pdf, .doc , .xlsx , .docx , .xls)'
+    $('#UploadPath').change(function (e) {
+        $('#Uploaderror').hide();
+        if (fileExtValidateimgpdfxlsx(this)) {
+            if (fileSizeValidate(this)) {
+                console.log('fff')
+            }
+            else {
+                $('#UploadPath').val(null)
+                $('#Uploaderror').text(sizealert);
+                $('#Uploaderror').show();
+            }
+        }
+        else {
+            $('#UploadPath').val(null);
+            $('#Uploaderror').text(extalert);
+            $('#Uploaderror').show();
+        }
+    });
+
+    //function ValidateFileName(e) {
+    //    var filename = $('#Upload_0').val();
+    //    // alert(filename)
+    //    if (!checkSpecialCharacter(filename)) {
+    //        alert('The file name may have special character.Please rename the file name and try to upload again.');
+
+    //        return false;
+    //    }
+    //}
+    //function checkSpecialCharacter(filename) {
+    //    var re = new RegExp("^[^<>%$#%|]*$");
+    //    var specialchars = re.test(filename);
+    //    return specialchars;
+    //}
+</script>
+
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+        $(document).ready(() => {
+
+            $.confirm({
+                title: '@(TempData["Success"]) ',
+                content: " ",
+                type: 'dark',
+                typeAnimated: true,
+                buttons: {
+                    tryAgain: {
+                        text: 'OK',
+                        btnClass: 'btn-primary',
+                        action: function () {
+                            window.location.reload();
+                        }
+                    },
+                }
+            });
+
+
+        });
+
+
+    </script>
+}
+
+<script>
+
+    jQuery(function ($) {
+        $(document).ajaxSend(function () {
+            $("#overlay").fadeIn(3000);
+        });
+        $('#SaveAction').click(function () {
+            $.ajax({
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                }
+            }).done(function () {
+                setTimeout(function () {
+                    $("#overlay").fadeOut(3000);
+                }, 5000);
+            });
+        });
+    });
+</script>
+<script>
+    function loader() {
+        var departmentID = document.getElementById("DepartmentID").value;
+        var priorityId = document.getElementById("PriorityID").value;
+        var commitdt = document.getElementById("Commitementdate").value;
+        var esclatedt = document.getElementById("EscalateOndate").value;
+        var esclationemail = document.getElementById("EscLevel1EmailId").value;
+
+        if (departmentID == "" || priorityId == "" || commitdt == "" || esclatedt == "" || esclationemail == "") {
+            return false;
+        }
+        else {
+            $("#myModal").css("display", "none");
+            showLoadingSweetAlert('Saving Action...');
+        }
+
+    }
+</script>
+<script>
+    function ShowDynamicFile(id) {
+
+        console.log("dynamicnnnnnnn");
+        //console.log(id);
+        console.log(id);
+        var input = document.getElementById('UploadPath' + id);
+        var output = document.getElementById('FilePreview_' + id);
+        var children = "";
+        for (var i = 0; i < input.files.length; ++i) {
+            children += input.files.item(i).name + '<br/>';
+        }
+        output.innerHTML = children;
+
+    }
+</script>

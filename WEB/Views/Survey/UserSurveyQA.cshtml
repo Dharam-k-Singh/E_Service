@@ -1,0 +1,284 @@
+﻿@model List<Model.Models.Survey.GETQuestionAnswer>
+@{ int rowNo = 0; }
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Survey</li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"></h1>
+    </div>
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        @if (TempData["Success"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+            <script>
+                var form = document.getElementById("AddAssignSurvey");
+                //form.reset();
+            </script>
+        }
+
+        @if (TempData["Failure"] != null)
+        {
+            <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+        }
+
+
+        @using (Html.BeginForm("SaveAssignSurvey", "Survey", FormMethod.Post, new { enctype = "multipart/form-data", @id = "AddAssignSurvey" }))
+        {
+
+
+
+            <div class="panel panel-default articles">
+
+                <div class="panel-heading">
+                    Answers List
+                </div>
+                <div class="panel-body articles-container  table-size">
+
+                    <div class="contentdd">
+                        @* <h2 class="section-heading">List of Users assigned survey</h2>*@
+
+                        <div class="">
+                            <table border="1" width="100%" id="table_id" class="table table-striped table-bordered">
+
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Sr.No</th>
+                                        <th>Question</th>
+                                        <th>Answer</th>
+                                        <th>Additional Comments</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var lstAssignee in Model)
+                                    {
+
+                                        <tr>
+                                            <td>
+                                                @(rowNo += 1)
+                                            </td>
+                                            <td>@lstAssignee.Question</td>
+                                            <td>
+                                                @if (lstAssignee.Answer.Contains("$$$$"))
+                                                {
+                                                    var ArrayAns = lstAssignee.Answer.Split(new string[] { "$$$$" }, StringSplitOptions.None); ;
+                                                    @ArrayAns[0]
+                                                }
+                                                else
+                                                {
+                                                    @lstAssignee.Answer
+                                                }
+
+
+                                            </td>
+                                            <td>@lstAssignee.AdditionalComments</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        }
+    </div>
+
+    <!-- content ene -->
+</div>
+<!-- /.col-lg-9 -->
+<script src="~/Scripts/customScripts.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+
+        var SurveyId = '@ViewBag.SurveyId';
+
+        $(document).ready(function () {
+
+            $('#table_id').DataTable();
+            GetUserList();
+        });
+
+        function GetUserList() {
+
+            $('#tblUsers').hide();
+
+            var qualificationId = $('#QualificationId').val();
+            var specialityId = $('#SpecialityId').val();
+
+            //console.log(surveyid);
+
+            //alert(surveyid)
+
+            if (qualificationId == '' || qualificationId == null || qualificationId == undefined) {
+                qualificationId = 0;
+            }
+
+            if (specialityId == '' || specialityId == null || specialityId == undefined) {
+                specialityId = 0;
+            }
+
+            //var value = JSON.stringify({
+            //    'Urn': Urn,
+            //    'Families': Families
+            //});
+
+            //var value = JSON.stringify({
+            //    qualificationId : qualificationId,
+            //    specialityId : specialityId
+            //});
+
+            //alert("AJAX Call")
+
+            $.ajax({
+                type: "post",
+                url: "@Url.Action("GetUserList", "Survey")",
+                data: { SurveyId: SurveyId, qualificationId: qualificationId, specialityId: specialityId },
+                datatype: "json",
+                traditional: true,
+                success: function (data) {
+
+                    console.log(data)
+                    var tbodydata = '';
+
+                    for (var i = 0; i < data.length; i++) {
+                        tbodydata += '<tr><td>' + data[i].UserName + '</td><td>' + data[i].Email_id + '</td><td><input type="checkbox" name="Users[]" value="' + data[i].UserId + '"/></td></tr>'
+                    }
+                    $('#tblUsers tbody').html('')
+                    $('#tblUsers tbody').append(tbodydata);
+
+                    $('#tblUsers').show()
+
+                    $('#tblUsers').DataTable();
+
+                }
+            });
+
+        };
+
+        function onSelectAllchange(check) {
+            if (check.checked) {
+                $("input[name='Users[]']").each(function () {
+                    $(this).prop('checked', true);
+                });
+            }
+            else {
+                $("input[name='Users[]']").each(function () {
+                    $(this).prop('checked', false);
+                });
+            }
+        }
+
+        $("#btnSubmit").click(function () {
+
+
+            var UsersArray = new Array();
+
+            $.each($("input[name='Users[]']:checked"), function () {
+                UsersArray.push($(this).val());
+            });
+
+
+
+            if (UsersArray == "") {
+                alert("Select atleast one User");
+                return false;
+            }
+
+            console.log(UsersArray)
+
+            var UsersString = UsersArray.join(',');
+
+            console.log(UsersString)
+
+            $("#AssignMemberIds").val(UsersString)
+
+            //return false;
+            $('#AddAssignSurvey').submit();
+
+        });
+
+
+</script>
+
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+@if (TempData["Failure"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+
+
+                                $.confirm({
+                                    title: '@(TempData["Failure"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}

@@ -1,0 +1,685 @@
+﻿@model Model.Models.RequestForm.RequestFormModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    // var message = TempData["Failure1"] ?? string.Empty;
+}
+<style>
+    textarea.inpuclw {
+        width: 200px;
+    }
+
+    table.flexx_a thead th {
+        background: #fff;
+    }
+    .form-group.form-group-lg.lfzabc {
+        padding: 0px 15px;
+    }
+</style>
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Service Request</li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Service Request Form</h1>
+    </div>
+</div>
+
+
+
+
+
+<div class="row">
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+    }
+
+
+
+    <div class="col-md-12 col-sm-5 col-xs-12 gutter">
+        @using (Html.BeginForm("UpdateRequest", "RequestForm", FormMethod.Post, new { enctype = "multipart/form-data", @id = "UpdateRequest" }))
+        {
+
+            <div class="panel panel-default articles">
+                <div class="panel-body">
+                    <form action="#">
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="firstname" class="control-label lfz">Type</label>
+                                        @Html.HiddenFor(m => m.ReportTypeID)
+                                        @Html.TextBoxFor(m => m.ReportTypeName, new { @class = "form-control", @id = "ReportTypeName", autofocus = "autofocus", @disabled = "disabled", @readonly = "readonly", })
+                                        @Html.ValidationMessageFor(model => model.Topic, "", new { @class = "text-danger" })
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label lfz">Enterprise</label>
+
+                                    @Html.HiddenFor(m => m.RequestId, new { @id = "RequestId" })
+                                    @Html.HiddenFor(m => m.PreviewUploadPath, new { @id = "RequestId" })
+
+
+
+
+                                    @Html.HiddenFor(m => m.EnterpriseID)
+                                    @Html.DropDownListFor(m => m.EnterpriseID, (SelectList)ViewBag.organization, "---Select--", new { @class = "form-control form-control-lg", @id = "EnterpriseID", autofocus = "autofocus", @disabled = "disabled", @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(model => model.EnterpriseID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="lastname" class="control-label  lfz">Title</label>
+                                    @Html.HiddenFor(m => m.Topic)
+                                    @Html.TextBoxFor(m => m.Topic, new { @class = "form-control", @id = "Topic", autofocus = "autofocus", @disabled = "disabled", @readonly = "readonly", })
+                                    @Html.ValidationMessageFor(model => model.Topic, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="Title" placeholder="Title">*@
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Category</label>
+
+                                    @Html.HiddenFor(m => m.CategoryId)
+                                    @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control form-control-lg", @id = "CategoryId", autofocus = "autofocus", @disabled = "disabled", @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Sub Category</label>
+                                    @Html.HiddenFor(m => m.SubCategoryId)
+                                    @Html.TextBoxFor(m => m.SubCategoryName, new { @class = "form-control form-control-lg", @id = "SubCategoryId", autofocus = "autofocus", @disabled = "disabled", @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(model => model.SubCategoryId, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="lastname" class="control-label  lfz">Contact Person Name</label>
+                                    @Html.TextBoxFor(m => m.ContactPersonName, new { @class = "form-control", @id = "ContactPersonName", @required = "required", autofocus = "autofocus", @maxlength = "80", })
+                                    @Html.ValidationMessageFor(model => model.ContactPersonName, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="Name" placeholder="Contact Person Name">*@
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="lastname" class="control-label  lfz">Mobile Number</label>
+                                    @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control", @id = "MobileNo", @required = "required", autofocus = "autofocus", @onkeypress = "NumOnlyVal(event)" })
+                                    @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="mobnum" placeholder="Mobile Number">*@
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Email ID</label>
+                                    @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control", @id = "EmailId", @required = "required", autofocus = "autofocus", @maxlength = "80", })
+                                    @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="Title" placeholder="Email">*@
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Severity</label>
+                                    @Html.DropDownListFor(m => m.SeverityId, (SelectList)ViewBag.Severity, "---Select--", new { @class = "form-control form-control-lg", @id = "SeverityId", @required = "required", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.SeverityId, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="Title" placeholder="Email">*@
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Description</label>
+                                    @Html.TextAreaFor(m => m.RequestDescription, new { @class = "form-control", @required = "required", @id = "RequestDescription" })
+                                    @Html.ValidationMessageFor(model => model.RequestDescription, "", new { @class = "text-danger" })
+                                    @*<textarea class="form-control"></textarea>*@
+                                </div>
+                            </div> @*@multiple = "multiple",*@
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-group-lg lfzabc">
+                                        @*<label for="firstname" class="control-label  lfz">Upload Document</label>*@
+
+                                        <label for="firstname" class="control-label  lfz">Documents</label>
+
+                                        <div class="input-group col-xs-12">
+
+
+
+
+
+                                            <div class="col-md-6" style="padding-left:0px;">
+                                                <input type="file" name="UploadPath" id="fileDoc" class="form-control">
+                                            </div>
+
+
+                                            <span class="input-group-append" style="padding: 6px; display: block;">
+                                                <input type="hidden" id="UploadType1" name="UploadTypeId" value="1" class="form-control-file">
+                                                @*<a id="Upload1" class="file-upload-browse btn btn-primary">Upload</a>*@
+                                                @*<button class="file-upload-browse btn btn-primary" type="button">Upload</button>*@
+                                            </span>
+
+                                            <div class="col">
+                                                <img id="blah" src="" alt="" style=" width: 200px; height: auto; display: block; padding: 30px;" hidden />
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <table class="table table-bordered table-hover flexx_a flexx_abc" id="tblDocuments" cellpadding="0" cellspacing="0" border="1" style="width:100%;">
+                                                    <thead>
+
+                                                        <tr>
+                                                            @*<th>UploadType</th>*@
+                                                            <th>File Name</th>
+                                                            <th>File Path</th>
+                                                            @*<th>Preview</th>*@
+
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                        <tr style="display:none">
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td>
+                                                                <span class="details">
+                                                                    <a class="btn btn-outline-secondary btn-rounded btn-icon tool-t">
+                                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                                        <span class="tooltip-a">Delete</span>
+                                                                    </a>
+                                                                </span>
+                                                            </td>
+
+                                                        </tr>
+                                                    </tbody>
+                                                    @* @if (ViewBag.UploadList != null)
+                                {
+                                    if (ViewBag.UploadList.Count > 0)
+                                    {
+                                        foreach (var item in ViewBag.UploadList)
+                                        {
+                                            <tr>
+                                                <td>@item.UploadFilename</td>
+                                                <td>@item.UploadFilePath</td>
+                                                <td>
+                                                    <a href="~/Documents/@item.UploadFilePath" target="_blank">@item.UploadFilename</a>
+                                                </td>
+                                                <td>
+                                                    <div class="table-butn">
+                                                        <span class="details">
+                                                            <a class="btn btn-outline-secondary btn-rounded btn-icon tool-t">
+                                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                                                <span class="tooltip-a">Delete</span>
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                                else
+                                {*@
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Upload image input-->
+
+                            </div>
+                            <br>
+                            @if(Model.PreviewUploadPath != null) { 
+                               
+                        <div class="col-md-8">
+                            <label style="display: flex;">Previous Document</label>
+                            <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm" style="width: 100%;">
+                                <table class="table table-bordered table-hover flexx_a flexx_abc" style="width: 100%;">
+                                    <tr>
+                                        <th>File Name</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    <tr>
+                                        @if (Model.PreviewUploadPath != null)
+                                        {
+                                            if (Model.PreviewUploadPath.Contains(","))
+                                            {
+                                                string[] img = Model.PreviewUploadPath.Split(new string[] { "," }, StringSplitOptions.None);
+                                                for (int j = 0; j < img.Length; j++)
+                                                {
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <a href="~/Uploads/RequestUpload/@img[j]" target="_blank" name="PreviewUploadPath">@img[j]</a>
+                                                        </span>
+
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                        <span style="cursor:pointer;" class="RemoveAnchor" id="@img[j]">Remove</span>
+                                                        <br />
+
+
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (Model.PreviewUploadPath != null && Model.PreviewUploadPath != "")
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <span>
+                                                            <a href="~/Uploads/RequestUpload/@Model.PreviewUploadPath" target="_blank" name="PreviewUploadPath">@Model.PreviewUploadPath</a>
+                                                        </span>
+
+                                                    </td>
+                                                    <td>
+                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                        <span id="@Model.PreviewUploadPath" style="cursor:pointer;" class="RemoveAnchor">Remove</span>
+
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        }
+
+                                    }
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+                            }
+                else
+                {
+                    <p>No Previous Doc Uploaded!</p>
+                }
+                                <div class="row">
+                                    <div class="col-xs-12 text-right">
+                                        @*<button type="submit" class="btn btn-default">Submit Another Request</button>*@
+
+                                        <button type="submit" class="btn btn-primary" name="Save" onclick="submitForm();">Update</button>
+                                    </div>
+                                </div>
+</form>
+                    </div>
+                </div>
+        }
+    </div>
+
+
+</div>
+
+<script>
+    function submitForm() {
+        var ContactPersonName = document.getElementById("ContactPersonName").value;
+        var MobileNo = document.getElementById("MobileNo").value;
+        var EmailId = document.getElementById("EmailId").value;
+        var SeverityId = document.getElementById("SeverityId").value;
+        var RequestDescription = document.getElementById("RequestDescription").value;
+        if ( ContactPersonName == "" || MobileNo == "" || EmailId == "" || SeverityId == "" || RequestDescription == "") {
+            return false;
+        }
+        else {
+            showLoadingSweetAlert('Updating form..');
+        }
+
+    }
+
+    function NumOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9.]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("[0-9.,]");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+</script>
+<script>
+    function ShowDynamicFile(id) {
+
+        console.log("dynamicnnnnnnn");
+        //console.log(id);
+        console.log(id);
+        var input = document.getElementById('Upload_' + id);
+        var output = document.getElementById('FilePreview_' + id);
+        var children = "";
+        for (var i = 0; i < input.files.length; ++i) {
+            children += input.files.item(i).name + '<br/>';
+        }
+        output.innerHTML = children;
+
+    }
+</script>
+<script type="text/javascript">
+    var sizealert = "File is exceeding the allowed limit of 10 MB.";
+    var extalert = 'Only files allowed(.png, .jpeg, .jpg ,.pdf, .doc , .xlsx , .docx , .xls)'
+    //$('#UploadPath').change(function (e)
+    $("#UploadPath").on("change", function (e) {
+        $('#UploadPatherror').hide();
+        if (fileExtValidateimgpdfxlsx(this)) {
+            if (fileSizeValidate(this)) {
+                console.log('fff')
+
+            }
+            else {
+                $('#UploadPath').val(null)
+                $('#UploadPatherror').text(sizealert);
+                $('#UploadPatherror').show();
+            }
+        }
+        else {
+            $('#UploadPath').val(null);
+            $('#UploadPatherror').text(extalert);
+            $('#UploadPatherror').show();
+        }
+    });
+</script>
+@*<script type="text/javascript">
+        $(document).ready(function () {
+
+            $("body").on("click", ".RemoveAnchor", RemoveAnchor);
+
+            function RemoveAnchor(e) {
+                $(this).parent().remove();
+            }
+        });
+    </script>*@
+
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                               // window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+
+<script>
+    $('.RemoveAnchor').click(function () {
+        var FileID = $(this).attr('id');
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("removeFile", "RequestForm")",
+            data: { FileID: FileID },
+            datatype: "json",
+            traditional: true,
+            success: function (data) {
+                $.confirm({
+                                    title: data.Msg,
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                               window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            }
+        });
+    })
+</script>
+
+<script> 
+    $(document).ready(function () {
+
+        $('#fileDoc').change(function () {
+
+            var UploadTypeId = $("#UploadType1").val();
+            var fileUpload = $("#fileDoc").get(0);
+            if (fileUpload.files.length > 0) {
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                // Adding one more key to FormData object
+                fileData.append('UploadTypeId', UploadTypeId);
+
+                $.ajax({
+                    url: '/RequestForm/UploadFiles',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: OnSuccess,
+                    failure: function (response) {
+                        alert(response.d);
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            }
+            else {
+                // alert("Error", "Please first select files.", "error");
+                alert("Please first upload your files.");
+            }
+
+            $("#file1").replaceWith($("#file1").val('').clone(true));
+        });
+        $('#Upload1').click(function () {
+
+            var UploadTypeId = $("#UploadType1").val();
+            var fileUpload = $("#fileDoc").get(0);
+            if (fileUpload.files.length > 0) {
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                // Adding one more key to FormData object
+                fileData.append('UploadTypeId', UploadTypeId);
+
+                $.ajax({
+                    url: '/RequestForm/UploadFiles',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: OnSuccess,
+                    failure: function (response) {
+                        alert(response.d);
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            }
+            else {
+                // alert("Error", "Please first select files.", "error");
+                alert("Please first upload your files.");
+            }
+
+            $("#file1").replaceWith($("#file1").val('').clone(true));
+        });
+
+
+        function OnSuccess(response) {
+            //console.log(response);
+            var model = response;
+            var row = $("#tblDocuments tbody tr:last-child").removeAttr("style").clone(true);
+            $("#tblDocuments tbody tr").not($("#tblDocuments tbody tr:first-child")).detach();
+            $("#tblDocuments").find(".details:first").closest("tr").hide();
+            $.each(model, function () {
+                var customer = this;
+                //alert(customer.UploadFilename);
+                $("td", row).eq(0).html(customer.UploadFilename);
+                $("td", row).eq(1).html(customer.UploadFilePath);
+                // $("td", row).eq(2).html(lastRowTD);
+                //console.log(row);
+                $("#tblDocuments").append(row);
+                row = $("#tblDocuments tbody tr:last-child").clone(true);
+            });
+        };
+
+
+
+
+        $(function () {
+            $(".details").click(function () {
+                alert();
+                var filePath = $(this).closest("tr").find("td").eq(1).html();
+                var fileData = new FormData();
+                fileData.append('filePath', filePath);
+                $.ajax({
+                    type: "POST",
+                    url: "/RequestForm/DeleteFile",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: OnSuccess,
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+                $("#fileDoc").val('');
+            });
+
+            $(".RejectReasonShow").click(function () {
+                var message = $(this).closest("tr").find("td").eq(8).html();
+                alert("Rejected for", message);
+            });
+
+
+            $("#save").click(function (event) {
+                checkFileUpload(event);
+            });
+
+            $("#submit").click(function (event) {
+                checkFileUpload(event);
+            });
+
+            $("#update").click(function (event) {
+                checkFileUpload(event);
+            });
+
+            function checkFileUpload(event) {
+                var check = false;
+                if ($("#file1").get(0).files.length > 0) {
+                    check = true;
+                }
+                //if ($("#fileStatement").get(0).files.length > 0) {
+                //    check = true;
+                //}
+                //if ($("#filePhotographs").get(0).files.length > 0) {
+                //    check = true;
+                //}
+
+                if (check) {
+                    alert("Please first upload your files.");
+                    event.preventDefault();
+                }
+            }
+
+        });
+
+
+    });
+
+</script>

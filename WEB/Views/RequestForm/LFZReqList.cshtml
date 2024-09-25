@@ -1,0 +1,220 @@
+﻿@model IEnumerable<Model.Models.RequestForm.RequestFormListModel>
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section>
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+
+    }
+
+
+    <div class="row">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">
+                    <em class="fa fa-home"></em>
+                </a>
+            </li>
+            <li class="active">List</li>
+        </ol>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">List of Request</h1>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <div class="panel panel-default articles ">
+
+                <div class="panel-heading">
+
+                    <div class="col-md-12">
+                        <form class="form-search-a" role="search">
+                            <div class="input-group add-on">
+
+                                <input class="form-control" placeholder="Search" id='search-box' type="text">
+                                @*<div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    </div>*@
+                            </div>
+                        </form>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="panel-body articles-container table-size">
+                    <div class="table-size-a rakeshcc" id="style-3">
+                        <table class="table table-bordered table-hover flexx_a flexx_abc tableFixHead" cellspacing="0" width="100%">
+
+                            <thead class="zzzzzzz">
+                                <tr class="top-abc">
+                                    <th>Request No</th>
+                                    <th>Enterprise</th>
+                                    <th>Category</th>
+
+                                    <th>Sub Category</th>
+                                    <th>Severity</th>
+                                    <th>Subject</th>
+                                    <th>Description</th>
+                                    <th>Contact Person</th>
+
+                                    <th>Email Id</th>
+                                    <th>Mobile No</th>
+                                    <th>Raised On</th>
+                                    <th>Updated On</th>
+                                    <th>Updated By</th>
+                                    <th>Comments</th>
+
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="yyyyyyy">
+
+                                @foreach (var GetList in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @GetList.RequestNo
+                                        </td>
+                                        <td>
+                                            @GetList.Enterprise
+                                        </td>
+                                        <td>
+                                            @GetList.Category
+                                        </td>
+
+                                        <td>
+                                            @GetList.SubCategory
+                                        </td>
+                                        <td>
+                                            @GetList.Severity
+                                        </td>
+                                        <td>
+                                            @GetList.Topic
+                                        </td>
+                                        <td>
+                                            @GetList.RequestDescription
+                                        </td>
+                                        <td>
+                                            @GetList.ContactPersonName
+                                        </td>
+                                        <td>
+                                            @GetList.EmailId
+                                        </td>
+                                        <td>
+                                            @GetList.MobileNo
+                                        </td>
+                                        <td>
+                                            @GetList.RaisedOn
+                                        </td>
+                                        <td>
+                                            @GetList.UpdatedOn
+                                        </td>
+                                        <td>
+                                            @GetList.UpdatedBy
+
+                                        </td>
+                                        <td>
+                                            @GetList.CommentsBy
+                                        </td>
+                                        @*<td>
+                                                @GetUserList.Password)
+                                            </td>*@
+                                        <td>
+                                            @Html.ActionLink("Edit", "EditRequest", new { id = GetList.RequestId })|
+
+                                            @Html.ActionLink("Delete", "LFZReqDelete", new { id = GetList.RequestId }, new { onclick = "return confirm('Are you sure you want to delete this record?');" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+
+
+
+
+                @*<div class="text-center"><button class="btn btn-primary" type="submit">Save</button> <button class="btn btn-primary" type="submit">Reset</button></div>*@
+
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+<script>
+    (function () {
+        var showResults;
+        $('#search-box').keyup(function () {
+            var searchText;
+            searchText = $('#search-box').val();
+            return showResults(searchText);
+        });
+        showResults = function (searchText) {
+            $('tbody tr').hide();
+            return $('tbody tr:Contains(' + searchText + ')').show();
+        };
+        jQuery.expr[':'].Contains = jQuery.expr.createPseudo(function (arg) {
+            return function (elem) {
+                return jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+            };
+        });
+    }.call(this));
+</script>
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}

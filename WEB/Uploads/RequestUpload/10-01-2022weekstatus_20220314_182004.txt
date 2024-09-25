@@ -1,0 +1,11 @@
+Week Status
+1. Eservice api work -testing will be completed by EOD
+2. Eservice upload changes 
+3. Budgeting portal-  2022 budget ,lineitem changes
+4. Sustainability change flow changes -18 days
+5. Sustainability escalation service -5 days
+6. Api changes
+7. Medical portal - few fields  5 days
+8. Truckpark schedular  changes -3 days
+9. Support work
+10. Eservice survey display question - 3 days

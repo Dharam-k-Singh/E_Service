@@ -1,0 +1,111 @@
+﻿
+@model  Model.Models.UserCreation.UserProfileChangeModel
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Change Profile Image</li>
+    </ol>
+</div>
+
+
+@*<div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Change Password</h1>
+        </div>
+    </div>*@
+
+
+
+<div class="row">
+
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+
+    }
+    <br />
+    @using (Html.BeginForm("SaveProfile", "UserCreation", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveProfile" }))
+    {
+        <div class="col-md-12 ">
+            <div class="panel panel-default articles ">
+                @*<div class="panel-heading">
+                        <div class="col-md-12">
+                            Change Profile Image
+                        </div>
+                    </div>*@
+
+                <div class="panel-body articles-container">
+                    <div class="contentdd">
+                        <div class="rowcc">
+                            <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                <div class="form-group">
+                                    <label class="control-label" for="inputGroupSelect01">Upload </label>
+
+                                    @Html.TextBoxFor(m => m.ProfileImagePath, new
+                         {
+                             @class = "form-control",
+                             @type = "file",
+                             @Name = "ProfileImagePath",
+                             @id = "ProfileImagePath",
+                             @accept = "image/jpeg,image/png,image/jpg,application/pdf",
+
+
+                         })
+                                    @Html.ValidationMessageFor(model => model.ProfileImagePath, "", new { @style = "color:red" })
+                                    @*<label for="concept" class="col-sm-12 control-label" id="UploadPatherror" style="display:none;color:red;"></label>*@
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 " style="text-align:right;">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                                @*<button class="btn btn-primary" type="reset">Reset</button>*@
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    }
+
+</div>
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                //window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}

@@ -1,0 +1,171 @@
+﻿@model Model.Models.Department.DepartmentModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    // var message = TempData["Failure1"] ?? string.Empty;
+}
+
+
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Add Department</li>
+    </ol>
+</div>
+
+
+@*<div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Service Request Form</h1>
+        </div>
+    </div>*@
+
+
+
+<div class="row">
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+    }
+
+
+
+    <div class="col-md-12">
+        @using (Html.BeginForm("Save", "Department", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveDepartment" }))
+        {
+
+
+            <div class="panel panel-default articles">
+                <div class="panel-body">
+                    <form action="#">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label lfz">Department Name</label>
+
+                                    @Html.HiddenFor(m => m.DepartmentId, new { @id = "DepartmentId" })
+
+                                    @*@Html.HiddenFor(m => m.EnterpriseID)*@
+                                    @Html.TextBoxFor(m => m.DepartmentName, new { @class = "form-control", @required = "required", autofocus = "autofocus", @id = "DepartmentName", @maxlength = "200" })
+                                    @Html.ValidationMessageFor(model => model.DepartmentName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="lastname" class="control-label  lfz">Department EmailId</label>
+                                    @Html.TextBoxFor(m => m.DepartmentEmailId, new { @class = "form-control", @required = "required", autofocus = "autofocus", @id = "DepartmentEmailId", @maxlength = "200" })
+                                    @Html.ValidationMessageFor(model => model.DepartmentEmailId, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Escalation Email Level</label>
+                                    @Html.TextBoxFor(m => m.EscalationEmailLevel1, new { @class = "form-control", @required = "required", autofocus = "autofocus", @id = "EscalationEmailLevel1", @maxlength = "200" })
+                                    @Html.ValidationMessageFor(model => model.EscalationEmailLevel1, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="lastname" class="control-label  lfz">No Of Days For Escalation</label>
+                                    @Html.TextBoxFor(m => m.NoOfDaysForEscalation, new { @class = "form-control", @id = "NoOfDaysForEscalation", @required = "required", autofocus = "autofocus", @onkeypress = "NumOnlyVal(event)", @maxlength = "3", })
+                                    @Html.ValidationMessageFor(model => model.NoOfDaysForEscalation, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="Name" placeholder="Contact Person Name">*@
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 text-right">
+                                @*<button type="submit" class="btn btn-default">Submit Another Request</button>*@
+
+                                <button type="submit" class="btn btn-primary" name="Save">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+<script>
+    function NumOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9.]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("[0-9.,]");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+</script>
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                //window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}

@@ -1,0 +1,834 @@
+﻿@*=============================================
+       Created By:	ismail baroodwale
+       Create date: 06-09-2020
+       Description: index page after login
+    =============================================*@
+@model Model.Models.Home.Dsb_CommonModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Model.Models.UserDetail
+@{
+    int roleid = 0;
+    string userId = null;
+    if (Session["UserDetails"] != null)
+    {
+        UserDetailModel userdetail = (UserDetailModel)Session["UserDetails"];
+        roleid = userdetail.RoleId;
+        userId = userdetail.EmployeeName;
+
+    }
+
+    else
+    {
+        @Html.Action("LogOut", "Account")
+    }
+}
+@Scripts.Render("~/Scripts/Chart.min.js")
+@if (TempData["Success"] != null)
+{
+    <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+}
+
+@if (TempData["Failure"] != null)
+{
+    <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+}
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Dashboard</li>
+    </ol>
+</div>
+
+
+
+
+<div class="row">
+    <style>
+    </style>
+
+
+
+    <div class="welcome">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="content">
+                        <h2>Welcome to Dashboard</h2>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-md-12" id="ads">
+
+        <div class="panel panel-default articles">
+            <!-- Category Card -->
+            <div class="panel-body articles-container">
+
+
+
+                <section class='statis text-center'>
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+                                <div class="col-md-3">
+                                    <div class="box bg-primary_lfz bcv">
+                                        <i class="fa fa-envelope"></i>
+                                        <h3>@Model.Requestcount.ComplaintEnquiry</h3>
+                                        <p class="lead">Total Enquiry</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="box bg-primary_lfz bcv">
+                                        <i class="fa fa-envelope"></i>
+                                        <h3>@Model.Requestcount.NewEnquiry</h3>
+                                        <p class="lead">New Enquiry</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="box bg-primary_lfz bcv">
+                                        <i class="fa fa-envelope"></i>
+                                        <h3>@Model.Requestcount.ClosedEnquiry</h3>
+                                        <p class="lead">Closed Enquiry</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="box bg-primary_lfz bcv">
+                                        <i class="fa fa-envelope"></i>
+                                        <h3>@Model.Requestcount.InProcess</h3>
+                                        <p class="lead">In Process</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="break-pon"></div>
+
+                            <div class="col-md-12">
+
+                                <div class="col-md-6">
+                                    <div class="box bg-primary_lfz bcv">
+                                        <!--<div class="break-pon-a"></div>-->
+                                        <p class="lead head-ab">Complaint / Enquiry Due Times</p>
+
+                                        <div class="col-md-4">
+                                            <a class="btn icon-btn btn-default ancd" href="#"><span class="img-circle text-muted ancd-a">@Model.Requestcount.Overdue</span>Overdue</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a class="btn icon-btn btn-default ancd" href="#"><span class="img-circle text-muted ancd-a">@Model.Requestcount.Today</span>Today</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a class="btn icon-btn btn-default ancd" href="#"><span class="img-circle text-muted ancd-a">@Model.Requestcount.Tomorrow</span>Tomorrow</a>
+                                        </div>
+
+                                        <div class="break-pon-a"></div>
+
+                                        <div class="col-md-4">
+                                            <a class="btn icon-btn btn-default ancd" href="#"><span class="img-circle text-muted ancd-a">@Model.Requestcount.Thisweek</span>This Week</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a class="btn icon-btn btn-default ancd" href="#"><span class="img-circle text-muted ancd-a">@Model.Requestcount.Nextweek</span>Next Week</a>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a class="btn icon-btn btn-default ancd" href="#"><span class="img-circle text-muted ancd-a">@Model.Requestcount.Laterweek</span>Later</a>
+                                        </div>
+
+                                        <div class="break-pon-a"></div>
+
+
+                                    </div>
+
+
+
+
+
+                                    <div class="break-pon-a"></div>
+
+
+                                    <div class="box bg-primary_lfz bcv">
+                                        <!--  <div class="break-pon-a"></div>-->
+                                        <p class="lead  head-ab">Open Complaint / Enquiry</p>
+
+
+
+                                        <div class="break-pon-a"></div>
+
+
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+
+                                                <a class=" btn-default anc-rt" href="#"><span class="img-circle text-muted ancrt-a col-blue">@Model.Requestcount.High</span><span class="avasd">High</span></a>
+
+                                            </div>
+
+                                            <div class="col-md-4">
+
+                                                <a class=" btn-default anc-rt" href="#"><span class="img-circle text-muted ancrt-a col-grey">@Model.Requestcount.Medium</span><span class="avasd">Medium</span></a>
+
+                                            </div>
+
+
+                                            <div class="col-md-4">
+
+                                                <a class=" btn-default anc-rt" href="#"><span class="img-circle text-muted ancrt-a  col-red">@Model.Requestcount.Low</span><span class="avasd">Low</span></a>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12"></div>
+
+                                        <div class="col-md-12"><br /></div>
+
+
+
+                                    </div>
+
+
+
+
+
+                                    </div>
+
+                                <div class="col-md-6">
+                                    <div class="box bg-primary_lfz bcv">
+                                        <!-- <div class="break-pon-a"></div>-->
+                                        <p class="lead  head-ab">Chart Complaint / Enquiry</p>
+
+                                        <center>
+                                            @*<div id="chartContainer" style="height: 290px; width: 100%;"></div>
+                                        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>*@
+
+                                            <canvas id="pie-chart" height="280" width="500" style="width:100% !important;"></canvas>
+                                            @*<div id="piechart" style="width: 100%; height: 290px;"></div>*@
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                     @if (roleid == 2)
+                     {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-6">
+                                    <div class="box bg-primary_lfz bcv">
+                                        <!--  <div class="break-pon-a"></div>-->
+                                        <p class="lead  head-ab">TOP 3 COMPLAINT DRIVERS</p>
+                                        <div class="col-md-12">
+                                            <div class="table-responsive" tabindex="1" style="overflow: hidden; outline: none;">
+                                                <table class="table table-striped mb-0" id="table_id">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align:center;">Category</th>
+                                                            <th style="text-align:center;">Sub-Category</th>
+                                                            <th>Total Count</th>
+                                                            <!--<th>Price</th>
+                        <th>Status</th>
+                        <th></th>-->
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+
+                                                        @foreach (var getTop3 in Model.ComplaintDrivers)
+                                                        {
+                                                            <tr>
+                                                                <td>@getTop3.Category</td>
+                                                                <td><a href="@Url.Action("ComplaintDriverDetails", "Home", new { SubCategoryId = getTop3.Sub_CategoryId })">@getTop3.Sub_Category</a></td>
+
+                                                                <td><a href="@Url.Action("ComplaintDriverDetails", "Home", new { SubCategoryId = getTop3.Sub_CategoryId })">@getTop3.Total_Count</a></td>
+
+
+                                                            </tr>
+                                                        }
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                
+                                        <div class="break-pon-a"></div>
+
+
+                                        @*<div class="row">
+
+            <div class="col-md-4">
+
+                <a class=" btn-default anc-rt" href="#"><span class="img-circle text-muted ancrt-a col-blue">@Model.Requestcount.High</span><span class="avasd">High</span></a>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <a class=" btn-default anc-rt" href="#"><span class="img-circle text-muted ancrt-a col-grey">@Model.Requestcount.Medium</span><span class="avasd">Medium</span></a>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <a class=" btn-default anc-rt" href="#"><span class="img-circle text-muted ancrt-a  col-red">@Model.Requestcount.Low</span><span class="avasd">Low</span></a>
+
+            </div>
+        </div>*@
+                                        <div class="col-md-12"></div>
+
+                                        <div class="col-md-12"><br /></div>
+
+
+
+                                    </div>
+                                </div>
+                              
+                                <div class="col-md-6">
+                                    <div class="box bg-primary_lfz bcv">
+                                        <!--  <div class="break-pon-a"></div>-->
+                                        <p class="lead  head-ab">TOP 3 Exceeding SLA</p>
+                                        <div class="col-md-12">
+                                            <div class="table-responsive" tabindex="1" style="overflow: hidden; outline: none;">
+                                                <table class="table table-striped mb-0" id="table_id">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Request ID</th>
+                                                            <th>Enterprise</th>
+                                                            <th>Request Type</th>
+                                                            <th style="text-align:center;">SLA</th>
+                                                            <!--<th>Price</th>
+            <th>Status</th>
+            <th></th>-->
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="text-align:center;">
+                                                        @foreach (var slaItem in Model.SLA)
+                                                        {
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="@Url.Action("ComplaintDriverDetails", "Home", new { RequestId = slaItem.RequestId })">
+                                                                        Request #@slaItem.RequestId
+                                                                    </a>
+                                                                </td>
+                                                                <td>
+                                                                    @slaItem.Enterprise
+                                                                </td>
+                                                                <td>
+                                                                    @slaItem.ReportType
+                                                                </td>
+                                                                <td>
+                                                                    <a href="@Url.Action("ComplaintDriverDetails", "Home", new { RequestId = slaItem.RequestId })">
+                                                                        @slaItem.Days Days @slaItem.Hours Hours
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+
+
+                                                        }
+
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="break-pon-a"></div>
+
+
+                                        @*<div class="row">
+
+            <div class="col-md-4">
+
+                <a class=" btn-default anc-rt" href="#"><span class="img-circle text-muted ancrt-a col-blue">@Model.Requestcount.High</span><span class="avasd">High</span></a>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <a class=" btn-default anc-rt" href="#"><span class="img-circle text-muted ancrt-a col-grey">@Model.Requestcount.Medium</span><span class="avasd">Medium</span></a>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <a class=" btn-default anc-rt" href="#"><span class="img-circle text-muted ancrt-a  col-red">@Model.Requestcount.Low</span><span class="avasd">Low</span></a>
+
+            </div>
+        </div>*@
+                                        <div class="col-md-12"></div>
+
+                                        <div class="col-md-12"><br /></div>
+
+
+
+                                    </div>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                     }
+                    </div>
+                </section>
+                <div class="break-pon"></div>
+                <div class="col-md-12">
+                </div>
+                    
+                <style>
+                </style>
+                @if (roleid == 2 || roleid == 7)
+                {
+                    <div class="cardz">
+                        <div class="card-bodyz">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="card-title">Recent</h6>
+                                <!--<div>
+                            <a href="#" class="mr-3">
+                                <i class="fa fa-refresh"></i>
+                            </a>
+                            <div class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-157px, 16px, 0px);">
+                                    <a href="#" class="dropdown-item">Report</a>
+                                    <a href="#" class="dropdown-item">Download</a>
+                                    <a href="#" class="dropdown-item">Close</a>
+                                </div>
+                            </div>
+                        </div>-->
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive" tabindex="1" style="overflow: hidden; outline: none;">
+                                        <table class="table table-striped mb-0" id="table_id">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-left">Request No</th>
+                                                    <th>Enterprise</th>
+                                                    <th>Category</th>
+                                                    <th>SubCategory</th>
+                                                    <th>Subject</th>
+                                                    @*<th> On</th>*@
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                    <!--<th>Price</th>
+                                            <th>Status</th>
+                                            <th></th>-->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var GetReqList in Model.RequestListAdmin)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @GetReqList.ReportType #@GetReqList.RequestId
+                                                        </td>
+                                                        <td>
+                                                            @GetReqList.Enterprise
+                                                        </td>
+                                                        <td>
+                                                            @GetReqList.Category
+                                                        </td>
+                                                        <td>
+                                                            @GetReqList.SubCategory
+                                                        </td>
+                                                        <td>
+                                                            @GetReqList.Topic
+                                                        </td>
+                                                        <td>
+                                                            @GetReqList.RequestStatus
+                                                        </td>
+                                                        <td>
+                                                            @if (GetReqList.RequestStatus == "Initial")
+                                                            {
+                                                                <button id="myBtn_@GetReqList.RequestId" class="btn-b btn-primary btnSubmit" value="@GetReqList.RequestId" name="testId" onclick="myFunction(@GetReqList.RequestId)">Action <i class="fa fa-check icon-a"></i></button>
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <div hidden>
+                                                                    <button id="myBtn_@GetReqList.RequestId" class="btn-b btn-primary btnSubmit" value="@GetReqList.RequestId" name="testId" onclick="myFunction(@GetReqList.RequestId)" hidden>Action <i class="fa fa-check icon-a"></i></button>
+                                                                </div>
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+
+            <div id="myModal" class="modal">
+                <div class="popup popupzxc">
+
+                    <h2><span>Action</span>  <button class="close">×</button></h2>
+
+
+
+                    <div class="content">
+                        <div class="user-dashboard bgcols">
+                            <!--<h1>Dashboard</h1>-->
+
+                            <div class="row">
+                                @using (Html.BeginForm("SaveActionDetails", "RequestForm", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveAllocation" }))
+                                {
+
+                                    <div class="col-md-12 col-sm-5 col-xs-12 gutter ">
+
+                                        @Html.HiddenFor(m => m.RequestSaveActionAdmin.RequestId, new { @id = "RequestId" })
+
+                                        @*@Html.HiddenFor(m => m.RequestSaveActionAdmin.EscLevel1EmailId, new { @id = "EscLevel1EmailId" })*@
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group form-group-lg">
+                                                    <label for="firstname" class="control-label lfz">Assign To Department</label>
+                                                    @Html.DropDownListFor(m => m.RequestSaveActionAdmin.DepartmentID, (SelectList)ViewBag.department, "-- Select--", new { @class = "form-control", @required = "required", @id = "DepartmentID" })
+                                                    @Html.ValidationMessageFor(m => m.RequestSaveActionAdmin.DepartmentID, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            @*<div class="col-md-6">
+                                            <div class="form-group form-group-lg">
+                                                <label for="firstname" class="control-label  lfz">Status</label>
+                                                @Html.DropDownListFor(m => m.RequestSaveActionAdmin.RequestStatusID, (SelectList)ViewBag.status, "-- Select--", new { @class = "form-control", @required = "required", @id = "RequestStatusID" })
+                                                @Html.ValidationMessageFor(m => m.RequestSaveActionAdmin.RequestStatusID, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>*@
+
+                                            <div class="col-md-6">
+                                                <div class="form-group form-group-lg">
+                                                    <label for="firstname" class="control-label  lfz">Priority</label>
+                                                    @Html.DropDownListFor(m => m.RequestSaveActionAdmin.PriorityID, (SelectList)ViewBag.Severity, "-- Select--", new { @class = "form-control", @required = "required", @id = "PriorityID" })
+                                                    @Html.ValidationMessageFor(m => m.RequestSaveActionAdmin.PriorityID, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <div class="form-group form-group-lg">
+                                                    <label for="firstname" class="control-label  lfz">Date Of Commitment</label>
+                                                    @*<input type="date" class="form-control" placeholder="Date Of Commitment" />*@
+                                                    @Html.TextBoxFor(m => m.RequestSaveActionAdmin.Commitementdate, new { @class = "form-control", @id = "Commitementdate", @required = "required", @type = "date" })
+                                                    @Html.ValidationMessageFor(model => model.RequestSaveActionAdmin.Commitementdate, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group form-group-lg">
+                                                    <label for="firstname" class="control-label  lfz">Escalate If Not Close By</label>
+                                                    @*<input type="date" class="form-control" placeholder="" />*@
+                                                    @Html.TextBoxFor(m => m.RequestSaveActionAdmin.EscalateOndate, new { @class = "form-control", @id = "EscalateOndate", @required = "required", @type = "date" })
+                                                    @Html.ValidationMessageFor(model => model.RequestSaveActionAdmin.EscalateOndate, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            @*<div class="col-md-6">
+                                            <div class="form-group form-group-lg">
+                                                <label for="firstname" class="control-label  lfz">Escaltion Level 1</label>
+                                                @Html.TextBoxFor(m => m.RequestSaveActionAdmin.EscLevel1EmailId, new { @class = "form-control", @id = "EscLevel1EmailId", @required = "required", })
+                                                @Html.ValidationMessageFor(model => model.RequestSaveActionAdmin.EscLevel1EmailId, "", new { @class = "text-danger" })
+
+                                                @*<input type="text" id="EscLevel1EmailId" class="form-control" readonly="readonly">
+                                            </div>
+                                        </div>*@
+                                            <div class="col-md-6">
+                                                <div class="form-group form-group-lg">
+                                                    <label for="firstname" class="control-label  lfz">Escaltion Level</label>
+                                                    @Html.TextBoxFor(m => m.RequestSaveActionAdmin.EscLevel1EmailId, new { @class = "form-control", @id = "EscLevel1EmailId", @required = "required", @maxlength = "100", })
+                                                    @Html.ValidationMessageFor(model => model.RequestSaveActionAdmin.EscLevel1EmailId, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group form-group-lg">
+                                                    <label for="firstname" class="control-label  lfz">Upload Document</label>
+                                                    @Html.TextBoxFor(m => m.RequestSaveActionAdmin.UploadPath, new
+                                                    {
+                                                        @class = "form-control",
+                                                        @type = "file",
+                                                        @Name = "UploadPath",
+                                                        @id = "UploadPath",
+                                                        @accept = "image/jpeg,image/png,image/jpg,application/pdf",
+                                                        @multiple = "multiple",
+                                                        @onchange = "validateFileSize()"
+                                                    })
+                                                    @*@Html.ValidationMessageFor(model => model.InvestorProfileModel.LogoPath, "", new { @style = "color:red" })*@
+                                                    <label for="concept" class="col-sm-12 control-label" id="UploadPatherror" style="display:none;color:red;"></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group form-group-lg">
+                                                    <label for="firstname" class="control-label  lfz">Comments</label>
+                                                    @Html.TextAreaFor(m => m.RequestSaveActionAdmin.RequestComments, new { @class = "form-control", @id = "RequestComments" })
+                                                    @Html.ValidationMessageFor(model => model.RequestSaveActionAdmin.RequestComments, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br><br>
+                                        <div class="row">
+                                            <div class="col-xs-12 text-right">
+
+                                                <button type="submit" name="SaveAction" id="SaveAction" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                }
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#table_id').DataTable({
+            "aaSorting": []
+        });
+
+    });
+
+    new Chart(document.getElementById("pie-chart"), {
+        type: 'pie',
+
+        data: {
+            labels: ["Total Enquiry", "New Enquiry", "Closed Enquiry","In Process"],
+            datasets: [
+                {
+                    label: [@Model.Requestcount.ComplaintEnquiry,@Model.Requestcount.NewEnquiry,@Model.Requestcount.ClosedEnquiry,@Model.Requestcount.InProcess],
+                    backgroundColor: ["#3366CC", "#DC3912", "#FF9900", "#109618"],
+                    data: [@Model.Requestcount.ComplaintEnquiry,@Model.Requestcount.NewEnquiry,@Model.Requestcount.ClosedEnquiry,@Model.Requestcount.InProcess ]
+                }
+            ]
+        },
+        options: {
+
+            legend: { display: true, position: 'bottom' },
+            width: '100%',
+            height: '100%',
+            title: {
+                display: false,
+                text: ''
+            },
+            events: false,
+            animation: {
+                duration: 500,
+                easing: "easeOutQuart",
+                onComplete: function () {
+                    var ctx = this.chart.ctx;
+                    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontFamily, 'normal', Chart.defaults.global.defaultFontFamily);
+                    ctx.textAlign = 'left';
+                    ctx.textBaseline = 'bottom';
+                    ctx.label = 'center';
+                  
+
+                    this.data.datasets.forEach(function (dataset) {
+
+                        for (var i = 0; i < dataset.data.length; i++) {
+                            var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model,
+                                total = dataset._meta[Object.keys(dataset._meta)[0]].total,
+                                mid_radius = model.innerRadius + (model.outerRadius - model.innerRadius) / 2,
+                                start_angle = model.startAngle,
+                                end_angle = model.endAngle,
+                                mid_angle = start_angle + (end_angle - start_angle) / 2;
+
+                            var x = mid_radius * Math.cos(mid_angle);
+                            var y = mid_radius * Math.sin(mid_angle);
+
+                            ctx.fillStyle = '#000';
+                            if (i == 3) { // Darker text color for lighter background
+                                ctx.fillStyle = '#444';
+                            }
+                            var percent = String(Math.round(dataset.data[i] / total * 100)) + "%";
+                            //Don't Display If Legend is hide or value is 0
+                            //if (dataset.data[i] != 0 && dataset._meta[0].data[i].hidden != true) {
+                            ctx.fillText(dataset.data[i], model.x + x, model.y + y);
+                            // Display percent in another line, line break doesn't work for fillText
+                           // ctx.fillText(percent, model.x + x, model.y + y + 15);
+                            //}
+                        }
+                    });
+                }
+            }
+
+        }
+    });
+</script>
+@*<script>
+    window.onload = function () {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "light1", // "light1", "light2", "dark1", "dark2"
+        exportEnabled: true,
+        animationEnabled: true,
+        title: {
+            text: "Indian Smartphone Market Share"
+        },
+        subtitles: [{
+            text: "Q2, 2016"
+        }],
+        data: [{
+            type: "pie",
+            startAngle: 180,
+            toolTipContent: "<b>{label}</b>: {y}%",
+            showInLegend: "true",
+            legendText: "{label}",
+            indexLabel: "{label} - {y}%",
+            dataPoints: @Html.Raw(ViewBag.DataPoints)
+        }]
+    });
+    chart.render();
+
+    }
+    </script>*@
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#DepartmentID').change(function () {
+            GetEscalationEmailIdfun();
+        });
+
+        //  GetCatListfun();
+
+    });
+
+    function GetEscalationEmailIdfun() {
+
+       var departmentId = $('#DepartmentID').val();
+        //alert(profileId)
+
+        if (departmentId == null || departmentId == undefined || departmentId == "") {
+            departmentId = 0
+        }
+
+
+     $.ajax({
+            type: "post",
+            // url: "/MileStone/GetActionId",
+            url: "@Url.Action("GetEscalationEmailId", "RequestForm")",
+
+         data: { DepartmentID: departmentId },
+            datatype: "json",
+            traditional: true,
+
+            success: function (data) {
+                //console.log("LineItem");
+                console.log(data)
+                $('#EscLevel1EmailId').val(data.EscalationEmailLevel1);
+
+            }
+        });
+    }
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        @foreach (var GG in Model.RequestListAdmin)
+        {
+
+         <text>   var modal = document.getElementById('myModal');</text>
+         <text>   var btn = document.getElementById('myBtn_' + @GG.RequestId);</text>
+         <text>  var span = document.getElementsByClassName('close')[0];</text>
+         <text>  btn.onclick = function() {
+            modal.style.display = "block";
+            modal.style.display = "block";
+            $("#RequestId").val(@GG.RequestId);
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        </text>
+        <text>
+        $('#tgol_' + @GG.RequestId).click(function() {
+
+            var modal1 = document.getElementById('target_' + @GG.RequestId);
+            @*alert('target_' + @GG.RequestId);*@
+            //modal1.style.display = "block";
+            $('#target_' + @GG.RequestId).toggle('slow');
+        });
+        </text>
+        }
+
+
+
+    });
+</script>
+
+<script>
+    function myFunction(Id) {
+
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById('myBtn_' + Id);
+        var span = document.getElementsByClassName('close')[0];
+        btn.onclick = function () {
+            modal.style.display = "block";
+            modal.style.display = "block";
+            $("#RequestId").val(Id);
+            //$("#RequestId1").val(Id);
+            console.log(RequestId)
+
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        //$('#tgol_' + Id ).click(function () {
+
+        //    var modal1 = document.getElementById('target_' + Id);
+
+        //    $('#target_' + Id ).toggle('slow');
+        //});
+    }
+</script>

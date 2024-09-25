@@ -1,0 +1,716 @@
+﻿
+@model Model.Models.FacilityRTD.FoodDetailsModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_LayoutFacility.cshtml";
+    // var message = TempData["Failure1"] ?? string.Empty;
+}
+
+<link href="~/css/SeatCSS.css" rel="stylesheet" />
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Add Food Details</li>
+    </ol>
+</div>
+
+
+<style>
+
+    .divform {
+        margin-bottom: 30px;
+        max-width: 500px;
+        padding: 20px;
+        box-shadow: 0px 0px 16px 4px rgba(0,0,0,0.1)
+    }
+
+    fieldset.inputTextWrap {
+        margin: 0 0 30px 0;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+        fieldset.inputTextWrap legend {
+            background: #001f57;
+            padding: 4px 10px;
+            color: #000;
+            margin: 0 auto;
+            display: block;
+            width: 47%;
+            font-size: 1.6rem;
+            color: #FFF;
+            text-align: center;
+        }
+
+        fieldset.inputTextWrap .inputWrap {
+            margin: 0 0 12px 0;
+            width: 100%;
+        }
+
+            fieldset.inputTextWrap .inputWrap label {
+                margin: 0 0 3px 0;
+                display: block;
+            }
+
+            fieldset.inputTextWrap .inputWrap input {
+                padding: 4px 10px;
+                font-size: 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+            }
+
+    .divform textarea {
+        resize: none;
+        overflow: hidden;
+    }
+
+    td.tdfg textarea {
+        /* height: auto !important;*/
+        overflow: hidden;
+        resize: none;
+        border: none;
+        outline: none;
+        width: 100%;
+        max-width: initial;
+        max-height: 100%;
+        float: left;
+        display: block;
+    }
+
+        td.tdfg textarea:focus {
+            border: none;
+            outline: none;
+        }
+
+
+
+    table.tableviewc {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px auto;
+    }
+
+        /* Zebra striping */
+        table.tableviewc tr:nth-of-type(odd) {
+            background: #eee;
+        }
+
+        table.tableviewc th {
+            background: #e2efda;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        table.tableviewc td, table.tableviewc th {
+            border: 1px solid #fff;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        table.tableviewc td {
+            padding: 10px;
+            color: #000000;
+        }
+
+
+    .brcol {
+        background: #ededed;
+    }
+
+    .lucol {
+        background: #ddebf7;
+    }
+
+    .dincol {
+        background: #fff2cc;
+    }
+</style>
+<div class="row">
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+    }
+
+
+
+    <div class="col-md-12">
+        @using (Html.BeginForm("SaveFooddetails", "FacilityRTD", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveFooddetails" }))
+        {
+
+            <div class="panel panel-default articles">
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="firstname" class="form-label">Year</label>
+                                @Html.DropDownListFor(m => m.Year, (SelectList)ViewBag.decadeYear, "---Select--", new { @class = "form-control form-control-lg", @id = "YearId", autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group form-group-lg lfzab">
+
+                                
+
+
+                                @*@Html.DropDownListFor(m => m.WeekId, (SelectList)ViewBag.Weeks, "---Select--", new { @class = "form-control form-control-lg", @id = "WeekId", autofocus = "autofocus", @required = "required" })
+        @Html.ValidationMessageFor(model => model.WeekId, "", new { @class = "text-danger" })*@
+
+                                <label for="firstname" class="form-label"> Week</label>
+                                @*@Html.DropDownListFor(m => m.WeekId, new { @class = "form-control", @required = "required", @maxlength = "500", @id = "WeekId" })
+        @Html.ValidationMessageFor(model => model.WeekId, "", new { @class = "text-danger" })*@
+
+                                @Html.DropDownListFor(m => m.WeekId, (SelectList)ViewBag.Weeks, "---Select--", new { @class = "form-control form-control-lg", @id = "WeekId", autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(model => model.WeekId, "", new { @class = "text-danger" })
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="firstname" class="control-label  lfz">Date From</label>
+                                @*@Html.TextAreaFor(m => m.WarehouseDescription, new { @class = "form-control", @required = "required", @maxlength = "500", @id = "RequestDescription" })
+                    @Html.ValidationMessageFor(model => model.WarehouseDescription, "", new { @class = "text-danger" })*@
+                                @Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control", @id = "DateFrom", @disabled = "disabled", @readonly = "readonly" })
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="firstname" class="control-label  lfz">Date To</label>
+                                @*@Html.TextAreaFor(m => m.WarehouseDescription, new { @class = "form-control", @required = "required", @maxlength = "500", @id = "RequestDescription" })
+                    @Html.ValidationMessageFor(model => model.WarehouseDescription, "", new { @class = "text-danger" })*@
+                                @Html.TextBoxFor(m => m.DateTo, new { @class = "form-control", @id = "DateTo", @disabled = "disabled", @readonly = "readonly" })
+                                
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+
+                            <table style="width:100%;" class="tableviewc">
+
+
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.TextBoxFor(m => m.Monday_Date, new { @class = "autosize brcol", @id = "Mon_Date", @readonly = "readonly", }) <br />
+                                            Monday
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+
+
+                                            @Html.TextAreaFor(m => m.Monday_BF, new { @class = "autosize brcol", @maxlength = "500", @id = "Monday_BF" })
+                                            @Html.ValidationMessageFor(model => model.Monday_BF, "", new { @class = "text-danger" })
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+
+                                            @Html.TextAreaFor(m => m.Monday_L, new { @class = "autosize lucol", @maxlength = "500", @id = "Monday_L" })
+                                            @Html.ValidationMessageFor(model => model.Monday_L, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+
+                                            @Html.TextAreaFor(m => m.Monday_D, new { @class = "autosize dincol", @maxlength = "500", @id = "Monday_D" })
+                                            @Html.ValidationMessageFor(model => model.Monday_D, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+                            <table style="width:100%;" class="tableviewc">
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.TextBoxFor(m => m.Tuesday_Date, new { @class = "autosize brcol", @id = "Tue_Date", @readonly = "readonly" }) <br />
+                                            Tuesday
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+                                            @Html.TextAreaFor(m => m.Tuesday_BF, new { @class = "autosize brcol", @maxlength = "500", @id = "Tuesday_BF" })
+                                            @Html.ValidationMessageFor(model => model.Tuesday_BF, "", new { @class = "text-danger" })
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+                                            @Html.TextAreaFor(m => m.Tuesday_L, new { @class = "autosize lucol", @id = "Tuesday_L", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Tuesday_L, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+                                            @Html.TextAreaFor(m => m.Tuesday_D, new { @class = "autosize dincol", @id = "Tuesday_D", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Tuesday_D, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="col-md-12">
+
+                            <table style="width:100%;" class="tableviewc">
+
+
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.TextBoxFor(m => m.Wednesday_Date, new { @class = "autosize brcol", @id = "Wed_Date", @readonly = "readonly" }) <br />
+                                            Wednesday
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+                                            @Html.TextAreaFor(m => m.Wednesday_BF, new { @class = "autosize brcol", @id = "Wednesday_BF", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Wednesday_BF, "", new { @class = "text-danger" })
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+                                            @Html.TextAreaFor(m => m.Wednesday_L, new { @class = "autosize lucol", @id = "Wednesday_L", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Wednesday_L, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+                                            @Html.TextAreaFor(m => m.Wednesday_D, new { @class = "autosize dincol", @id = "Wednesday_D", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Wednesday_D, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+                            <table style="width:100%;" class="tableviewc">
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.TextBoxFor(m => m.Thursday_Date, new { @class = "autosize brcol", @id = "Thru_Date", @readonly = "readonly" }) <br />
+                                            Thursday
+                                            @Html.ValidationMessageFor(model => model.Thursday_Date, "", new { @class = "text-danger" })
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+                                            @Html.TextAreaFor(m => m.Thursday_BF, new { @class = "autosize brcol", @id = "Thursday_BF", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Thursday_BF, "", new { @class = "text-danger" })
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+                                            @Html.TextAreaFor(m => m.Thursday_L, new { @class = "autosize lucol", @id = "Thursday_L", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Thursday_L, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+                                            @Html.TextAreaFor(m => m.Thursday_D, new { @class = "autosize dincol", @id = "Thursday_D", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Thursday_D, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+
+
+
+
+
+
+
+                        </div>
+                        <div class="col-md-12">
+
+                            <table style="width:100%;" class="tableviewc">
+
+
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.TextBoxFor(m => m.Friday_Date, new { @class = "autosize brcol", @id = "Fri_Date", @readonly = "readonly" }) <br />
+                                            Friday
+                                            @Html.ValidationMessageFor(model => model.Friday_Date, "", new { @class = "text-danger" })
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+                                            @Html.TextAreaFor(m => m.Friday_BF, new { @class = "autosize brcol", @id = "Friday_BF", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Friday_BF, "", new { @class = "text-danger" })
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+                                            @Html.TextAreaFor(m => m.Friday_L, new { @class = "autosize lucol", @id = "Friday_L", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Friday_L, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+                                            @Html.TextAreaFor(m => m.Friday_D, new { @class = "autosize dincol", @id = "Friday_D", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Friday_D, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+                            <table style="width:100%;" class="tableviewc">
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.TextBoxFor(m => m.Saturday_Date, new { @class = "autosize brcol", @id = "Sat_Date", @readonly = "readonly" }) <br />
+                                            Saturday
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+                                            @Html.TextAreaFor(m => m.Saturday_BF, new { @class = "autosize brcol", @id = "Saturday_BF", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Saturday_BF, "", new { @class = "text-danger" })
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+                                            @Html.TextAreaFor(m => m.Saturday_L, new { @class = "autosize lucol", @id = "Saturday_L", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Saturday_L, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+                                            @Html.TextAreaFor(m => m.Saturday_D, new { @class = "autosize dincol", @id = "Saturday_D", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Saturday_D, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+
+
+
+
+
+
+
+                        </div>
+                        <div class="col-md-12">
+
+                            <table style="width:100%;" class="tableviewc">
+
+
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.TextBoxFor(m => m.Sunday_Date, new { @class = "autosize brcol", @id = "Sun_Date", @readonly = "readonly" }) <br />
+                                            Sunday
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+                                            @Html.TextAreaFor(m => m.Sunday_BF, new { @class = "autosize brcol", @id = "Sunday_BF", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Sunday_BF, "", new { @class = "text-danger" })
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+                                            @Html.TextAreaFor(m => m.Sunday_L, new { @class = "autosize lucol", @id = "Sunday_L", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Sunday_L, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+                                            @Html.TextAreaFor(m => m.Sunday_D, new { @class = "autosize dincol", @id = "Sunday_D", @maxlength = "500", })
+                                            @Html.ValidationMessageFor(model => model.Sunday_D, "", new { @class = "text-danger" })
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-xs-12 text-right">
+                                <input type="submit" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        }
+    </div>
+
+</div>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" crossorigin="anonymous"></script>*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#WeekId').change(function () {
+            GetWeeksDetails();
+        });
+        // GetAmountfun();
+    });
+
+    $('#YearId').change(function () {
+        $('#WeekId').val(null);
+        $('#Mon_Date').val(null);
+        $('#Tue_Date').val(null);
+        $('#Wed_Date').val(null);
+        $('#Thru_Date').val(null);
+        $('#Fri_Date').val(null);
+        $('#Sat_Date').val(null);
+        $('#Sun_Date').val(null);
+        $('#DateFrom').val(null);
+        $('#DateTo').val(null);
+    });
+
+
+
+
+    function GetWeeksDetails() {
+
+        //alert("GetIPListfun")
+        var yearId = $('#YearId').val();
+        var weekId = $('#WeekId').val();
+        //alert(profileId)
+
+        if (weekId == null || weekId == undefined || weekId == "") {
+            weekId = 0;
+          
+        }
+
+
+        $.ajax({
+            type: "post",
+            // url: "/MileStone/GetActionId",
+            url: "@Url.Action("GetWeeksDetails", "FacilityRTD")",
+
+            data: {
+                weekId: weekId,
+                year: yearId
+                },
+            datatype: "json",
+            traditional: true,
+
+            success: function (data) {
+                //console.log("LineItem");
+                //console.log(data);
+                
+               @* $('#DateFrom').val(dateJosn);
+                $('#DateTo').val(data[4]);*@
+
+               // var mon = data.DateFrom;
+                //var sun = data.DateTo;
+
+                var startDate = $('#DateFrom').val(jsonConvertDate(data[0]));
+                var endDate = $('#DateTo').val(jsonConvertDate(data[6]));
+                
+                //var startDate = moment(data.DateFrom);
+                //var endDate = moment(data.DateTo);
+
+                
+
+                //console.log(monday);
+                //var date = data.DateTo;
+                //var dateString = date.substring(0, 10)
+
+                //var arr = dateString.split('/'); //in PROD
+                //var tue = arr[0] + "/" + arr[1] + "/" + (arr[2] - 5);
+                //var wed = arr[0] + "/" + arr[1] + "/" + (arr[2] - 4);
+                //var thru = arr[0] + "/" + arr[1] + "/" + (arr[2] - 3);
+                //var fri = arr[0] + "/" + arr[1] + "/" + (arr[2] - 2);
+                //var sat = arr[0] + "/" + arr[1] + "/" + (arr[2] - 1);
+
+                //var arr = dateString.split('-'); //in local
+                //var tue = arr[0] + "-" + arr[1] + "-" + parseInt(arr[2] - 5);
+                //var wed = arr[0] + "-" + arr[1] + "-" + parseInt(arr[2] - 4);
+                //var thru = arr[0] + "-" + arr[1] + "-" + parseInt (arr[2] - 3);
+                //var fri = arr[0] + "-" + arr[1] + "-" + parseInt(arr[2] - 2);
+                //var sat = arr[0] + "-" + arr[1] + "-" + parseInt (arr[2] - 1);
+
+                //var sun = data.DateTo;
+
+                //$('#Mon_Date').val(mon);
+                //$('#Tue_Date').val(tue);
+                //$('#Wed_Date').val(wed);
+                //$('#Thru_Date').val(thru);
+                //$('#Fri_Date').val(fri);
+                //$('#Sat_Date').val(sat);
+                //$('#Sun_Date').val(sun);
+                //console.log(tue);
+
+
+                //var getDaysBetweenDates = function (startDate, endDate) {
+                    
+                //    var now = startDate.clone(), dates = [];
+                    
+                //    while (now.isSameOrBefore(endDate)) {
+                //        dates.push(now.format('YYYY-MM-DD'));
+                //        //dates.push(now.format('YYYY/MM/DD'));  for prod
+                //        now.add(1, 'days');
+                        
+                //    }
+                //    return dates;
+                //};
+
+               
+
+                //var dateList = getDaysBetweenDates(startDate, endDate);
+
+                console.log(data);
+               
+                $('#Mon_Date').val(jsonConvertDate(data[0]));
+                $('#Tue_Date').val(jsonConvertDate(data[1]));
+                $('#Wed_Date').val(jsonConvertDate(data[2]));
+                $('#Thru_Date').val(jsonConvertDate(data[3]));
+                $('#Fri_Date').val(jsonConvertDate(data[4]));
+                $('#Sat_Date').val(jsonConvertDate(data[5]));
+                $('#Sun_Date').val(jsonConvertDate(data[6]));
+                @*$('#Sat_Date').val(dateList[5]);
+                $('#Sun_Date').val(dateList[6]);*@
+
+                //console.log(dateList);
+
+
+                //if (data != null) {
+                //    var vdata = data;
+                //    $("#").val(vdata[0].);
+                //    $("#").val(vdata[0].);
+                //    $("#").val(vdata[0].);
+            }
+        });
+    }
+</script>
+
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                               // window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+
+
+
+
+
+
+
+
+<script>
+
+    function jsonConvertDate(jsonDate) {
+
+
+    var dateString = jsonDate.substr(6);
+    var currentTime = new Date(parseInt(dateString));
+    var month = currentTime.getMonth() + 1;
+    var day = currentTime.getDate();
+    var year = currentTime.getFullYear();
+        //var date = day + "/" + month + "/" + year;
+    var date = year + "-" + month + "-" + day;
+
+    return date;
+    }
+</script>

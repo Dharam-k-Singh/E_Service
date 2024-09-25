@@ -1,0 +1,104 @@
+﻿@model Model.Login
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ESERVICE</title>
+
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/css/style.css" rel="stylesheet" type="text/css">
+
+
+    <link href="~/css/login.css" rel="stylesheet" />
+</head>
+<body class="home loginpaf">
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @id = "CheckLogin" }))
+    {
+        <div class="sec-ledtys">
+            <div class="login-sed">
+                <div class="right-div-login">
+                    <div class="page-logos">
+
+                        <div class="logo-desa">
+                            <img class="top-lofo" src="~/img/LFZ LOGO-08.png">
+                            <img class="bottom-lofo" src="~/img/LFZ LOGO-32.png">
+                        </div>
+                        <div class="">
+                            <div class="">
+                                <p class="esc-log">E-Service Portal<span>Sign In</span></p>
+                                <div class="log-ivodn">
+                                    <img src="~/img/user-icon.png">
+                                </div>
+                                <div class="">
+                                    <div class="card card-signin my-5">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-center"></h5>
+                                            <form class="form-signin">
+                                                <div class="form-label-group">
+                                                    @Html.TextBoxFor(m => m.UserId, new { @class = "form-control", id = "UserId", @placeholder = "Email Id", @required = "required" })
+                                                    @Html.ValidationMessageFor(m => m.UserId, "", new { @style = "color:red" })
+                                                    @*<input type="email" id="inputEmail" class="form-control" placeholder="USERNAME" required autofocus>*@
+                                                    <!-- <label for="inputEmail">Email address</label>-->
+                                                </div>
+
+                                                <div class="form-label-group">
+                                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", id = "Password", @placeholder = "Password", @required = "required" })
+                                                    @Html.ValidationMessageFor(m => m.Password, "", new { @style = "color:red" })
+                                                    @*<input type="password" id="inputPassword" class="form-control" placeholder="PASSWORD" required>*@
+                                                    <!-- <label for="inputPassword">Password</label>-->
+                                                </div>
+
+                                                @*<div class="custom-control custom-checkbox mb-3">
+                                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                        <label class="custom-control-label" for="customCheck1">Remember password</label>
+                                                    </div>*@
+                                                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+
+                                            </form>
+                                            @if (TempData["NotValid"] != null)
+                                            {
+                                                <p class="alert alert-success" id="successMessage">@TempData["NotValid"]</p>
+
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="bottom-para">
+                            <p class="qweras">Copyright &copy; @DateTime.Now.Year. ALL RIGHT RESERVED. LAGOS FREE ZONE.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    </body>
+
+</html>
+<script src="~/js/bootstrap.min.js"></script>
+<script src="~/js/jquery-1.11.1.min.js"></script>
+<script src="~/js/page.js"></script>
+
+
+<script>
+    $('.dropdown').hover(function () {
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+    }, function () {
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+    });
+</script>

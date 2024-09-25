@@ -1,0 +1,108 @@
+﻿
+@model IEnumerable<Model.Models.Campaign.CampaignModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Survey</li>
+    </ol>
+</div>
+
+
+@*<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Manage Campaign</h1>
+    </div>
+</div>*@
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Survey</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+        @if (TempData["Success"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+            <script>
+                var form = document.getElementById("AddCampaign");
+                form.reset();
+            </script>
+        }
+
+        @if (TempData["Failure"] != null)
+        {
+            <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+        }
+
+        <div class="panel panel-default articles">
+            <div class="panel-body articles-container table-size">
+                <div class="">
+                    <!--<h2 class="section-heading"></h2>-->
+                    @*@Html.ActionLink("Add Campaign", "Add", "Campaign")*@
+
+                    <table  width="100%" id="table_id" class="table table-bordered table-hover">
+
+                        <thead>
+                            <tr>
+                                @*<th>Campaign ID</th>*@
+                                @*<th>Campaign Name</th>
+                                <th>Campaign Action</th>*@
+                                <th>Survey Action</th>
+                                <th>Question Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var lstCampaign in Model)
+                            {
+
+                                <tr>
+                                    <td hidden>@lstCampaign.CampaignId</td>
+                                    @*<td>@lstCampaign.CampaignName </td>
+                                    <td> @Html.ActionLink("Edit", "Edit", new { id = lstCampaign.CampaignId }) |  @Html.ActionLink("Delete", "Delete", new { id = lstCampaign.CampaignId }, new { onclick = "return confirm('Are you sure you want to delete this record?');" }) </td>*@
+                                    <td> @Html.ActionLink("Add Survey", "AddSurvey", "Survey", new { CampaignId = lstCampaign.CampaignId, CampaignName = lstCampaign.CampaignName }, null) | @Html.ActionLink("List Survey", "ListSurvey", "Survey", new { CampaignId = lstCampaign.CampaignId }, null)</td>
+                                    <td> @Html.ActionLink("Add Question", "AddQuestion", "Survey", new { CampaignId = lstCampaign.CampaignId }, null) | @Html.ActionLink("List Question", "ListQuestion", "Survey", new { CampaignId = lstCampaign.CampaignId }, null)</td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- content ene -->
+
+</div>
+@*<script src="~/Scripts/customScripts.js"></script>
+<script src="~/Scripts/jquery.dataTables.min.js"></script>*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#table_id').DataTable({
+            responsive: true,
+            ordering: true
+        });
+    });
+</script>
+
+
+

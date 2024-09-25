@@ -1,0 +1,86 @@
+﻿@model List<Model.Models.RequestForm.RequestWorkingListModel>
+@{
+    ViewBag.Title = "ComplaintDriver_Details";
+}
+<h2>Complaint Drivers Details</h2>
+<div class="panel-body articles-container table-size">
+    <div class="table-size-a rakeshcc" id="style-3">
+        <table class="table table-bordered table-hover flexx_a flexx_abc tableFixHead" cellspacing="0" width="100%">
+            <thead class="zzzzzzz">
+                <tr class="top-abc">
+                    <th>Request No</th>
+                    <th>Enterprise</th>
+                    <th>Category</th>
+                    <th>Sub Category</th>
+                    <th>Severity</th>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Contact Person</th>
+                    <th>Email Id</th>
+                    <th>Mobile No</th>
+                    <th>Status</th>
+                    <th>Raised On</th>
+                    <th>Department</th>
+                    <th>Priority</th>
+                    <th>Reported By</th>
+                    <th>Enterprise Supporting Document</th>
+                    <th>Allocator Supporting Document</th>
+                    <th>ReOpened Comments</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>RequestId #@item.RequestId</td>
+                            <td>@item.Enterprise</td>
+                            <td>@item.Category</td>
+                            <td>@item.SubCategory</td>
+                            <td>@item.Severity</td>
+                            <td>@item.Topic</td>
+                            <td>@item.RequestDescription</td>
+                            <td>@item.ContactPersonName</td>
+                            <td>@item.EmailId</td>
+                            <td>@item.MobileNo</td>
+                            <td>@item.RequestStatus</td>
+                            <td>@item.RaisedOnDate</td>
+                            <td>@item.Department</td>
+                            <td>@item.Priority</td>
+                            <td>@item.ReportedBy</td>
+                            <td>@item.UploadPath</td>
+                            <td>@item.AllocatorUploadPath</td>
+                            <td>@item.ReOpenedComments</td>
+                            <td>
+                                
+                                <a href="@Url.Action("RequestHistoryDetails","RequestForm",new { id = item.RequestId})" style="font-weight:bolder;">
+                                    View History
+                                </a>
+                               
+                            </td>
+
+
+                                
+                        </tr>
+                    }
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

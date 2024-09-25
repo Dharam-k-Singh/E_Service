@@ -1,0 +1,521 @@
+<div>
+	<table cellspacing="0" rules="all" border="1" style="border-collapse:collapse;">
+		<tr>
+			<th scope="col">OrganizationName</th><th scope="col">InvoiceNo</th><th scope="col">Raiser</th><th scope="col">InvoiceRaisedDate</th><th scope="col">Raisedtime</th><th scope="col">InvoiceDate</th><th scope="col">Approver</th><th scope="col">InvoiceApprovalDate</th><th scope="col">Approvaltime</th><th scope="col">Currency</th><th scope="col">CategoryName</th><th scope="col">TotalAmount</th><th scope="col">AmountInWord</th><th scope="col">HeaderName</th><th scope="col">InvoiceStatus</th>
+		</tr><tr>
+			<td>Codenc</td><td>4FMjW/2023105</td><td>chioma opara</td><td>2023-05-10</td><td>13:44</td><td>2023-05-10</td><td>Madhav Bank</td><td>2023-05-15</td><td>10:51</td><td>Naira</td><td>vehicle registrations</td><td>45000.0</td><td>forty five thousand </td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>RICE AND BEAN NIG LTD</td><td>foeQM/2023105</td><td>chioma opara</td><td>2023-05-10</td><td>14:00</td><td>2023-05-10</td><td>Madhav Bank</td><td>2023-05-15</td><td>10:50</td><td>Naira</td><td>Food</td><td>450000.0</td><td>four hundred fifty thousand </td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>RIBO LTD</td><td>VFqiU/2023105</td><td>chioma opara</td><td>2023-05-10</td><td>14:13</td><td>2023-05-10</td><td>Madhav Bank</td><td>2023-05-15</td><td>10:50</td><td>Naira</td><td>IT</td><td>120000.0</td><td>one hundred twenty thousand </td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>Edgeaxis Technologies</td><td>TU6bE/2023165</td><td>chioma opara</td><td>2023-05-16</td><td>12:37</td><td>2023-05-15</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Canteen</td><td>30000.0</td><td>thirty thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Edgeaxis Technologies</td><td>kb5Fq/2023165</td><td>chioma opara</td><td>2023-05-16</td><td>12:39</td><td>2023-05-18</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>IT</td><td>5000.0</td><td>five thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>Mn6YF/2023165</td><td>chioma opara</td><td>2023-05-16</td><td>13:27</td><td>2023-05-15</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>Housing</td><td>2200.0</td><td>two thousand two hundred </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Codenc</td><td>ZyGfY/2023165</td><td>chioma opara</td><td>2023-05-16</td><td>13:33</td><td>2023-05-15</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>IT</td><td>400000.0</td><td>four hundred thousand </td><td>Lekki Bulk &amp; General Cargo Terminal LFTZ Enterprise</td><td>PENDING</td>
+		</tr><tr>
+			<td>Edgeaxis Technologies</td><td>aGm69/2023096</td><td>chioma opara</td><td>2023-06-09</td><td>08:20</td><td>2023-06-16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>IT</td><td>11500.0</td><td>Eleven Thousand Five Hundred </td><td>LFZC Funding SPV Plc.</td><td>PENDING</td>
+		</tr><tr>
+			<td>Codenc</td><td>4104o/2023096</td><td>chioma opara</td><td>2023-06-09</td><td>08:45</td><td>2023-06-15</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>IT</td><td>3500.0</td><td>Three Thousand Five Hundred </td><td>Lekki Bulk &amp; General Cargo Terminal LFTZ Enterprise</td><td>PENDING</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>FZKaP/2023096</td><td>chioma opara</td><td>2023-06-09</td><td>14:25</td><td>2023-06-15</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Housing</td><td>65000.0</td><td>Sixty Five Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>TG Arla Dairy Products LFTZ Enterprise</td><td>ZzFRJ/2023096</td><td>emmanuelc</td><td>2023-06-09</td><td>15:15</td><td>2023-06-09</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>Food</td><td>125.0</td><td>One Hundred Twenty Five </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Safetrust Consulting Associates</td><td>ORBBj/2023136</td><td>chioma opara</td><td>2023-06-13</td><td>09:15</td><td>2023-06-13</td><td>soetan.oluwayemisi</td><td>2023-06-13</td><td>10:13</td><td>Naira</td><td>Training</td><td>550000.0</td><td>Five Hundred Fifty Thousand </td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>rmTNC/2023136</td><td>chioma opara</td><td>2023-06-13</td><td>10:39</td><td>2023-06-13</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>Canteen</td><td>160000.0</td><td>One Hundred Sixty Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>MBH Power Limited</td><td>iYd2z/2023156</td><td>odogwu samuel</td><td>2023-06-15</td><td>22:55</td><td>2023-06-15</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>Renewal of Service Permit</td><td>44000.0</td><td>forty four thousand and cents </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Safetrust Consulting Associates</td><td>SAF/2023/06/16</td><td>chioma opara</td><td>2023-06-22</td><td>10:48</td><td>2023-06-22</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>IT</td><td>450000.0</td><td>Four Hundred Fifty Thousand </td><td>Elevate Commercial Park Limited</td><td>PENDING</td>
+		</tr><tr>
+			<td>Safetrust Consulting Associates</td><td>SAF/2023/06/17</td><td>chioma opara</td><td>2023-06-23</td><td>09:46</td><td>2023-06-22</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>Food</td><td>25000.0</td><td>Twenty Five Thousand </td><td>Lekki Bulk &amp; General Cargo Terminal LFTZ Enterprise</td><td>PENDING</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/06/18</td><td>olubunmi olatujayan</td><td>2023-06-23</td><td>12:52</td><td>2023-06-23</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>400000.0</td><td>Four Hundred Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/06/19</td><td>olubunmi olatujayan</td><td>2023-06-23</td><td>12:53</td><td>2023-06-23</td><td>soetan.oluwayemisi</td><td>2023-06-23</td><td>13:00</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>400000.0</td><td>Four Hundred Thousand </td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/06/20</td><td>olubunmi olatujayan</td><td>2023-06-23</td><td>13:05</td><td>2023-06-23</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>400000.0</td><td>four hundred thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/06/21</td><td>olubunmi olatujayan</td><td>2023-06-23</td><td>13:12</td><td>2023-06-23</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>50000.0</td><td>Fifty Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/06/22</td><td>olubunmi olatujayan</td><td>2023-06-23</td><td>13:16</td><td>2023-06-23</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>100000.0</td><td>One Hundred Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>SMART PLANET LOGISTICS LIMITED</td><td>PRO/2023/06/23</td><td>Chioma.iwuagwu</td><td>2023-06-23</td><td>14:49</td><td>2023-06-23</td><td>soetan.oluwayemisi</td><td>2023-06-23</td><td>14:52</td><td>Dollars</td><td>Service Permit Registration</td><td>2000.0</td><td>Two Thousand </td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>SMART PLANET LOGISTICS LIMITED</td><td>PRO/2023/06/24</td><td>Chioma.iwuagwu</td><td>2023-06-26</td><td>10:09</td><td>2023-06-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>Service Permit Registration</td><td>2000.0</td><td>Two Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Nahman Construction Company Limited</td><td>NAH/2023/06/25</td><td>emmanuelc</td><td>2023-06-26</td><td>18:51</td><td>2023-06-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>waste management disposal </td><td>70000.0</td><td>Seventy Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Nahman Construction Company Limited</td><td>NAH/2023/06/26</td><td>emmanuelc</td><td>2023-06-26</td><td>18:52</td><td>2023-06-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>waste management disposal </td><td>70000.0</td><td>Seventy Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/06/27</td><td>emmanuelc</td><td>2023-06-26</td><td>18:55</td><td>2023-06-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>waste management disposal </td><td>35000.0</td><td>Thirty Five Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/06/28</td><td>emmanuelc</td><td>2023-06-26</td><td>18:56</td><td>2023-06-26</td><td>soetan.oluwayemisi</td><td>2023-06-27</td><td>10:47</td><td>Naira</td><td>waste management disposal </td><td>35000.0</td><td>Thirty Five Thousand </td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>Nahman Construction Company Limited</td><td>NAH/2023/06/29</td><td>emmanuelc</td><td>2023-06-26</td><td>19:02</td><td>2023-06-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>waste management disposal </td><td>70000.0</td><td>Seventy Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/06/30</td><td>emmanuelc</td><td>2023-06-26</td><td>19:05</td><td>2023-06-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>waste management disposal </td><td>35000.0</td><td>Thirty Five Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Telisol Limited,</td><td>TEL/2023/06/31</td><td>emmanuelc</td><td>2023-06-27</td><td>07:36</td><td>2023-06-20</td><td>emmanuelc</td><td>2023-06-27</td><td>10:42</td><td>Dollars</td><td>Rental </td><td>6000.0</td><td>Six Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>REJECTED</td>
+		</tr><tr>
+			<td>MAERSK LOGISTICS AND SERVICES NIGERIA LIMITED</td><td>MAE/2023/07/32</td><td>Chioma.iwuagwu</td><td>2023-07-03</td><td>15:32</td><td>2023-07-03</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>Service Permit Registration</td><td>2000.0</td><td>Two Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/07/33</td><td>chioma opara</td><td>2023-07-03</td><td>19:42</td><td>2023-07-01</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>IT</td><td>10000.0</td><td>ten thousand </td><td>Elevate Commercial Park Limited</td><td>PENDING</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/07/34</td><td>chioma opara</td><td>2023-07-04</td><td>16:39</td><td>2023-07-04</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>IT</td><td>5000.0</td><td>Five Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>TG Arla Dairy Products LFTZ Enterprise</td><td>TG /2023/07/35</td><td>odogwu samuel</td><td>2023-07-18</td><td>09:38</td><td>2023-07-16</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>Renewal of Service Permit</td><td>3000.0</td><td>Three Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>TG /2023/07/36</td><td>odogwu samuel</td><td>2023-07-18</td><td>09:39</td><td>2023-07-16</td><td>emmanuelc</td><td>2023-07-18</td><td>09:47</td><td>Naira</td><td>Service Permit Registration</td><td>3000.0</td><td>Three Thousand </td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/07/37</td><td>odogwu samuel</td><td>2023-07-24</td><td>13:02</td><td>2023-07-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>LEASE RENTAL</td><td>30000.0</td><td>Thirty Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/07/38</td><td>odogwu samuel</td><td>2023-07-24</td><td>13:06</td><td>2023-07-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>LEASE RENTAL</td><td>16500.0</td><td>Sixteen Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/07/39</td><td>odogwu samuel</td><td>2023-07-24</td><td>13:15</td><td>2023-07-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>SERVICE CHARGE</td><td>5000000.0</td><td>Five Million </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/07/40</td><td>odogwu samuel</td><td>2023-07-24</td><td>13:29</td><td>2023-07-26</td><td>emmanuelc</td><td>2023-07-26</td><td>10:11</td><td>Naira</td><td>SERVICE CHARGE</td><td>5500000.0</td><td>Five Million Five Hundred Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>REJECTED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/07/41</td><td>odogwu samuel</td><td>2023-07-26</td><td>15:26</td><td>2023-07-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>STONE CAVING</td><td>4200.0</td><td>Four Thousand Two Hundred </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/07/42</td><td>odogwu samuel</td><td>2023-07-26</td><td>15:30</td><td>2023-07-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>OTHERS</td><td>1243080.0</td><td>One Million Two Hundred Forty Three Thousand Eighty </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/07/43</td><td>odogwu samuel</td><td>2023-07-26</td><td>16:06</td><td>2023-07-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>ACCOMMODATION</td><td>675.0</td><td>Six Hundred Seventy Five </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/07/44</td><td>odogwu samuel</td><td>2023-07-26</td><td>16:34</td><td>2023-07-26</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Canteen</td><td>180000.0</td><td>One Hundred Eighty Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/07/45</td><td>odogwu samuel</td><td>2023-07-27</td><td>10:44</td><td>2023-07-27</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Canteen</td><td>442500.0</td><td>Four Hundred Forty Two Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/07/46</td><td>odogwu samuel</td><td>2023-07-27</td><td>10:51</td><td>2023-07-27</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Canteen</td><td>152500.0</td><td>One Hundred Fifty Two Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/07/47</td><td>odogwu samuel</td><td>2023-07-27</td><td>10:56</td><td>2023-07-27</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Canteen</td><td>32500.0</td><td>Thirty Two Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/07/48</td><td>odogwu samuel</td><td>2023-07-27</td><td>11:00</td><td>2023-07-27</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Canteen</td><td>15000.0</td><td>Fifteen Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/07/49</td><td>odogwu samuel</td><td>2023-07-27</td><td>11:04</td><td>2023-07-27</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Canteen</td><td>17500.0</td><td>Seventeen Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/07/50</td><td>odogwu samuel</td><td>2023-07-27</td><td>11:12</td><td>2023-07-27</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Canteen</td><td>80000.0</td><td>Eighty Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/07/51</td><td>odogwu samuel</td><td>2023-07-27</td><td>11:18</td><td>2023-07-27</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Canteen</td><td>247500.0</td><td>Two Hundred Forty Seven Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>Telisol Limited,</td><td>TEL/2023/07/52</td><td>odogwu samuel</td><td>2023-07-27</td><td>11:26</td><td>2023-07-27</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Canteen</td><td>35000.0</td><td>Thirty Five Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/07/53</td><td>odogwu samuel</td><td>2023-07-27</td><td>11:30</td><td>2023-07-27</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Canteen</td><td>22500.0</td><td>Twenty Two Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/07/54</td><td>odogwu samuel</td><td>2023-07-27</td><td>11:50</td><td>2023-07-27</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Canteen</td><td>97500.0</td><td>Ninety Seven Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>Nahman Construction Company Limited</td><td>NAH/2023/07/55</td><td>odogwu samuel</td><td>2023-07-27</td><td>11:55</td><td>2023-07-27</td><td>soetan.oluwayemisi</td><td>2023-07-28</td><td>12:23</td><td>Naira</td><td>Canteen</td><td>65000.0</td><td>Sixty Five Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/07/56</td><td>odogwu samuel</td><td>2023-07-31</td><td>11:30</td><td>2023-08-01</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>16:10</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>500000.0</td><td>Five Hundred Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/07/57</td><td>odogwu samuel</td><td>2023-07-31</td><td>11:35</td><td>2023-08-01</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>16:10</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>750000.0</td><td>Seven Hundred Fifty Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/07/58</td><td>odogwu samuel</td><td>2023-07-31</td><td>11:38</td><td>2023-08-01</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>16:09</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>1500000.0</td><td>One Million Five Hundred Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>TG Arla Dairy Products LFTZ Enterprise</td><td>TG /2023/07/59</td><td>odogwu samuel</td><td>2023-07-31</td><td>11:41</td><td>2023-08-01</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>16:08</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>750000.0</td><td>Seven Hundred Fifty Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/08/60</td><td>odogwu samuel</td><td>2023-08-01</td><td>09:39</td><td>2023-08-01</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>16:08</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>2600000.0</td><td>Two Million Six Hundred Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/08/61</td><td>odogwu samuel</td><td>2023-08-03</td><td>16:21</td><td>2023-08-03</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>14:00</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>3000.0</td><td>Three Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>SANA GLOBAL PROJECTS LFZ ENTERPRISES</td><td>SAN/2023/08/62</td><td>odogwu samuel</td><td>2023-08-03</td><td>16:37</td><td>2023-08-03</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>13:48</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>3000.0</td><td>Three Thousand </td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>SANA GLOBAL PROJECTS LFZ ENTERPRISES</td><td>SAN/2023/08/63</td><td>odogwu samuel</td><td>2023-08-03</td><td>16:38</td><td>2023-08-03</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>14:00</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>15000.0</td><td>fifteen thousand and   </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>ISS GLOBAL FORWARDING NIGERIA LIMITED</td><td>ISS/2023/08/64</td><td>Chioma.iwuagwu</td><td>2023-08-04</td><td>12:15</td><td>2023-08-04</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>15:53</td><td>Dollars</td><td>Renewal of Service Permit</td><td>2000.0</td><td>Two Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/08/65</td><td>odogwu samuel</td><td>2023-08-04</td><td>12:32</td><td>2023-08-03</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>14:01</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>3000.0</td><td>Three Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>ESSLIBRA LIMITED</td><td>ESS/2023/08/66</td><td>Chioma.iwuagwu</td><td>2023-08-04</td><td>13:58</td><td>2023-08-04</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>13:44</td><td>Dollars</td><td>Renewal of Service Permit</td><td>2000.0</td><td>Two Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>TOLARAM AFRICA LFTZ ENTERPRISE</td><td>TOL/2023/08/67</td><td>Chioma.iwuagwu</td><td>2023-08-04</td><td>15:48</td><td>2023-08-04</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>13:41</td><td>Dollars</td><td>SERVICE CHARGE</td><td>125.0</td><td>One Hundred Twenty Five </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/08/68</td><td>Chioma.iwuagwu</td><td>2023-08-07</td><td>12:33</td><td>2023-08-07</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>14:02</td><td>Dollars</td><td>Annual Returns Filing</td><td>125.0</td><td>One Hundred Twenty Five </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>TOLARAM AFRICA LFTZ ENTERPRISE</td><td>TOL/2023/08/69</td><td>odogwu samuel</td><td>2023-08-07</td><td>15:02</td><td>2023-08-07</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>15:06</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>10000.0</td><td>Ten Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>JURI LOGISTICS LIMITED</td><td>JUR/2023/08/70</td><td>Chioma.iwuagwu</td><td>2023-08-07</td><td>15:51</td><td>2023-08-07</td><td>soetan.oluwayemisi</td><td>2023-08-07</td><td>15:52</td><td>Dollars</td><td>Renewal of Service Permit</td><td>2000.0</td><td>Two Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Nahman Construction Company Limited</td><td>NAH/2023/08/71</td><td>adedeji adebayo</td><td>2023-08-09</td><td>12:38</td><td>2023-08-09</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>13:16</td><td>Naira</td><td>waste management disposal </td><td>112000.0</td><td>One Hundred Twelve Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/08/72</td><td>adedeji adebayo</td><td>2023-08-09</td><td>12:42</td><td>2023-08-09</td><td>soetan.oluwayemisi</td><td>2023-08-09</td><td>14:12</td><td>Naira</td><td>waste management disposal </td><td>56000.0</td><td>Fifty Six Thousand </td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>LEKKI POWER PLANT (Viathan Engineering Limited)</td><td>LEK/2023/08/73</td><td>adedeji adebayo</td><td>2023-08-09</td><td>12:49</td><td>2023-08-09</td><td>soetan.oluwayemisi</td><td>2023-08-09</td><td>14:12</td><td>Naira</td><td>waste management disposal </td><td>56000.0</td><td>Fifty Six Thousand </td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>Logichemicals LFZ Enterprises</td><td>LOG/2023/08/74</td><td>adedeji adebayo</td><td>2023-08-09</td><td>13:01</td><td>2023-08-09</td><td>soetan.oluwayemisi</td><td>2023-08-09</td><td>14:12</td><td>Naira</td><td>waste management disposal </td><td>56000.0</td><td>Fifty Six Thousand </td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/08/75</td><td>odogwu samuel</td><td>2023-08-10</td><td>11:18</td><td>2023-08-10</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>09:19</td><td>Dollars</td><td>LEASE RENTAL</td><td>324000.0</td><td>Three Hundred Twenty Four Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>REJECTED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/08/76</td><td>odogwu samuel</td><td>2023-08-10</td><td>16:51</td><td>2023-08-10</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>13:13</td><td>Naira</td><td>Canteen</td><td>557500.0</td><td>Five Hundred Fifty Seven Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/08/77</td><td>odogwu samuel</td><td>2023-08-11</td><td>07:39</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>15:32</td><td>Naira</td><td>Canteen</td><td>352500.0</td><td>Three Hundred Fifty Two Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/08/78</td><td>odogwu samuel</td><td>2023-08-11</td><td>07:45</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>13:04</td><td>Naira</td><td>Canteen</td><td>75000.0</td><td>Seventy Five Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/08/79</td><td>odogwu samuel</td><td>2023-08-11</td><td>07:49</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>13:07</td><td>Naira</td><td>Canteen</td><td>52500.0</td><td>Fifty Two Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/08/80</td><td>odogwu samuel</td><td>2023-08-11</td><td>07:54</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>13:02</td><td>Naira</td><td>Canteen</td><td>30000.0</td><td>Thirty Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>REJECTED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/08/81</td><td>odogwu samuel</td><td>2023-08-11</td><td>08:00</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>12:55</td><td>Naira</td><td>Canteen</td><td>20000.0</td><td>Twenty Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Telisol Limited,</td><td>TEL/2023/08/82</td><td>odogwu samuel</td><td>2023-08-11</td><td>08:09</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>12:54</td><td>Naira</td><td>Canteen</td><td>35000.0</td><td>Thirty Five Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>TG Arla Dairy Products LFTZ Enterprise</td><td>TG /2023/08/83</td><td>odogwu samuel</td><td>2023-08-11</td><td>08:11</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>12:52</td><td>Naira</td><td>Canteen</td><td>60000.0</td><td>Sixty Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/08/84</td><td>odogwu samuel</td><td>2023-08-11</td><td>08:14</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>12:37</td><td>Naira</td><td>Canteen</td><td>52500.0</td><td>Fifty Two Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Nahman Construction Company Limited</td><td>NAH/2023/08/85</td><td>odogwu samuel</td><td>2023-08-11</td><td>08:18</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>12:35</td><td>Naira</td><td>Canteen</td><td>75000.0</td><td>Seventy Five Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/08/86</td><td>odogwu samuel</td><td>2023-08-11</td><td>08:24</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-11</td><td>12:34</td><td>Naira</td><td>Canteen</td><td>232500.0</td><td>Two Hundred Thirty Two Thousand Five Hundred </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Telisol Limited,</td><td>TEL/2023/08/87</td><td>odogwu samuel</td><td>2023-08-11</td><td>12:43</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-14</td><td>11:12</td><td>Dollars</td><td>Canteen</td><td>6000.0</td><td>six thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Telisol Limited,</td><td>TEL/2023/08/88</td><td>odogwu samuel</td><td>2023-08-11</td><td>13:01</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-14</td><td>11:12</td><td>Dollars</td><td>Canteen</td><td>75.0</td><td>Seventy Five </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/08/89</td><td>odogwu samuel</td><td>2023-08-11</td><td>13:21</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-14</td><td>12:00</td><td>Dollars</td><td>ACCOMMODATION</td><td>75.0</td><td>Seventy Five </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>REJECTED</td>
+		</tr><tr>
+			<td>TG Arla Dairy Products LFTZ Enterprise</td><td>TG /2023/08/90</td><td>Chioma.iwuagwu</td><td>2023-08-11</td><td>16:04</td><td>2023-08-11</td><td>emmanuelc</td><td>2023-08-11</td><td>19:12</td><td>Naira</td><td>vehicle registrations</td><td>100000.0</td><td>One Hundred Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/08/91</td><td>olubunmi olatujayan</td><td>2023-08-11</td><td>16:19</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-15</td><td>10:20</td><td>Dollars</td><td>IMMIGRATION MATTERS</td><td>2200.0</td><td>two thousand two hundred </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/08/92</td><td>odogwu samuel</td><td>2023-08-14</td><td>11:49</td><td>2023-08-14</td><td>soetan.oluwayemisi</td><td>2023-08-14</td><td>12:01</td><td>Dollars</td><td>SERVICE CHARGE</td><td>18000.0</td><td>Eighteen Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Logichemicals LFZ Enterprises</td><td>LOG/2023/08/93</td><td>odogwu samuel</td><td>2023-08-14</td><td>13:22</td><td>2023-08-14</td><td>soetan.oluwayemisi</td><td>2023-08-15</td><td>10:26</td><td>Naira</td><td>STONE CAVING</td><td>1050000.0</td><td>One Million Fifty Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/08/94</td><td>odogwu samuel</td><td>2023-08-15</td><td>09:20</td><td>2023-08-15</td><td>soetan.oluwayemisi</td><td>2023-08-15</td><td>11:42</td><td>Naira</td><td>CLINIC MAINTAINANCE</td><td>350000.0</td><td>Three Hundred Fifty Thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>REJECTED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/08/95</td><td>olubunmi olatujayan</td><td>2023-08-15</td><td>10:50</td><td>2023-08-15</td><td>soetan.oluwayemisi</td><td>2023-08-15</td><td>11:38</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>50000.0</td><td>Fifty Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/08/96</td><td>olubunmi olatujayan</td><td>2023-08-15</td><td>10:53</td><td>2023-08-15</td><td>soetan.oluwayemisi</td><td>2023-08-15</td><td>11:38</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>50000.0</td><td>Fifty Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/08/97</td><td>olubunmi olatujayan</td><td>2023-08-15</td><td>10:58</td><td>2023-08-15</td><td>soetan.oluwayemisi</td><td>2023-08-15</td><td>11:37</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>50000.0</td><td>Fifty Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/08/98</td><td>olubunmi olatujayan</td><td>2023-08-15</td><td>11:02</td><td>2023-08-15</td><td>soetan.oluwayemisi</td><td>2023-08-15</td><td>11:37</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>100000.0</td><td>One Hundred Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/08/99</td><td>olubunmi olatujayan</td><td>2023-08-15</td><td>11:07</td><td>2023-08-15</td><td>soetan.oluwayemisi</td><td>2023-08-15</td><td>11:36</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>50000.0</td><td>Fifty Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>SUPERMARINE SERVICES LIMITED.</td><td>SUP/2023/08/100</td><td>odogwu samuel</td><td>2023-08-15</td><td>14:19</td><td>2023-08-15</td><td>soetan.oluwayemisi</td><td>2023-08-16</td><td>10:59</td><td>Naira</td><td>SERVICE CHARGE</td><td>1245356.0</td><td>one million two hundred forty five thousand three hundred fifty six </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>REJECTED</td>
+		</tr><tr>
+			<td>SUPERMARINE SERVICES LIMITED.</td><td>SUP/2023/08/101</td><td>odogwu samuel</td><td>2023-08-15</td><td>14:36</td><td>2023-08-15</td><td>soetan.oluwayemisi</td><td>2023-08-16</td><td>10:55</td><td>Naira</td><td>SERVICE CHARGE</td><td>2225000.0</td><td>two million two hundred twenty five thousand </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>TRANS ATLANTIC SHIPPING AGENCY LIMITED</td><td>TRA/2023/08/102</td><td>odogwu samuel</td><td>2023-08-16</td><td>10:22</td><td>2023-08-11</td><td>soetan.oluwayemisi</td><td>2023-08-16</td><td>10:50</td><td>Dollars</td><td>Renewal of Service Permit</td><td>2000.0</td><td>Two Thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>DIMEX SHIPPING LIMITED</td><td>DIM/2023/08/103</td><td>odogwu samuel</td><td>2023-08-17</td><td>11:17</td><td>2023-08-11</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>Renewal of Service Permit</td><td>2000.0</td><td>Two Thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>ALPHAGREY LEGACY LFZ ENTERPRISE</td><td>ALP/2023/08/104</td><td>odogwu samuel</td><td>2023-08-21</td><td>13:41</td><td>2023-08-21</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>5000.0</td><td>five thousand and   </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Telisol Limited,</td><td>TEL/2023/08/105</td><td>odogwu samuel</td><td>2023-08-21</td><td>15:08</td><td>2023-07-31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>INTEREST CHARGE</td><td>3695.0</td><td>Three Thousand Six Hundred Ninety Five </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Telisol Limited,</td><td>TEL/2023/08/106</td><td>odogwu samuel</td><td>2023-08-21</td><td>15:21</td><td>2023-07-31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>INTEREST CHARGE</td><td>95.0</td><td>Ninety Five </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>Telisol Limited,</td><td>TEL/2023/08/107</td><td>odogwu samuel</td><td>2023-08-21</td><td>15:24</td><td>2023-07-31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>INTEREST CHARGE</td><td>4068.0</td><td>Four Thousand Sixty Eight </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/08/108</td><td>odogwu samuel</td><td>2023-08-21</td><td>16:30</td><td>2023-07-31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>INTEREST CHARGE</td><td>108.0</td><td>one hundred eight </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/08/109</td><td>odogwu samuel</td><td>2023-08-21</td><td>16:32</td><td>2023-07-31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>INTEREST CHARGE</td><td>10863.0</td><td>Ten Thousand Eight Hundred Sixty Three </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/08/110</td><td>odogwu samuel</td><td>2023-08-21</td><td>16:35</td><td>2023-07-31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>INTEREST CHARGE</td><td>23.0</td><td>Twenty Three </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/08/111</td><td>odogwu samuel</td><td>2023-08-21</td><td>16:42</td><td>2023-07-31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>INTEREST CHARGE</td><td>3451.0</td><td>Three Thousand Four Hundred Fifty One </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/08/112</td><td>odogwu samuel</td><td>2023-08-21</td><td>16:47</td><td>2023-07-31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>INTEREST CHARGE</td><td>81.0</td><td>Eighty One </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/08/113</td><td>odogwu samuel</td><td>2023-08-21</td><td>16:50</td><td>2023-07-31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>INTEREST CHARGE</td><td>18701.0</td><td>Eighteen Thousand Seven Hundred One </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>ALPHAGREY LEGACY LFZ ENTERPRISE</td><td>ALP/2023/08/114</td><td>odogwu samuel</td><td>2023-08-24</td><td>12:17</td><td>2023-08-23</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>LEASE RENTAL</td><td>4000.0</td><td>four thousand </td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/08/115</td><td>odogwu samuel</td><td>2023-08-24</td><td>15:46</td><td>2023-08-24</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>Power Installation </td><td>3500000.0</td><td>Three Million Five Hundred Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/08/116</td><td>adedeji adebayo</td><td>2023-08-28</td><td>16:32</td><td>2023-08-29</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>WASTE DISPOSAL</td><td>56000.0</td><td>Fifty Six Thousand Naira Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/08/117</td><td>adedeji adebayo</td><td>2023-08-28</td><td>16:33</td><td>2023-08-29</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>WASTE DISPOSAL</td><td>56000.0</td><td>Fifty Six Thousand Naira Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Nahman Construction Company Limited</td><td>NAH/2023/08/118</td><td>odogwu samuel</td><td>2023-08-29</td><td>09:11</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-09-01</td><td>16:06</td><td>Naira</td><td>QC and QA</td><td>494000.0</td><td>Four Hundred Ninety Four Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>SUPERMARINE SERVICES LIMITED.</td><td>SUP/2023/08/119</td><td>odogwu samuel</td><td>2023-08-29</td><td>12:55</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-08-30</td><td>13:08</td><td>Naira</td><td>Canteen</td><td>20000.0</td><td>Twenty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>REJECTED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/08/120</td><td>odogwu samuel</td><td>2023-08-29</td><td>13:07</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-08-30</td><td>13:02</td><td>Naira</td><td>Canteen</td><td>512500.0</td><td>Five Hundred Twelve Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/08/121</td><td>odogwu samuel</td><td>2023-08-29</td><td>13:15</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-08-30</td><td>13:01</td><td>Naira</td><td>Canteen</td><td>240000.0</td><td>Two Hundred Forty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Baker Hughes Nigeria Ltd,</td><td>BAK/2023/08/122</td><td>odogwu samuel</td><td>2023-08-29</td><td>13:21</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-08-30</td><td>12:58</td><td>Naira</td><td>Canteen</td><td>15000.0</td><td>Fifteen Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>REJECTED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/08/123</td><td>odogwu samuel</td><td>2023-08-29</td><td>13:29</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-08-30</td><td>12:55</td><td>Naira</td><td>Canteen</td><td>75000.0</td><td>Seventy Five Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/08/124</td><td>odogwu samuel</td><td>2023-08-29</td><td>13:35</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-08-30</td><td>12:53</td><td>Naira</td><td>Canteen</td><td>47500.0</td><td>Forty Seven Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/08/125</td><td>odogwu samuel</td><td>2023-08-30</td><td>09:31</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-08-30</td><td>12:50</td><td>Naira</td><td>Canteen</td><td>20000.0</td><td>Twenty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/08/126</td><td>odogwu samuel</td><td>2023-08-30</td><td>09:36</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-08-30</td><td>12:49</td><td>Naira</td><td>Canteen</td><td>20000.0</td><td>Twenty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/08/127</td><td>odogwu samuel</td><td>2023-08-30</td><td>09:45</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-08-30</td><td>12:47</td><td>Naira</td><td>Canteen</td><td>87500.0</td><td>Eighty Seven Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Telisol Limited,</td><td>TEL/2023/08/128</td><td>odogwu samuel</td><td>2023-08-30</td><td>09:52</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-08-30</td><td>12:45</td><td>Naira</td><td>Canteen</td><td>27500.0</td><td>Twenty Seven Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>TG Arla Dairy Products LFTZ Enterprise</td><td>TG /2023/08/129</td><td>odogwu samuel</td><td>2023-08-30</td><td>10:00</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-08-30</td><td>12:42</td><td>Naira</td><td>Canteen</td><td>52500.0</td><td>Fifty Two Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/08/130</td><td>odogwu samuel</td><td>2023-08-30</td><td>10:06</td><td>2023-08-29</td><td>soetan.oluwayemisi</td><td>2023-08-30</td><td>12:40</td><td>Naira</td><td>Canteen</td><td>160000.0</td><td>One Hundred Sixty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/08/131</td><td>odogwu samuel</td><td>2023-08-30</td><td>10:07</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-01</td><td>16:05</td><td>Naira</td><td>PHARMACY AND CONSUMABLES</td><td>51580.0</td><td>fifty one thousand five hundred eighty </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/08/132</td><td>rajesh lama</td><td>2023-08-30</td><td>11:39</td><td>2023-08-30</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>LEASE RENTAL</td><td>3075.0</td><td>three thousand seventy five </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/09/133</td><td>odogwu samuel</td><td>2023-09-01</td><td>13:51</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-01</td><td>16:00</td><td>Naira</td><td>OTHERS</td><td>1000140.0</td><td>One Million One Hundred Forty Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/09/134</td><td>odogwu samuel</td><td>2023-09-01</td><td>13:55</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-01</td><td>15:50</td><td>Naira</td><td>OTHERS</td><td>337660.0</td><td>Three Hundred Thirty Seven Thousand Six Hundred Sixty Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/09/135</td><td>odogwu samuel</td><td>2023-09-01</td><td>14:03</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-01</td><td>15:49</td><td>Naira</td><td>PHARMACY AND CONSUMABLES</td><td>743460.0</td><td>Seven Hundred Forty Three Thousand Four Hundred Sixty Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/09/136</td><td>odogwu samuel</td><td>2023-09-01</td><td>14:08</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-01</td><td>15:43</td><td>Naira</td><td>PHARMACY AND CONSUMABLES</td><td>79495.0</td><td>Seventy Nine Thousand Four Hundred Ninety Five Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/137</td><td>odogwu samuel</td><td>2023-09-01</td><td>14:12</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-01</td><td>15:40</td><td>Naira</td><td>PHARMACY AND CONSUMABLES</td><td>102253.0</td><td>One Hundred Two Thousand Two Hundred Fifty Three Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/09/138</td><td>odogwu samuel</td><td>2023-09-01</td><td>14:15</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-01</td><td>15:38</td><td>Naira</td><td>PHARMACY AND CONSUMABLES</td><td>70870.0</td><td>Seventy Thousand Eight Hundred Seventy Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>TG Arla Dairy Products LFTZ Enterprise</td><td>TG /2023/09/139</td><td>odogwu samuel</td><td>2023-09-04</td><td>14:11</td><td>2023-09-04</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>11:58</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>750000.0</td><td>seven hundred fifty thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/09/140</td><td>odogwu samuel</td><td>2023-09-04</td><td>14:15</td><td>2023-09-04</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>11:57</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>1500000.0</td><td>One Million Five Hundred Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/09/141</td><td>odogwu samuel</td><td>2023-09-04</td><td>14:20</td><td>2023-09-04</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>11:45</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>750000.0</td><td>Seven Hundred Fifty Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/142</td><td>odogwu samuel</td><td>2023-09-04</td><td>14:43</td><td>2023-09-18</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>350000.0</td><td>three hundred fifty thousand and   </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/143</td><td>odogwu samuel</td><td>2023-09-04</td><td>14:43</td><td>2023-09-18</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>2600000.0</td><td>Two Million Six Hundred Thousand Naira Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/09/144</td><td>odogwu samuel</td><td>2023-09-04</td><td>14:53</td><td>2023-09-04</td><td>soetan.oluwayemisi</td><td>2023-09-05</td><td>10:14</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>500000.0</td><td>Five Hundred Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/09/145</td><td>olubunmi olatujayan</td><td>2023-09-04</td><td>22:37</td><td>2023-09-05</td><td>soetan.oluwayemisi</td><td>2023-09-05</td><td>10:14</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>150000.0</td><td>One Hundred Fifty Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/09/146</td><td>olubunmi olatujayan</td><td>2023-09-04</td><td>22:39</td><td>2023-09-05</td><td>soetan.oluwayemisi</td><td>2023-09-05</td><td>10:13</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>150000.0</td><td>One Hundred Fifty Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/147</td><td>Aderayo Adedotun</td><td>2023-09-05</td><td>11:33</td><td>2023-09-05</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>10000.0</td><td>Ten Thousand Dollars Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/148</td><td>Aderayo Adedotun</td><td>2023-09-05</td><td>11:33</td><td>2023-09-05</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>11:44</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>10000.0</td><td>Ten Thousand Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/09/149</td><td>odogwu samuel</td><td>2023-09-05</td><td>13:22</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>11:43</td><td>Dollars</td><td>INTEREST CHARGE</td><td>38.0</td><td>Thirty Seven Dollars And Fifty Four cent Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/09/150</td><td>odogwu samuel</td><td>2023-09-05</td><td>13:25</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>12:02</td><td>Naira</td><td>INTEREST CHARGE</td><td>13671.0</td><td>Thirteen Thousand Six Hundred Seventy One Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/09/151</td><td>odogwu samuel</td><td>2023-09-05</td><td>13:27</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>12:01</td><td>Dollars</td><td>INTEREST CHARGE</td><td>82.0</td><td>Eighty One Dollars And Fifty Two cent Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/09/152</td><td>odogwu samuel</td><td>2023-09-05</td><td>13:28</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>11:41</td><td>Naira</td><td>INTEREST CHARGE</td><td>61334.0</td><td>sixty one thousand three hundred thirty four </td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/09/153</td><td>odogwu samuel</td><td>2023-09-05</td><td>13:32</td><td>2023-08-31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>INTEREST CHARGE</td><td>67.0</td><td>Sixty Seven Dollars And One cent Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/09/154</td><td>odogwu samuel</td><td>2023-09-05</td><td>13:34</td><td>2023-08-31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>INTEREST CHARGE</td><td>10557.0</td><td>Ten Thousand Five Hundred Fifty Seven Naira Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/09/155</td><td>odogwu samuel</td><td>2023-09-05</td><td>15:48</td><td>2023-08-31</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>INTEREST CHARGE</td><td>290.0</td><td>Two Hundred Eighty Nine Dollars And Fifty Seven cent Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/09/156</td><td>Chioma.iwuagwu</td><td>2023-09-06</td><td>13:49</td><td>2023-09-06</td><td>soetan.oluwayemisi</td><td>2023-09-07</td><td>15:51</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>15000.0</td><td>fifteen thousand and   </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/157</td><td>odogwu samuel</td><td>2023-09-06</td><td>14:01</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>11:39</td><td>Dollars</td><td>INTEREST CHARGE</td><td>1.0</td><td>one and twenty seven   </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/158</td><td>odogwu samuel</td><td>2023-09-06</td><td>14:05</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>11:38</td><td>Naira</td><td>INTEREST CHARGE</td><td>23367.0</td><td>Twenty Three Thousand Three Hundred Sixty Seven Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/159</td><td>odogwu samuel</td><td>2023-09-06</td><td>14:07</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>11:37</td><td>Dollars</td><td>INTEREST CHARGE</td><td>273.0</td><td>Two Hundred Seventy Three Dollars And Thirty Five cent Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/160</td><td>odogwu samuel</td><td>2023-09-06</td><td>14:10</td><td>2023-08-31</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>11:36</td><td>Naira</td><td>INTEREST CHARGE</td><td>242045.0</td><td>Two Hundred Forty Two Thousand Forty Five Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/161</td><td>Chioma.iwuagwu</td><td>2023-09-08</td><td>10:12</td><td>2023-09-08</td><td>soetan.oluwayemisi</td><td>2023-09-09</td><td>11:35</td><td>Dollars</td><td>Annual Returns Filing</td><td>125.0</td><td>One Hundred Twenty Five Dollars Only</td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>Baker Hughes Nigeria Ltd,</td><td>BAK/2023/09/162</td><td>odogwu samuel</td><td>2023-09-11</td><td>10:47</td><td>2023-09-11</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>LEASE RENTAL</td><td>225000.0</td><td>Two Hundred Twenty Five Thousand Dollars Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>Baker Hughes Nigeria Ltd,</td><td>BAK/2023/09/163</td><td>odogwu samuel</td><td>2023-09-11</td><td>10:59</td><td>2023-09-11</td><td>soetan.oluwayemisi</td><td>2023-09-11</td><td>11:36</td><td>Naira</td><td>SERVICE CHARGE</td><td>75000000.0</td><td>Seventy Five Million Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/09/164</td><td>Aderayo Adedotun</td><td>2023-09-11</td><td>11:37</td><td>2023-09-11</td><td>soetan.oluwayemisi</td><td>2023-09-11</td><td>16:36</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>3000.0</td><td>three thousand and   </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/09/165</td><td>Aderayo Adedotun</td><td>2023-09-11</td><td>11:38</td><td>2023-09-11</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>10000.0</td><td>Ten Thousand Dollars Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/09/166</td><td>Aderayo Adedotun</td><td>2023-09-11</td><td>11:46</td><td>2023-09-11</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>10000.0</td><td>Ten Thousand Dollars Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/09/167</td><td>Aderayo Adedotun</td><td>2023-09-11</td><td>16:14</td><td>2023-09-11</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>OPERATIONAL LICENSE</td><td>10000.0</td><td>Ten Thousand Dollars Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/09/168</td><td>odogwu samuel</td><td>2023-09-12</td><td>12:21</td><td>2023-10-11</td><td>soetan.oluwayemisi</td><td>2023-09-12</td><td>13:07</td><td>Dollars</td><td>LEASE RENTAL</td><td>42000.0</td><td>forty two thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/09/169</td><td>odogwu samuel</td><td>2023-09-12</td><td>14:54</td><td>2023-09-12</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>ACCOMMODATION</td><td>2250.0</td><td>Two Thousand Two Hundred Fifty Dollars Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/09/170</td><td>olubunmi olatujayan</td><td>2023-09-12</td><td>15:38</td><td>2023-09-12</td><td>soetan.oluwayemisi</td><td>2023-09-18</td><td>09:34</td><td>Naira</td><td>vehicle registrations</td><td>400000.0</td><td>four hundred thousand </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>IGNORE</td><td>RAF/2023/09/171</td><td>olubunmi olatujayan</td><td>2023-09-12</td><td>15:39</td><td>2023-09-12</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>vehicle registrations</td><td>240000.0</td><td>Two Hundred Forty Thousand Naira Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/172</td><td>odogwu samuel</td><td>2023-09-13</td><td>10:55</td><td>2023-09-13</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>LEASE RENTAL</td><td>10000.0</td><td>Ten Thousand Dollars Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/09/173</td><td>odogwu samuel</td><td>2023-09-13</td><td>14:44</td><td>2023-09-13</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>ACCOMMODATION</td><td>75.0</td><td>Seventy Five Dollars Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>CNC LFTZ ENTERPRISE</td><td>CNC/2023/09/174</td><td>odogwu samuel</td><td>2023-09-14</td><td>11:35</td><td>2023-09-14</td><td>soetan.oluwayemisi</td><td>2023-09-14</td><td>14:47</td><td>Dollars</td><td>OPERATIONAL CHARGE</td><td>18250.0</td><td>Eighteen Thousand Two Hundred Fifty Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>FIDEL MERCANTILE SERVICES LIMITED</td><td>FID/2023/09/175</td><td>Aderayo Adedotun</td><td>2023-09-14</td><td>16:08</td><td>2023-09-14</td><td>soetan.oluwayemisi</td><td>2023-09-15</td><td>10:00</td><td>Dollars</td><td>Renewal of Service Permit</td><td>1800.0</td><td>one thousand eight hundred </td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/09/176</td><td>odogwu samuel</td><td>2023-09-15</td><td>08:48</td><td>2023-09-15</td><td>soetan.oluwayemisi</td><td>2023-09-15</td><td>10:03</td><td>Naira</td><td>OTHERS</td><td>334000.0</td><td>Three Hundred Thirty Four Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>De-Topnotch Services Limited</td><td>DE-/2023/09/177</td><td>adedeji adebayo</td><td>2023-09-15</td><td>10:25</td><td>2023-09-15</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>waste management disposal </td><td>136610.0</td><td>One Hundred Thirty Six Thousand Six Hundred Ten Naira Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>De-Topnotch Services Limited</td><td>DE-/2023/09/178</td><td>adedeji adebayo</td><td>2023-09-15</td><td>10:26</td><td>2023-09-15</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>waste management disposal </td><td>136610.0</td><td>One Hundred Thirty Six Thousand Six Hundred Ten Naira Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/179</td><td>odogwu samuel</td><td>2023-09-18</td><td>15:02</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>13:38</td><td>Naira</td><td>Canteen</td><td>525000.0</td><td>Five Hundred Twenty Five Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/09/180</td><td>odogwu samuel</td><td>2023-09-18</td><td>15:09</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>13:34</td><td>Naira</td><td>Canteen</td><td>280000.0</td><td>Two Hundred Eighty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Baker Hughes Nigeria Ltd,</td><td>BAK/2023/09/181</td><td>odogwu samuel</td><td>2023-09-18</td><td>15:14</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>13:32</td><td>Naira</td><td>Canteen</td><td>20000.0</td><td>Twenty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/09/182</td><td>odogwu samuel</td><td>2023-09-18</td><td>15:19</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>13:30</td><td>Naira</td><td>Canteen</td><td>132500.0</td><td>One Hundred Thirty Two Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/09/183</td><td>odogwu samuel</td><td>2023-09-18</td><td>15:22</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>13:28</td><td>Naira</td><td>Canteen</td><td>22500.0</td><td>Twenty Two Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/09/184</td><td>odogwu samuel</td><td>2023-09-18</td><td>15:26</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>13:23</td><td>Naira</td><td>Canteen</td><td>10000.0</td><td>Ten Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/09/185</td><td>odogwu samuel</td><td>2023-09-18</td><td>15:42</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>13:12</td><td>Naira</td><td>Canteen</td><td>240000.0</td><td>Two Hundred Forty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Telisol Limited,</td><td>TEL/2023/09/186</td><td>odogwu samuel</td><td>2023-09-18</td><td>15:44</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>13:01</td><td>Naira</td><td>Canteen</td><td>5000.0</td><td>Five Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/09/187</td><td>odogwu samuel</td><td>2023-09-18</td><td>15:48</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>13:00</td><td>Naira</td><td>Canteen</td><td>145000.0</td><td>One Hundred Forty Five Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/09/188</td><td>odogwu samuel</td><td>2023-09-18</td><td>15:52</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>12:50</td><td>Naira</td><td>Canteen</td><td>35000.0</td><td>Thirty Five Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/09/189</td><td>odogwu samuel</td><td>2023-09-18</td><td>15:59</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>12:40</td><td>Naira</td><td>Canteen</td><td>667500.0</td><td>Six Hundred Sixty Seven Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/09/190</td><td>odogwu samuel</td><td>2023-09-18</td><td>16:10</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>12:30</td><td>Naira</td><td>Canteen</td><td>120000.0</td><td>One Hundred Twenty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Nahman Construction Company Limited</td><td>NAH/2023/09/191</td><td>odogwu samuel</td><td>2023-09-18</td><td>16:20</td><td>2023-09-18</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>11:46</td><td>Naira</td><td>Canteen</td><td>87500.0</td><td>Eighty Seven Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/09/192</td><td>odogwu samuel</td><td>2023-09-19</td><td>10:36</td><td>2023-09-19</td><td>soetan.oluwayemisi</td><td>2023-09-19</td><td>11:30</td><td>Naira</td><td>OTHERS</td><td>1952500.0</td><td>One Million Nine Hundred Fifty Two Thousand Five Hundred Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Dufil Prima Foods Limited.</td><td>DUF/2023/09/193</td><td>odogwu samuel</td><td>2023-09-20</td><td>20:46</td><td>2023-09-20</td><td>soetan.oluwayemisi</td><td>2023-09-21</td><td>10:28</td><td>Dollars</td><td>ACCOMMODATION</td><td>10150.0</td><td>Ten Thousand One Hundred Fifty Dollars Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/09/194</td><td>odogwu samuel</td><td>2023-09-22</td><td>10:53</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:49</td><td>Naira</td><td>Canteen</td><td>230000.0</td><td>Two Hundred Thirty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/09/195</td><td>odogwu samuel</td><td>2023-09-22</td><td>10:59</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:48</td><td>Naira</td><td>Canteen</td><td>180000.0</td><td>One Hundred Eighty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Baker Hughes Nigeria Ltd,</td><td>BAK/2023/09/196</td><td>odogwu samuel</td><td>2023-09-22</td><td>11:06</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:47</td><td>Naira</td><td>Canteen</td><td>90000.0</td><td>Ninety Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/09/197</td><td>odogwu samuel</td><td>2023-09-22</td><td>11:30</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:47</td><td>Naira</td><td>Canteen</td><td>155000.0</td><td>One Hundred Fifty Five Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/09/198</td><td>odogwu samuel</td><td>2023-09-22</td><td>11:39</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:46</td><td>Naira</td><td>Canteen</td><td>235000.0</td><td>Two Hundred Thirty Five Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/09/199</td><td>odogwu samuel</td><td>2023-09-22</td><td>11:41</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:45</td><td>Naira</td><td>Canteen</td><td>20000.0</td><td>Twenty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/09/200</td><td>odogwu samuel</td><td>2023-09-22</td><td>11:45</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:44</td><td>Naira</td><td>Canteen</td><td>120000.0</td><td>One Hundred Twenty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>MBH Power Limited</td><td>MBH/2023/09/201</td><td>odogwu samuel</td><td>2023-09-22</td><td>11:49</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:41</td><td>Naira</td><td>Canteen</td><td>20000.0</td><td>Twenty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/09/202</td><td>odogwu samuel</td><td>2023-09-22</td><td>11:52</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:40</td><td>Naira</td><td>Canteen</td><td>30000.0</td><td>Thirty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/09/203</td><td>odogwu samuel</td><td>2023-09-22</td><td>11:57</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:35</td><td>Naira</td><td>Canteen</td><td>77500.0</td><td>Seventy Seven Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Telisol Limited,</td><td>TEL/2023/09/204</td><td>odogwu samuel</td><td>2023-09-22</td><td>12:00</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:38</td><td>Naira</td><td>Canteen</td><td>5000.0</td><td>Five Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/09/205</td><td>odogwu samuel</td><td>2023-09-22</td><td>12:03</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:32</td><td>Naira</td><td>Canteen</td><td>52500.0</td><td>Fifty Two Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Dufil Prima Foods Limited.</td><td>DUF/2023/09/206</td><td>odogwu samuel</td><td>2023-09-22</td><td>12:08</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:31</td><td>Naira</td><td>Canteen</td><td>2057500.0</td><td>Two Million Fifty Seven Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/09/207</td><td>odogwu samuel</td><td>2023-09-22</td><td>12:10</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:30</td><td>Naira</td><td>Canteen</td><td>97500.0</td><td>Ninety Seven Thousand Five Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/09/208</td><td>odogwu samuel</td><td>2023-09-22</td><td>12:15</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:29</td><td>Naira</td><td>Canteen</td><td>675000.0</td><td>Six Hundred Seventy Five Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Nahman Construction Company Limited</td><td>NAH/2023/09/209</td><td>odogwu samuel</td><td>2023-09-22</td><td>12:18</td><td>2023-09-22</td><td>soetan.oluwayemisi</td><td>2023-09-26</td><td>10:20</td><td>Naira</td><td>Canteen</td><td>130000.0</td><td>One Hundred Thirty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>CHINA HARBOUR ENGINEERING LFTZ ENTERPRISE</td><td>CHI/2023/09/210</td><td>Chioma.iwuagwu</td><td>2023-09-26</td><td>11:36</td><td>2023-09-26</td><td>soetan.oluwayemisi</td><td>2023-09-28</td><td>21:32</td><td>Naira</td><td>OPERATIONAL CHARGE</td><td>100000.0</td><td>One Hundred Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>SUPERMARINE SERVICES LIMITED.</td><td>SUP/2023/09/211</td><td>odogwu samuel</td><td>2023-09-28</td><td>23:08</td><td>2023-09-28</td><td>soetan.oluwayemisi</td><td>2023-09-29</td><td>10:18</td><td>Dollars</td><td>Rental </td><td>4000.0</td><td>Four Thousand Dollars Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/09/212</td><td>odogwu samuel</td><td>2023-09-29</td><td>10:19</td><td>2023-09-29</td><td>soetan.oluwayemisi</td><td>2023-09-29</td><td>10:45</td><td>Dollars</td><td>Annual Returns Filing</td><td>125.0</td><td>One Hundred Twenty Five Dollars Only</td><td>Lagos Free Zone</td><td>REJECTED</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/09/213</td><td>odogwu samuel</td><td>2023-09-29</td><td>12:37</td><td>2023-09-29</td><td>soetan.oluwayemisi</td><td>2023-09-29</td><td>13:05</td><td>Dollars</td><td>Annual Returns Filing</td><td>125.0</td><td>One Hundred Twenty Five Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>TG Arla Dairy Products LFTZ Enterprise</td><td>TG /2023/10/214</td><td>odogwu samuel</td><td>2023-10-03</td><td>09:25</td><td>2023-10-03</td><td>soetan.oluwayemisi</td><td>2023-10-03</td><td>12:09</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>750000.0</td><td>Seven Hundred Fifty Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/10/215</td><td>odogwu samuel</td><td>2023-10-03</td><td>09:27</td><td>2023-10-03</td><td>soetan.oluwayemisi</td><td>2023-10-03</td><td>12:07</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>1500000.0</td><td>One Million Five Hundred Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/10/216</td><td>odogwu samuel</td><td>2023-10-03</td><td>09:29</td><td>2023-10-03</td><td>soetan.oluwayemisi</td><td>2023-10-03</td><td>12:06</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>750000.0</td><td>Seven Hundred Fifty Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/10/217</td><td>odogwu samuel</td><td>2023-10-03</td><td>09:30</td><td>2023-10-03</td><td>soetan.oluwayemisi</td><td>2023-10-03</td><td>12:05</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>500000.0</td><td>Five Hundred Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/10/218</td><td>odogwu samuel</td><td>2023-10-03</td><td>09:32</td><td>2023-10-03</td><td>soetan.oluwayemisi</td><td>2023-10-03</td><td>12:04</td><td>Naira</td><td>NEPZA AND CUSTOMS CONVEYANCE</td><td>2600000.0</td><td>Two Million Six Hundred Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/10/219</td><td>odogwu samuel</td><td>2023-10-03</td><td>09:34</td><td>2023-10-03</td><td>soetan.oluwayemisi</td><td>2023-10-03</td><td>12:02</td><td>Naira</td><td>CLINIC MAINTAINANCE</td><td>350000.0</td><td>Three Hundred Fifty Thousand Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/10/220</td><td>adedeji adebayo</td><td>2023-10-03</td><td>10:19</td><td>2023-09-30</td><td>emmanuelc</td><td>2023-10-03</td><td>11:53</td><td>Naira</td><td>WASTE DISPOSAL</td><td>56000.0</td><td>Fifty Six Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/10/221</td><td>olubunmi olatujayan</td><td>2023-10-03</td><td>10:37</td><td>2023-10-03</td><td>soetan.oluwayemisi</td><td>2023-10-03</td><td>12:00</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>50000.0</td><td>Fifty Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/10/222</td><td>olubunmi olatujayan</td><td>2023-10-03</td><td>10:44</td><td>2023-10-03</td><td>soetan.oluwayemisi</td><td>2023-10-03</td><td>12:00</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>50000.0</td><td>Fifty Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/10/223</td><td>olubunmi olatujayan</td><td>2023-10-03</td><td>10:51</td><td>2023-10-03</td><td>soetan.oluwayemisi</td><td>2023-10-03</td><td>11:59</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>50000.0</td><td>Fifty Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/10/224</td><td>olubunmi olatujayan</td><td>2023-10-03</td><td>11:02</td><td>2023-10-03</td><td>soetan.oluwayemisi</td><td>2023-10-03</td><td>11:58</td><td>Naira</td><td>IMMIGRATION MATTERS</td><td>100000.0</td><td>One Hundred Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI POWER PLANT (Viathan Engineering Limited)</td><td>LEK/2023/10/225</td><td>adedeji adebayo</td><td>2023-10-03</td><td>11:20</td><td>2023-09-30</td><td>emmanuelc</td><td>2023-10-03</td><td>11:52</td><td>Naira</td><td>WASTE DISPOSAL</td><td>56000.0</td><td>Fifty Six Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI POWER PLANT (Viathan Engineering Limited)</td><td>LEK/2023/10/226</td><td>adedeji adebayo</td><td>2023-10-03</td><td>11:20</td><td>2023-09-30</td><td>emmanuelc</td><td>2023-10-03</td><td>11:52</td><td>Naira</td><td>WASTE DISPOSAL</td><td>56000.0</td><td>Fifty Six Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>VIMAL FIRE CONTROLS FZE</td><td>VIM/2023/10/227</td><td>odogwu samuel</td><td>2023-10-04</td><td>11:37</td><td>2023-09-30</td><td>soetan.oluwayemisi</td><td>2023-10-04</td><td>13:33</td><td>Dollars</td><td>ACCOMMODATION</td><td>300.0</td><td>Three Hundred Dollars Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>VIMAL FIRE CONTROLS FZE</td><td>VIM/2023/10/228</td><td>odogwu samuel</td><td>2023-10-04</td><td>11:43</td><td>2023-09-30</td><td>soetan.oluwayemisi</td><td>2023-10-04</td><td>12:31</td><td>Naira</td><td>Canteen</td><td>119900.0</td><td>One Hundred Nineteen Thousand Nine Hundred Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/10/229</td><td>odogwu samuel</td><td>2023-10-04</td><td>12:23</td><td>2023-09-30</td><td>soetan.oluwayemisi</td><td>2023-10-04</td><td>16:23</td><td>Naira</td><td>OTHERS</td><td>982840.0</td><td>Nine Hundred Eighty Two Thousand Eight Hundred Forty Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/10/230</td><td>odogwu samuel</td><td>2023-10-04</td><td>12:28</td><td>2023-09-30</td><td>soetan.oluwayemisi</td><td>2023-10-04</td><td>13:37</td><td>Naira</td><td>OTHERS</td><td>287379.0</td><td>Two Hundred Eighty Seven Thousand Three Hundred Seventy Nine Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/10/231</td><td>odogwu samuel</td><td>2023-10-04</td><td>12:32</td><td>2023-09-30</td><td>soetan.oluwayemisi</td><td>2023-10-04</td><td>13:39</td><td>Naira</td><td>OTHERS</td><td>237660.0</td><td>Two Hundred Thirty Seven Thousand Six Hundred Sixty Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/10/232</td><td>odogwu samuel</td><td>2023-10-04</td><td>12:35</td><td>2023-09-30</td><td>soetan.oluwayemisi</td><td>2023-10-04</td><td>13:39</td><td>Naira</td><td>OTHERS</td><td>1220640.0</td><td>One Million Two Hundred Twenty Thousand Six Hundred Forty Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/10/233</td><td>odogwu samuel</td><td>2023-10-04</td><td>12:38</td><td>2023-09-30</td><td>soetan.oluwayemisi</td><td>2023-10-04</td><td>13:40</td><td>Naira</td><td>OTHERS</td><td>24765.0</td><td>Twenty Four Thousand Seven Hundred Sixty Five Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/10/234</td><td>odogwu samuel</td><td>2023-10-04</td><td>12:40</td><td>2023-09-30</td><td>soetan.oluwayemisi</td><td>2023-10-04</td><td>16:21</td><td>Naira</td><td>OTHERS</td><td>48690.0</td><td>Forty Eight Thousand Six Hundred Ninety Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/10/235</td><td>odogwu samuel</td><td>2023-10-04</td><td>12:44</td><td>2023-09-30</td><td>soetan.oluwayemisi</td><td>2023-10-04</td><td>13:48</td><td>Naira</td><td>OTHERS</td><td>345956.0</td><td>Three Hundred Forty Five Thousand Nine Hundred Fifty Six Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/10/236</td><td>Chioma.iwuagwu</td><td>2023-10-04</td><td>14:09</td><td>2023-10-04</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>vehicle registrations</td><td>100.0</td><td>One Hundred Dollars Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>VEDIC LIFECARE HOSPITAL</td><td>VED/2023/10/237</td><td>odogwu samuel</td><td>2023-10-05</td><td>09:56</td><td>2023-09-30</td><td>soetan.oluwayemisi</td><td>2023-10-05</td><td>11:05</td><td>Naira</td><td>waste management disposal </td><td>60750.0</td><td>Sixty Thousand Seven Hundred Fifty Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/10/238</td><td>odogwu samuel</td><td>2023-10-06</td><td>14:54</td><td>2023-09-30</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>ACCOMMODATION</td><td>3000.0</td><td>Three Thousand Dollars Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/10/239</td><td>odogwu samuel</td><td>2023-10-07</td><td>08:49</td><td>2023-10-06</td><td>soetan.oluwayemisi</td><td>2023-10-09</td><td>12:35</td><td>Naira</td><td>OTHERS</td><td>7175000.0</td><td>Seven Million One Hundred Seventy Five Thousand Naira Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>RAFFLES OIL LFTZ ENTERPRISE</td><td>RAF/2023/10/240</td><td>odogwu samuel</td><td>2023-10-09</td><td>10:55</td><td>2023-10-09</td><td>soetan.oluwayemisi</td><td>2023-10-09</td><td>12:24</td><td>Dollars</td><td>Quarterly Operational Fee</td><td>15000.0</td><td>Fifteen Thousand Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/10/241</td><td>odogwu samuel</td><td>2023-10-09</td><td>11:07</td><td>2023-10-09</td><td>soetan.oluwayemisi</td><td>2023-10-09</td><td>12:23</td><td>Dollars</td><td>Quarterly Operational Fee</td><td>15000.0</td><td>Fifteen Thousand Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>TG Arla Dairy Products LFTZ Enterprise</td><td>TG /2023/10/242</td><td>odogwu samuel</td><td>2023-10-09</td><td>11:08</td><td>2023-10-09</td><td>soetan.oluwayemisi</td><td>2023-10-09</td><td>12:22</td><td>Dollars</td><td>Quarterly Operational Fee</td><td>15000.0</td><td>Fifteen Thousand Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI PORT LFTZ ENTERPRISE LIMITED</td><td>LEK/2023/10/243</td><td>odogwu samuel</td><td>2023-10-09</td><td>11:10</td><td>2023-10-09</td><td>soetan.oluwayemisi</td><td>2023-10-09</td><td>12:21</td><td>Dollars</td><td>Quarterly Operational Fee</td><td>25000.0</td><td>Twenty Five Thousand Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>KT LFTZ ENTERPRISE</td><td>KT /2023/10/244</td><td>odogwu samuel</td><td>2023-10-09</td><td>11:12</td><td>2023-10-09</td><td>soetan.oluwayemisi</td><td>2023-10-09</td><td>12:17</td><td>Dollars</td><td>Quarterly Operational Fee</td><td>15000.0</td><td>Fifteen Thousand Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>SANA BUILDING SYSTEMS LFTZ ENTERPRISE</td><td>SAN/2023/10/245</td><td>odogwu samuel</td><td>2023-10-09</td><td>11:14</td><td>2023-10-09</td><td>soetan.oluwayemisi</td><td>2023-10-09</td><td>12:16</td><td>Dollars</td><td>Quarterly Operational Fee</td><td>15000.0</td><td>Fifteen Thousand Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>LEKKI FREE PORT TERMINAL</td><td>LEK/2023/10/246</td><td>odogwu samuel</td><td>2023-10-09</td><td>11:16</td><td>2023-10-09</td><td>soetan.oluwayemisi</td><td>2023-10-09</td><td>12:15</td><td>Dollars</td><td>Quarterly Operational Fee</td><td>25000.0</td><td>Twenty Five Thousand Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/10/247</td><td>odogwu samuel</td><td>2023-10-09</td><td>11:18</td><td>2023-10-09</td><td>soetan.oluwayemisi</td><td>2023-10-09</td><td>12:12</td><td>Dollars</td><td>Quarterly Operational Fee</td><td>25000.0</td><td>Twenty Five Thousand Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>GREEN PACKAGING LFZ ENTERPRISE</td><td>GRE/2023/10/248</td><td>odogwu samuel</td><td>2023-10-09</td><td>11:19</td><td>2023-10-09</td><td>soetan.oluwayemisi</td><td>2023-10-09</td><td>12:13</td><td>Dollars</td><td>Quarterly Operational Fee</td><td>31250.0</td><td>Thirty One Thousand Two Hundred Fifty Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>BASF Operations LFTZ Enterprise</td><td>BAS/2023/10/249</td><td>Chioma.iwuagwu</td><td>2023-10-09</td><td>11:24</td><td>2023-10-09</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>Annual Returns Filing</td><td>125.0</td><td>One Hundred Twenty Five Dollars Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Infinity Logistics LFZ Enterprise</td><td>INF/2023/10/250</td><td>odogwu samuel</td><td>2023-10-09</td><td>11:27</td><td>2023-10-09</td><td>soetan.oluwayemisi</td><td>2023-10-09</td><td>12:04</td><td>Dollars</td><td>Quarterly Operational Fee</td><td>25000.0</td><td>Twenty Five Thousand Dollars Only</td><td>Lagos Free Zone</td><td>APPROVED</td>
+		</tr><tr>
+			<td>INSIGNIA PRINTS TECHNOLOGY LFTZ ENTERPRISE</td><td>INS/2023/10/251</td><td>Chioma.iwuagwu</td><td>2023-10-09</td><td>11:59</td><td>2023-10-09</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>VEHICLE RENEWAL</td><td>50.0</td><td>Fifty Dollars Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Solynta Energy LFZ Enterprise</td><td>SOL/2023/10/252</td><td>odogwu samuel</td><td>2023-10-09</td><td>15:17</td><td>2023-10-09</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>Quarterly Operational Fee</td><td>4500.0</td><td>Four Thousand Five Hundred Dollars Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>Solynta Energy LFZ Enterprise</td><td>SOL/2023/10/253</td><td>odogwu samuel</td><td>2023-10-09</td><td>16:08</td><td>2023-10-09</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>Quarterly Operational Fee</td><td>45000.0</td><td>Forty Five Thousand Dollars Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/10/254</td><td>Chioma.iwuagwu</td><td>2023-10-11</td><td>12:20</td><td>2023-10-11</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>VEHICLE RENEWAL</td><td>75.0</td><td>Seventy Five Dollars Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/10/255</td><td>odogwu samuel</td><td>2023-10-11</td><td>12:41</td><td>2023-09-30</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>INTEREST CHARGE</td><td>55.0</td><td>Fifty Five Dollars And Forty Eight cent Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/10/256</td><td>odogwu samuel</td><td>2023-10-11</td><td>12:43</td><td>2023-09-30</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>INTEREST CHARGE</td><td>13528.0</td><td>Thirteen Thousand Five Hundred Twenty Eight Naira Only</td><td>Lagos Free Zone</td><td>PENDING</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/10/257</td><td>odogwu samuel</td><td>2023-10-11</td><td>12:46</td><td>2023-09-30</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Dollars</td><td>INTEREST CHARGE</td><td>81.0</td><td>Eighty Dollars And Sixty Seven cent Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr><tr>
+			<td>Colgate Tolaram LFTZ Enterprise</td><td>COL/2023/10/258</td><td>odogwu samuel</td><td>2023-10-11</td><td>12:48</td><td>2023-09-30</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Naira</td><td>INTEREST CHARGE</td><td>67879.0</td><td>Sixty Seven Thousand Eight Hundred Seventy Nine Naira Only</td><td>Free Zone Utilities LFTZ Enterprises.</td><td>PENDING</td>
+		</tr>
+	</table>
+</div>

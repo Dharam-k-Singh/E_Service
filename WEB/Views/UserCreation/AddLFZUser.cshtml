@@ -1,0 +1,341 @@
+﻿@*=============================================
+       Created By:	ismail baroodwale
+       Create date: 24-12-2019
+       Description: admin panel-add User
+    NEW SVN VERSION
+    =============================================*@
+
+@model  Model.Models.UserCreation.UserCreationModel
+<style>
+    .sele-list .btn-group {
+        width: 100%;
+    }
+
+        .sele-list .btn-group button {
+            width: 100%;
+            text-align: left;
+            height: 44px;
+            background: white;
+        }
+
+        .sele-list .btn-group .multiselect-container {
+            width: 100%;
+        }
+</style>
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Add LFZ User</li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Add LFZ User</h1>
+    </div>
+</div>
+<div class="row">
+
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+        <script>
+            var form = document.getElementById("AddUser");
+            form.reset();
+        </script>
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+        <script>
+            var form = document.getElementById("AddUser");
+            form.reset();
+        </script>
+    }
+
+    @using (Html.BeginForm("SaveUser", "UserCreation", FormMethod.Post, new { enctype = "multipart/form-data", @id = "AddUser" }))
+    {
+
+        <div class="col-md-12 ">
+
+            <div class="panel panel-default articles ">
+
+
+                <div class="panel-heading">
+                    <div class="col-md-12">
+                        Add LFZ User
+                    </div>
+
+                </div>
+
+
+
+                <div class="panel-body articles-container">
+                    @*<div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label lfz">Enterprise</label>
+                                    @Html.DropDownListFor(m => m.OrganizationID, (SelectList)ViewBag.organization, "-- Select--", new { @class = "form-control", @required = "required", @id = "OrganizationID" })
+                                    @Html.ValidationMessageFor(m => m.OrganizationID, "", new { @class = "text-danger", @style = "color:red" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <p>
+                                        <button id="myBtn" class="btn-primary" type="button">Add new Enterprise</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>*@
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="lastname" class="control-label  lfz">Name</label>
+                                @Html.HiddenFor(m => m.UDID)
+                                @Html.EditorFor(m => m.EmployeeName, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "EmployeeName" } })
+                                @Html.ValidationMessageFor(m => m.EmployeeName, "", new { @class = "text-danger", @style = "color:red" })
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="firstname" class="control-label  lfz">Role</label>
+                                @Html.DropDownListFor(m => m.RoleId, (SelectList)ViewBag.Roles, "-- Select--", new { @class = "form-control", @required = "required", @id = "Role" })
+                                @Html.ValidationMessageFor(m => m.RoleId, "", new { @class = "text-danger", @style = "color:red" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab sele-list">
+                                <label for="firstname" class="control-label  lfz">Department</label>
+                                @*@Html.DropDownListFor(m => m.DepartmentID, (SelectList)ViewBag.department, "-- Select--", new { @class = "form-control", @required = "required", @id = "DepartmentID" })
+                                    @Html.ValidationMessageFor(m => m.DepartmentID, "", new { @class = "text-danger", @style = "color:red" })*@
+
+                                @Html.ListBoxFor(m => m.DepartmentID, (SelectList)ViewBag.department, new { @class = "listbox", @required = "required" })
+                                @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @style = "color:red" })
+                            </div>
+                        </div>
+
+
+
+                        @*<div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="lastname" class="control-label  lfz">Reporting To</label>
+                                    @Html.DropDownListFor(m => m.ReportingToID, (SelectList)ViewBag.userdetail, "-- Select--", new { @class = "form-control", @required = "required", @id = "ReportingToID" })
+                                    @Html.ValidationMessageFor(m => m.ReportingToID, "", new { @class = "text-danger", @style = "color:red" })
+                                </div>
+                            </div>*@
+
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="firstname" class="control-label  lfz">Email ID</label>
+                                @Html.EditorFor(m => m.EmailId, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "EmailID" } })
+
+                                @Html.ValidationMessageFor(m => m.EmailId, "", new { @class = "text-danger", @style = "color:red" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="lastname" class="control-label  lfz">Password</label>
+                                @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "Password" } })
+
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger", @style = "color:red" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="lastname" class="control-label  lfz">Mobile Number</label>
+                                @Html.EditorFor(m => m.MobileNo, new { htmlAttributes = new { @class = "form-control", @id = "MobileNo", @maxlength = "15" } })
+
+                                @Html.ValidationMessageFor(m => m.MobileNo, "", new { @class = "text-danger", @style = "color:red" })
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-xs-12 text-right">
+                            <button class="btn btn-primary" type="submit" name="Save">Save</button>
+                            @*<button type="submit" class="btn btn-primary">Submit</button>*@
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    }
+
+    @*@using (Html.BeginForm("SaveEnterpriseDetails", "UserCreation", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveEnterpriseDetails" }))
+        {
+            <div id="myModal" class="modal">
+                <div class="popup">
+                    @*<h5>Add Enterprise Name</h5>
+                    <button class="close">×</button>
+                    <div class="content">
+                        <table class="table table-bordered table-hover table-sortable" id="tblModal" style="width:100%">
+
+                            <thead>
+                                <tr>
+                                    <th>Enterprise Name</th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @Html.HiddenFor(m => m.OrganizationModel.OrganizationName, new { @id = "OrganizationName" })
+                                <tr>
+
+                                    <td>
+
+                                        <input type='text' class='form-control' id='OrganizationName_' maxlength="1000" />
+                                    </td>
+
+                                    <td data-name="del" hidden>
+                                        <input type='number' maxlength='100' class='form-control' value='0' style='display:none' id="OrganizationID_" />
+
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <input type="submit" id="" class="btn btn-primary" title="Submit" value="Save" name="SaveDetails" onclick="FunDetailsSave()">
+                    </div>
+                </div>
+            </div>
+        }*@
+
+</div>
+
+
+<link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap-multiselect.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('.listbox').multiselect({
+            includeSelectAllOption: true
+        });
+    });
+</script>
+@*<script>
+
+
+        function FunDetailsSave() {
+
+            var flag = CheckDetailsSave();
+            //alert(flag)
+            if (flag == true)
+                $('#SaveEnterpriseDetails').submit();
+            //$('#').submit();
+            //else if (flag == false)
+            //    $('#SaveInvoiceDetails').submit();
+
+            else
+                event.preventDefault();
+
+        }
+        function CheckDetailsSave() {
+
+            var values = '';
+            var i = 0;
+            var flag = true
+
+            var NoOfRows = $("#tblModal  tbody  tr").length;
+            if (NoOfRows < 1) {
+                //  alert("Please Add Invoice Details")
+                //flag = false
+            }
+            else {
+                $("#tblModal TBODY TR").each(function () {
+                    //alert("hi")
+                    var row = $(this);
+                    var string = "";
+
+                    var OrganizationName = row.find("TD input").eq(0).val();
+                    if (OrganizationName == "") {
+                        //$('#txterrorExpenseAmount_0').show();
+                        alert("Name of Enterprise Required");
+                        flag = false
+                        return false;
+                        // string += '####' + 'NULL';
+                    }
+                    else {
+                        string = OrganizationName;
+                    }
+
+                    string += '####' + row.find("TD input").eq(1).val();
+
+
+                    console.log(string);
+
+                    if (i == 0) {
+                        values = string;
+                    }
+                    else {
+                        values += '||||' + string;
+                    }
+                    i++;
+
+                });
+
+                console.log(values);
+                $("#OrganizationName").val(values);
+            }
+            alert(values)
+            //flag = false;
+            return flag;
+
+        }
+    </script>
+    <script>
+        var modal = document.getElementById('myModal');
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+        btn.onclick = function () {
+            modal.style.display = "block";
+            modal.style.display = "block";
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>*@
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                //window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}

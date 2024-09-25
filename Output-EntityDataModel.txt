@@ -1,0 +1,36 @@
+﻿The model was generated with warnings or errors.LFTZIPContext.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:01.7170446.
+Generating the model took 00:01:00.4760893.
+The model was generated with warnings or errors.LFTZIPContext.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:00.8375239.
+Generating the model took 00:00:58.4524908.
+The model was generated with warnings or errors.LFTZIPContext.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:01.3513614.
+Generating the model took 00:00:48.4526676.
+The model was generated with warnings or errors.LFTZIPContext.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:00.8852544.
+Generating the model took 00:00:57.2779869.
+The model was generated with warnings or errors.LFTZIPContext.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:00.9188972.
+Generating the model took 00:00:55.0286606.
+The model was generated with warnings or errors.LFTZIPContext.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:00.7837417.
+Generating the model took 00:00:51.2460292.
+The model was generated with warnings or errors.LFTZIPContext.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:00.8700305.
+Generating the model took 00:00:54.4822897.
+The model was generated with warnings or errors.LFTZIPContext.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:00.6773328.
+Generating the model took 00:00:54.4229187.
+The model was generated with warnings or errors.LFTZIPContext.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:01.5745028.
+Generating the model took 00:01:01.3228682.
+The model was generated with warnings or errors.LFTZIPContext.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:00.6000816.
+Generating the model took 00:00:28.9373575.
+The model was generated with warnings or errors.LFTZIPContext.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:00.8983966.
+Generating the model took 00:00:25.4643345.
+The model was generated with warnings or errors.LFTZIPContext.edmxPlease see the Error List for more details. These issues must be fixed before running your application.
+Loading metadata from the database took 00:00:00.7542082.
+Generating the model took 00:00:28.1962707.

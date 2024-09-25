@@ -1,0 +1,221 @@
+﻿@model Model.Models.Survey.GetSurveyModel
+@*@model Model.Models.Survey.QuestionModel*@
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .form-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .control-label {
+        font-size: 16px;
+        flex-basis: 22%;
+        margin-bottom: 0px;
+    }
+
+    .form-control {
+        width: 50%;
+    }
+
+    .table > thead > tr > th {
+        white-space: nowrap;
+    }
+</style>
+
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Survey</li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"></h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+
+        @if (TempData["Success"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+        }
+        @if (TempData["Failure"] != null)
+        {
+            <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+        }
+
+
+
+        <div class="panel panel-default articles">
+
+            @*<div class="panel-heading">
+                    Select Survey
+                </div>*@
+
+
+            <div class="panel-body articles-container">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="concept" class="control-label">Survey Name</label>
+
+                        @Html.DropDownListFor(m => m.SurveyId, (SelectList)ViewBag.survey, "-- Select--", new { @id = "SurveyId", @class = "form-control", @required = "required", @onchange = "GetQuestionList()" })
+
+                        <br /><br />
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="panel panel-default articles">
+            <div class="panel-heading">
+                List of Questions
+            </div>
+            <div class="panel-body articles-container table-size">
+                <div class="">
+                    <!-- table-size-a -->
+
+
+                    <table id="tblQuestion" class="table table-striped table-bordered" style="width:100%">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Question</th>
+                                <th>Type</th>
+                                <th>Question No</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            @*@foreach (var lstQuestion in Model)
+                                {
+
+                                    <tr>
+                                        <td>@lstQuestion.Question</td>
+                                        <td>@lstQuestion.QuestionType</td>
+                                        <td>@lstQuestion.DisplayOnPageNo </td>
+                                        <td> @Html.ActionLink("Edit", "EditQuestion", new { id = lstQuestion.QuestionId }) |  @Html.ActionLink("Delete", "DeleteQuestion", new { id = lstQuestion.QuestionId }, new { onclick = "return confirm('Are you sure you want to delete this record?');" }) </td>
+
+
+                                    </tr>
+                                }*@
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- list of Question -->
+
+
+    </div>
+
+    <!-- content ene -->
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        GetQuestionList()
+        //$('#tblQuestion').DataTable();
+    });
+
+
+    /*//$("#SurveyId").change(*/function GetQuestionList() {
+
+        //$('#tblQuestion').removeAttr(DataTable);
+
+        $('#tblQuestion').hide();
+
+        var surveyid = $('#SurveyId').val();
+        console.log(surveyid);
+
+        //alert(surveyid)
+
+        if (surveyid == '' || surveyid == null || surveyid == undefined)
+            return false
+
+        $.ajax({
+            type: "post",
+            url: "@Url.Action("GetQuestionList", "Survey")",
+            data: { SurveyId: surveyid },
+            datatype: "json",
+            traditional: true,
+            success: function (data) {
+
+                console.log(data)
+                var tbodydata = '';
+
+                for (var i = 0; i < data.length; i++) {
+                    tbodydata += '<tr><td>' + data[i].Question + '</td><td>' + data[i].QuestionType + '</td><td>' + data[i].DisplayOnPageNo + '</td><td> <a href="/Survey/EditQuestion/' + data[i].QuestionId + '">Edit</a> |  <a href="/Survey/DeleteQuestion/' + data[i].QuestionId + '" onclick="return DeleteQuestion(' + data[i].QuestionId + ')">Delete</a> </td></tr>'
+                }
+                $('#tblQuestion tbody').html('')
+                $('#tblQuestion tbody').append(tbodydata);
+
+                $('#tblQuestion').show()
+
+                $('#tblQuestion').DataTable();
+
+
+            }
+        });
+
+        //});
+    }
+    function DeleteQuestion(id) {
+        var bool = confirm('Are you sure you want to delete this record ?')
+        //if (bool == true)
+            //alert(bool)
+        return bool
+    }
+
+
+</script>
+
+
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+
+

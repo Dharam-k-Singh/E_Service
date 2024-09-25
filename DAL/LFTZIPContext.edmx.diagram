@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f35f6695e7446f5849bf74f355ec52a" Name="Diagram1" ZoomLevel="60" >
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.ActivityLog" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.ExceptionLog" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_Campaign" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_CategorySubCategory" Width="1.5" PointX="4.75" PointY="10.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_Department" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_EnterpriseUser" Width="1.5" PointX="8.75" PointY="11.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_ListOfValues" Width="1.5" PointX="0.75" PointY="2.625" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_ListOfValues_RTD" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_MobileLog" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_Modules" Width="1.5" PointX="7.75" PointY="7" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_Question" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_QuestionPollOption" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_Request" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_Role" Width="1.5" PointX="2.75" PointY="7" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_Survey" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_WarehouseBooking" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_Year" Width="1.5" PointX="2.75" PointY="14.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.MAP_DepartmentCategory" Width="1.5" PointX="14.75" PointY="5.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.Map_Request" Width="1.5" PointX="14.75" PointY="9.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.Map_Warehousebooking" Width="1.5" PointX="4.75" PointY="15.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.NotifyAlert" Width="1.5" PointX="6.75" PointY="15.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.Organization" Width="1.5" PointX="8.75" PointY="15.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.RefreshToken_Mobile" Width="1.5" PointX="10.75" PointY="15.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.Request_Uploads" Width="1.5" PointX="12.75" PointY="15.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.T_SurveyStatus" Width="1.5" PointX="14.75" PointY="15.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.T_SurveyTransHistory" Width="1.5" PointX="16.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.T_UserSurveyAnswer" Width="1.5" PointX="16.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.UserDetail" Width="1.5" PointX="0.75" PointY="7.875" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_FoodDetails_RTD" Width="1.5" PointX="16.75" PointY="8.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_MeterDetails_RTD" Width="1.5" PointX="16.75" PointY="17.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.M_Weeks" Width="1.5" PointX="18.75" PointY="0.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.Map_FlatsDetails" Width="1.5" PointX="3" PointY="2.875" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.Map_Request_history" Width="1.5" PointX="18.75" PointY="4.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.Map_RequestFeedback" Width="1.5" PointX="8.75" PointY="18.75" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.Map_RoleModule" Width="1.5" PointX="10" PointY="7.625" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.Map_UserDepartment" Width="1.5" PointX="6" PointY="2.875" />
+        <EntityTypeShape EntityType="LFTZ_InvestorPortalModel.Map_UserRole" Width="1.5" PointX="5" PointY="7" />
+        <AssociationConnector Association="LFTZ_InvestorPortalModel.FK__Map_Flats__FlatI__79D2FC8C" />
+        <AssociationConnector Association="LFTZ_InvestorPortalModel.FK__Map_UserD__Depar__7CAF6937" />
+        <AssociationConnector Association="LFTZ_InvestorPortalModel.FK__Map_RoleM__Modul__7BBB44FE" />
+        <AssociationConnector Association="LFTZ_InvestorPortalModel.FK__Map_UserR__RoleI__7E97B1A9" />
+        <AssociationConnector Association="LFTZ_InvestorPortalModel.FK__Map_FlatsD__UDID__7AC720C5" />
+        <AssociationConnector Association="LFTZ_InvestorPortalModel.FK__Map_UserDe__UDID__7DA38D70" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

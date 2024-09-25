@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title>HR Portal</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== 
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>-->
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            
+                            <!-- Light Logo icon -->
+                            <img src="../assets/images/LFZ LOGO-22.png" width="40" alt="homepage" class="light-logo" />
+						   <!--<img src="../assets/images/LFZ LOGO-08.png" width="40" alt="homepage" class="light-logo" /><br>
+						   <img src="../assets/images/LFZ LOGO-29.png" width="40" alt="homepage" class="light-logo" />-->
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+                         <strong style="color:#FFF;">HR PORTAL</strong>
+                          <!--Light Logo text -->    
+                         <!--<img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />-->  </span> </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item hidden-sm-down search-box"> <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <!-- ============================================================== -->
+                        <!-- Profile -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male4-512.png" alt="user" class="profile-pic m-r-10" />Admin</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li> <a class="waves-effect waves-dark" href="index.html" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="pages-profile.html" aria-expanded="false"><i class="mdi mdi-account-check"></i><span class="hide-menu">Profile</span></a>
+                        </li>
+                       
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="pages-blank.html" aria-expanded="false"><i class="mdi mdi-book-open-variant"></i><span class="hide-menu">Email</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="pages-error-404.html" aria-expanded="false"><i class="mdi mdi-help-circle"></i><span class="hide-menu">Message</span></a>
+                        </li>
+                    </ul>
+                   <!-- <div class="text-center m-t-30">
+                        <a href="" class="btn waves-effect waves-light btn-warning hidden-md-down"> Upgrade to Pro</a>
+                    </div>-->
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+            <!-- Bottom points-->
+            <div class="sidebar-footer">
+                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+                <!-- item--><a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a> </div>
+            <!-- End Bottom points-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-4 col-7 align-self-center">
+                        <h3 class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active">KRA</li>
+                        </ol>
+                    </div>
+					
+					<div class="col-md-2 col-3 align-self-center">
+                        <a href="javascript:void(0)"" class="btn waves-effect waves-light  pull-right hidden-sm-down"><span class="hy-ye">HY1</span></a>
+                    </div>
+					
+                    <div class="col-md-6 col-3 align-self-right">
+                        <!--<a href="" class="btn waves-effect waves-light  pull-right hidden-sm-down"> 15 Aug 2020</a> -->
+						
+						<h3 class="text-themecolor m-b-0 m-t-0 text-per"> Last Date Submission <span>15 Aug 2020</span</h3>
+                        <ol class="breadcrumb br-cum">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Percentage of Appraisal Completed</a></li>
+                            <li class="breadcrumb-item active">40%</li>
+                        </ol>
+						
+						
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <div class="rowaa">
+                    <div class="col-12aa">
+                        <div class="cardaa">
+                            <div class="card-blockaa">
+                              
+							  
+							  
+							  
+							   <style>
+		
+		</style>
+        
+        
+		
+		
+		
+		<div class="row">
+		<div class="col-6">
+		
+		 <div class="form-group">
+                                                <label class="col-md-12">KRA</label>
+                                                <div class="col-md-12">
+                                                    <textarea rows="5" class="form-control form-control-line"></textarea>
+                                                </div>
+                                            </div>
+											
+		
+		</div>
+		
+		<div class="col-6">
+		
+		
+		<div class="form-group">
+		
+		<div class="row">
+		
+		<div class="content-bn-s show-bn-s">
+                                        <div class="col-md-3"><p class="wei-p">WEIGHTAGE</p></div> 
+                                        <div class="col-md-4">
+                                            <input type="text" placeholder="%" class="form-control form-control-line">
+                                        </div>
+										
+							</div>			
+										
+										
+                                   </div>  </div>
+									
+									
+									
+		
+		
+		</div>
+		
+		
+		
+		</div>
+							  
+							  
+							  
+							  
+							  <div class="row">
+		<div class="col-5">
+		 <div class="form-group">
+                                                <label class="col-md-12">Target</label>
+                                                <div class="col-md-12">
+                                                    <textarea  id="txt" rows="5" onclick="eraseText()" class="form-control form-control-line"></textarea>
+                                                </div>
+												
+												
+												<div class="col-md-12">
+                                                   <p class="hyaa">HY1</p>
+                                                </div>
+												
+												
+                                            </div>
+		
+		</div>
+		
+		<div class="col-2">
+		
+			<div class="content-bn-s show-bn-s">
+		<a href="javascript:void(0)"" type="button" onclick="displayOut()" value="click"><span class="hy-ye-s"><i class="mdi mdi-arrow-right-drop-circle"></i>  </span></a>
+		</div>
+		
+		<div class="form-group" style="text-align:center;">
+                                        <div class="col-sm-12">
+                                            <button class="btn btn-success">SAVE</button>
+                                        </div>
+                                    </div>
+		
+		
+		</div>
+		
+		
+		<div class="col-5">
+		
+		
+		 <div class="form-group">
+                                                <label class="col-md-12">Target</label>
+                                                <div class="col-md-12">
+                                                    <textarea  id="txt1" rows="5" class="form-control form-control-line"></textarea>
+                                                </div>
+												
+												<div class="col-md-12">
+                                                   <p class="hyaa">HY2</p>
+                                                </div>
+                                            </div>
+											
+											
+											
+		
+		</div>
+		
+		
+		
+		
+<script type="text/javascript">
+    
+
+    function displayOut() {
+        var input = document.getElementById("txt").value;
+        var text2 = document.getElementById("txt1");
+        text2.value = input;
+        if (input.length === 0) {
+            alert("Please enter a valid input");
+            return;
+        }
+        eraseText()
+
+    };
+</script>
+
+
+		
+		
+		</div>
+							  
+							  
+							  
+						
+
+
+<div class="row">
+                    <!-- column -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-block">
+                                
+                                <div class="table-responsive">
+								
+                                    <table class="table table-av">
+									
+									
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">KRA</th>
+                                                <th rowspan="2">WEIGHTAGE</th>
+                                                <th colspan="2">TARGET</th>
+                                                <th rowspan="2">ACTION</th>
+                                            </tr>
+											<tr>
+											    <th>HY1</th>
+                                                <th>HY2</th>
+											</tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Deshmukh</td>
+                                                <td>Prohaska</td>
+                                                <td>@Genelia</td>
+												 <td>Prohaska</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Deshmukh</td>
+                                                <td>Gaylord</td>
+                                                <td>@Ritesh</td>
+												 <td>Prohaska</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Sanghani</td>
+                                                <td>Gusikowski</td>
+                                                <td>@Govinda</td>
+												 <td>Prohaska</td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td>Roshan</td>
+                                                <td>Rogahn</td>
+                                                <td>@Hritik</td>
+												 <td>Prohaska</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td>Joshi</td>
+                                                <td>Hickle</td>
+                                                <td>@Maruti</td>
+												 <td>Prohaska</td>
+                                               
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td>Nigam</td>
+                                                <td>Eichmann</td>
+                                                <td>@Sonu</td>
+												 <td>Prohaska</td>
+                                               
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+				
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+							  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer">
+                © 2020 LAGOS FREE ZONE
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/plugins/bootstrap/js/tether.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.min.js"></script>
+	
+	
+	<script>
+   $(".tabs-bn").on("click", ".tab", function(e) {
+            	e.preventDefault();
+            	$(".tab").removeClass("active");
+            	$(".content-bn").removeClass("show-bn");
+            	$(this).addClass("active");
+            	$($(this).attr("href")).addClass("show-bn");
+            });
+   </script>
+   
+   
+</body>
+
+</html>

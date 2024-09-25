@@ -1,0 +1,82 @@
+<h4 class="header-icon">Raise Ticket</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        <div class="col-md-4">
+            <h6>Select Portals:</h6>
+            @Html.DropDownListFor(model => model.PortalId, (SelectList)ViewBag.PortalList, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PortalId, "", new { @class = "text-danger",@style = "color:red" })
+        </div>
+    </div>
+    <br />
+    <div class="col-md-4">
+        <div class="form-group">
+            <h6 for="IssueType">IssueType:</h6>
+            @Html.DropDownListFor(m => m.IssueTypeId, (SelectList)ViewBag.IssueType, "-- Select--", new { @class = "form-control", @required = "required", @id = "IssueTypeId" })
+        </div>
+        @Html.ValidationMessageFor(m => m.IssueTypeId, "", new { @class = "text-danger", @style = "color:red" })
+    </div>
+    <br />
+
+    <div class="col-md-4">
+        <h6>Priority: </h6>
+        <div class="il">
+            @foreach (var priority in (List<ListOfValueModel>)ViewBag.PriorityList)
+            {
+                <div class="m-lg-1">
+                    @Html.RadioButtonFor(m => m.PriorityId, priority.LOVId)
+                    @priority.LOVName
+                </div>
+            }
+        </div>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <h6>Details:</h6>
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.Details, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <h6>Document: </h6>
+        <div class="col-md-4">
+            <input type="file" name="document" id="filesizecheck"><br>
+            <span id="error" class="validation-error-label"></span>
+        </div>
+    </div>
+
+    <center>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-success"  onclick="SaveTicket()"/>
+            </div>
+        </div>
+    </center>
+
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#filesizecheck').on('change', function ()
+        {
+            myfiles = $(this).val();
+            var ext = myfiles.split('.').pop();
+            if (ext == "pdf")
+            {
+                $('#error').css("display", "none");
+            }
+            else {
+                $('#error').html("Only allow .pdf file inputs.");
+                $('#error').css("display", "block");
+                $('#error').css("color", "red");
+                $(this).val(null);
+            }
+        });
+    });
+
+    function SaveTicket() {
+        showSweetAlert("Saved SucessFully!");
+    }

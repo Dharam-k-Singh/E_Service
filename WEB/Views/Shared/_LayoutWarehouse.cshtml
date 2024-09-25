@@ -1,0 +1,389 @@
+﻿@using Utility;
+@using Model.CommonEnum;
+@using Model.Models.UserDetail
+@{
+    int roleid = 0;
+    int udid = 0;
+    string userId = null;
+    string ProfileImagePath = null;
+    if (Session["UserDetails"] != null)
+    {
+        UserDetailModel userdetail = (UserDetailModel)Session["UserDetails"];
+        roleid = userdetail.RoleId;
+        userId = userdetail.EmployeeName;
+        udid = userdetail.UDID;
+        ProfileImagePath = userdetail.ProfileImagePath;
+
+    }
+
+    else
+    {
+        @Html.Action("LogOut", "Account")
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>ESERVICE</title>
+
+
+    <!--<link href="~/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="~/css/style.css" rel="stylesheet" type="text/css">-->
+
+
+    <link href="~/css/new/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/new/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/css/new/css/datepicker3.css" rel="stylesheet">
+    <link href="~/css/new/css/styles.css" rel="stylesheet" type="text/css">
+
+
+    <link rel="apple-touch-icon" sizes="57x57" href="~/img/ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="~/img/ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="~/img/ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/img/ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"
+          href="~/img/ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"
+          href="~/img/ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"
+          href="~/img/ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"
+          href="~/img/ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="~/img/ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"
+          href="~/img/ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32"
+          href="~/img/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96"
+          href="~/img/ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+          href="~/img/ico/favicon-16x16.png">
+    <link rel="manifest" href="~/img/ico/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="~/img/ico/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- Custom fonts for this template
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">-->
+    <!-- Custom styles for this template-->
+    @*<link href="~/Content/jquery.easy_slides.css" rel="stylesheet" />*@
+
+
+
+
+
+    <script src="~/Scripts/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+
+
+    <script src="~/Scripts/UploadFileValidation.js" type="text/javascript"></script>
+    <link href="~/js/ConfirmJS/css/jquery-confirm.css" rel="stylesheet" />
+    <script src="~/js/ConfirmJS/js/jquery-confirm.js"></script>
+
+    <style>
+        .modal {
+            z-index: 999999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <div class="col-md-4">
+                    <a class="navbar-brand nacvg" href="@Url.Action("Index", "Home")">
+                        <!--    <img src="~/img/LFZ LOGO-22.png" /><span>ESERVICE</span>-->
+                        <img src="~/img/LFZ LOGO-25.png" class="img-responsive logo-ax" />
+
+                        <img src="~/img/LFZ LOGO-34.png" class="img-responsive logo-bx" />
+                    </a>
+
+                </div>
+
+                <div class="col-md-5">
+                    <div class="logo-eser">
+                        <!-- <img class="imeser-c" src="~/img/LFZ LOGO-22.png" />--> <span class="imeser-s">ESERVICE</span>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+
+
+                    <div class="clock">
+                        <div id="Date"></div>
+
+                    </div>
+
+
+
+                    <ul class="nav navbar-top-links navbar-right">
+
+                        <li class="dropdown bl-drop">
+                            <p style="display: -webkit-box; color: #FFFFFF; line-height: 37px; font-weight: 500; margin-bottom:0px;">
+                                <i class="fa fa-user-circle" style="font-size: 20px;" aria-hidden="true"></i> &nbsp;Welcome, @userId
+                            </p>
+                            <p style="display: -webkit-box; color: #FFFFFF; line-height: 37px; font-weight: 500; margin-bottom:0px;">
+                                @*<a style="display: -webkit-box; color: #FFFFFF; line-height: 37px; font-weight: 500; margin-bottom:0px;" href='@Url.Action("Dashboard", "Home")'><i class="ti-home"></i> Home</a>*@
+                            </p>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+
+                </ul>
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+
+        @if (roleid == 4 || roleid == 6)
+        {
+
+            <div class="profile-sidebar sideba-a">
+                <div class="side-enter">
+                    @if (ProfileImagePath == null)
+                    {
+
+                        <img class="ente-logo" src="~/Uploads/EnterpriseProfileUpload/ImageNotFound.jpg" />
+                    }
+                    else
+                    {
+
+                        <img class="ente-logo" src="~/Uploads/EnterpriseProfileUpload/@ProfileImagePath" />
+                    }
+
+                    @*<p class="ente-name">Enterprise Name : </p>*@
+
+                </div>
+
+
+                <div class="clear"></div>
+            </div>
+        }
+        <div class="divider"></div>
+        @*<form role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+            </form>*@
+
+
+
+
+
+    <ul id="menu-content" class="nav menu">
+
+        <li class="active">
+            <a href="@Url.Action("Dashboard", "Home")"><em class="fa fa-dashboard">&nbsp;</em> Home</a>
+        </li>
+
+
+        @if ((roleid == 1 || roleid == 7 ) && udid == 55)
+
+        {
+            <li class="parent">
+                <a data-toggle="collapse" href="#service"><em class="fa fa-navicon">&nbsp;</em>Warehouse <span data-toggle="collapse" href="#service" class="icon pull-right"><em class="fa fa-plus"></em></span></a>
+
+                <ul class="children collapse" id="service">
+
+                    <li><a href="@Url.Action("ConfirmBookedWarehouse","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>Approved</a></li>
+                    @*<li><a href="@Url.Action("BookedWarehouse","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>Booked Warehouse</a></li>*@
+                    <li><a href="@Url.Action("RejectedWarehouse","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>Rejected</a></li>
+
+
+                </ul>
+            </li>
+
+        }
+
+        @*@if (roleid == 2)*@
+        @if ((roleid == 2 || roleid == 7) && (udid == 51 || udid == 55))
+        {
+            <li class="parent">
+                <a data-toggle="collapse" href="#service"><em class="fa fa-navicon">&nbsp;</em>Warehouse <span data-toggle="collapse" href="#service" class="icon pull-right"><em class="fa fa-plus"></em></span></a>
+
+                <ul class="children collapse" id="service">
+
+                    <li><a href="@Url.Action("ViewRequests","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>Pending Request</a></li>
+                    <li><a href="@Url.Action("ConfirmBookedWarehouse","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>Approved</a></li>
+                    <li><a href="@Url.Action("RejectedWarehouse","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>Rejected</a></li>
+
+                </ul>
+            </li>
+
+        }
+
+        @*@if (roleid == 4)*@
+        @if ((roleid == 4 || roleid == 5 )&& (udid == 55))
+        {
+            <li class="parent">
+                <a data-toggle="collapse" href="#service"><em class="fa fa-navicon">&nbsp;</em>Warehouse <span data-toggle="collapse" href="#service" class="icon pull-right"><em class="fa fa-plus"></em></span></a>
+
+                <ul class="children collapse" id="service">
+                    <li><a href="@Url.Action("WarehouseBooking","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>Warehouse Booking</a></li>
+                    <li><a href="@Url.Action("ViewPendingRequests","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>View Pending List</a></li>
+                    <li><a href="@Url.Action("BookedWarehouse","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>Approved</a></li>
+                    <li><a href="@Url.Action("RejectedWarehouseByOrg","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>Rejected</a></li>
+
+                </ul>
+            </li>
+
+        }
+        @*@if (roleid == 6)*@
+        @*@if ((roleid == 6 || roleid == 5 ) && (udid == 55))
+        {
+            <li class="parent">
+                <a data-toggle="collapse" href="#service"><em class="fa fa-navicon">&nbsp;</em>Warehouse <span data-toggle="collapse" href="#service" class="icon pull-right"><em class="fa fa-plus"></em></span></a>
+
+                <ul class="children collapse" id="service">
+                    <li><a href="@Url.Action("WarehouseBooking","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>Warehouse Booking</a></li>
+                    <li><a href="@Url.Action("ViewPendingRequests","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>View Pending List</a></li>
+                    <li><a href="@Url.Action("BookedWarehouse","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>Approved</a></li>
+                    <li><a href="@Url.Action("RejectedWarehouseByOrg","Warehouse")"><span class="fa fa-arrow-right">&nbsp;</span>Rejected</a></li>
+
+                </ul>
+            </li>
+        }*@
+
+        @if (roleid == 3)
+        {
+
+        }
+
+
+        @if (roleid == 5)
+        {
+
+
+        }
+        @if (roleid == 7)
+        {
+
+
+        }
+        <!-- <li><a href="@Url.Action("LogOut","Account")"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li> -->
+
+
+
+    </ul>
+
+
+
+
+    </div>
+
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+
+        @RenderBody()
+    </div>
+
+
+
+
+
+
+
+    @*@RenderSection("scripts", required: false)*@
+
+
+</body>
+
+</html>
+
+
+@*<script src="~/css/new/js/jquery-1.11.1.min.js"></script>*@
+<script src="~/css/new/js/bootstrap.min.js"></script>
+
+<script src="~/css/new/js/bootstrap-datepicker.js"></script>
+<script src="~/css/new/js/custom.js"></script>
+<script src="~/js/file-upload.js"></script>
+
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+                window.onload = function () {
+                                    $.confirm({
+                                        title: '@(TempData["Success"]) ',
+                                        content: " ",
+                                        type: 'dark',
+                                        typeAnimated: true,
+                                        buttons: {
+                                            tryAgain: {
+                                                text: 'OK',
+                                                btnClass: 'btn-primary',
+                                                action: function () {
+                                                    window.location.reload();
+                                                }
+                                            },
+                                        }
+                                    });
+                };
+    </script>
+}
+
+
+<script>
+    $(document).ready(function () {
+        // Create two variables with names of months and days of the week in the array
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+        // Create an object newDate()
+        var newDate = new Date();
+        // Retrieve the current date from the Date object
+        newDate.setDate(newDate.getDate());
+        // At the output of the day, date, month and year
+        $('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+
+        setInterval(function () {
+            // Create an object newDate () and extract the second of the current time
+            var seconds = new Date().getSeconds();
+            // Add a leading zero to the value of seconds
+            $("#sec").html((seconds < 10 ? "0" : "") + seconds);
+        }, 1000);
+
+        setInterval(function () {
+            // Create an object newDate () and extract the minutes of the current time
+            var minutes = new Date().getMinutes();
+            // Add a leading zero to the minutes
+            $("#min").html((minutes < 10 ? "0" : "") + minutes);
+        }, 1000);
+
+        setInterval(function () {
+            // Create an object newDate () and extract the clock from the current time
+            var hours = new Date().getHours();
+            // Add a leading zero to the value of hours
+            $("#hours").html((hours < 10 ? "0" : "") + hours);
+        }, 1000);
+
+    });
+</script>

@@ -1,0 +1,417 @@
+﻿@using Utility;
+@using Model.CommonEnum;
+@using Model.Models.UserDetail
+@{
+    int roleid = 0;
+    string LogInId = "";//@HttpContext.Current.Request.Cookies["Token"].Value;
+    string userId = null;
+    if (Session["UserDetails"] != null)
+    {
+        UserDetailModel userdetail = (UserDetailModel)Session["UserDetails"];
+        roleid = userdetail.RoleId;
+        userId = userdetail.EmployeeName;
+
+    }
+
+    else
+    {
+        @Html.Action("LogOut", "Account")
+    }
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/ico/android-icon-96x96.png">
+    <title>Eservice</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- chartist CSS -->
+    <link href="~/assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="~/assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">
+    <link href="~/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!--This page css - Morris CSS -->
+    <link href="~/assets/plugins/c3-master/c3.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/html/css/style.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="~/html/css/colors/blue.css" id="theme" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        .sidebar-nav > ul > li.active > a, .sidebar-nav > ul > li.active:hover > a {
+            color: #ffffff;
+            background: #001f57;
+        }
+
+        ul.qwerty li {
+            display: inline-block;
+            padding: 0 10px;
+            cursor: pointer;
+            background: #FFF;
+            color: #001f57;
+        }
+
+            ul.qwerty li.active {
+                background: #001f57;
+                color: #FFF;
+            }
+
+        .text-info {
+            color: #001f57 !important;
+        }
+
+
+        .text-success {
+            color: #f41f00 !important;
+        }
+
+
+        html body #visitor .c3-chart-arcs-title {
+            fill: #001f57;
+        }
+
+
+
+
+        .card.mb-3 {
+            margin-bottom: 30px !important;
+        }
+
+        .widget-content {
+            padding: 1rem;
+            flex-direction: row;
+            align-items: center;
+        }
+
+            .widget-content .widget-content-wrapper {
+                display: flex;
+                flex: 1;
+                position: relative;
+                align-items: center;
+                color: #001f57;
+            }
+
+            .widget-content .widget-content-left .widget-heading {
+                opacity: .8;
+                font-weight: bold;
+            }
+
+            .widget-content .widget-content-left .widget-subheading {
+                opacity: .5;
+            }
+
+            .widget-content .widget-content-right {
+                margin-left: auto;
+            }
+
+            .widget-content .widget-numbers {
+                font-weight: bold;
+                font-size: 1.8rem;
+                display: block;
+            }
+
+        .button-H {
+            float: right;
+            text-align: right;
+            display: grid;
+        }
+
+            .button-H p {
+                color: #FFF !important;
+                font-weight: 400;
+                margin-bottom: 0;
+                float: right;
+                height: 40px;
+                display: block;
+            }
+
+            .button-H a {
+                color: #FFF !important;
+                font-weight: 400;
+                margin-bottom: 0;
+                float: right;
+                height: 25px;
+                background: transparent;
+                display: block;
+                border: 0;
+                text-align: right;
+                padding-right: 15px;
+                cursor: pointer;
+                text-decoration:none;
+            }
+            a
+            {
+                text-decoration:none;
+            }
+
+                .button-H a:focus {
+                    outline: hidden;
+                    outline: 0;
+                }
+    </style>
+
+</head>
+
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ==============================================================
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>-->
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    @*<a class="navbar-brand" href='@Url.Action("Index", "KRA")'>*@
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Light Logo icon -->
+                            <img src="~/assets/images/LFZ LOGO-22.png" width="40" alt="homepage" class="light-logo" />
+                            <!--<img src="../assets/images/LFZ LOGO-08.png" width="40" alt="homepage" class="light-logo" /><br>
+                            <img src="../assets/images/LFZ LOGO-29.png" width="40" alt="homepage" class="light-logo" />-->
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text --><span>
+                            <strong style="color:#FFF;">Eservice</strong>
+                            <!--Light Logo text -->
+                            <!--<img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />-->
+                        </span>
+                    </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item hidden-sm-down search-box">
+                            <a class="nav-link hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <form class="app-search">
+                                <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                            </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <div class="col-md-4 button-H">
+                        <p class="nav-link dropdown-toggle text-muted waves-effect waves-dark">
+                            <i class="fa fa-user-circle" style="font-size: 20px;" aria-hidden="true"></i> &nbsp;Welcome, @userId
+
+                        </p>
+                            <!--  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+        <a class="dropdown-item" href="@Url.Action("ChangePassword","Account")" id="chp">Change Password</a>
+
+
+        <a class="dropdown-item" href="@Url.Action("LogOut", "Account")" id="lgt">Logout</a>
+
+
+    </div>-->
+
+                            <a href='@Url.Action("Dashboard", "Home")'><i class="ti-home"></i> Home</a>
+                            @*<button><i class="ti-home"></i> Home</button>*@
+</div>
+
+
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                @RenderBody()
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            @*<footer class="footer">
+                    © 2020 LAGOS FREE ZONE
+                </footer>*@
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="~/assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="~/assets/plugins/bootstrap/js/tether.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    @*<script src="~/html/js/"></script>*@
+    <!--Wave Effects -->
+    <script src="~/html/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="~/html/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="~/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="~/html/js/custom.min.js"></script>
+
+
+    <script>
+        $(".tabs-bn").on("click", ".tab", function (e) {
+            e.preventDefault();
+            $(".tab").removeClass("active");
+            $(".content-bn").removeClass("show-bn");
+            $(this).addClass("active");
+            $($(this).attr("href")).addClass("show-bn");
+        });
+    </script>
+
+    @*<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>*@
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+
+
+    <script src='~/js/jquery.dataTables.min.js'></script>
+    <script src='~/js/dataTables.responsive.min.js'></script>
+    <script src='https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js'></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin.min.js"></script>
+    <!-- Demo scripts for this page-->
+    @*<script src="~/js/demo/datatables-demo.js"></script>
+        <script src="~/js/demo/chart-area-demo.js"></script>*@
+    <script src="~/js/page-js.js"></script>
+
+    <script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+
+    <link href="~/Content/bootstrap-multiselect.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap-multiselect.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!-- chartist chart -->
+    <script src="~/assets/plugins/chartist-js/dist/chartist.min.js"></script>
+    <script src="~/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <!--c3 JavaScript -->
+    <script src="~/assets/plugins/d3/d3.min.js"></script>
+    <script src="~/assets/plugins/c3-master/c3.min.js"></script>
+    <!-- Chart JS -->
+    @*<script src="~/js/dashboard1.js"></script>*@
+    <script src="~/html/js/dashboard1.js"></script>
+
+    @*<link href="~/ConfirmJS/css/jquery-confirm.css" rel="stylesheet" />
+    <script src="~/ConfirmJS/js/jquery-confirm.js"></script>*@
+
+    @if (TempData["Success"] != null)
+    {
+
+        <script>
+
+            $.confirm({
+                title: '@TempData["Success"]',
+                content: ' ',
+                type: 'green',
+                typeAnimated: true,
+                buttons: {
+                    tryAgain: {
+                        text: 'OK',
+                        btnClass: 'btn-success',
+                        action: function () {
+                            //location.reload();
+                        }
+                    },
+                }
+            });
+            var form = document.getElementById("AddUser");
+            form.reset();
+        </script>
+    }
+</body>
+</html>
+
+@*<script type="text/javascript">
+    if (@HttpContext.Current.Request.Cookies.Count != 0) {
+        $(document).ready(function () {
+            var jcookie = '@HttpContext.Current.Request.Cookies["Token"].Value';
+            alert(jcookie);
+            if (jcookie == null) {
+                $("#chp").show();
+                $("#lgt").show();
+            }
+            else {
+                $("#lgt").hide();
+                $("#chp").hide();
+            }
+            //$("#LogInId").val(jcookie);
+        });
+    }*@
+
+</script>

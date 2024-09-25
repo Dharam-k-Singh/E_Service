@@ -1,0 +1,514 @@
+﻿@model Model.Models.RequestForm.RequestFormModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    // var message = TempData["Failure1"] ?? string.Empty;
+}
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Service Request</li>
+    </ol>
+</div>
+
+
+@*<div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Service Request Form</h1>
+        </div>
+    </div>*@
+
+<style>
+
+    .containerxb {
+        float: left;
+    }
+
+    div.typop label {
+        font-weight: 500;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 0.375em;
+        border-radius: 5px;
+    }
+
+        div.typop label input {
+            position: absolute;
+            left: -9999px;
+        }
+
+            div.typop label input:checked + span.req-lab {
+                background-color: #19AFD0;
+                color: #FFF;
+            }
+
+
+            div.typop label input:checked + span.com-lab {
+                background-color: #e64848;
+                color: #FFF;
+            }
+
+            div.typop label input:checked + span.enq-lab {
+                background-color: #288d17;
+                color: #FFF;
+            }
+
+
+
+            div.typop label input:checked + span:before {
+                box-shadow: inset 0 0 0 0.4375em #00005c;
+            }
+
+        div.typop label span {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            padding: 0.375em 0.75em 0.375em 0.375em;
+            -webkit-transition: 0.25s ease;
+            transition: 0.25s ease;
+        }
+
+            div.typop label span:hover {
+                background-color: #d6d6e5;
+            }
+
+            div.typop label span:before {
+                display: -webkit-box;
+                display: flex;
+                flex-shrink: 0;
+                content: "";
+                background-color: #fff;
+                width: 1.5em;
+                height: 1.5em;
+                border-radius: 50%;
+                margin-right: 0.375em;
+                -webkit-transition: 0.25s ease;
+                transition: 0.25s ease;
+                box-shadow: inset 0 0 0 0.125em #00005c;
+            }
+
+    label.nqwe {
+        display: inline-block;
+        float: left;
+        margin-top: 5px;
+        margin-right: 15px;
+        font-size: 1.5rem;
+    }
+</style>
+
+<div class="row">
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+    }
+
+    <div class="col-md-12">
+        @using (Html.BeginForm("SaveLFZRequest", "RequestForm", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveRequest" }))
+        {
+
+            <div class="panel panel-default articles">
+                <div class="panel-body">
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="firstname" class="control-label lfz nqwe">Type</label>
+                                <div class="wrap">
+                                    @*<label class="wrapos">Radio Button</label>*@
+
+
+                                    <div class="containerxb">
+                                        <div class="typop">
+                                            <label>
+                                                @*<input type="radio" checked name="radio">*@
+                                                @Html.RadioButtonFor(m => m.ReportTypeID, "4", new { @required = "required", @value = 4, @id = "ReportTypeID", @class = "ReportRB" })
+                                                <span class="req-lab">Request</span>
+                                            </label>
+                                            <label>
+
+                                                @Html.RadioButtonFor(m => m.ReportTypeID, "5", new { @required = "required", @value = 5, @id = "ReportTypeID", @class = "ReportRB" })
+                                                <span class="com-lab">Complaints</span>
+
+                                            </label>
+
+                                            <label>
+
+                                                @Html.RadioButtonFor(m => m.ReportTypeID, "6", new { @required = "required", @value = 6, @id = "ReportTypeID", @class = "ReportRB" })
+                                                <span class="enq-lab">Enquiry</span>
+
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.ReportTypeID, "", new { @style = "color:red" })
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label lfz">Enterprise</label>
+
+                                    @Html.HiddenFor(m => m.RequestId, new { @id = "RequestId" })
+
+                                    @Html.DropDownListFor(m => m.EnterpriseID, (SelectList)ViewBag.organization, "---Select--", new { @class = "form-control form-control-lg", @id = "EnterpriseID", @required = "required", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.EnterpriseID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="lastname" class="control-label  lfz">Subject</label>
+                                    @Html.TextBoxFor(m => m.Topic, new { @class = "form-control", @id = "Topic", @maxlength = "200" })
+                                    @*@Html.ValidationMessageFor(model => model.Topic, "", new { @class = "text-danger" })*@
+                                    @*<input type="text" class="form-control" id="Title" placeholder="Title">*@
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Category</label>
+                                    @Html.DropDownListFor(m => m.CategoryId, new List<SelectListItem>(), "---Select--", new { @class = "form-control form-control-lg", @id = "CategoryID", @required = "required", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Sub Category</label>
+                                    @Html.DropDownListFor(m => m.SubCategoryId, new List<SelectListItem>(), "---Select--", new { @class = "form-control form-control-lg", @id = "SubCategoryId", @required = "required", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.SubCategoryId, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="lastname" class="control-label  lfz">Contact Person Name</label>
+                                    @Html.TextBoxFor(m => m.ContactPersonName, new { @class = "form-control", @id = "ContactPersonName", @required = "required", @maxlength = "80", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.ContactPersonName, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="Name" placeholder="Contact Person Name">*@
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="lastname" class="control-label  lfz">Mobile Number</label>
+                                    @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control", @id = "MobileNo", @required = "required", autofocus = "autofocus", @onkeypress = "NumOnlyVal(event)" })
+                                    @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="mobnum" placeholder="Mobile Number">*@
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Email ID</label>
+                                    @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control", @id = "EmailId", @required = "required", autofocus = "autofocus", @maxlength = "80" })
+                                    @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="Title" placeholder="Email">*@
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Severity</label>
+                                    @Html.DropDownListFor(m => m.SeverityId, (SelectList)ViewBag.Severity, "---Select--", new { @class = "form-control form-control-lg", @id = "SeverityId", @required = "required", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.SeverityId, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="Title" placeholder="Email">*@
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Upload Document</label>
+
+                                    <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm" style="width: 100%;">
+                                        @*<input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">*@
+
+                                        @Html.TextBoxFor(m => m.UploadPath, new
+                               {
+                                   @class = "form-control",
+                                   @type = "file",
+                                   @Name = "UploadPath",
+                                   @id = "UploadPath",
+                                   @accept = "image/jpeg,image/png,image/jpg,application/pdf",
+                                   @multiple = "multiple",
+                                   @onchange = "validateFileSize()"
+                               })
+                                        @*@Html.ValidationMessageFor(model => model.InvestorProfileModel.LogoPath, "", new { @style = "color:red" })*@
+                                        <label for="concept" class="col-sm-12 control-label" id="UploadPatherror" style="display:none;color:red;"></label>
+
+                                        @*<input type='file' name='upload' id='Upload_0' class="form-control border-0" multiple='multiple' onchange='ShowDynamicFile(0)' />
+                                            <span id='FilePreview_0' name='FilePreview_0'></span>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Description</label>
+                                    @Html.TextAreaFor(m => m.RequestDescription, new { @class = "form-control", @maxlength = "500", @required = "required", @id = "RequestDescription" })
+                                    @Html.ValidationMessageFor(model => model.RequestDescription, "", new { @class = "text-danger" })
+                                    @*<textarea class="form-control"></textarea>*@
+                                </div>
+                            </div>
+
+
+
+                            <!-- Upload image input-->
+
+                        </div>
+                        <br><br>
+                        <div class="row">
+                            <div class="col-xs-12 text-right">
+                                @*<button type="submit" class="btn btn-default">Submit Another Request</button>*@
+
+                                <button type="submit" class="btn btn-primary" name="Save">Submit</button>
+                            </div>
+                        </div>
+
+                        <br><br>
+                    </form>
+                </div>
+            </div>
+
+        }
+    </div>
+
+</div>
+
+
+<script>
+    function ShowDynamicFile(id) {
+
+        console.log("dynamicnnnnnnn");
+        //console.log(id);
+        console.log(id);
+        var input = document.getElementById('UploadPath' + id);
+        var output = document.getElementById('FilePreview_' + id);
+        var children = "";
+        for (var i = 0; i < input.files.length; ++i) {
+            children += input.files.item(i).name + '<br/>';
+        }
+        output.innerHTML = children;
+
+    }
+</script>
+<script type="text/javascript">
+    var sizealert = "File is exceeding the allowed limit of 10 MB.";
+    var extalert = 'Only files allowed(.png, .jpeg, .jpg ,.pdf, .doc , .xlsx , .docx , .xls)'
+    //$('#UploadPath').change(function (e)
+    $("#UploadPath").on("change", function (e) {
+        $('#UploadPatherror').hide();
+        if (fileExtValidateimgpdfxlsx(this)) {
+            if (fileSizeValidate(this)) {
+                console.log('fff')
+
+            }
+            else {
+                $('#UploadPath').val(null)
+                $('#UploadPatherror').text(sizealert);
+                $('#UploadPatherror').show();
+            }
+        }
+        else {
+            $('#UploadPath').val(null);
+            $('#UploadPatherror').text(extalert);
+            $('#UploadPatherror').show();
+        }
+    });
+</script>
+
+<script>
+    function NumOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9.]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("[0-9.,]");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.ReportRB').click(function () {
+           // alert();
+            GetCatListfun();
+        });
+        //$('#ReportTypeID').change(function () {
+        //    GetCatListfun();
+        //});
+
+    });
+
+    function GetCatListfun() {
+
+        //alert("GetIPListfun")
+        var reporttypeId = $('.ReportRB:checked').val();
+
+        //var reporttypeId = $('.ReportRB').val();
+        //alert(ReportTypeID)
+        //alert(reporttypeId)
+        if (reporttypeId == null || reporttypeId == undefined || reporttypeId == "") {
+            reporttypeId = 0
+        }
+
+        $.ajax({
+            type: "post",
+            // url: "/MileStone/GetActionId",
+            url: "@Url.Action("GetCategoryId", "RequestForm")",
+
+            data: { ReportTypeID: reporttypeId },
+            datatype: "json",
+            traditional: true,
+            success: function (data) {
+                //console.log("data")
+                console.log(data)
+
+                var contact = $('#CategoryID');
+
+                //console.log(contact)
+
+                contact.empty();
+
+                contact.append($('<option></option>').text("--Select--").val(""));
+
+                $.each(data, function (index, item) { // item is now an object containing properties ID and Text
+
+                    if (item.Value == contact)
+                        contact.append($('<option selected></option>').text(item.Text).val(item.Value));
+                    else
+                        contact.append($('<option></option>').text(item.Text).val(item.Value));
+                });
+                var sub = $('#SubCategoryId');
+                sub.empty();
+                sub.append($('<option></option>').text("--Select--").val(""));
+
+
+
+            }
+        });
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#CategoryID').change(function () {
+            GetSubCatListfun();
+        });
+
+        // GetSubCatListfun();
+
+    });
+
+    function GetSubCatListfun() {
+
+        //alert("GetIPListfun")
+
+        var categoryId = $('#CategoryID').val();
+        //alert(categoryId)
+
+        if (categoryId == null || categoryId == undefined || categoryId == "") {
+            categoryId = 0
+        }
+
+        $.ajax({
+            type: "post",
+            // url: "/MileStone/GetActionId",
+            url: "@Url.Action("GetSubCategoryId", "RequestForm")",
+
+            data: { CategoryID: categoryId },
+            datatype: "json",
+            traditional: true,
+            success: function (data) {
+                //console.log("data")
+                //console.log(data)
+
+                var contact = $('#SubCategoryId');
+
+                //console.log(contact)
+
+                contact.empty();
+
+                contact.append($('<option></option>').text("--Select--").val(""));
+
+                $.each(data, function (index, item) { // item is now an object containing properties ID and Text
+                    //console.log(item.Text)
+                    //contact.append($('<option></option>').text(item.Text).val(item.Value));
+                    if (item.Value == contact)
+                        contact.append($('<option selected></option>').text(item.Text).val(item.Value));
+                    else
+                        contact.append($('<option></option>').text(item.Text).val(item.Value));
+                });
+
+            }
+        });
+    }
+</script>
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                               // window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}

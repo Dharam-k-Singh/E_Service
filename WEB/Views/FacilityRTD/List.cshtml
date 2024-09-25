@@ -1,0 +1,126 @@
+﻿@using Model.Models.UserDetail
+@model IEnumerable<Model.Models.FacilityRTD.WeeksListModel>
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_LayoutFacility.cshtml";
+    // var message = TempData["Failure1"] ?? string.Empty;
+
+    int roleid = 0;
+    string userId = null;
+
+    if (Session["UserDetails"] != null)
+    {
+        UserDetailModel userdetail = (UserDetailModel)Session["UserDetails"];
+        roleid = userdetail.RoleId;
+        userId = userdetail.EmployeeName;
+       
+
+    }
+}
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">List</li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        @if (TempData["Success"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+            <script>
+                               // var form = document.getElementById("AddDepartment");
+                              //  form.reset();
+            </script>
+        }
+
+        @if (TempData["Failure"] != null)
+        {
+            <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+        }
+
+        <div class="panel panel-default articles">
+            <div class="panel-body articles-container table-size">
+                <div class="table-size-a rakeshcc" id="style-3">
+                    <!--<h2 class="section-heading"></h2>-->
+                    @*@Html.ActionLink("Add Department", "Add", "Department")*@
+
+                    <table width="100%" id="table_id" class="table table-bordered table-hover">
+
+                        <thead>
+                            <tr>
+                                @*<th>Department ID</th>*@
+                                <th>Year</th>
+                                <th>Week Id</th>
+                                <th>Date From</th>
+                                <th>Date To</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var lst in Model)
+                            {
+
+
+
+                                <tr>
+
+                                    <td>@lst.Year</td>
+                                    <td>@lst.WeekId </td>
+                                    <td>@lst.DateFrom </td>
+                                    <td>@lst.DateTo</td>
+
+
+                                    <td>
+                                        @if (roleid == 8 || roleid == 5 || roleid == 7)
+                                        {
+                                                 @Html.ActionLink("Edit", "EditFood", new { yearId = lst.Year, weekId = lst.WeekId }) 
+                                        }
+                                       
+
+                                        @Html.ActionLink("View", "ViewFood", new { yearId = lst.Year, weekId = lst.WeekId })
+
+                                    </td>
+
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- content ene -->
+
+</div>
+@*<script src="~/Scripts/customScripts.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>*@
+@*<script type="text/javascript">
+        $(document).ready(function () {
+            $('#table_id').DataTable({
+                responsive: true,
+                ordering: true
+            });
+        });
+    </script>*@
+
+
+
+

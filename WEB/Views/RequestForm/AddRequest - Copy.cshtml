@@ -1,0 +1,1135 @@
+﻿@model Model.Models.RequestForm.RequestFormModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    // var message = TempData["Failure1"] ?? string.Empty;
+}
+@*<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>*@
+@*<style>
+        input[type="file"] {
+            display: block;
+        }
+
+        .imageThumb {
+            max-height: 75px;
+            border: 2px solid;
+            padding: 1px;
+            cursor: pointer;
+        }
+
+        .pip {
+            display: inline-block;
+            margin: 10px 10px 0 0;
+        }
+
+        .remove {
+            display: block;
+            background: #444;
+            border: 1px solid black;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+        }
+
+            .remove:hover {
+                background: white;
+                color: black;
+            }
+    </style>*@
+<style>
+    input[type="file"] {
+        display: block;
+    }
+
+    .imageThumb {
+        max-height: 75px;
+        border: 2px solid;
+        padding: 1px;
+        cursor: pointer;
+    }
+
+    .pip {
+        display: inline-block;
+        margin: 10px 10px 0 0;
+    }
+
+    .remove {
+        display: block;
+        background: #444;
+        border: 1px solid black;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
+
+        .remove:hover {
+            background: white;
+            color: black;
+        }
+
+    #selectedFiles img {
+        max-width: 200px;
+        max-height: 200px;
+        float: left;
+        margin-bottom: 10px;
+    }
+
+
+    .save_button {
+        align-content: center;
+        margin-top: 10px;
+        width: 70%;
+        letter-spacing: 2px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .swiper_au {
+        width: 100%;
+        background: #eee;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+        .swiper_au .swiper-wrapper {
+        }
+
+            .swiper_au .swiper-wrapper .swiper-slide {
+                text-align: center;
+                align-content: center;
+            }
+
+                .swiper_au .swiper-wrapper .swiper-slide img {
+                    max-width: 100%;
+                    border: 0px;
+                    max-height: 80px;
+                }
+
+                .swiper_au .swiper-wrapper .swiper-slide p {
+                    margin: 5px auto;
+                    width: 80%;
+                    max-height: initial;
+                    border: 1px solid;
+                }
+
+    p.image-p {
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+</style>
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Service Request</li>
+    </ol>
+</div>
+
+
+@*<div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Service Request Form</h1>
+        </div>
+    </div>*@
+
+<style>
+
+    .containerxb {
+        float: left;
+    }
+
+    div.typop label {
+        font-weight: 500;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 0.375em;
+        border-radius: 5px;
+    }
+
+        div.typop label input {
+            position: absolute;
+            left: -9999px;
+        }
+
+            div.typop label input:checked + span.req-lab {
+                background-color: #19AFD0;
+                color: #FFF;
+            }
+
+
+            div.typop label input:checked + span.com-lab {
+                background-color: #e64848;
+                color: #FFF;
+            }
+
+            div.typop label input:checked + span.enq-lab {
+                background-color: #288d17;
+                color: #FFF;
+            }
+
+
+
+            div.typop label input:checked + span:before {
+                box-shadow: inset 0 0 0 0.4375em #00005c;
+            }
+
+        div.typop label span {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            padding: 0.375em 0.75em 0.375em 0.375em;
+            -webkit-transition: 0.25s ease;
+            transition: 0.25s ease;
+        }
+
+            div.typop label span:hover {
+                background-color: #d6d6e5;
+            }
+
+            div.typop label span:before {
+                display: -webkit-box;
+                display: flex;
+                flex-shrink: 0;
+                content: "";
+                background-color: #fff;
+                width: 1.5em;
+                height: 1.5em;
+                border-radius: 50%;
+                margin-right: 0.375em;
+                -webkit-transition: 0.25s ease;
+                transition: 0.25s ease;
+                box-shadow: inset 0 0 0 0.125em #00005c;
+            }
+
+    label.nqwe {
+        display: inline-block;
+        float: left;
+        margin-top: 5px;
+        margin-right: 15px;
+        font-size: 1.5rem;
+    }
+
+    .wrap {
+        float: left;
+    }
+
+    .wait {
+        cursor: wait;
+    }
+</style>
+
+<div class="row">
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+    }
+
+    <div class="col-md-12">
+        @using (Html.BeginForm("SaveEPRequest", "RequestForm", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveRequest" }))
+        {
+            @*<input type="hidden" name="UploadTypeId" value="1" />*@
+            <div class="panel panel-default articles">
+                <div class="panel-body">
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="wrap">
+                                    <label for="firstname" class="control-label lfz nqwe">Type</label>
+                                    @*<label class="wrapos">Radio Button</label>*@
+
+
+                                    <div class="containerxb">
+                                        <div class="typop">
+                                            <label>
+                                                @*<input type="radio" checked name="radio">*@
+                                                @Html.RadioButtonFor(m => m.ReportTypeID, "4", new { @required = "required", @value = 4, @id = "ReportTypeID", @class = "ReportRB" })
+                                                <span class="req-lab">Request</span>
+                                            </label>
+                                            <label>
+
+                                                @Html.RadioButtonFor(m => m.ReportTypeID, "5", new { @required = "required", @value = 5, @id = "ReportTypeID", @class = "ReportRB" })
+                                                <span class="com-lab">Complaints</span>
+
+                                            </label>
+
+                                            <label>
+
+                                                @Html.RadioButtonFor(m => m.ReportTypeID, "6", new { @required = "required", @value = 6, @id = "ReportTypeID", @class = "ReportRB" })
+                                                <span class="enq-lab">Enquiry</span>
+
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    @Html.ValidationMessageFor(model => model.ReportTypeID, "", new { @style = "color:red" })
+
+                                </div>
+                            </div>
+
+
+                            <div class="clear"><br /></div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label lfz">Enterprise</label>
+
+                                    @Html.HiddenFor(m => m.RequestId, new { @id = "RequestId" })
+                                    @Html.HiddenFor(m => m.UploadPath, new { @id = "UploadPath" })
+
+                                    @*@Html.HiddenFor(m => m.EnterpriseID)*@
+
+                                    @Html.DropDownListFor(m => m.EnterpriseID, (SelectList)ViewBag.org, new { @class = "form-control form-control-lg", @id = "EnterpriseID", autofocus = "autofocus", @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(model => model.EnterpriseID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="lastname" class="control-label  lfz">Subject</label>
+                                    @Html.TextBoxFor(m => m.Topic, new { @class = "form-control", @id = "Topic", @maxlength = "200" })
+                                    @*@Html.ValidationMessageFor(model => model.Topic, "", new { @class = "text-danger" })*@
+                                    @*<input type="text" class="form-control" id="Title" placeholder="Title">*@
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Category</label>
+                                    @Html.DropDownListFor(m => m.CategoryId, new List<SelectListItem>(), "---Select--", new { @class = "form-control form-control-lg", @id = "CategoryID", @required = "required", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Sub Category</label>
+                                    @Html.DropDownListFor(m => m.SubCategoryId, new List<SelectListItem>(), "---Select--", new { @class = "form-control form-control-lg", @id = "SubCategoryId", @required = "required", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.SubCategoryId, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="lastname" class="control-label  lfz">Contact Person Name</label>
+                                    @Html.TextBoxFor(m => m.ContactPersonName, new { @class = "form-control", @id = "ContactPersonName", @required = "required", autofocus = "autofocus", @maxlength = "100", })
+                                    @Html.ValidationMessageFor(model => model.ContactPersonName, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="Name" placeholder="Contact Person Name">*@
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="lastname" class="control-label  lfz">Mobile Number</label>
+                                    @Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control", @id = "MobileNo", @required = "required", autofocus = "autofocus", @maxlength = "100", @onkeypress = "NumOnlyVal(event)" })
+                                    @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="mobnum" placeholder="Mobile Number">*@
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Email ID</label>
+                                    @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control", @id = "EmailId", @required = "required", autofocus = "autofocus", @maxlength = "100", })
+                                    @Html.ValidationMessageFor(model => model.EmailId, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="Title" placeholder="Email">*@
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group form-group-lg lfzab">
+                                    <label for="firstname" class="control-label  lfz">Severity</label>
+                                    @Html.DropDownListFor(m => m.SeverityId, (SelectList)ViewBag.Severity, "---Select--", new { @class = "form-control form-control-lg", @id = "SeverityId", @required = "required", autofocus = "autofocus", })
+                                    @Html.ValidationMessageFor(model => model.SeverityId, "", new { @class = "text-danger" })
+                                    @*<input type="text" class="form-control" id="Title" placeholder="Email">*@
+                                </div>
+                            </div>
+
+                            @*<div class="col-md-6">
+                                                        <div class="form-group form-group-lg lfzab">
+                                                            <label for="firstname" class="control-label  lfz">Upload Document</label>
+
+                                                            <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm" style="width: 100%;">
+                                                                @*Html.TextBoxFor(m => m.UploadPath, new
+                                {
+                                    @class = "form-control",
+                                    @type = "file",
+                                    @Name = "ImagePath",
+                                    @id = "ImagePath",
+                                    @accept = "image/jpeg,image/png,image/jpg,application/pdf",
+                                    @multiple = "multiple",
+
+                                })
+
+                                                                <input type="file" class="form-control" id="ImagePath" name="ImagePath" multiple="multiple" aria-describedby="basic-addon3" />
+                                                                @Html.ValidationMessageFor(model => model.InvestorProfileModel.LogoPath, "", new { @style = "color:red" })*
+
+
+                                                                @*<input type="file" id="files" name="files[]" multiple />
+                                                                @*<label for="concept" class="col-sm-12 control-label" id="Uploaderror" style="display:none;color:red;"></label>
+                                                                <label for="concept" class="col-sm-12 control-label" id="ImagePatherror" style="display:none;color:red;"></label>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="swiper_au" style=" width:100%;">
+                                                            <p class="image-p">Image Preview</p>
+                                                            <div class="swiper-wrapper" id="ImagePreview" name="ImagePreview"></div>
+                                                        </div>
+                                                    </div>*@
+
+                        <div class="col-md-12">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="firstname" class="control-label  lfz">Description</label>
+                                @Html.TextAreaFor(m => m.RequestDescription, new { @class = "form-control", @required = "required", @maxlength = "500", @id = "RequestDescription" })
+                                @Html.ValidationMessageFor(model => model.RequestDescription, "", new { @class = "text-danger" })
+                                @*<textarea class="form-control"></textarea>*@
+                            </div>
+                            @*<div class="col-md-6">
+            <div class="form-group form-group-lg lfzab">
+                <label id="@Html.IdFor(m => m.UploadPath)" class="form-label font-weight-bold"><b>Document</b></label>
+                @Html.TextBoxFor(m => m.UploadPath, new { type = "file", @class = "form-control", Name = "document", @id = "UploadPath"})
+            </div>
+        </div>*@        <label>Document</label>
+                         
+                        </div>
+                            @*@multiple = "multiple", @onchange = "validateFileSize()"*@
+
+
+                            <!-- Upload image input-->
+                            <div class="col-md-12">
+                                    <div class="form-group form-group-lg lfzab">
+                                        <label for="firstname" class="control-label  lfz">Documents</label>
+                                                        <input type="file" name="uploadFile" id="fileSketch" class="file-upload-default"/>
+
+
+
+
+                                                        <div class="input-group col-xs-12">
+                                    <div class="col-md-6" style="padding-left:0px;">
+                                        <input type="file" name="uploadFile" id="fileDoc" class="form-control" required>
+                                    </div>
+
+
+                                    <span class="input-group-append" style="padding: 6px; display: block;">
+                                        <input type="hidden" id="UploadType1" name="UploadTypeId" value="1" class="form-control-file">
+                                        <a style="width: 100px;" id="Upload1" class="file-upload-browse btn btn-primary">Upload</a>
+                                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                                        </span>
+
+                                            <div class="col">
+                                                <img id="blah" src="" alt="" style=" width: 200px; height: auto; display: block; padding: 30px;" hidden />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                    <div class="col-md-6">
+                                        <table class="table table-bordered table-hover flexx_a flexx_abc" id="tblDocuments" cellpadding="0" cellspacing="0" border="1" style="width:100%;">
+                                                        <tr>
+                                        <th>UploadType</th>
+                                        <th>File Name</th>
+                                        <th>File Path</th>
+                                        <th>Preview</th>
+
+                                        <th>Action</th>
+                                    </tr>
+                                                        @if (ViewBag.UploadList != null)
+                                        {
+                                            if (ViewBag.UploadList.Count > 0)
+                                            {
+                                                foreach (var item in ViewBag.UploadList)
+                                                {
+                                                    <tr>
+                                                        <td>@item.UploadFilename</td>
+                                                        <td>@item.UploadFilePath</td>
+                                                        <td>
+                                                            <a href="~/Documents/@item.UploadFilePath" target="_blank">@item.UploadFilename</a>
+                                                        </td>
+                                                        <td>
+                                                            <div class="table-butn">
+                                                                <span class="details">
+                                                                    <a class="btn btn-outline-secondary btn-rounded btn-icon tool-t">
+                                                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                                                        <span class="tooltip-a">Delete</span>
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr style="display:none">
+                                                <td>UploadFilename</td>
+                                                <td>UploadFilePath</td>
+
+                                                <td>
+                                                    <div class="table-butn">
+                                                        <span class="details">
+                                                            <a class="btn btn-outline-secondary btn-rounded btn-icon tool-t">
+                                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                                                <span class="tooltip-a">Delete</span>
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+                        </div>
+                        <br><br>
+                        <div class="row">
+                            <div class="col-xs-12 text-right">
+                                @*<button type="submit" class="btn btn-default">Submit Another Request</button>*@
+
+                                <button type="submit" class="save btn btn-primary update" id="SaveReq" name="Save" onclick="submitForm(this.form);">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>
+<script>
+    //function submitForm(form) {
+    //    form = $(form);
+
+
+
+
+
+    //    //if (!isValid) {
+
+    //    //    showSweetAlert("Cannot " + raiseText + " Purchase Order", "Amount entered exceeds total budget of the project. Please follow the offline approval process as per LoA.", "error", false);
+
+    //    //    return;
+    //    //}
+
+    //    //if (!form.valid()) {
+    //    //    return;
+    //    //}
+
+    //    //let dialogText = "";
+
+    //    //if (isUpdate) {
+    //    //    dialogText += "Are you sure you want to " + raiseText + " this PO?<br>Any Invoices raised for this particular PO will be DELETED!<br>You will need to raise new invoices<br><br>";
+    //    //}
+
+    //    //if (amtTotalUSD <= preApproveAmtUSD) {
+    //    //    dialogText += "As the Total Amount USD is less than " + preApproveAmtUSD + ", This PO will be Pre-Approved<br><br>";
+    //    //}
+
+    //    //dialogText += "Make sure you have entered correct PO details before you " + raiseText + " PO!";
+
+    //    //showConfirmSweetAlert(raiseText + " PO", dialogText, "warning", true, "Yes, " + raiseText + "!", "No, Cancel!", function () {
+    //    //    $("#AmtNGN").val(amtNGN);
+    //    //    $("#AmtUSD").val(amtUSD);
+    //    //    $("#AmtTotalUSD").val(amtTotalUSD);
+
+    //    //    showHrefLoader('Loading');
+
+    //    form.submit();
+
+    //    showLoadingSweetAlert("Submitting");
+    //    //}, function () { });
+    //}
+    //function submitForm(form) {
+    //    form = $(form);
+    //    form.submit();
+    //    showLoadingSweetAlert("Submitting");
+    //}
+</script>
+
+
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+        window.onload = function () {
+
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                               // window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+        };
+    </script>
+}
+<script>
+
+    $(document).ready(function () {
+
+
+        $('#Upload1').click(function () {
+            var UploadTypeId = $("#UploadType1").val();
+            var fileUpload = $("#fileDoc").get(0);
+            if (fileUpload.files.length > 0) {
+                var files = fileUpload.files;
+
+                // Create FormData object
+                var fileData = new FormData();
+
+                // Looping over all files and add it to FormData object
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+
+                // Adding one more key to FormData object
+                fileData.append('UploadTypeId', UploadTypeId);
+
+                $.ajax({
+                    url: '/RequestForm/UploadFiles',
+                    type: "POST",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: OnSuccess,
+                    failure: function (response) {
+                        alert(response.d);
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            }
+            else {
+                // alert("Error", "Please first select files.", "error");
+                alert("Please first upload your files.");
+            }
+
+            $("#file1").replaceWith($("#file1").val('').clone(true));
+        });
+
+
+        function OnSuccess(response) {
+            var model = response;
+            var row = $("#tblDocuments tr:last-child").removeAttr("style").clone(true);
+            $("#tblDocuments tr").not($("#tblDocuments tr:first-child")).remove();
+            $.each(model, function () {
+                var customer = this;
+                $("td", row).eq(0).html(customer.UploadFilename);
+                $("td", row).eq(1).html(customer.UploadFilePath);
+                //$("td", row).eq(2).html(customer.url.);
+                $("#tblDocuments").append(row);
+                row = $("#tblDocuments tr:last-child").clone(true);
+            });
+        };
+
+        $(function () {
+            $(".details").click(function () {
+                var filePath = $(this).closest("tr").find("td").eq(1).html();
+                var fileData = new FormData();
+                fileData.append('filePath', filePath);
+                $.ajax({
+                    type: "POST",
+                    url: "/RequestForm/DeleteFile",
+                    contentType: false, // Not to set any content header
+                    processData: false, // Not to process data
+                    data: fileData,
+                    success: OnSuccess,
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });
+
+            $(".RejectReasonShow").click(function () {
+                var message = $(this).closest("tr").find("td").eq(8).html();
+                alert("Rejected for", message);
+            });
+
+
+            $("#save").click(function (event) {
+                checkFileUpload(event);
+            });
+
+            $("#submit").click(function (event) {
+                checkFileUpload(event);
+            });
+
+            $("#update").click(function (event) {
+                checkFileUpload(event);
+            });
+
+            function checkFileUpload(event) {
+                var check = false;
+                if ($("#file1").get(0).files.length > 0) {
+                    check = true;
+                }
+                //if ($("#fileStatement").get(0).files.length > 0) {
+                //    check = true;
+                //}
+                //if ($("#filePhotographs").get(0).files.length > 0) {
+                //    check = true;
+                //}
+
+                if (check) {
+                    alert("Please first upload your files.");
+                    event.preventDefault();
+                }
+            }
+        });
+
+
+    });
+</script>
+@*<script type="text/javascript">
+
+        $(document).ready(function () {
+            var sizealert = "File is exceeding the allowed limit of 5 MB.";
+            var extalert = 'Only files allowed(.png, .jpeg, .jpg)'
+            var selDiv = "";
+            var storedFiles = [];
+
+            $("body").on("click", ".imageThumb", removeFile);
+
+            if (window.File && window.FileList && window.FileReader) {
+                $("#ImagePath").on("change", function (e) {
+                    selDiv = $("#ImagePreview");
+                    $('#ImagePatherror').hide();
+                    if (fileExtValidateimgpdfxlsx(this)) {
+                        if (fileSizeValidate(this)) {
+
+                            var files = e.target.files,
+                                filesLength = files.length;
+
+                            var filesArr = Array.prototype.slice.call(files);
+                            filesArr.forEach(function (f) {
+
+                                if (!f.type.match("image.*")) {
+                                    return;
+                                }
+                                storedFiles.push(f);
+
+                                alert(1);
+                                var reader = new FileReader();
+                                reader.onload = function (e) {
+                                  //  var html = "<div class='swiper-slide'><img src=\"" + e.target.result + "\" data-file='" + f.name + "' class='imageThumb' title='Click to remove'>" + f.name + "<br clear=\"left\"/></div>";
+                                    var html = "<div class='swiper-slide'><img src=\"" + e.target.result + "\" data-file='" + f.name + "' class='tittle-pop' alt='_blank'>" + "<p class='imageThumb'>Remove</p>" + "</div>";
+                                    selDiv.append(html);
+
+                                }
+                                reader.readAsDataURL(f);
+                            });
+
+                        }
+                        else {
+                            $('#ImagePath').val(null)
+                            $('#ImagePatherror').text(sizealert);
+                            $('#ImagePatherror').show();
+                        }
+                    }
+                    else {
+                        $('#ImagePath').val(null);
+                        $('#ImagePatherror').text(extalert);
+                        $('#ImagePatherror').show();
+                    }
+
+
+                });
+            } else { alert("Your browser doesn't support to File API") }
+
+
+            function removeFile(e) {
+
+                var file = $(this).data("file");
+                for (var i = 0; i < storedFiles.length; i++) {
+                    if (storedFiles[i].name === file) {
+                        storedFiles.splice(i, 1);
+                        break;
+                    }
+                }
+                $(this).parent().remove();
+
+                console.log("storedFiles");
+                console.log(storedFiles);
+
+            }
+
+            $(".update").click(function (e) {
+
+                alert(2);
+                //$('#ImageTypeIderror').hide();
+                $('#ImagePatherror').hide();
+                //var Imgtypeid = $('#ImageTypeId').val();
+                //console.log(Imgtypeid);
+                //if (Imgtypeid == null || Imgtypeid == "" || Imgtypeid == undefined) {
+                //    $('#ImageTypeIderror').text("Please Select Type of Image");
+                //    $('#ImageTypeIderror').show();
+                //    e.preventDefault();
+                //    return false;
+                //}
+
+                var UploadControl = document.getElementById('ImagePath');
+                console.log(UploadControl);
+                console.log(UploadControl.files.length);
+                if (UploadControl.files.length <= 0) {
+                    $('#ImagePatherror').text("Please Select File");
+                    $('#ImagePatherror').show();
+                    e.preventDefault();
+                    return false;
+                }
+
+
+                //var pfid = document.getElementById("ProfileId").value;
+               // console.log("pfid");
+               // console.log(pfid);
+
+                var datafile = new FormData();
+
+                for (var i = 0, len = storedFiles.length; i < len; i++) {
+                    datafile.append('ImagePath', storedFiles[i]);
+                }
+
+               // datafile.append('ProfileId', $('#ProfileId').val());
+               // datafile.append('ImageTypeId', $('#ImageTypeId').val());
+
+
+                storedFiles = [];
+
+                //console.log(datafile)
+
+                $.ajax({
+                   // url: '/InvestorProfile/SaveImages',
+                      url: "@Url.Action("SaveRequest", "RequestForm")",
+                    type: 'POST',
+                    contentType: false,
+                    processData: false,
+                    data: datafile,
+                    success: function (result) {
+                        $("#ImagePreview").html("");
+                        $("#ImagePath").val("");
+                        alert('Images Uploaded Successfully');
+                    },
+                    error: function (xhr, result, errorThrown) {
+                        alert('Request failed.');
+
+                    }
+                });
+
+            });
+        });
+
+
+
+        </script>
+    <script>
+        $(document).ready(function () {
+            if (window.File && window.FileList && window.FileReader) {
+                $("#files").on("change", function (e) {
+                    var files = e.target.files,
+                        filesLength = files.length;
+                    for (var i = 0; i < filesLength; i++) {
+                        var f = files[i]
+                        var fileReader = new FileReader();
+                        fileReader.onload = (function (e) {
+                            var file = e.target;
+                            $("<span class=\"pip\">" +
+                                "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+                                "<br/><span class=\"remove\">Remove image</span>" +
+                                "</span>").insertAfter("#files");
+                            $(".remove").click(function () {
+                                $(this).parent(".pip").remove();
+                            });
+
+                            // Old code here
+                            /*$("<img></img>", {
+                              class: "imageThumb",
+                              src: e.target.result,
+                              title: file.name + " | Click to remove"
+                            }).insertAfter("#files").click(function(){$(this).remove();});*/
+
+                        });
+                        fileReader.readAsDataURL(f);
+                    }
+                    console.log(files);
+                });
+            } else {
+                alert("Your browser doesn't support to File API")
+            }
+        });
+    </script>*@
+
+<script>
+    function ShowDynamicFile(id) {
+
+        console.log("dynamicnnnnnnn");
+        //console.log(id);
+        console.log(id);
+        var input = document.getElementById('UploadPath' + id);
+        var output = document.getElementById('FilePreview_' + id);
+        var children = "";
+        for (var i = 0; i < input.files.length; ++i) {
+            children += input.files.item(i).name + '<br/>';
+        }
+        output.innerHTML = children;
+    }
+</script>
+<script>
+    var sizealert = "File is exceeding the allowed limit of 10 MB.";
+    var extalert = 'Only files allowed(.png, .jpeg, .jpg ,.pdf, .doc , .xlsx , .docx , .xls)'
+    $('#UploadPath').change(function (e) {
+        $('#Uploaderror').hide();
+        if (fileExtValidateimgpdfxlsx(this)) {
+            if (fileSizeValidate(this)) {
+                console.log('fff')
+
+            }
+            else {
+                $('#UploadPath').val(null)
+                $('#Uploaderror').text(sizealert);
+                $('#Uploaderror').show();
+            }
+        }
+        else {
+            $('#UploadPath').val(null);
+            $('#Uploaderror').text(extalert);
+            $('#Uploaderror').show();
+        }
+    });
+
+    //function ValidateFileName(e) {
+    //    var filename = $('#Upload_0').val();
+    //    // alert(filename)
+    //    if (!checkSpecialCharacter(filename)) {
+    //        alert('The file name may have special character.Please rename the file name and try to upload again.');
+
+    //        return false;
+    //    }
+    //}
+    //function checkSpecialCharacter(filename) {
+    //    var re = new RegExp("^[^<>%$#%|]*$");
+    //    var specialchars = re.test(filename);
+    //    return specialchars;
+    //}
+</script>
+
+<script>
+    function NumOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9.]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("[0-9.,]");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.ReportRB').click(function () {
+           // alert();
+            GetCatListfun();
+        });
+        //$('#ReportTypeID').change(function () {
+        //    GetCatListfun();
+        //});
+
+    });
+
+    function GetCatListfun() {
+
+        //alert("GetIPListfun")
+        var reporttypeId = $('.ReportRB:checked').val();
+
+        //var reporttypeId = $('.ReportRB').val();
+        //alert(ReportTypeID)
+        //alert(reporttypeId)
+        if (reporttypeId == null || reporttypeId == undefined || reporttypeId == "") {
+            reporttypeId = 0
+        }
+
+        $.ajax({
+            type: "post",
+            // url: "/MileStone/GetActionId",
+            url: "@Url.Action("GetCategoryId", "RequestForm")",
+
+            data: { ReportTypeID: reporttypeId },
+            datatype: "json",
+            traditional: true,
+            success: function (data) {
+                //console.log("data")
+                //console.log(data)
+
+                var contact = $('#CategoryID');
+
+                //console.log(contact)
+
+                contact.empty();
+
+                contact.append($('<option></option>').text("--Select--").val(""));
+
+                $.each(data, function (index, item) { // item is now an object containing properties ID and Text
+
+                    if (item.Value == contact)
+                        contact.append($('<option selected></option>').text(item.Text).val(item.Value));
+                    else
+                        contact.append($('<option></option>').text(item.Text).val(item.Value));
+                });
+                var sub = $('#SubCategoryId');
+                sub.empty();
+                sub.append($('<option></option>').text("--Select--").val(""));
+
+
+
+            }
+        });
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#CategoryID').change(function () {
+            GetSubCatListfun();
+        });
+
+        // GetSubCatListfun();
+
+    });
+
+    function GetSubCatListfun() {
+
+        //alert("GetIPListfun")
+
+        var categoryId = $('#CategoryID').val();
+        //alert(categoryId)
+
+        if (categoryId == null || categoryId == undefined || categoryId == "") {
+            categoryId = 0
+        }
+
+        $.ajax({
+            type: "post",
+            // url: "/MileStone/GetActionId",
+            url: "@Url.Action("GetSubCategoryId", "RequestForm")",
+
+            data: { CategoryID: categoryId },
+            datatype: "json",
+            traditional: true,
+            success: function (data) {
+                //console.log("data")
+                //console.log(data)
+
+                var contact = $('#SubCategoryId');
+
+                //console.log(contact)
+
+                contact.empty();
+
+                contact.append($('<option></option>').text("--Select--").val(""));
+
+                $.each(data, function (index, item) { // item is now an object containing properties ID and Text
+                    //console.log(item.Text)
+                    //contact.append($('<option></option>').text(item.Text).val(item.Value));
+                    if (item.Value == contact)
+                        contact.append($('<option selected></option>').text(item.Text).val(item.Value));
+                    else
+                        contact.append($('<option></option>').text(item.Text).val(item.Value));
+                });
+
+            }
+        });
+    }
+</script>
+
+@*<script>
+
+        jQuery(function ($) {
+            $(document).ajaxSend(function () {
+                $("#overlay").fadeIn(3000);
+            });
+
+            $('#SaveReq').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    success: function (data) {
+                        console.log(data);
+                    }
+                }).done(function () {
+                    setTimeout(function () {
+                        $("#overlay").fadeOut(3000);
+                    }, 5000);
+                });
+            });
+        });
+    </script>*@
+
+<script>
+    fileDoc.onchange = evt => {
+        $("#blah").show();
+        const [file] = fileDoc.files
+        if (file) {
+            blah.src = URL.createObjectURL(file)
+        }
+    }
+</script>

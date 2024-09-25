@@ -1,0 +1,477 @@
+﻿
+
+@model Model.Models.RequestForm.TicketListCommonModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Model.Models.UserDetail
+@{
+    int roleid = 0;
+    string userId = null;
+    if (Session["UserDetails"] != null)
+    {
+        UserDetailModel userdetail = (UserDetailModel)Session["UserDetails"];
+        roleid = userdetail.RoleId;
+        userId = userdetail.EmployeeName;
+
+    }
+
+    else
+    {
+        @Html.Action("LogOut", "Account")
+    }
+}
+<style>
+    thead.zzzzzzz {
+        z-index: 1!important;
+    }
+    .form-group.form-group-lg.lfzab {
+        display: flex;
+        align-items: center;
+    }
+
+    .control-label.lfz {
+        font-size: 18px;
+        flex-basis: 27%;
+    }
+
+    .form-control.wd {
+        width: 50%;
+    }
+
+    .form-group-lg select.form-control {
+        height: 40px;
+    }
+
+    .tableFixHead thead tr th {
+        white-space: nowrap;
+    }
+</style>
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Department Tickets</li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">List of Request</h1>
+    </div>
+</div>
+
+
+
+<div class="row">
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+
+    }
+
+    <div class="col-md-6">
+
+    </div>
+    <div class="col-md-12 ">
+
+        <div class="panel panel-default articles ">
+
+
+            <div class="panel-heading">
+                <div class="col-md-12">
+
+                    <div class="form-group form-group-lg lfzab col-md-6">
+
+                        <div class="col-md-5">                        <label for="firstname" class="control-label lfz">Select Department</label></div>
+
+
+                        <div class="col-md-7">
+                            @Html.DropDownListFor(m => m.GetDepartmentList.DepartmentID, (SelectList)ViewBag.MappedDep, "-- Select--", new { @id = "DepartmentID", @class = "form-control", @required = "required", @onchange = "GetdepartmentReqList()" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <form class="form-search-a" role="search">
+                            <div class="input-group add-on">
+
+                                <input class="form-control" placeholder="Search" id='search-box' type="text">
+                                @*<div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                    </div>*@
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class="panel-body articles-container table-size">
+                <div class="table-size-a rakeshcc" id="style-3">
+                    <table id="tblHodReqList" class="table table-bordered table-hover flexx_a flexx_abc tableFixHead" cellspacing="0" width="100%">
+
+                        <thead class="zzzzzzz">
+                            <tr class="top-abc">
+                                <th>Request No</th>
+                                <th>Enterprise</th>
+                                <th>Category</th>
+                                <th>Sub Category</th>
+                                <th>Severity</th>
+                                <th>Subject</th>
+                                <th>Description</th>
+                                <th>Contact Person</th>
+                                <th>Email Id</th>
+                                <th>Mobile No</th>
+                                <th>Status</th>
+                                <th>Raised On</th>
+                                @*<th>Updated On</th>
+                        <th>Updated By</th>*@
+                                <th>Allocator Comments</th>
+                                <th> Enterprise Supporting Document</th>
+                                <th> Allocator Supporting Document</th>
+                                <th>Allocate to Members</th>
+                                <th>ReOpened Comments</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="yyyyyyy">
+                            @using (Html.BeginForm("AllocateToTeam", "RequestForm", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveAllocateToTeam" }))
+                            {
+
+
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+           
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function FunSave(){
+        alert();
+        $("#centerdiv").css("display", "flex");
+    }
+</script>
+<script>
+    (function () {
+        var showResults;
+        $('#search-box').keyup(function () {
+            var searchText;
+            searchText = $('#search-box').val();
+            return showResults(searchText);
+        });
+        showResults = function (searchText) {
+            $('tbody tr').hide();
+            return $('tbody tr:Contains(' + searchText + ')').show();
+        };
+        jQuery.expr[':'].Contains = jQuery.expr.createPseudo(function (arg) {
+            return function (elem) {
+                return jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+            };
+        });
+    }.call(this));
+</script>
+
+
+<script type="text/javascript">
+    @*var UploaddocSrc="@Url.Content(System.Configuration.ConfigurationManager.AppSettings["RequesUploadPath"])";
+    console.log("UploaddocSrc")
+    console.log(UploaddocSrc)
+
+  var UploaddocSrc1="@Url.Content(System.Configuration.ConfigurationManager.AppSettings["AllocateActionUploadPath"])";
+    console.log("UploaddocSrc1")
+    console.log(UploaddocSrc1)*@
+
+  function GetdepartmentReqList() {
+
+     var departmentid = $('#DepartmentID').val();
+      console.log(departmentid);
+
+        //alert(departmentid)
+
+      if (departmentid == undefined || departmentid == null || departmentid == '' || departmentid == 0) {
+
+          return;
+      }
+
+        $.ajax({
+            type: "post",
+            url: "@Url.Action("GetDetail", "RequestForm")",
+            data: { DepartmentID: departmentid },
+            datatype: "json",
+            traditional: true,
+            success: function (data) {
+
+                console.log(data);
+
+                var tbodydata = '';
+
+                //var topic = '';
+                //var Topics = data[i].Topic;
+                //if (Topics == null) {
+                //    topic = '';
+                //} else {
+                //    topic = Topics;
+                //}
+
+                //var doclinks = GenerateDocLink(data.lstUser[i].UploadPath);
+                //alert(doclinks);
+                //var doclinks2 = GenerateDocLink1(data.lstUser[i].AllocatorUploadPath);
+                //alert(doclinks2);
+
+               // var docsrc = UploaddocSrc + strs[i];
+
+                var ddlItem1 = "<select  class='form-control' id='LFZTeamMembers_'>";
+
+                //<option value='0'>-- Select--</option>
+
+                for (i = 0; i < data.lstDep.length; i++) {
+
+                   // alert();
+                    var ItemName = data.lstDep[i].EmployeeName;
+                    var ItemValue = data.lstDep[i].UDID;
+                    //alert(ItemName);
+                    ddlItem1 += "<option value=" + ItemValue + " >" + ItemName + "</option>";
+
+                }
+                ddlItem1 += "</select>";
+                for (var i = 0; i < data.lstUser.length; i++) {
+                     var doclinks = GenerateDocLink(data.lstUser[i].UploadPath);
+                     // alert(doclinks);
+                    var doclinks2 = GenerateDocLink1(data.lstUser[i].AllocatorUploadPath);
+                   // alert(doclinks2);
+
+                   // alert(1);
+                    tbodydata += '<tr><td hidden >' + data.lstUser[i].AllocationID + '</td><td>' + data.lstUser[i].RequestNo + '</td><td>' + data.lstUser[i].Enterprise + '</td><td>' + data.lstUser[i].Category + '</td><td>' + data.lstUser[i].SubCategory + '</td><td>' + data.lstUser[i].Severity + '</td><td>' + data.lstUser[i].Topic + '</td><td>' + data.lstUser[i].RequestDescription + '</td><td>' + data.lstUser[i].ContactPersonName + '</td><td>' + data.lstUser[i].EmailId + '</td><td>' + data.lstUser[i].MobileNo + '</td><td>' + data.lstUser[i].RequestStatus + '</td><td>' + data.lstUser[i].RaisedOn + '</td><td>' + data.lstUser[i].CommentsBy + '</td><td>' + doclinks + '</td><td>' + doclinks2 + '</td><td>' + ddlItem1 + '</td><td>' + data.lstUser[i].ReOpenedComments + '</td><td><input type="number" maxlength="100" class="form-control" value="' + data.lstUser[i].AllocationID + '" style="display: none" /><input type="button" id="' + data.lstUser[i].AllocationID + '" onclick="FunSave('+data.lstUser[i].AllocationID+')" class="saveassign btn btn-primary"  value="Submit" /></td></tr>'
+                }
+                $('#tblHodReqList tbody').html('')
+                $('#tblHodReqList tbody').append(tbodydata);
+
+                $('#tblHodReqList').show()
+
+
+            }
+        });
+    }
+
+
+</script>
+
+@*<script>
+
+        document.getElementsByClassName('saveAssign')[0].onclick = function () {
+            //save element for the removing of the class after the timeout.
+            var elem = event.target;
+            //add classes to the html and clicked button.
+            event.target.className += " wait";
+            document.getElementsByTagName('html')[0].className += "wait";
+            //set timeout for removing the classes after 3 seconds.
+            window.setTimeout(function () {
+                elem.className -= " wait";
+                document.getElementsByTagName('html')[0].className -= "wait";
+            }, 8000);
+        }
+    </script>*@
+<script>
+
+   var UploaddocSrc="@Url.Content(System.Configuration.ConfigurationManager.AppSettings["RequesUploadPath"])";
+   // console.log("UploaddocSrc")
+    //console.log(UploaddocSrc)
+
+    //function GenerateDocLink(docs) {
+    //    var strs;
+    //    var doclinks = '';
+    //   // alerts(docs);
+    //    if (docs.indexOf(',') != 1) {
+    //        strs = docs.split(',');
+    //       // console.log(strs)
+    //       // console.log(strs.length)
+
+    //        for (let i = 0; i < strs.length; i++) {
+    //            //alert(strs[i])
+    //            //console.log(strs[i])
+    //            var docsrc = UploaddocSrc + strs[i];
+    //            doclinks = doclinks + '<a href="' + docsrc + '" target="_blank">' + strs[i] + '</a><br />'
+    //        }
+    //       // console.log(doclinks)
+
+    //    }
+    //    else {
+    //        var docsrc = UploaddocSrc + docs;
+    //        doclinks = doclinks + '<a href="' + docsrc + '" target="_blank">' + docs + '</a>'
+    //    }
+    //    return doclinks;
+    //}
+    function GenerateDocLink(docs) {
+        var strs;
+        var doclinks = '';
+
+        if (docs && docs.indexOf(',') !== -1) {
+            strs = docs.split(',');
+
+            for (let i = 0; i < strs.length; i++) {
+                var docsrc = UploaddocSrc + strs[i].trim(); // Trim to remove any leading/trailing spaces
+                doclinks += '<a href="' + docsrc + '" target="_blank">' + strs[i] + '</a><br />';
+            }
+        } else if (docs) {
+            var docsrc = UploaddocSrc + docs.trim();
+            doclinks += '<a href="' + docsrc + '" target="_blank">' + docs + '</a>';
+        }
+
+        return doclinks;
+    }
+
+</script>
+
+<script>
+
+   var UploaddocSrc1="@Url.Content(System.Configuration.ConfigurationManager.AppSettings["AllocateActionUploadPath"])";
+   // console.log("UploaddocSrc1")
+    console.log(UploaddocSrc1)
+
+    //function GenerateDocLink1(docs) {
+    //    var strs;
+    //    var doclinks = '';
+    //    alert(docs);
+    //    if (docs.indexOf(',') !== 1) {
+    //        strs = docs.split(',');
+    //       console.log(strs)
+    //        //console.log(strs.length)
+
+    //        for (let i = 0; i < strs.length; i++) {
+    //            //alert(strs[i])
+    //            //console.log(strs[i])
+    //            var docsrc = UploaddocSrc1 + strs[i];
+    //            doclinks = doclinks + '<a href="' + docsrc + '" target="_blank">' + strs[i] + '</a><br />'
+    //        }
+    //      //  console.log(doclinks)
+
+    //    }
+    //    else {
+    //        var docsrc = UploaddocSrc1 + docs;
+    //        doclinks = doclinks + '<a href="' + docsrc + '" target="_blank">' + docs + '</a>'
+    //    }
+    //    return doclinks;
+
+    //}
+    function GenerateDocLink1(docs) {
+        var strs;
+        var doclinks = '';
+
+        if (docs && docs.indexOf(',') !== -1) {
+            strs = docs.split(',');
+
+            for (let i = 0; i < strs.length; i++) {
+                var docsrc = UploaddocSrc1 + strs[i].trim(); // Trim to remove any leading/trailing spaces
+                doclinks += '<a href="' + docsrc + '" target="_blank">' + strs[i] + '</a><br />';
+            }
+        } else if (docs) {
+            var docsrc = UploaddocSrc1 + docs.trim();
+            doclinks += '<a href="' + docsrc + '" target="_blank">' + docs + '</a>';
+        }
+        return doclinks;
+    }
+</script>
+
+<script>
+
+    function FunSave(AllocationID) {
+
+        var LFZMembers = "";
+ //       var AllocationID = "";
+        $("#tblHodReqList TBODY TR").each(function () {
+            //alert("hi")
+            var row = $(this);
+            var string = "";
+            LFZMembers = row.find("TD select").eq(0).val();
+
+          //  AllocationID = row.find("TD input").eq(0).val();
+        });
+        //alert(LFZMembers);
+        // alert(AllocationID);
+        showLoadingSweetAlert('Sumbitting Request');
+        $.ajax({
+            type: "POST",
+            url: "/RequestForm/AllocateToTeam",
+            data: '{"LFZMembers":"' + LFZMembers + '","AllocationID":"' + AllocationID + '"}',
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                /*  $('#successMessage').text(data.msg);*/
+                showAlert('Allocated', '', 'success','','OK', function () { window.location.reload(); });
+            }
+        });
+    }
+</script>
+
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@(TempData["Success"])");
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+                                                $('#successMessage').text(data.msg);
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+<script>
+
+    jQuery(function ($) {
+        $(document).ajaxSend(function () {
+            $("#overlay").fadeIn(3000);
+        });
+
+        $(".saveassign").click(function () {
+            $.ajax({
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                }
+            }).done(function () {
+                setTimeout(function () {
+                    $("#overlay").fadeOut(3000);
+                }, 5000);
+            });
+        });
+    });
+</script>

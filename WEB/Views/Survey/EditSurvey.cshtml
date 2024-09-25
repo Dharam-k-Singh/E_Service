@@ -1,0 +1,255 @@
+﻿
+@model Model.Models.Survey.SurveyModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Survey</li>
+
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Edit Survey</h1>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        @if (TempData["Success"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+            <script>
+                var form = document.getElementById("EditSurvey");
+                form.reset();
+            </script>
+        }
+
+        @if (TempData["Failure"] != null)
+        {
+            <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+        }
+
+
+        @using (Html.BeginForm("UpdateSurvey", "Survey", FormMethod.Post, new { enctype = "multipart/form-data", @id = "EditSurvey" }))
+        {
+            <div class="panel panel-default articles">
+                <div class="panel-heading">
+
+                </div>
+
+
+                <div class="panel-body articles-container">
+                    <div class="contentdd">
+
+
+                        <div class="rowcc">
+                            @Html.HiddenFor(m => m.SurveyId)
+                            @Html.HiddenFor(m => m.CampaignId)
+                            @*<div class="col-xs-12 col-sm-6 col-md-6 ">
+                                    <div class="form-group">
+                                        <label for="concept" class="control-label">Campaign Name</label>
+
+                                            @Html.TextBoxFor(m => m.CampaignName, new { @class = "form-control", @readonly = "readonly" })
+
+                                    </div>
+                                </div>*@
+                            <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                <div class="form-group">
+                                    <label for="concept" class="control-label">Survey Name</label>
+
+                                    @Html.TextBoxFor(m => m.SurveyName, new { @class = "form-control", @required = "required", @maxlength = "200", @placeholder = "Alphanumeric" })
+                                    @Html.ValidationMessageFor(model => model.SurveyName, "", new { @style = "color:red" })
+
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                <div class="form-group">
+                                    <label for="concept" class="control-label">Start Date</label>
+
+                                    @Html.TextBoxFor(m => m.StartDate, new { @type = "date", @class = "form-control", @required = "required", @Value = Model.StartDate.ToString("yyyy-MM-dd") })
+                                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @style = "color:red" })
+                                    <label id="errorStartDate" style="display:none;color:red;font-size: 12px;"></label>
+
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                <div class="form-group">
+                                    <label for="concept" class=" control-label">End Date</label>
+
+                                    @Html.TextBoxFor(m => m.EndDate, new { @type = "date", @class = "form-control", @required = "required", @Value = Model.EndDate.ToString("yyyy-MM-dd") })
+                                    @Html.ValidationMessageFor(model => model.EndDate, "", new { @style = "color:red" })
+                                    <label id="errorEndDate" style="display:none;color:red;font-size: 12px;"></label>
+
+                                </div>
+                            </div>
+                            <br />  <br />
+                            <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                <div class="form-group">
+                                    <label for="concept" class="control-label">No of Questions</label>
+
+                                    @Html.TextBoxFor(m => m.NoOfPages, new { @class = "form-control", @required = "required", @type = "number", @maxlength = "7" })
+                                    @Html.ValidationMessageFor(model => model.NoOfPages, "", new { @style = "color:red" })
+
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                <div class="form-group">
+                                    <label for="concept" class="control-label">Status</label>
+
+                                    @Html.DropDownListFor(m => m.Status, (SelectList)ViewBag.status, "-- Select--", new { @id = "Status", @class = "form-control", @required = "required" })
+                                    @Html.ValidationMessageFor(model => model.Status, "", new { @style = "color:red" })
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="action-btns clearfix mt-3 mb-4 text-right">
+                                    <input type="submit" class="btn  btn-primary rounded" name="button" value="Update" id="btnSubmit">
+                                    @*<input type="reset" class="btn  btn-primary rounded" name="button" style="margin-left:10px" value="Cancel">*@
+                                    @*@Html.ActionLink("Cancel", "Dashboard", "Home", null, new { @class = "btn  btn-primary rounded", @style = "margin-left:10px" })*@
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        }
+    </div>
+
+    <!-- content ene -->
+</div>
+<!-- /.col-lg-9 -->
+
+<script type="text/javascript">
+
+    var status=@Model.Status
+
+        $('#Status').val(status)
+
+    $(document).ready(function () {
+        $('#table_id').DataTable();
+    });
+</script>
+<script>
+
+    var startalert = 'Start date should be less than End date.'
+
+    var endalert = 'End date should be greater than Start date'
+
+    $('#EndDate').blur(function (e) {
+        $('#errorStartDate').hide();
+        $('#errorEndDate').hide();
+
+        var enddate = $('#EndDate').val()
+        var startdate = $('#StartDate').val()
+
+
+        if (enddate != '' && startdate != '') {
+            if (enddate <= startdate) {
+                $('#EndDate').val(null)
+                $('#errorEndDate').text(endalert);
+                $('#errorEndDate').show();
+            }
+        }
+    });
+
+    $('#StartDate').blur(function (e) {
+        $('#errorStartDate').hide();
+        $('#errorEndDate').hide();
+
+        var enddate = $('#EndDate').val()
+        var startdate = $('#StartDate').val()
+
+
+        if (enddate != '' && startdate != '') {
+            if (enddate <= startdate) {
+                $('#StartDate').val(null)
+                $('#errorStartDate').text(startalert);
+                $('#errorStartDate').show();
+            }
+        }
+    });
+
+
+</script>
+
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                               // window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+
+@if (TempData["Failure"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+
+
+                                $.confirm({
+                                    title: '@(TempData["Failure"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+

@@ -1,0 +1,398 @@
+﻿
+@model Model.Models.Survey.AssignSurveyAggregateModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Survey</li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Assigned Survey : @ViewBag.SurveyName</h1>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        @if (TempData["Success"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+            <script>
+                var form = document.getElementById("AddAssignSurvey");
+                //form.reset();
+            </script>
+        }
+
+        @if (TempData["Failure"] != null)
+        {
+            <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+        }
+
+
+        @using (Html.BeginForm("SaveAssignSurvey", "Survey", FormMethod.Post, new { enctype = "multipart/form-data", @id = "AddAssignSurvey" }))
+        {
+            <div class="">
+
+
+
+
+                <div class="panel-body articles-container">
+
+                    <div class="contentdd">
+
+
+
+
+
+                        @*<div class="row">
+                                <div class="col-lg-12 col-md-12">
+
+                                    <div class="content">
+                                        <h2 class="section-heading">Select User to assign survey</h2>
+
+                                        <div class="row">
+                                            @Html.HiddenFor(m => m.AssignSurveyModel.SurveyId, new { @class = "form-control", @required = "required", @Value = ViewBag.SurveyId })
+                                            @Html.HiddenFor(m => m.AssignSurveyModel.AssignMemberIds, new { @id = "AssignMemberIds", @class = "form-control", @required = "required" })
+                                            <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                                <div class="form-group">
+                                                    <label for="concept" class="col-sm-4 control-label">Qualification</label>
+                                                    @*<div class="col-sm-7" style="float:right">
+                                                        @Html.DropDownListFor(m => m.AssignSurveyModel.QualificationId, (SelectList)ViewBag.qualification, "-- Select--", new { @id = "QualificationId", @class = "form-control", @onchange = "GetUserList()" })
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                                <div class="form-group">
+                                                    <label for="concept" class="col-sm-4 control-label">Speciality</label>
+                                                    @*<div class="col-sm-7" style="float:right">
+                                                        @Html.DropDownListFor(m => m.AssignSurveyModel.SpecialityId, (SelectList)ViewBag.speciality, "-- Select--", new { @id = "SpecialityId", @class = "form-control", @onchange = "GetUserList()" })
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <br />  <br />  <br />
+
+                                        <div class="ml-4 col-lg-12">
+                                            <table border="1" width="100%" id="tblUsers" class="table table-striped table-bordered" style="display:none">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th><label><input type="checkbox" name="SelectAll" id="SelectAll" onchange="onSelectAllchange(this)" value="" />&nbsp;Select All</label></th>
+                                                        @*<th>Action</th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody></tbody>
+
+                                            </table>
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <br />  <br />  <br />*@
+
+
+
+                        @*<div class="row">
+
+                                <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                    <div class="form-group">
+                                        <label for="concept" class="col-sm-4 control-label">Survey Amount</label>
+                                        <div class="col-sm-7" style="float:right">
+                                            @Html.TextBoxFor(m => m.AssignSurveyModel.SurveyAmount, new { @class = "form-control", @required = "required" })
+                                            @Html.ValidationMessageFor(model => model.AssignSurveyModel.SurveyAmount, "", new { @style = "color:red" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                    <div class="form-group">
+                                        <input type="submit" class="btn  btn-primary rounded" name="button" value="Assign Survey" id="btnSubmit">
+                                        @*<input type="reset" class="btn  btn-primary rounded" name="button" style="margin-left:10px" value="Cancel">
+                                    </div>
+                                </div>
+
+                            </div>*@
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            @*<br /><br /><br />*@
+
+
+
+
+            @*<br /><br /><br />*@
+
+            <div class="panel panel-default articles">
+                <div class="">
+
+
+                    <div class="panel-heading">
+                        List of Users Assigned
+                    </div>
+
+
+                    <div class="panel-body articles-container table-size">
+
+
+                        <div class="">
+                            <table width="100%" id="table_id" class="table table-striped table-bordered">
+
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>EmailId</th>
+                                        @*<th>SurveyAmount</th>*@
+                                        <th>Status</th>
+                                        <th>Assign on</th>
+                                        <th>Completed on</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var lstAssignee in Model.lstGetAssignSurveyModel)
+                                    {
+
+                                        <tr>
+                                            <td hidden>@lstAssignee.SurveyId</td>
+                                            <td>@lstAssignee.Name</td>
+                                            <td>@lstAssignee.Email_id</td>
+                                            @*<td>@lstAssignee.SurveyAmount </td>*@
+                                            <td>@lstAssignee.SurveyStatus </td>
+                                            <td>@lstAssignee.CreatedDate.ToString("dd-MMM-yyyy") </td>
+                                            @if (lstAssignee.SurveyStatus == "Complete")
+                                            {
+                                                <td>@lstAssignee.UpdatedDate.ToString("dd-MMM-yyyy") </td>
+                                            }
+                                            else
+                                            {
+                                                <td></td>
+
+                                            }
+                                            <td>
+                                                @if (lstAssignee.SurveyStatus == "Complete")
+                                                {
+                                                    @Html.ActionLink("View Answers", "UserSurveyQA", new { UserId = lstAssignee.UserID, SurveyId = lstAssignee.SurveyId })
+                                                }
+
+                                                @Html.ActionLink("Delete", "DeleteAssignSurvey", new { id = lstAssignee.AssignSurveyId, SurveyName = lstAssignee.SurveyName }, new { onclick = "return confirm('Are you sure you want to delete this record?');" })
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        }
+    </div>
+
+    <!-- content ene -->
+</div>
+<!-- /.col-lg-9 -->
+@*<script src="~/Scripts/customScripts.js"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>*@
+<script type="text/javascript">
+
+    var SurveyId = '@ViewBag.SurveyId';
+
+    $(document).ready(function () {
+
+        $('#table_id').DataTable();
+        GetUserList();
+    });
+
+    function GetUserList() {
+
+        $('#tblUsers').hide();
+
+        var qualificationId = $('#QualificationId').val();
+        var specialityId = $('#SpecialityId').val();
+
+        //console.log(surveyid);
+
+        //alert(surveyid)
+
+        if (qualificationId == '' || qualificationId == null || qualificationId == undefined) {
+            qualificationId = 0;
+        }
+
+        if (specialityId == '' || specialityId == null || specialityId == undefined) {
+            specialityId = 0;
+        }
+
+        //var value = JSON.stringify({
+        //    'Urn': Urn,
+        //    'Families': Families
+        //});
+
+        //var value = JSON.stringify({
+        //    qualificationId : qualificationId,
+        //    specialityId : specialityId
+        //});
+
+        //alert("AJAX Call")
+
+        $.ajax({
+            type: "post",
+            url: "@Url.Action("GetUserList", "Survey")",
+            data: { SurveyId: SurveyId, qualificationId: qualificationId, specialityId: specialityId},
+            datatype: "json",
+            traditional: true,
+            success: function (data) {
+
+                console.log(data)
+                var tbodydata = '';
+
+                for (var i = 0; i < data.length; i++)
+                {
+                    tbodydata += '<tr><td>' + data[i].UserName + '</td><td>' + data[i].Email_id + '</td><td><input type="checkbox" name="Users[]" value="' + data[i].UserId + '"/></td></tr>'
+                }
+                $('#tblUsers tbody').html('')
+                $('#tblUsers tbody').append(tbodydata);
+
+                $('#tblUsers').show()
+
+                $('#tblUsers').DataTable();
+
+            }
+        });
+
+    };
+
+    function onSelectAllchange(check) {
+        if (check.checked) {
+            $("input[name='Users[]']").each(function () {
+                $(this).prop('checked', true);
+            });
+        }
+        else {
+            $("input[name='Users[]']").each(function () {
+                $(this).prop('checked', false);
+            });
+        }
+    }
+
+    $("#btnSubmit").click(function () {
+
+
+        var UsersArray = new Array();
+
+        $.each($("input[name='Users[]']:checked"), function () {
+            UsersArray.push($(this).val());
+        });
+
+
+
+        if (UsersArray == "") {
+            alert("Select atleast one User");
+            return false;
+        }
+
+        console.log(UsersArray)
+
+        var UsersString = UsersArray.join(',');
+
+        console.log(UsersString)
+
+        $("#AssignMemberIds").val(UsersString)
+
+        //return false;
+        $('#AddAssignSurvey').submit();
+
+    });
+
+
+</script>
+
+
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+@if (TempData["Failure"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+
+
+                                $.confirm({
+                                    title: '@(TempData["Failure"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}

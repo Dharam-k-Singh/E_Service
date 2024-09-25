@@ -1,0 +1,376 @@
+﻿
+@model Model.Models.RequestForm.TicketListCommonModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int number = 0;
+}
+@using Model.Models.UserDetail
+@{
+    int roleid = 0;
+    string userId = null;
+    if (Session["UserDetails"] != null)
+    {
+        UserDetailModel userdetail = (UserDetailModel)Session["UserDetails"];
+        roleid = userdetail.RoleId;
+        userId = userdetail.EmployeeName;
+
+    }
+
+    else
+    {
+        @Html.Action("LogOut", "Account")
+    }
+}
+
+<style>
+    /*
+                                    *  STYLE 4
+                                    */
+
+    #scroller-style::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+    }
+
+    #scroller-style::-webkit-scrollbar {
+        width: 10px;
+        background-color: #F5F5F5;
+    }
+
+    #scroller-style::-webkit-scrollbar-thumb {
+        background-color: #000000;
+        border: 2px solid #555555;
+    }
+    .tableFixHead thead tr th {
+        white-space: nowrap;
+    }
+</style>
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Department Tickets</li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">List of Request</h1>
+    </div>
+</div>
+
+
+
+<div class="row">
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+
+    }
+    <div class="col-md-12 ">
+
+        <div class="panel panel-default articles ">
+            <div class="panel-heading">
+                <div class="col-md-12">
+                    <form class="form-search-a" role="search">
+                        <div class="input-group add-on">
+
+                            <input class="form-control" placeholder="Search" id='search-box' type="text">
+                            @*<div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>*@
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="panel-body articles-container table-size">
+                <div class="table-size-a rakeshcc" id="style-3">
+                    <table class="table table-bordered table-hover flexx_a flexx_abc tableFixHead" cellspacing="0" width="100%">
+
+                        <thead class="zzzzzzz">
+                            <tr class="top-abc">
+                                <th>Request No</th>
+                                <th>Enterprise</th>
+                                <th>Category</th>
+                                <th>Sub Category</th>
+                                <th>Severity</th>
+                                <th>Subject</th>
+                                <th>Description</th>
+                                <th>Contact Person</th>
+                                <th>Email Id</th>
+                                <th>Mobile No</th>
+                                <th>Status</th>
+                                <th>Raised On</th>
+                                @*<th>Updated On</th>
+                                    <th>Updated By</th>*@
+                                <th>Allocator Comments</th>
+                                <th> Enterprise Supporting Document</th>
+                                <th> Allocator Supporting Document</th>
+                                <th> ReOpened Comments</th>
+                                @if (roleid == 3 | roleid == 2)
+                                {
+                                    <th>Action</th>
+                                }
+                                @if (roleid == 5)
+                                {
+                                    <th>Allocate to Members</th>
+
+                                    <th>Action</th>
+                                }
+
+                            </tr>
+                        </thead>
+                        <tbody class="yyyyyyy">
+
+                            @foreach (var GetList in Model.MyTicketList)
+                            {
+                            <tr>
+                                <td>
+                                    @GetList.RequestNo
+                                </td>
+
+                                <td>
+                                    @GetList.Enterprise
+                                </td>
+                                <td>
+                                    @GetList.Category
+                                </td>
+
+                                <td>
+                                    @GetList.SubCategory
+                                </td>
+                                <td>
+                                    @GetList.Severity
+                                </td>
+                                <td>
+                                    @GetList.Topic
+                                </td>
+                                <td>
+                                    @GetList.RequestDescription
+                                </td>
+                                <td>
+                                    @GetList.ContactPersonName
+                                </td>
+                                <td>
+                                    @GetList.EmailId
+                                </td>
+                                <td>
+                                    @GetList.MobileNo
+                                </td>
+
+                                <td>
+                                    @GetList.RequestStatus
+                                </td>
+                                <td>
+                                    @GetList.RaisedOn
+                                </td>
+                                @*<td>
+            @GetList.UpdatedOn
+        </td>
+        <td>
+            @GetList.UpdatedBy
+
+        </td>*@
+                                <td>
+                                    @GetList.CommentsBy
+                                </td>
+                                <td>
+                                    <ul style="padding-left:0px; overflow-x:hidden;  max-height:100px;   overflow-y: auto;" id="scroller-style">
+
+                                        @if (GetList.UploadPath != null)
+                                        {
+                                            if (GetList.UploadPath.Contains(","))
+                                            {
+                                                string[] img = GetList.UploadPath.Split(new string[] { "," }, StringSplitOptions.None);
+                                                for (int j = 0; j < img.Length; j++)
+                                                {
+
+                                                    <li style="padding: 5px 0px; list-style-type:none; text-align:left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                        <span class="text-left" style="text-align:left">
+                                                            <a style="line-height: 1.2; text-decoration:none;" title=" @img[j].Trim()" href="~/Uploads/RequestUpload/@img[j].Trim()" target="_blank">&nbsp; @(number += 1). @img[j].Trim()</a>
+                                                        </span>
+                                                    </li>
+
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (GetList.UploadPath != null && GetList.UploadPath != "")
+                                                {
+
+                                                    <li style="padding: 5px 0px; list-style-type:none; text-align:left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                                        <span class="text-left" style="text-align:left">
+                                                            <a style="line-height: 1.2; text-decoration:none;" title="@GetList.UploadPath" href="~/Uploads/RequestUpload/@GetList.UploadPath" target="_blank">@GetList.UploadPath</a>
+                                                        </span>
+                                                    </li>
+
+                                                }
+
+                                            }
+                                        }
+                                    </ul>
+                                </td>
+                                <td>
+                                    @if (GetList.AllocatorUploadPath.Contains(","))
+                                    {
+                                        string[] img = GetList.AllocatorUploadPath.Split(new string[] { "," }, StringSplitOptions.None);
+                                        for (int j = 0; j < img.Length; j++)
+                                        {
+                                            <span>
+                                                <a href="~/Uploads/AllocateActionUpload/@img[j].Trim()" target="_blank">@img[j].Trim()</a>&nbsp;&nbsp;
+
+                                                <br />
+
+                                            </span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (GetList.AllocatorUploadPath != null && GetList.AllocatorUploadPath != "")
+                                        {
+
+                                            <span>
+                                                <a href="~/Uploads/AllocateActionUpload/@GetList.AllocatorUploadPath" target="_blank">@GetList.AllocatorUploadPath</a>&nbsp;&nbsp;
+
+
+                                            </span>
+                                        }
+
+                                    }
+                                    @*<a href="@Url.Content(System.Configuration.ConfigurationManager.AppSettings["RequesUploadPath"] +   GetList.UploadPath)" target="_blank">
+                @GetList.UploadPath
+            </a>
+            <a href="@Url.Content(System.Configuration.ConfigurationManager.AppSettings["AllocateActionUploadPath"] +   GetList.AllocatorUploadPath)" target="_blank">
+                @GetList.AllocatorUploadPath
+            </a>*@
+
+
+                                </td>
+                                <td>
+                                    @GetList.ReOpenedComments
+                                </td>
+                                @if (roleid == 3 | roleid == 2)
+                                {
+                                    <td>
+                                        @Html.ActionLink("Allocate To Me", "AllocateRequest", new { id = GetList.AllocationID }, new { @class = "view-h" })
+
+                                        @*@Html.ActionLink("Delete", "Delete", new { id = GetList.RequestId }, new { onclick = "return confirm('Are you sure you want to delete this record?');" })*@
+                                    </td>
+                                }
+                                @using (Html.BeginForm("AllocateToTeam", "RequestForm", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveAllocation" }))
+                                {
+                                    if (roleid == 5)
+                                    {
+                                        @Html.HiddenFor(m => m.AllocateToTeam.AllocationID, new { @id = "AllocationID", @Value = GetList.AllocationID })
+                                        <td>
+
+                                            @Html.DropDownListFor(m => m.AllocateToTeam.LFZTeamMembers, (SelectList)ViewBag.LFZuser, new { @class = "form-control form-control-lg", @id = "LFZTeamMembers", autofocus = "autofocus", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(model => model.AllocateToTeam.LFZTeamMembers, "", new { @class = "text-danger" })
+
+                                            @*@Html.ActionLink("Submit", "AllocateToTeam", new { id = GetList.AllocationID, }, new { @class = "view-h" })*@
+
+                                        </td>
+                                        <td>
+                                            <button type="submit" name="SaveAllocation" id="SaveAllocation" class="btn btn-primary">Submit</button>
+                                        </td>
+                                    }
+                                }
+                            </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    (function () {
+        var showResults;
+        $('#search-box').keyup(function () {
+            var searchText;
+            searchText = $('#search-box').val();
+            return showResults(searchText);
+        });
+        showResults = function (searchText) {
+            $('tbody tr').hide();
+            return $('tbody tr:Contains(' + searchText + ')').show();
+        };
+        jQuery.expr[':'].Contains = jQuery.expr.createPseudo(function (arg) {
+            return function (elem) {
+                return jQuery(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+            };
+        });
+    }.call(this));
+</script>
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+
+<script>
+
+    jQuery(function ($) {
+        $(document).ajaxSend(function () {
+            $("#overlay").fadeIn(3000);
+        });
+
+        $(".view-h").click(function () {
+            $.ajax({
+                type: 'GET',
+                success: function (data) {
+                    console.log(data);
+                }
+            }).done(function () {
+                setTimeout(function () {
+                    $("#overlay").fadeOut(3000);
+                }, 5000);
+            });
+        });
+    });
+</script>

@@ -1,0 +1,607 @@
+﻿@using Utility;
+@using Model.CommonEnum;
+@using Model.Models.UserDetail
+@{
+    int roleid = 0;
+    int udid = 0;
+    //string LogInId = "";//@HttpContext.Current.Request.Cookies["Token"].Value;
+    string userId = null;
+    if (Session["UserDetails"] != null)
+    {
+        UserDetailModel userdetail = (UserDetailModel)Session["UserDetails"];
+        roleid = userdetail.RoleId;
+        udid = userdetail.UDID;
+        userId = userdetail.EmployeeName;
+
+    }
+
+    else
+    {
+        @Html.Action("LogOut", "Account")
+    }
+}
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutLanding.cshtml";
+}
+<script src="~/Scripts/Custom/sweetAlertMethods.js"></script>
+<script src="~/Scripts/Custom/sweetalert2/sweetalert2.all.min.js"></script>
+<section>
+    <section>
+        <style>
+            .page-wrapper {
+                margin-left: 0px;
+            }
+
+            a {
+                color: #007bff;
+                text-decoration: none;
+                background-color: transparent;
+            }
+
+                a:hover {
+                    color: #0056b3;
+                    text-decoration: underline;
+                }
+
+            table.dataTable.nowrap th, table.dataTable.nowrap td {
+                white-space: normal;
+            }
+
+            a {
+                color: #001F57;
+            }
+
+            .btn-primary {
+                background-color: #001F57;
+                border-color: #001F57;
+            }
+
+            .page-item.active .page-link {
+                background-color: #001F57;
+                border-color: #001F57;
+            }
+
+
+
+
+            .dataTables_filter label {
+                width: 100%;
+            }
+
+            div.dataTables_wrapper div.dataTables_filter input {
+                width: 82%;
+            }
+
+            td.td-name {
+                width: 25%;
+            }
+
+            a.achp:hover h2.mbr-section-title3 {
+                color: #FFF;
+            }
+        </style>
+
+        <!--<div class="row">
+            <div class="col-md-12">
+
+            </div>
+            <div class="col-md-5">
+                <div class="row">
+
+                </div>
+            </div>
+
+
+        </div>-->
+
+        <div class="sec-a">
+            <div class="container">
+                <style>
+                    body {
+                        background-color: #f1f4fa;
+                    }
+
+                    section {
+                        padding-top: 3rem;
+                        padding-bottom: 3rem;
+                        background-color: #f1f4fa;
+                    }
+
+                    .wrap {
+                        display: flex;
+                        background: white;
+                        /*padding: 1rem 1rem 1rem 1rem;*/
+                        border-radius: 0.5rem;
+                        box-shadow: 7px 7px 30px -5px rgba(0,0,0,0.1);
+                        /*margin-bottom: 2rem;*/
+                    }
+
+                        .wrap:hover {
+                            background: linear-gradient(135deg,#6394ff 0%,#0a193b 100%);
+                            color: white;
+                        }
+
+                    .ico-wrap {
+                        margin: auto;
+                    }
+
+                    .mbr-iconfont {
+                        font-size: 4.5rem !important;
+                        color: #313131;
+                        margin: 1rem;
+                        padding-right: 1rem;
+                    }
+
+                    .vcenter {
+                        margin: auto;
+                    }
+
+                    .mbr-section-title3 {
+                        text-align: left;
+                        font-size: 2rem;
+                    }
+                    /*h2 {
+                        margin-top: 0.5rem;
+                        margin-bottom: 0.5rem;
+                    }
+                    .display-5 {
+                        font-family: 'Source Sans Pro',sans-serif;
+                        font-size: 1.4rem;
+                    }
+                    .mbr-bold {
+                        font-weight: 700;
+                    }
+
+                     p {
+                        padding-top: 0.5rem;
+                        padding-bottom: 0.5rem;
+                        line-height: 25px;
+                    }*/
+
+                    img.raisec {
+                        height: 70px;
+                        width: auto;
+                        margin: 20px;
+                    }
+
+                    a.achp {
+                        text-decoration: none;
+                    }
+
+                    .userwelco h5 {
+                        color: #000;
+                        display: block;
+                        font-size: 1.5rem;
+                        font-weight: 100;
+                    }
+
+                    .userwelco p {
+                        color: #000;
+                        display: block;
+                        font-size: 2.5rem;
+                    }
+
+                    .userwelco h4 {
+                        color: #000;
+                        display: block;
+                        font-size: 1.2rem;
+                        font-weight: 100;
+                    }
+
+
+
+
+
+
+
+                    .wrap {
+                        display: flex;
+                        background: white;
+                        /*padding: 1rem 1rem 1rem 1rem;*/
+                        border-radius: 0.5rem;
+                        box-shadow: 7px 7px 30px -5px rgba(0,0,0,0.1);
+                        /*margin-bottom: 2rem;*/
+                    }
+
+                        .wrap:hover {
+                            background: linear-gradient(135deg,#6394ff 0%,#0a193b 100%);
+                            color: white;
+                        }
+
+                    .ico-wrap {
+                        margin: auto 20px;
+                    }
+
+                    .mbr-iconfont {
+                        font-size: 4.5rem !important;
+                        color: #313131;
+                        margin: 1rem;
+                        padding-right: 1rem;
+                    }
+
+                    .vcenter {
+                        margin: auto;
+                    }
+
+                    .mbr-section-title3 {
+                        text-align: left;
+                        font-size: 2rem;
+                    }
+                    /*h2 {
+                        margin-top: 0.5rem;
+                        margin-bottom: 0.5rem;
+                    }
+                    .display-5 {
+                        font-family: 'Source Sans Pro',sans-serif;
+                        font-size: 1.4rem;
+                    }
+                    .mbr-bold {
+                        font-weight: 700;
+                    }
+
+                     p {
+                        padding-top: 0.5rem;
+                        padding-bottom: 0.5rem;
+                        line-height: 25px;
+                    }*/
+
+                    img.raisec {
+                        height: 70px;
+                        width: auto;
+                        margin: 20px;
+                    }
+
+                    a.achp {
+                        text-decoration: none;
+                    }
+
+
+
+
+
+                    .rkmd-btn.btn-lightBlue {
+                        color: #FFF;
+                        background-color: #001f57;
+                    }
+
+                    .rkmd-btn.btn-fab {
+                        width: 80px;
+                        height: 80px;
+                        font-size: 56px;
+                    }
+
+                    .rkmd-btn.btn-fab, .rkmd-btn.btn-fab-mini {
+                        overflow: hidden;
+                        position: relative;
+                        margin: auto;
+                        padding: 0;
+                        line-height: normal;
+                        border-radius: 50%;
+                        box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
+                    }
+
+                    .ripple-effect {
+                        display: inline-block;
+                        position: relative;
+                        overflow: hidden;
+                        cursor: pointer;
+                        vertical-align: middle;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        z-index: 1;
+                    }
+
+                    .rkmd-btn {
+                        display: inline-block;
+                        position: relative;
+                        cursor: pointer;
+                        height: 35px;
+                        line-height: 35px;
+                        padding: 0 1.5rem;
+                        color: #424242;
+                        font-size: 15px;
+                        font-weight: 600;
+                        font-family: "Roboto", sans-serif;
+                        letter-spacing: 0.8px;
+                        text-align: center;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        vertical-align: middle;
+                        white-space: nowrapt;
+                        outline: none;
+                        border: none;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        border-radius: 2px;
+                        transition: all 0.3s ease-out;
+                        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+                    }
+
+                        .rkmd-btn.btn-lightBlue:hover {
+                            background-color: #FFFFFF;
+                            color: #001f57;
+                        }
+
+                        .rkmd-btn.btn-fab:hover, .rkmd-btn.btn-fab-mini:hover {
+                            box-shadow: 0 4px 11px 0px rgba(0, 0, 0, 0.375);
+                        }
+
+                        .rkmd-btn.btn-lightBlue {
+                            color: #FFF;
+                            background-color: #001f57;
+                        }
+
+                        .rkmd-btn.btn-fab {
+                            width: 80px;
+                            height: 80px;
+                            font-size: 56px;
+                        }
+
+                        .rkmd-btn.btn-fab, .rkmd-btn.btn-fab-mini {
+                            overflow: hidden;
+                            position: relative;
+                            margin: auto;
+                            padding: 0;
+                            line-height: normal;
+                            border-radius: 50%;
+                            box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.3);
+                        }
+
+                        .rkmd-btn:hover {
+                            text-decoration: none;
+                            box-shadow: 0 4px 10px 0px rgba(0, 0, 0, 0.225);
+                        }
+
+                    .ripple-effect {
+                        display: inline-block;
+                        position: relative;
+                        overflow: hidden;
+                        cursor: pointer;
+                        vertical-align: middle;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        z-index: 1;
+                    }
+
+                    .rkmd-btn {
+                        display: inline-block;
+                        position: relative;
+                        cursor: pointer;
+                        height: 35px;
+                        line-height: 35px;
+                        padding: 0 1.5rem;
+                        color: #424242;
+                        font-size: 15px;
+                        font-weight: 600;
+                        font-family: "Roboto", sans-serif;
+                        letter-spacing: 0.8px;
+                        text-align: center;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        vertical-align: middle;
+                        white-space: nowrapt;
+                        outline: none;
+                        border: none;
+                        -webkit-user-select: none;
+                        -moz-user-select: none;
+                        -ms-user-select: none;
+                        user-select: none;
+                        border-radius: 2px;
+                        transition: all 0.3s ease-out;
+                        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.225);
+                    }
+
+                        .rkmd-btn.btn-fab i, .rkmd-btn.btn-fab-mini i {
+                            display: inline-block;
+                            float: none;
+                            width: inherit;
+                            margin: 0;
+                            font-size: inherit;
+                            text-align: center;
+                            line-height: none;
+                            vertical-align: middle;
+                        }
+
+                        .rkmd-btn i {
+                            float: left;
+                            width: auto;
+                            height: auto;
+                            margin-right: 10px;
+                            font-size: 1.3rem;
+                            line-height: inherit;
+                        }
+
+                    main section .wrapt .holder:hover {
+                        background: #eee;
+                    }
+                </style>
+
+
+
+                <div class="row mbr-justify-content-center">
+
+                    <div class="userwelco">
+                        <br /><br />
+                        <h5>Hello @userId,<br /></h5>
+                        <p>Welcome to Eservice!</p>
+
+                    </div>
+
+
+
+                    <div class="col-md-12"><br /></div>
+
+
+
+                    @if (roleid == 1 || roleid == 2 || roleid == 4 || roleid == 6 || roleid == 5 || roleid == 7 || roleid == 3 || roleid == 8)
+                    {
+                        <div class="col-md-6" style="margin-bottom: 10px;">
+                            <a class="achp" href="@Url.Action("Index", "Home")" onclick="showLoadingSweetAlert('Loading Request')">
+                                <div class="wrap">
+                                    <div class="ico-wrap">
+                                        <div class="demo" style="margin: 15px;">
+                                            <div class="rkmd-btn btn-fab btn-lightBlue ripple-effect">
+                                                <i class="material-icons">grading</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-wrap vcenter">
+                                        <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                            REQUEST
+                                            <span></span>
+                                        </h2>
+                                        <p class="mbr-fonts-style text1 mbr-text display-6"></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+
+                    @*if (roleid == 1 || roleid == 2 || roleid == 5 || roleid == 7 )
+                        {
+                            <div class="col-md-6" style="margin-bottom: 10px;">
+                                <a class="achp" href="@Url.Action("Index", "Warehouse")">
+                                    <div class="wrap">
+                                        <div class="ico-wrap">
+                                            <div class="demo" style="margin: 15px;">
+                                                <div class="rkmd-btn btn-fab btn-lightBlue ripple-effect">
+                                                    <i class="material-icons">grading</i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-wrap vcenter">
+                                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                                WAREHOUSE BOOKING
+                                                <span></span>
+                                            </h2>
+                                            <p class="mbr-fonts-style text1 mbr-text display-6"></p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                          }
+                    *@
+
+
+                    @if (roleid == 8 || roleid == 7 || roleid == 1 || roleid == 5)
+                    {
+                        <div class="col-md-6" style="margin-bottom: 10px;">
+                            <a class="achp" href="@Url.Action("Index", "FacilityRTD")"onclick="showLoadingSweetAlert('Loading Facility')">
+                                <div class="wrap">
+                                    <div class="ico-wrap">
+                                        <div class="demo" style="margin: 15px;">
+                                            <div class="rkmd-btn btn-fab btn-lightBlue ripple-effect">
+                                                <i class="material-icons">grading</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-wrap vcenter">
+                                        <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                            Facility Management
+                                            <span></span>
+                                        </h2>
+                                        <p class="mbr-fonts-style text1 mbr-text display-6"></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    }
+                    @if (roleid == 9 || roleid == 8 || roleid == 7 || roleid == 1 || roleid == 5)
+                    {
+                        <div class="col-md-6" style="margin-bottom: 10px;">
+                            <a class="achp" href="@Url.Action("MenuView", "FacilityRTD")"onclick="showLoadingSweetAlert('Loading Menu')">
+                                <div class="wrap">
+                                    <div class="ico-wrap">
+                                        <div class="demo" style="margin: 15px;">
+                                            <div class="rkmd-btn btn-fab btn-lightBlue ripple-effect">
+                                                <i class="material-icons">grading</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-wrap vcenter">
+                                        <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                            View Menu
+                                            <span></span>
+                                        </h2>
+                                        <p class="mbr-fonts-style text1 mbr-text display-6"></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-6" style="margin-bottom: 10px;">
+                            <a class="achp" href="@Url.Action("ListMeterDetails", "FacilityRTD", new { Id = udid })" onclick="showLoadingSweetAlert('Loading MeterDetail')">
+                                <div class="wrap">
+                                    <div class="ico-wrap">
+                                        <div class="demo" style="margin: 15px;">
+                                            <div class="rkmd-btn btn-fab btn-lightBlue ripple-effect">
+                                                <i class="material-icons">grading</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-wrap vcenter">
+                                        <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                            View Meter Details
+                                            <span></span>
+                                        </h2>
+                                        <p class="mbr-fonts-style text1 mbr-text display-6"></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                    <!-- <div class="col-lg-1 mbr-col-md-10">
+                                    </div> <div class="col-lg-5 mbr-col-md-10">
+                        <a class="achp" href="@Url.Action("Index", "KRA")">
+                            <div class="wrap">
+                                <div class="ico-wrap">
+
+
+                                    <img class="raisec" src="https://cdn0.iconfinder.com/data/icons/miscellaneous-12-line/128/claims_money_insurance_requirement-512.png">
+                                </div>
+                                <div class="text-wrap vcenter">
+                                    <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">RMS<span></span></h2>
+                                    <p class="mbr-fonts-style text1 mbr-text display-6"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-5 mbr-col-md-10">
+                        <a class="achp" href="@Url.Action("Dashboard", "RDS")">
+                            <div class="wrap">
+                                <div class="ico-wrap">
+
+                                    <img class="raisec" src="https://cdn0.iconfinder.com/data/icons/files-documents-outline/512/oYPS__file_document_update_arrow_arrows_sheet_paper_page-512.png">
+                                </div>
+                                <div class="text-wrap vcenter">
+                                    <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                        RDS
+                                    </h2>
+                                    <p class="mbr-fonts-style text1 mbr-text display-6"></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                                    <div class="col-lg-1 mbr-col-md-10">
+                                    </div>-->
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+</section>

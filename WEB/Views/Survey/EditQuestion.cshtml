@@ -1,0 +1,658 @@
+﻿@using Model.Models.Survey
+@using Model.CommonEnum;
+@model Model.Models.Survey.QuestionAggregateModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Survey</li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header"></h1>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        @if (TempData["Success"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+            <script>
+                var form = document.getElementById("EditQuestion");
+                //form.reset();
+            </script>
+        }
+
+        @if (TempData["Failure"] != null)
+        {
+            <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+        }
+
+
+        @using (Html.BeginForm("UpdateQuestion", "Survey", FormMethod.Post, new { enctype = "multipart/form-data", @id = "EditQuestion" }))
+        {
+            <div class="panel panel-default articles">
+
+                <div class="panel-heading">
+                    Edit Question
+                </div>
+
+
+                <div class="panel-body articles-container">
+                    <div class="contentdd">
+
+                        @Html.HiddenFor(m => m.QuestionModel.QuestionId)
+                        <div class="rowcc">
+
+
+                            <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                <div class="form-group">
+                                    <label for="concept" class="control-label">Survey Name</label>
+
+                                    @Html.DropDownListFor(m => m.QuestionModel.SurveyId, (SelectList)ViewBag.survey, "-- Select--", new { @id = "SurveyId", @class = "form-control", @required = "required" })
+                                    @Html.ValidationMessageFor(model => model.QuestionModel.SurveyId, "", new { @style = "color:red" })
+
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                <div class="form-group">
+                                    <label for="concept" class="control-label">Question Type</label>
+
+                                    @Html.DropDownListFor(m => m.QuestionModel.QuestionTypeId, (SelectList)ViewBag.questiontype, "-- Select--", new { @id = "QuestionTypeId", @class = "form-control", @required = "required", @onchange = "fnQuestiontype()" })
+                                    @Html.ValidationMessageFor(model => model.QuestionModel.QuestionTypeId, "", new { @style = "color:red" })
+
+                                </div>
+                            </div>
+
+
+
+                            <br /><br /><br />
+                            <hr />
+                            @*<div class="question col-xs-12 col-sm-6 col-md-6 " style="display:none">
+                                    <div class="form-group">
+                                        <label for="concept" class="col-sm-4 control-label">Question Type - </label>
+                                        <div class="col-sm-7" style="float:right">
+                                            <label id="questiontypetext"></label>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            <div class="question col-xs-12 col-sm-6 col-md-6 " style="display:none">
+                                <div class="form-group">
+                                    <label for="concept" class="control-label">Question No</label>
+
+                                    @Html.TextBoxFor(m => m.QuestionModel.DisplayOnPageNo, new { @id = "DisplayOnPageNo", @class = "form-control", @required = "required", @type = "number" })
+                                    @Html.ValidationMessageFor(model => model.QuestionModel.DisplayOnPageNo, "", new { @style = "color:red" })
+
+
+                                </div>
+                            </div>
+                            <br />
+                            <div class="question col-xs-12 col-sm-6 col-md-6 " style="display:none">
+                                <div class="form-group">
+                                    <label for="concept" class="control-label">Question</label>
+
+                                    @Html.TextAreaFor(m => m.QuestionModel.Question, new { @id = "Question", @class = "form-control", @required = "required" })
+                                    @Html.ValidationMessageFor(model => model.QuestionModel.Question, "", new { @style = "color:red" })
+
+
+                                </div>
+                            </div>
+
+                            <br />  <br /><br />  <br />
+                            <div class="rating col-xs-12 col-sm-6 col-md-6 " style="display:none">
+                                <div class="form-group">
+                                    <label for="concept" class="control-label">Total No Of Rating</label>
+
+                                    @Html.TextBoxFor(m => m.QuestionPollOptionModel.TotalNoOfRating, new { @id = "TotalNoOfRating", @class = "form-control", @required = "required", @type = "number", @onkeyup = "getValues()", @maxlength = "2" })
+                                    @Html.ValidationMessageFor(model => model.QuestionPollOptionModel.TotalNoOfRating, "", new { @style = "color:red" })
+
+
+                                </div>
+                            </div>
+
+                            <div class="rating col-xs-12 col-sm-6 col-md-6 " style="display:none">
+                                @*<div class="form-group">
+                                    <label for="concept" class="control-label">Start Name</label>*@
+                                @Html.HiddenFor(m => m.QuestionPollOptionModel.StartName, new { @id = "StartName", @class = "form-control", })
+                                @*@Html.TextBoxFor(m => m.QuestionPollOptionModel.StartName, new { @id = "StartName", @class = "form-control", @required = "required", type = "number" })
+                                        @Html.ValidationMessageFor(model => model.QuestionPollOptionModel.StartName, "", new { @style = "color:red" })
+
+
+                                    </div>*@
+                            </div>
+                            <br />  <br />
+                            <div class="rating col-xs-12 col-sm-6 col-md-6 " style="display:none">
+                                @*<div class="form-group">
+                                    <label for="concept" class="control-label">End Name</label>*@
+                                @Html.HiddenFor(model => model.QuestionPollOptionModel.EndName, new { @id = "EndName", @class = "form-control", })
+                                @*@Html.TextBoxFor(m => m.QuestionPollOptionModel.EndName, new { @id = "EndName", @class = "form-control", @required = "required", type = "number" })
+                                        @Html.ValidationMessageFor(model => model.QuestionPollOptionModel.EndName, "", new { @style = "color:red" })
+
+
+                                    </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br />
+            <br />
+
+
+            <div class="panel panel-default articles">
+                <div class="mcq" style="display:none">
+
+                    <div class="panel-heading">
+                        Add Options
+                    </div>
+
+                    <div class="panel-body articles-container">
+                        <div class="contentdd">
+
+
+                            <div class="rowcc">
+                                @*<div class="rating" style="display:none">*@
+
+                                @*</div>*@
+
+
+
+
+
+                                <div class="col-lg-12 col-md-12" style="align-content:center">
+                                    <div class="form-group">
+                                        <input type="text" id="polloptions" name="polloptions" style="display:none" />
+                                        <table id="tblPollOption" class="mcqmultichoice table table-striped table-bordered" style="display:none;width:50%">
+                                            <thead>
+                                                <tr>
+                                                    <td>Option</td>
+                                                    <td>Action</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if (Model.QuestionModel.QuestionTypeId == 18 && Model.lstQuestionPollOptionModel != null)
+                                                {
+                                                    foreach (var op in Model.lstQuestionPollOptionModel)
+                                                    {
+                                                        <tr>
+                                                            @*<td style="width:80px">Option 1</td>*@
+                                                            <td style="width:500px"><input type="text" id="Option1" value="@op.PollName" class="form-control valid" maxlength="500" required></td>
+                                                            <td><input type="button" class="btn btn-primary" onclick="RemoveOption(this)" value="delete"></td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            </tbody>
+                                        </table>
+                                        <label class="Tablequestion" style="display:none;color:#00a3da"><strong>Imp Note:- First option will be always for header and with '||' seperated.<br /> eg :- On a scale of 1-5, ||1 ||2 || 3</strong>  </label>
+                                        <br /><br />
+                                        <table id="tblPollOptioneditable" class="mcqeditable table table-striped table-bordered" style="display:none;width:50%;">
+
+                                            <thead>
+                                                <tr>
+                                                    <td>Option</td>
+                                                    <td>Action</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @if ((Model.QuestionModel.QuestionTypeId == 14 && Model.lstQuestionPollOptionModel != null) || (Model.QuestionModel.QuestionTypeId == Convert.ToInt16(LOV.LOVId.RatingTable) && Model.lstQuestionPollOptionModel != null) || (Model.QuestionModel.QuestionTypeId == Convert.ToInt16(LOV.LOVId.MarkingTable) && Model.lstQuestionPollOptionModel != null))
+                                                {
+                                                    foreach (var op in Model.lstQuestionPollOptionModel)
+                                                    {
+                                                        <tr>
+                                                            @*<td style="width:80px">Option 1</td>*@
+                                                            <td style="width:500px"><input type="text" id="Option1" value="@op.PollName" class="form-control valid" maxlength="500" required></td>
+                                                            <td><input type="button" class="btn btn-primary" onclick="RemoveOption(this)" value="delete"></td>
+                                                        </tr>
+                                                    }
+                                                }
+                                            </tbody>
+
+                                        </table>
+                                        <br />
+                                        <input type="button" class="btn btn btn-primary" id="btnaddoption" value="add option" onclick="AddOption()" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <br />
+            <br />
+
+            <div class="save row">
+                <div class="col-lg-12 col-md-12">
+                    @*<div class="content">
+                        <h2 class="section-heading">Save Question</h2>*@
+
+
+                    <div class="save row" style="display:none">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="action-btns clearfix mt-3 mb-4 text-right">
+                                <input type="submit" class="btn  btn-primary rounded" name="button" value="Update" id="btnSubmit">
+                                @*<input type="reset" class="btn  btn-primary rounded" name="button" style="margin-left:10px" value="Cancel">*@
+                                @*@Html.ActionLink("Cancel", "Dashboard", "Home", null, new { @class = "btn  btn-primary rounded", @style = "margin-left:10px" })*@
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+
+
+                    @*</div>*@
+                </div>
+
+            </div>
+
+
+
+
+        }
+    </div>
+    <br />
+    <br />
+    <!-- content ene -->
+</div>
+<!-- /.col-lg-9 -->
+<!-- /.col-lg-9 -->
+<!-- /.col-lg-9 -->
+@*<script src="~/Scripts/customScripts.js"></script>*@
+@*<script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>*@
+<script>
+
+    function getValues() {
+        //alert(id)
+
+        var TotalRating = document.getElementById("TotalNoOfRating").value;
+        //alert(TotalRating);
+        var Start = document.getElementById("StartName").value;
+
+        var End = document.getElementById("EndName").value;
+
+        console.log("TotalRating")
+        console.log(TotalRating)
+
+        //console.log("Start")
+        //console.log(Start)
+
+        //console.log("End")
+        //console.log(End)
+
+        if (TotalRating != 0) {
+            document.getElementById("StartName").value = 1;
+            console.log("StartName")
+            document.getElementById("EndName").value = TotalRating;
+            console.log("EndName")
+        }
+
+    }
+
+</script>
+<script>
+
+    $(document).ready(function () {
+        fnQuestiontype();
+    })
+
+    var questiontypeid = 0;
+
+
+    function fnQuestiontype(e) {
+
+        $(".question").hide()
+        $(".rating").hide()
+        $(".mcq").hide()
+        $(".mcqmultichoice").hide()
+        $(".mcqeditable").hide()
+        $(".editable").hide()
+        $(".save").hide()
+
+        var seltext = $('#QuestionTypeId :selected').text();
+        questiontypeid = $('#QuestionTypeId').val();
+
+        if (seltext == "-- Select--") {
+
+            return false;
+        }
+
+        $("#questiontypetext").text(seltext);
+
+        $(".question").show();
+
+        //if (selval == 16 || selval == 17) {
+
+
+        //}
+
+        if (questiontypeid == 14 || questiontypeid == parseInt(@(Html.Raw(Json.Encode(LOV.LOVId.RatingTable)))) || questiontypeid == parseInt(@(Html.Raw(Json.Encode(LOV.LOVId.MarkingTable))))) {
+            $(".mcq").show()
+            $(".mcqeditable").show()
+            //alert(seltext)
+        }
+        if (questiontypeid == 15 || questiontypeid ==parseInt(@(Html.Raw(Json.Encode(LOV.LOVId.RatingTable))))) {
+            $(".rating").show()
+            //alert(seltext)
+        }
+        if (questiontypeid == 18) {
+            $(".mcq").show()
+            $(".mcqmultichoice").show()
+            //alert(seltext)
+        }
+
+        $(".save").show()
+    }
+
+    function AddOption(e) {
+        //alert("AddOption")
+        //op++;
+        //var txtDiagSystemName = $("#txtDiagSystemName");
+
+        if (questiontypeid == 18) {
+            var table = $('#tblPollOption tbody');
+            if (table.find('input:text').length < 7) {
+                table.append('<tr><td style="width:250px"><input type="text" id="Option' + '" value="" class="form-control" maxlength="100" required="required"/></td style="width:40px"><td><input type="button" class="btn btn-primary" onclick="RemoveOption(this)" value="delete"/></td></tr>');
+            }
+            return false
+        }
+
+        else if (questiontypeid == 14 || questiontypeid == parseInt(@(Html.Raw(Json.Encode(LOV.LOVId.RatingTable)))) || questiontypeid == parseInt(@(Html.Raw(Json.Encode(LOV.LOVId.MarkingTable))))) {
+            var table = $('#tblPollOptioneditable tbody');
+            if (table.find('input:text').length < 7) {
+                table.append('<tr><td style="width:250px"><input type="text" id="Option' + '" value="" class="form-control" maxlength="100" required="required"/></td style="width:40px"><td><input type="button" class="btn btn-primary" onclick="RemoveOption(this)" value="delete"/></td></tr>');
+            }
+            return false
+        }
+
+
+    }
+
+
+
+    function RemoveOption(button) {
+        //Determine the reference of the Row using the Button.
+        var row = $(button).closest("TR");
+        var name = row.find("TD input").eq(0).val();
+        //var name = $("TD", row).eq(0).html();
+        if (confirm("Do you want to delete: " + name)) {
+
+            if (questiontypeid == 18) {
+                //Get the reference of the Table.
+                var table = $("#tblPollOption")[0];
+
+                //Delete the Table row using it's Index.
+                table.deleteRow(row[0].rowIndex);
+                //op--;
+            }
+
+            else if (questiontypeid == 14 || questiontypeid == parseInt(@(Html.Raw(Json.Encode(LOV.LOVId.RatingTable)))) || questiontypeid == parseInt(@(Html.Raw(Json.Encode(LOV.LOVId.MarkingTable))))) {
+                //Get the reference of the Table.
+                var table = $("#tblPollOptioneditable")[0];
+
+                //Delete the Table row using it's Index.
+                table.deleteRow(row[0].rowIndex);
+                //op--;
+            }
+
+        }
+    };
+
+
+    function StringOptionsFun() {
+        //Loop through the Table rows and build a JSON array.
+
+        //alert("StringOptionsFun")
+        var flag = true;
+
+        var stringoption = '';
+        var i = 0;
+
+        if (questiontypeid == 18) {
+
+            if ($("#tblPollOption tbody TR").length == 0) {
+                var flag = false;
+                alert("please add options.");
+            }
+
+            $("#tblPollOption tbody TR").each(function () {
+                // alert("TBODY")
+                var row = $(this);
+                var string = ''
+                //var string = {};
+                var x2 = row.find("TD input").eq(0).val();
+                //alert(x2)
+                if (x2 == "" || x2 == null || x2 == undefined) {
+                    flag = false
+                    alert("please enter option value.");
+
+                }
+
+                //string.DiagnosisSystemId = row.find("TD").eq(0).val();
+                //string += '#' + row.find("TD").eq(1).html();
+                //string.Remark= row.find("TD").eq(1).html();
+
+                if (i == 0) {
+                    stringoption = x2;
+                }
+                else {
+                    stringoption += '$' + x2;
+                }
+                i++;
+
+            });
+        }
+        else if (questiontypeid == 14) {
+
+            if ($("#tblPollOptioneditable tbody TR").length == 0) {
+                var flag = false;
+                alert("please add options.");
+            }
+
+            $("#tblPollOptioneditable tbody TR").each(function () {
+                // alert("TBODY")
+                var row = $(this);
+                var string = ''
+                //var string = {};
+                var x2 = row.find("TD input").eq(0).val();
+                var x3 = row.find("TD select").eq(0).val();
+                //alert(x2)
+                if (x2 == "" || x2 == null || x2 == undefined) {
+                    flag = false;
+                    alert("please enter option value.");
+                }
+                string = x2
+                string += '#' + x3
+
+                if (i == 0) {
+                    stringoption = string;
+                }
+                else {
+                    stringoption += '$' + string;
+                }
+                i++;
+
+            });
+        }
+        else if (questiontypeid == parseInt(@(Html.Raw(Json.Encode(LOV.LOVId.RatingTable)))) || questiontypeid == parseInt(@(Html.Raw(Json.Encode(LOV.LOVId.MarkingTable))))) {
+
+            if ($("#tblPollOptioneditable tbody TR").length == 0) {
+                var flag = false;
+                alert("please add options.");
+            }
+
+            $("#tblPollOptioneditable tbody TR").each(function () {
+                // alert("TBODY")
+                var row = $(this);
+                var string = ''
+                //var string = {};
+                var x2 = row.find("TD input").eq(0).val();
+                //var x3 = row.find("TD select").eq(0).val();
+                //alert(x2)
+                if (x2 == "" || x2 == null || x2 == undefined) {
+                    flag = false;
+                    alert("please enter option value.");
+                }
+                string = x2
+                // string += '#' + x3
+
+                if (i == 0) {
+                    stringoption = string;
+                }
+                else {
+                    stringoption += '$$$$' + string;
+                }
+                i++;
+
+            });
+        }
+
+
+        console.log(stringoption)
+
+        $("#polloptions").val(stringoption);
+
+        return flag;
+    }
+
+    $("#btnSubmit").click(function () {
+        //alert("hii")
+        var val = 0
+        if (questiontypeid == 14 || questiontypeid == 18 || parseInt(@(Html.Raw(Json.Encode(LOV.LOVId.RatingTable)))) || questiontypeid == parseInt(@(Html.Raw(Json.Encode(LOV.LOVId.MarkingTable))))) {
+            //alert(questiontypeid)
+            val = Validate();
+            if (val == true) {
+                val = StringOptionsFun()
+                //alert(val)
+                if (val == false)
+                    return false;
+
+            }
+
+
+        }
+        //alert(val)
+        //return false;
+
+        $("#EditQuestion").submit();
+
+    });
+
+    function Validate() {
+        var validator = $("#EditQuestion").validate();
+        console.log(validator);
+
+        validator.element("#SurveyId");
+        validator.element("#QuestionTypeId");
+        validator.element("#DisplayOnPageNo");
+        validator.element("#Question");
+        //validator.element("#TotalNoOfRating");
+        //validator.element("#StartName");
+        //validator.element("#EndName");
+        //validator.element("#PollName");
+        //validator.element("#EditableTypeId");
+
+
+
+        if (validator.element("#SurveyId") === true && validator.element("#QuestionTypeId") === true
+            && validator.element("#DisplayOnPageNo") === true && validator.element("#Question") === true) {
+
+            return true
+        }
+        else {
+            event.preventDefault()
+            return false
+        }
+    };
+
+    function AphanumVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[a-zA-Z0-9 -+_]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+
+</script>
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+@if (TempData["Failure"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+
+
+                                $.confirm({
+                                    title: '@(TempData["Failure"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+
+
+

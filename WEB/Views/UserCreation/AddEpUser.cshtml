@@ -1,0 +1,341 @@
+﻿@*=============================================
+       Created By:	ismail baroodwale
+       Create date: 24-12-2019
+       Description: admin panel-add User
+    NEW SVN VERSION
+    =============================================*@
+
+@model  Model.Models.UserCreation.UserCreationCommonModel
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Add Enterprise User</li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Add Enterprise User</h1>
+    </div>
+</div>
+
+
+
+<div class="row">
+
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+        <script>
+            var form = document.getElementById("AddEPUser");
+            form.reset();
+        </script>
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+        <script>
+            var form = document.getElementById("AddEPUser");
+            form.reset();
+        </script>
+    }
+
+    @using (Html.BeginForm("SaveEPUser", "UserCreation", FormMethod.Post, new { enctype = "multipart/form-data", @id = "AddEPUser" }))
+    {
+
+        <div class="col-md-12 ">
+
+            <div class="panel panel-default articles ">
+                <div class="panel-heading">
+                    <div class="col-md-12">
+                        Add Enterprise User
+                    </div>
+
+                </div>
+
+                <div class="panel-body articles-container">
+                    <div class="col-xs-12 col-sm-12 col-md-12 ">
+                        <div class="form-group">
+                            <label for="firstname" class="control-label">Enterprise</label>
+                            @Html.DropDownListFor(m => m.EnterpriseCreationModel.OrganizationID, (SelectList)ViewBag.organization, "-- Select--", new { @class = "form-control", @required = "required", @id = "OrganizationID" })
+                            @Html.ValidationMessageFor(m => m.EnterpriseCreationModel.OrganizationID, "", new { @class = "text-danger", @style = "color:red" })
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 ">
+                        <div class="form-group">
+
+                            <button id="myBtn" class="btn-primary xyzxyz" type="button">Add new Enterprise</button>
+
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 ">
+                        <div class="form-group">
+                            <label for="lastname" class="control-label">Name</label>
+                            @Html.HiddenFor(m => m.EnterpriseCreationModel.UDID)
+                            @Html.EditorFor(m => m.EnterpriseCreationModel.EmployeeName, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "EmployeeName" } })
+                            @Html.ValidationMessageFor(m => m.EnterpriseCreationModel.EmployeeName, "", new { @class = "text-danger", @style = "color:red" })
+
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 ">
+                        <div class="form-group">
+                            <label for="firstname" class="control-label">Role</label>
+                            @Html.DropDownListFor(m => m.EnterpriseCreationModel.RoleId, (SelectList)ViewBag.EpRoles, "-- Select--", new { @class = "form-control", @required = "required", @id = "Role" })
+                            @Html.ValidationMessageFor(m => m.EnterpriseCreationModel.RoleId, "", new { @class = "text-danger", @style = "color:red" })
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 ">
+                        <div class="form-group">
+                            <label for="firstname" class="control-label">Email ID</label>
+                            @Html.EditorFor(m => m.EnterpriseCreationModel.EmailId, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "EmailID" } })
+
+                            @Html.ValidationMessageFor(m => m.EnterpriseCreationModel.EmailId, "", new { @class = "text-danger", @style = "color:red" })
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 ">
+                        <div class="form-group">
+                            <label for="lastname" class="control-label">Password</label>
+                            @Html.EditorFor(m => m.EnterpriseCreationModel.Password, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "Password" } })
+
+                            @Html.ValidationMessageFor(m => m.EnterpriseCreationModel.Password, "", new { @class = "text-danger", @style = "color:red" })
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 ">
+                        <div class="form-group">
+                            <label for="lastname" class="control-label">Mobile Number</label>
+                            @Html.EditorFor(m => m.EnterpriseCreationModel.MobileNo, new { htmlAttributes = new { @class = "form-control", @id = "MobileNo", @onkeypress = "NumOnlyVal(event)", @maxlength = "15" } })
+
+                            @Html.ValidationMessageFor(m => m.EnterpriseCreationModel.MobileNo, "", new { @class = "text-danger", @style = "color:red" })
+                        </div>
+                    </div>
+
+
+
+
+
+                    <br><br>
+                    <div class="row">
+                        <div class="col-xs-12 text-right">
+                            <button class="btn btn-primary" type="submit" name="Save">Save</button>
+                            @*<button type="submit" class="btn btn-primary">Submit</button>*@
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    }
+
+    @using (Html.BeginForm("SaveEnterpriseDetails", "UserCreation", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveEnterpriseDetails" }))
+    {
+        <div id="myModal" class="modal">
+            <div class="popup popupzxc">
+                @*<h5>Add Enterprise Name</h5>*@
+                <button class="close">×</button>
+                <div class="content">
+                    <table class="table table-bordered table-hover table-sortable" id="tblModal" style="width:100%">
+
+                        <thead>
+                            <tr>
+                                <th>Enterprise Name</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @Html.HiddenFor(m => m.OrganizationModel.OrganizationName, new { @id = "OrganizationName" })
+                            <tr>
+
+                                <td>
+
+                                    <input type='text' class='form-control' id='OrganizationName_' maxlength="1000" />
+                                </td>
+
+                                <td data-name="del" hidden>
+                                    <input type='number' maxlength='100' class='form-control' value='0' style='display:none' id="OrganizationID_" />
+
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                    <div class="col-md-3 float-right" style="float:right;">
+                        <input style="float: right;" type="submit" id="" class="btn btn-primary" title="Submit" value="Save" name="SaveDetails" onclick="FunDetailsSave()">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+<script>
+
+
+    function FunDetailsSave() {
+
+        var flag = CheckDetailsSave();
+        //alert(flag)
+        if (flag == true)
+            $('#SaveEnterpriseDetails').submit();
+        //$('#').submit();
+        //else if (flag == false)
+        //    $('#SaveInvoiceDetails').submit();
+
+        else
+            event.preventDefault();
+
+    }
+    function CheckDetailsSave() {
+
+        var values = '';
+        var i = 0;
+        var flag = true
+
+        var NoOfRows = $("#tblModal  tbody  tr").length;
+        if (NoOfRows < 1) {
+            //  alert("Please Add Invoice Details")
+            //flag = false
+        }
+        else {
+            $("#tblModal TBODY TR").each(function () {
+                //alert("hi")
+                var row = $(this);
+                var string = "";
+
+                var OrganizationName = row.find("TD input").eq(0).val();
+                if (OrganizationName == "") {
+                    //$('#txterrorExpenseAmount_0').show();
+                    alert("Name of Enterprise Required");
+                    flag = false
+                    return false;
+                    // string += '####' + 'NULL';
+                }
+                else {
+                    string = OrganizationName;
+                }
+
+                string += '####' + row.find("TD input").eq(1).val();
+
+
+                console.log(string);
+
+                if (i == 0) {
+                    values = string;
+                }
+                else {
+                    values += '||||' + string;
+                }
+                i++;
+
+            });
+
+            console.log(values);
+            $("#OrganizationName").val(values);
+        }
+        // alert(values)
+        //flag = false;
+        return flag;
+
+    }
+</script>
+<script>
+    var modal = document.getElementById('myModal');
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function () {
+        modal.style.display = "block";
+        modal.style.display = "block";
+    }
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+<script>
+    function NumOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9.]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("[0-9.,]");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+</script>
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                                //window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}

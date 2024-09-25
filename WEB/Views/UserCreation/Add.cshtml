@@ -1,0 +1,203 @@
+﻿@*=============================================
+       Created By:	ismail baroodwale
+       Create date: 24-12-2019
+       Description: admin panel-add User
+    NEW SVN VERSION
+    =============================================*@
+
+@model  Model.Models.UserCreation.UserCreationCommonModel
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Add Enterprise User</li>
+    </ol>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">List of Request</h1>
+    </div>
+</div>
+
+
+
+<div class="col-md-12 ">
+
+    @*@if (TempData["Success"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+            <script>
+                var form = document.getElementById("Add");
+                form.reset();
+            </script>
+        }
+
+        @if (TempData["Failure"] != null)
+        {
+            <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+            <script>
+                var form = document.getElementById("Add");
+                form.reset();
+            </script>
+        }*@
+
+    @using (Html.BeginForm("SaveEPUser", "UserCreation", FormMethod.Post, new { enctype = "multipart/form-data", @id = "Add" }))
+    {
+
+        <div class="panel panel-default articles ">
+            <div>
+                <div class="panel-heading">
+                    <div class="col-md-12">
+                        Add Enterprise User
+                    </div>
+
+                </div>
+
+
+                <div class="panel-body articles-container table-size">
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="firstname" class="control-label lfz">Enterprise</label>
+                                @Html.DropDownListFor(m => m.EnterpriseCreationModel.OrganizationID, (SelectList)ViewBag.org, "-- Select--", new { @class = "form-control", @required = "required", @id = "OrganizationID" })
+                                @Html.ValidationMessageFor(m => m.EnterpriseCreationModel.OrganizationID, "", new { @class = "text-danger", @style = "color:red" })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="lastname" class="control-label  lfz">Name</label>
+                                @Html.HiddenFor(m => m.EnterpriseCreationModel.UDID)
+                                @Html.EditorFor(m => m.EnterpriseCreationModel.EmployeeName, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "EmployeeName" } })
+                                @Html.ValidationMessageFor(m => m.EnterpriseCreationModel.EmployeeName, "", new { @class = "text-danger", @style = "color:red" })
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="firstname" class="control-label  lfz">Role</label>
+                                @Html.DropDownListFor(m => m.EnterpriseCreationModel.RoleId, (SelectList)ViewBag.EpRoles, "-- Select--", new { @class = "form-control", @required = "required", @id = "Role" })
+                                @Html.ValidationMessageFor(m => m.EnterpriseCreationModel.RoleId, "", new { @class = "text-danger", @style = "color:red" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="firstname" class="control-label  lfz">Email ID</label>
+                                @Html.EditorFor(m => m.EnterpriseCreationModel.EmailId, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "EmailID" } })
+
+                                @Html.ValidationMessageFor(m => m.EnterpriseCreationModel.EmailId, "", new { @class = "text-danger", @style = "color:red" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="lastname" class="control-label  lfz">Password</label>
+                                @Html.EditorFor(m => m.EnterpriseCreationModel.Password, new { htmlAttributes = new { @class = "form-control", @required = "required", @id = "Password" } })
+
+                                @Html.ValidationMessageFor(m => m.EnterpriseCreationModel.Password, "", new { @class = "text-danger", @style = "color:red" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="lastname" class="control-label  lfz">Mobile Number</label>
+                                @Html.EditorFor(m => m.EnterpriseCreationModel.MobileNo, new { htmlAttributes = new { @class = "form-control", @id = "MobileNo", @onkeypress = "NumOnlyVal(event)" } })
+
+                                @Html.ValidationMessageFor(m => m.EnterpriseCreationModel.MobileNo, "", new { @class = "text-danger", @style = "color:red" })
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-xs-12 text-right">
+                            <button class="btn btn-primary" type="submit" name="Save">Save</button>
+                            @*<button type="submit" class="btn btn-primary">Submit</button>*@
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    }
+
+</div>
+<script>
+    function NumOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatOnlyVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("^[0-9.]+$");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+    function FloatVal(e) {
+        //alert("AphanumVal")
+        var regex = new RegExp("[0-9.,]");
+        var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+        if (regex.test(str)) {
+            return true;
+        }
+
+        e.preventDefault();
+        return false;
+        //});
+    }
+
+</script>
+
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                               // window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}

@@ -1,0 +1,248 @@
+﻿@*@model IEnumerable<Model.Models.Survey.GetAssignSurveyModel>*@
+@model Model.Models.Survey.StatusAggregateModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<main role="main" class="pt-5 pb-4">
+    <div class="container">
+
+        @if (TempData["Success"] != null)
+        {
+            <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+        }
+        @if (TempData["Failure"] != null)
+        {
+            <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+        }
+
+        @using (Html.BeginForm("UpdateSurveyPaymentStatus", "Survey", FormMethod.Post, new { enctype = "multipart/form-data", @id = "UpdateAssignSurveyStatus" }))
+        {
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="content">
+                        <h2 class="section-heading">View Status</h2>
+
+
+                        @Html.HiddenFor(m => m.AssignSurveyModel.AssignMemberIds, new { @id = "AssignMemberIds", @class = "form-control", @required = "required" })
+                        @Html.HiddenFor(m => m.AssignSurveyModel.AssignSurveyId, new { @id = "AssignSurveyId", @class = "form-control", @required = "required" })
+                        @Html.HiddenFor(m => m.AssignSurveyModel.PaymentStatus, new { @id = "PaymentStatus", @class = "form-control", @required = "required" })
+
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="content">
+
+
+
+                                    <select name="paymentStatusAll" id="paymentStatusAll" class="form-control"><option value="27">Unpaid</option><option value="28">Paid</select><br />
+                                    <table border="1" width="100%" id="table_id" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th><label><input type="checkbox" name="SelectAll" id="SelectAll" onchange="onSelectAllchange(this)" value="" />&nbsp;Select All</label></th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Survey Name</th>
+                                                <th>Survey Amount</th>
+                                                <th>Assigned Date</th>
+                                                <th>Survey Status</th>
+                                                <th>Payment Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                            @foreach (var lstSurvey in Model.lstGetAssignSurveyModel)
+                                            {
+
+                                                <tr>
+                                                    <td><input type="checkbox" name="Enterprises[]" value=@lstSurvey.AssignSurveyId /></td>
+                                                    <td>@lstSurvey.Name</td>
+                                                    <td>@lstSurvey.Email_id</td>
+                                                    <td>@lstSurvey.SurveyName</td>
+                                                    <td>@lstSurvey.SurveyAmount</td>
+                                                    <td>@lstSurvey.CreatedDate.ToString("dd-MM-yyyy") </td>
+                                                    <td>@lstSurvey.SurveyStatus</td>
+                                                    <td>
+
+                                                        <select name="paymentStatus" class="form-control">
+                                                            @if (lstSurvey.PaymentStatusId == 27)
+                                                            {
+                                                                <option value="27" selected>Unpaid</option>
+                                                                <option value="28">Paid</option>
+                                                            }
+                                                            else
+                                                            {
+                                                                <option value="27">Unpaid</option>
+                                                                <option value="28" selected>Paid</option>
+                                                            }
+
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <input type="submit" name="submit" class="btn btn-primary" id=@lstSurvey.AssignSurveyId value="Submit" onclick="UpdatePaymentStatus(this)" />
+                                                    </td>
+
+                                                </tr>
+                                            }
+                                        </tbody>
+
+
+                                    </table>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="action-btns clearfix mt-3 mb-4 text-center">
+                                    <input type="submit" class="btn  btn-primary rounded" name="button" value="Submit Selected" id="btnSubmit">
+                                    @*<input type="reset" class="btn  btn-primary rounded" name="button" style="margin-left:10px" value="Cancel" onclick="document.location.href='../Home/Index';">*@
+                                    @Html.ActionLink("Cancel", "Index", "Home", null, new { @class = "btn  btn-primary rounded", @style = "margin-left:10px" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        }
+    </div>
+
+    <!-- content ene -->
+
+</main>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#table_id').DataTable({
+            responsive: true,
+            ordering: false
+        });
+    });
+
+    function onSelectAllchange(check) {
+        if (check.checked) {
+            $("input[name='Enterprises[]']").each(function () {
+                $(this).prop('checked', true);
+            });
+        }
+        else {
+            $("input[name='Enterprises[]']").each(function () {
+                $(this).prop('checked', false);
+            });
+        }
+    }
+
+
+    $("#btnSubmit").click(function () {
+
+
+        var EnterprisesArray = new Array();
+
+        $.each($("input[name='Enterprises[]']:checked"), function () {
+            EnterprisesArray.push($(this).val());
+        });
+
+
+        if (EnterprisesArray == "") {
+            alert("Select atleast one record");
+            return false;
+        }
+
+        console.log(EnterprisesArray)
+
+        var EnterprisesString = EnterprisesArray.join(',');
+
+        console.log(EnterprisesString)
+
+
+
+        $("#AssignMemberIds").val(EnterprisesString)
+
+        var paystatusid = $("#paymentStatusAll").val();
+        alert(paystatusid)
+
+        $("#PaymentStatus").val(paystatusid)
+
+        //return false
+
+        //return false;
+        $('#UpdateAssignSurveyStatus').submit();
+
+    });
+
+    function UpdatePaymentStatus(e) {
+
+
+        console.log(e.id)
+
+        var assignSurveyId = e.id;
+
+        alert(assignSurveyId)
+
+        $("#AssignSurveyId").val(assignSurveyId)
+
+        var row = $(e).closest("TR");
+
+        console.log(row)
+
+        var paystatusid = row.find("TD select").eq(0).val();
+        alert(paystatusid)
+
+        $("#PaymentStatus").val(paystatusid)
+
+        //return false
+
+        // $('#UpdateAssignSurveyStatus').submit();
+
+    }
+
+    function RemoveOption(button) {
+        //Determine the reference of the Row using the Button.
+        var row = $(button).closest("TR");
+        var name = row.find("TD input").eq(0).val();
+        //var name = $("TD", row).eq(0).html();
+        if (confirm("Do you want to delete: " + name)) {
+
+            if (questiontypeid == 18) {
+                //Get the reference of the Table.
+                var table = $("#tblPollOption")[0];
+
+                //Delete the Table row using it's Index.
+                table.deleteRow(row[0].rowIndex);
+                //op--;
+            }
+
+            else if (questiontypeid == 14) {
+                //Get the reference of the Table.
+                var table = $("#tblPollOptioneditable")[0];
+
+                //Delete the Table row using it's Index.
+                table.deleteRow(row[0].rowIndex);
+                //op--;
+            }
+
+        }
+    };
+
+
+</script>
+
+
+
+
+

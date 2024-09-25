@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Demo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#fileInput').change(function () {
+                var file = $('#fileInput')[0].files[0];
+                var formData = new FormData();
+                formData.append('file', file);
+
+                $.ajax({
+                    url: 'UploadFileHandler.ashx', // URL to your C# handler
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        // Handle success
+                        console.log("File uploaded successfully.");
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle errors
+                        console.error("Error uploading file: " + error);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="file" id="fileInput" />
+</body>
+</html>
+

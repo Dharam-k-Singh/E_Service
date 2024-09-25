@@ -1,0 +1,589 @@
+﻿
+@model Model.Models.FacilityRTD.EditFoodDetailsModel
+@{
+    ViewBag.Title = "";
+    Layout = "~/Views/Shared/_LayoutFacility.cshtml";
+    // var message = TempData["Failure1"] ?? string.Empty;
+}
+
+<link href="~/css/SeatCSS.css" rel="stylesheet" />
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Edit Food Details</li>
+    </ol>
+</div>
+
+
+
+
+<style>
+
+    .divform {
+        margin-bottom: 30px;
+        max-width: 500px;
+        padding: 20px;
+        box-shadow: 0px 0px 16px 4px rgba(0,0,0,0.1)
+    }
+
+    fieldset.inputTextWrap {
+        margin: 0 0 30px 0;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+        fieldset.inputTextWrap legend {
+            background: #001f57;
+            padding: 4px 10px;
+            color: #000;
+            margin: 0 auto;
+            display: block;
+            width: 47%;
+            font-size: 1.6rem;
+            color: #FFF;
+            text-align: center;
+        }
+
+        fieldset.inputTextWrap .inputWrap {
+            margin: 0 0 12px 0;
+            width: 100%;
+        }
+
+            fieldset.inputTextWrap .inputWrap label {
+                margin: 0 0 3px 0;
+                display: block;
+            }
+
+            fieldset.inputTextWrap .inputWrap input {
+                padding: 4px 10px;
+                font-size: 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+            }
+
+    .divform textarea {
+        resize: none;
+        overflow: hidden;
+    }
+
+    td.tdfg textarea {
+        /* height: auto !important;*/
+        overflow: hidden;
+        resize: none;
+        border: none;
+        outline: none;
+        width: 100%;
+        max-width: initial;
+        max-height: 100%;
+        float: left;
+        display: block;
+    }
+
+        td.tdfg textarea:focus {
+            border: none;
+            outline: none;
+        }
+
+
+
+    table.tableviewc {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px auto;
+    }
+
+        /* Zebra striping */
+        table.tableviewc tr:nth-of-type(odd) {
+            background: #eee;
+        }
+
+        table.tableviewc th {
+            background: #e2efda;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        table.tableviewc td, table.tableviewc th {
+            border: 1px solid #fff;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        table.tableviewc td {
+            padding: 10px;
+            color: #000000;
+        }
+
+
+    .brcol {
+        background: #ededed;
+    }
+
+    .lucol {
+        background: #ddebf7;
+    }
+
+    .dincol {
+        background: #fff2cc;
+    }
+</style>
+<div class="row">
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+
+    }
+
+    @if (TempData["Failure"] != null)
+    {
+        <p class="alert alert-danger" id="failureMessage">@TempData["Failure"]</p>
+    }
+
+
+
+    <div class="col-md-12">
+        @using (Html.BeginForm("SaveFooddetails", "FacilityRTD", FormMethod.Post, new { enctype = "multipart/form-data", @id = "SaveFooddetails" }))
+        {
+
+            <div class="panel panel-default articles">
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group form-group-lg lfzab">
+
+                                @Html.HiddenFor(m => m.FDId)
+                                @Html.HiddenFor(m => m.WeekId)
+                                @Html.HiddenFor(m => m.Year)
+
+                                <label for="firstname" class="form-label">Year</label>
+                                @Html.TextBoxFor(m => m.Year, new { @class = "form-control", @id = "YearId", @readonly = "readonly", @autofocus = "autofocus", })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="firstname" class="form-label"> Week</label>
+                                @*@Html.DropDownListFor(m => m.WeekId, new { @class = "form-control", @required = "required", @maxlength = "500", @id = "WeekId" })
+                                    @Html.ValidationMessageFor(model => model.WeekId, "", new { @class = "text-danger" })*@
+
+
+                                
+
+                                @*@Html.DropDownListFor(m => m.WeekId, (SelectList)ViewBag.Weeks, new { @class = "form-control", @id = "WeekId", @disabled = "disabled", @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(model => model.WeekId, "", new { @class = "text-danger" })*@
+
+                                @Html.TextBoxFor(m => m.WeekId, new { @class = "form-control", @id = "WeekId",  @readonly = "readonly" , @autofocus = "autofocus", })
+
+                                @*<select id="weeksId" class="selectpicker form-control" title="Week">
+                                        <option>Week 1</option>
+                                        <option>Week 2</option>
+                                    </select>*@
+                                @*<textarea class="form-control"></textarea>*@
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="firstname" class="control-label  lfz">Date From</label>
+                                @*@Html.TextAreaFor(m => m.WarehouseDescription, new { @class = "form-control", @required = "required", @maxlength = "500", @id = "RequestDescription" })
+                                    @Html.ValidationMessageFor(model => model.WarehouseDescription, "", new { @class = "text-danger" })*@
+                                @Html.TextBoxFor(m => m.DateFrom, new { @class = "form-control", @id = "DateFrom", @disabled = "disabled", @readonly = "readonly", @autofocus = "autofocus", })
+
+                                @*<input type="text" class="form-control" readonly />*@
+                                @*<textarea class="form-control"></textarea>*@
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group form-group-lg lfzab">
+                                <label for="firstname" class="control-label  lfz">Date To</label>
+                                @*@Html.TextAreaFor(m => m.WarehouseDescription, new { @class = "form-control", @required = "required", @maxlength = "500", @id = "RequestDescription" })
+                                    @Html.ValidationMessageFor(model => model.WarehouseDescription, "", new { @class = "text-danger" })*@
+                                @Html.TextBoxFor(m => m.DateTo, new { @class = "form-control", @id = "DateTo", @disabled = "disabled", @readonly = "readonly" , @autofocus = "autofocus", })
+                                @*<input type="text" class="form-control" readonly />*@
+                                @*<textarea class="form-control"></textarea>*@
+                            </div>
+                        </div>
+
+                        @*style-s3 -------------  Add class with form control for scroll style*@
+                        <div class="col-md-12">
+
+                            <table style="width:100%;" class="tableviewc">
+
+
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                         
+                                            @Html.DisplayFor(m => m.Monday_Date, new { @class = "autosize brcol", @readonly = "readonly", }) <br />
+                                            Monday
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+
+
+                                            @Html.TextAreaFor(m => m.Monday_BF, new { @class = "autosize brcol", @maxlength = "500", @id = "Monday_BF" })
+                                           
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+
+                                            @Html.TextAreaFor(m => m.Monday_L, new { @class = "autosize lucol", @maxlength = "500", @id = "Monday_L" })
+                                           
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+
+                                            @Html.TextAreaFor(m => m.Monday_D, new { @class = "autosize dincol", @maxlength = "500", @id = "Monday_D" })
+                                          
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+                            <table style="width:100%;" class="tableviewc">
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.DisplayFor(m => m.Tuesday_Date, new { @class = "autosize brcol", @id = "Tue_Date", @readonly = "readonly",}) <br />
+                                            Tuesday
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+                                            @Html.TextAreaFor(m => m.Tuesday_BF, new { @class = "autosize brcol", @maxlength = "500", @id = "Tuesday_BF" })
+                                          
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+                                            @Html.TextAreaFor(m => m.Tuesday_L, new { @class = "autosize lucol", @id = "Tuesday_L", @maxlength = "500", })
+                                          
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+                                            @Html.TextAreaFor(m => m.Tuesday_D, new { @class = "autosize dincol", @id = "Tuesday_D", @maxlength = "500", })
+                                          
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="col-md-12">
+
+                            <table style="width:100%;" class="tableviewc">
+
+
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.DisplayFor(m => m.Wednesday_Date, new { @class = "autosize brcol", @id = "Wed_Date", @readonly = "readonly",  }) <br />
+                                            Wednesday
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+                                            @Html.TextAreaFor(m => m.Wednesday_BF, new { @class = "autosize brcol", @id = "Wednesday_BF", @maxlength = "500", })
+                                         
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+                                            @Html.TextAreaFor(m => m.Wednesday_L, new { @class = "autosize lucol", @id = "Wednesday_L", @maxlength = "500", })
+                                         
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+                                            @Html.TextAreaFor(m => m.Wednesday_D, new { @class = "autosize dincol", @id = "Wednesday_D", @maxlength = "500", })
+                                         
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+                            <table style="width:100%;" class="tableviewc">
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.DisplayFor(m => m.Thursday_Date, new { @class = "autosize brcol", @id = "Thru_Date", @readonly = "readonly",  }) <br />
+                                            Thursday
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+                                            @Html.TextAreaFor(m => m.Thursday_BF, new { @class = "autosize brcol", @id = "Thursday_BF", @maxlength = "500", })
+                                          
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+                                            @Html.TextAreaFor(m => m.Thursday_L, new { @class = "autosize lucol", @id = "Thursday_L", @maxlength = "500", })
+                                      
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+                                            @Html.TextAreaFor(m => m.Thursday_D, new { @class = "autosize dincol", @id = "Thursday_D", @maxlength = "500", })
+                                           
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+
+
+
+
+
+
+
+                        </div>
+                        <div class="col-md-12">
+
+                            <table style="width:100%;" class="tableviewc">
+
+
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.DisplayFor(m => m.Friday_Date, new { @class = "autosize brcol", @id = "Fri_Date", @readonly = "readonly" }) <br />
+                                            Friday
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+                                            @Html.TextAreaFor(m => m.Friday_BF, new { @class = "autosize brcol", @id = "Friday_BF", @maxlength = "500", })
+                                    
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+                                            @Html.TextAreaFor(m => m.Friday_L, new { @class = "autosize lucol", @id = "Friday_L", @maxlength = "500", })
+                                        
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+                                            @Html.TextAreaFor(m => m.Friday_D, new { @class = "autosize dincol", @id = "Friday_D", @maxlength = "500", })
+                                      
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+                            <table style="width:100%;" class="tableviewc">
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.DisplayFor(m => m.Saturday_Date, new { @class = "autosize brcol", @id = "Sat_Date", @readonly = "readonly" }) <br />
+                                            Saturday
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+                                            @Html.TextAreaFor(m => m.Saturday_BF, new { @class = "autosize brcol", @id = "Saturday_BF", @maxlength = "500", })
+                                        
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+                                            @Html.TextAreaFor(m => m.Saturday_L, new { @class = "autosize lucol", @id = "Saturday_L", @maxlength = "500", })
+                            
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+                                            @Html.TextAreaFor(m => m.Saturday_D, new { @class = "autosize dincol", @id = "Saturday_D", @maxlength = "500", })
+                                         
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+
+
+
+
+
+
+
+                        </div>
+                        <div class="col-md-12">
+
+                            <table style="width:100%;" class="tableviewc">
+
+
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="rowgroup" colspan="2" rowspan="4">
+                                            @Html.DisplayFor(m => m.Sunday_Date, new { @class = "autosize brcol", @id = "Sun_Date", @readonly = "readonly" }) <br />
+                                            Sunday
+                                        </th>
+                                        <th scope="row" style="background: #ededed;">Breakfast</th>
+                                        <td class="tdfg" style="background: #ededed;">
+                                            @Html.TextAreaFor(m => m.Sunday_BF, new { @class = "autosize brcol", @id = "Sunday_BF", @maxlength = "500", })
+                                     
+
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #ddebf7;">Lunch</th>
+                                        <td class="tdfg" style="background: #ddebf7;">
+                                            @Html.TextAreaFor(m => m.Sunday_L, new { @class = "autosize lucol", @id = "Sunday_L", @maxlength = "500", })
+                                         
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" style="background: #fff2cc;">Dinner</th>
+                                        <td class="tdfg" style="background: #fff2cc;">
+                                            @Html.TextAreaFor(m => m.Sunday_D, new { @class = "autosize dincol", @id = "Sunday_D", @maxlength = "500", })
+                                        
+                                        </td>
+
+                                    </tr>
+
+
+
+                                </tbody>
+                            </table>
+
+
+
+
+
+
+
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-xs-12 text-right">
+                                <input type="submit" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        }
+    </div>
+
+</div>
+<script type="text/javascript">
+    //autosize();
+    function autosize() {
+        var text = $('.autosize');
+
+        text.each(function () {
+            $(this).attr('rows', 1);
+            resize($(this));
+        });
+
+        text.on('input', function () {
+            resize($(this));
+        });
+
+        function resize($text) {
+            $text.css('height', 'auto');
+            $text.css('height', $text[0].scrollHeight + 'px');
+        }
+    }
+</script>
+@if (TempData["Success"] != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                @*alert("@(TempData["Success"])");*@
+
+                                $.confirm({
+                                    title: '@(TempData["Success"]) ',
+                                    content: " ",
+                                    type: 'dark',
+                                    typeAnimated: true,
+                                    buttons: {
+                                        tryAgain: {
+                                            text: 'OK',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+
+                                               // window.location.reload();
+                                            }
+                                        },
+                                    }
+                                });
+            };
+    </script>
+}
+
+
+
+
+
+
+
+
+
