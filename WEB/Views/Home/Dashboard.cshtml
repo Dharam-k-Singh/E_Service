@@ -465,35 +465,35 @@
                     }
 
                     @*if (roleid == 1 || roleid == 2 || roleid == 5 || roleid == 7 )
-                        {
-                            <div class="col-md-6" style="margin-bottom: 10px;">
-                                <a class="achp" href="@Url.Action("Index", "Warehouse")">
-                                    <div class="wrap">
-                                        <div class="ico-wrap">
-                                            <div class="demo" style="margin: 15px;">
-                                                <div class="rkmd-btn btn-fab btn-lightBlue ripple-effect">
-                                                    <i class="material-icons">grading</i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="text-wrap vcenter">
-                                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
-                                                WAREHOUSE BOOKING
-                                                <span></span>
-                                            </h2>
-                                            <p class="mbr-fonts-style text1 mbr-text display-6"></p>
-                                        </div>
-                                    </div>
-                                </a>
+        {
+            <div class="col-md-6" style="margin-bottom: 10px;">
+                <a class="achp" href="@Url.Action("Index", "Warehouse")">
+                    <div class="wrap">
+                        <div class="ico-wrap">
+                            <div class="demo" style="margin: 15px;">
+                                <div class="rkmd-btn btn-fab btn-lightBlue ripple-effect">
+                                    <i class="material-icons">grading</i>
+                                </div>
                             </div>
-                          }
+                        </div>
+                        <div class="text-wrap vcenter">
+                            <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                WAREHOUSE BOOKING
+                                <span></span>
+                            </h2>
+                            <p class="mbr-fonts-style text1 mbr-text display-6"></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+          }
                     *@
 
 
                     @if (roleid == 8 || roleid == 7 || roleid == 1 || roleid == 5)
                     {
                         <div class="col-md-6" style="margin-bottom: 10px;">
-                            <a class="achp" href="@Url.Action("Index", "FacilityRTD")"onclick="showLoadingSweetAlert('Loading Facility')">
+                            <a class="achp" href="@Url.Action("Index", "FacilityRTD")" onclick="showLoadingSweetAlert('Loading Facility')">
                                 <div class="wrap">
                                     <div class="ico-wrap">
                                         <div class="demo" style="margin: 15px;">
@@ -517,7 +517,7 @@
                     @if (roleid == 9 || roleid == 8 || roleid == 7 || roleid == 1 || roleid == 5)
                     {
                         <div class="col-md-6" style="margin-bottom: 10px;">
-                            <a class="achp" href="@Url.Action("MenuView", "FacilityRTD")"onclick="showLoadingSweetAlert('Loading Menu')">
+                            <a class="achp" href="@Url.Action("MenuView", "FacilityRTD")" onclick="showLoadingSweetAlert('Loading Menu')">
                                 <div class="wrap">
                                     <div class="ico-wrap">
                                         <div class="demo" style="margin: 15px;">
@@ -558,40 +558,65 @@
                             </a>
                         </div>
                     }
+
+                    @if (roleid == 10)
+                    {
+                        <div class="col-md-6" style="margin-bottom: 10px;">
+                            <a class="achp" href="@Url.Action("TrackDoc", "TrackDocument")" onclick="showLoadingSweetAlert('Loading Track Document')">
+                                <div class="wrap">
+                                    <div class="ico-wrap">
+                                        <div class="demo" style="margin: 15px;">
+                                            <div class="rkmd-btn btn-fab btn-lightBlue ripple-effect">
+                                                <i class="material-icons">grading</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-wrap vcenter">
+                                        <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                                            Track Document
+                                            <span></span>
+                                        </h2>
+                                        <p class="mbr-fonts-style text1 mbr-text display-6"></p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    }
                     <!-- <div class="col-lg-1 mbr-col-md-10">
-                                    </div> <div class="col-lg-5 mbr-col-md-10">
-                        <a class="achp" href="@Url.Action("Index", "KRA")">
-                            <div class="wrap">
-                                <div class="ico-wrap">
+                    </div> <div class="col-lg-5 mbr-col-md-10">
+        <a class="achp" href="@Url.Action("Index", "KRA")">
+            <div class="wrap">
+                <div class="ico-wrap">
 
 
-                                    <img class="raisec" src="https://cdn0.iconfinder.com/data/icons/miscellaneous-12-line/128/claims_money_insurance_requirement-512.png">
-                                </div>
-                                <div class="text-wrap vcenter">
-                                    <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">RMS<span></span></h2>
-                                    <p class="mbr-fonts-style text1 mbr-text display-6"></p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-5 mbr-col-md-10">
-                        <a class="achp" href="@Url.Action("Dashboard", "RDS")">
-                            <div class="wrap">
-                                <div class="ico-wrap">
+                    <img class="raisec" src="https://cdn0.iconfinder.com/data/icons/miscellaneous-12-line/128/claims_money_insurance_requirement-512.png">
+                </div>
+                <div class="text-wrap vcenter">
+                    <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">RMS<span></span></h2>
+                    <p class="mbr-fonts-style text1 mbr-text display-6"></p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-5 mbr-col-md-10">
+        <a class="achp" href="@Url.Action("Dashboard", "RDS")">
+            <div class="wrap">
+                <div class="ico-wrap">
 
-                                    <img class="raisec" src="https://cdn0.iconfinder.com/data/icons/files-documents-outline/512/oYPS__file_document_update_arrow_arrows_sheet_paper_page-512.png">
-                                </div>
-                                <div class="text-wrap vcenter">
-                                    <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
-                                        RDS
-                                    </h2>
-                                    <p class="mbr-fonts-style text1 mbr-text display-6"></p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                                    <div class="col-lg-1 mbr-col-md-10">
-                                    </div>-->
+                    <img class="raisec" src="https://cdn0.iconfinder.com/data/icons/files-documents-outline/512/oYPS__file_document_update_arrow_arrows_sheet_paper_page-512.png">
+                </div>
+                <div class="text-wrap vcenter">
+                    <h2 class="mbr-fonts-style mbr-bold mbr-section-title3 display-5">
+                        RDS
+                    </h2>
+                    <p class="mbr-fonts-style text1 mbr-text display-6"></p>
+                </div>
+            </div>
+        </a>
+    </div>
+                    <div class="col-lg-1 mbr-col-md-10">
+                    </div>-->
 
 
 

@@ -41,6 +41,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -126,6 +127,7 @@
     <Compile Include="Models\Survey\SurveyDashboardModel.cs" />
     <Compile Include="Models\Survey\SurveyModel.cs" />
     <Compile Include="Models\Survey\UserSurveyAnswerModel.cs" />
+    <Compile Include="Models\TrackingDoc\TrackingDocModel.cs" />
     <Compile Include="Models\UserCreation\EnterpriseCreationModel.cs" />
     <Compile Include="Models\UserCreation\GetEPUserCreationModel.cs" />
     <Compile Include="Models\UserCreation\GetEPUserEditDetailsModel.cs" />

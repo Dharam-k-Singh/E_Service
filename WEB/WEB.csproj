@@ -195,6 +195,7 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\RequestFormController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="Controllers\TrackDocumentController.cs" />
     <Compile Include="Controllers\UserCreationController.cs" />
     <Compile Include="Controllers\WarehouseController.cs" />
     <Compile Include="Filters\ActivityLoging.cs" />
@@ -3424,6 +3425,8 @@
     <Content Include="Scripts\jquery-3.7.1.min.map" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Views\TrackDocument\TrackDocument.cshtml" />
+    <Content Include="Views\TrackDocument\DocTrackingList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3442,6 +3445,7 @@
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Category\" />
     <Folder Include="Views\Menu\" />
+    <Folder Include="Views\TrackingDoc\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
