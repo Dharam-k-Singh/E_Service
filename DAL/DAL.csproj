@@ -83,6 +83,7 @@
     <Compile Include="Concreate\BaseClassDAL.cs" />
     <Compile Include="Concreate\Campaign\CampaignDAL.cs" />
     <Compile Include="Concreate\Department\DepartmentDAL.cs" />
+    <Compile Include="Concreate\DocTracking\DocTrackingDAL.cs" />
     <Compile Include="Concreate\FacilityRTD\FacilityRTDDAL.cs" />
     <Compile Include="Concreate\Home\HomeDAL.cs" />
     <Compile Include="Concreate\ListOfCategory\ListOfCategoryDAL.cs" />
@@ -150,6 +151,7 @@
     </Compile>
     <Compile Include="Interface\Campaign\ICampaignDAL.cs" />
     <Compile Include="Interface\Department\IDepartmentDAL.cs" />
+    <Compile Include="Interface\DocTracking\IDocTrackingDAL.cs" />
     <Compile Include="Interface\FacilityRTD\IFacilityRTDDAL.cs" />
     <Compile Include="Interface\Home\IHomeDAL.cs" />
     <Compile Include="Interface\IMenuDAL.cs" />

@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Models.TrackingDoc
+namespace Model.Models.TrackingDocument
 {
     public class TrackingDocModel
     {
@@ -24,9 +24,13 @@ namespace Model.Models.TrackingDoc
         public DateTime ReceivedDate { get; set; }
         public int RequiredAction { get; set; }
         public int RequiredAttention { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: yyyy-MM-dd}")]
+        public DateTime ActionDate { get; set; }
         [IgnoreDataMember]
         [Required(ErrorMessage = "At least One Document is Required")]
         public HttpPostedFileBase AttachDoc { get; set; }
+        public string AttachDocPath { get; set; }
         public int ChangedBy { get; set; }
         public int IsActive { get; set; }
     }

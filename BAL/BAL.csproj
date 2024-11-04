@@ -43,6 +43,7 @@
     <Compile Include="BALFactory.cs" />
     <Compile Include="Concreate\Campaign\CampaignBAL.cs" />
     <Compile Include="Concreate\Department\DepartmentBAL.cs" />
+    <Compile Include="Concreate\DocTracking\DocTracking.cs" />
     <Compile Include="Concreate\FacilityRTD\FacilityRTDBAL.cs" />
     <Compile Include="Concreate\Home\HomeBAL.cs" />
     <Compile Include="Concreate\ListOfCategory\ListOfCategoryBAL.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Concreate\Warehouse\WarehouseBAL.cs" />
     <Compile Include="Interface\Campaign\ICampaignBAL.cs" />
     <Compile Include="Interface\Department\IDepartmentBAL.cs" />
+    <Compile Include="Interface\DocTracking\IDocTracking.cs" />
     <Compile Include="Interface\FacilityRTD\IFacilityRTDBAL.cs" />
     <Compile Include="Interface\Home\IHomeBAL.cs" />
     <Compile Include="Interface\IMenu.cs" />

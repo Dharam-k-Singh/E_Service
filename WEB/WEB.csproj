@@ -3425,7 +3425,7 @@
     <Content Include="Scripts\jquery-3.7.1.min.map" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Views\TrackDocument\TrackDocument.cshtml" />
+    <Content Include="Views\TrackDocument\Add.cshtml" />
     <Content Include="Views\TrackDocument\DocTrackingList.cshtml" />
   </ItemGroup>
   <ItemGroup>

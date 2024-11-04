@@ -1,0 +1,122 @@
+﻿@model Model.Models.TrackingDocument.TrackingDocModel
+@{
+    ViewBag.Title = "TrackDocument";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="breadcrumb">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"> <em class="fa fa-home"></em></li>
+                <li class="breadcrumb-item"><a href="/">Document Tracking</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="card">
+
+    @using (Html.BeginForm("Add", "TrackDocument", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="@Html.IdFor(m => m.SenderOrgName)">Sender's Name/ Organization</label>
+                        @Html.EditorFor(m => m.SenderOrgName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="@Html.IdFor(m => m.DocType)">Document Type</label>
+                        @Html.DropDownListFor(m => m.DocType, (SelectList)ViewBag.DocType, "--  Select Type --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="@Html.IdFor(m => m.Subject)">Subject</label>
+                        @Html.EditorFor(m => m.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="@Html.IdFor(m => m.DocSummary)">Document Summary</label>
+                        @Html.EditorFor(m => m.DocSummary, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="@Html.IdFor(m => m.RecipientMailId)">Recipient's Email Id</label>
+                        @Html.EditorFor(m => m.RecipientMailId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="@Html.IdFor(m => m.DetailedDescription)">Detialed Description</label>
+                        @Html.EditorFor(m => m.DetailedDescription, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="@Html.IdFor(m => m.DocumentStatus)">Document Status</label>
+                        @Html.DropDownListFor(m => m.DocumentStatus, (SelectList)ViewBag.DocStatus, "--  Select Type --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="@Html.IdFor(m => m.ReceivedDate)">Received Date</label>
+                        @Html.EditorFor(m => m.ReceivedDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="@Html.IdFor(m => m.RequiredAction)">Action Required</label>
+                        @Html.DropDownListFor(m => m.RequiredAction, (SelectList)ViewBag.ActionReq, "--  Select Action --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="@Html.IdFor(m => m.RequiredAttention)">Attention Required</label>
+                        @Html.DropDownListFor(m => m.RequiredAttention, (SelectList)ViewBag.AttentionStatus, "--  Select Attention --", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="@Html.IdFor(m => m.ActionDate)">Action Date</label>
+                        @Html.EditorFor(m => m.ActionDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="@Html.IdFor(m => m.AttachDoc)">Attach Document</label>
+                        @Html.TextBoxFor(m => m.AttachDoc, new { @class = "form-control", @type = "file" })
+                        @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3">
+                <button type="button" class="btn btn-primary">Submit</button>
+
+            </div>
+        </div>
+    }
+</div>
+

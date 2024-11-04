@@ -26,6 +26,8 @@ using BAL.Interface.Warehouse;
 using BAL.Concreate.Warehouse;
 using BAL.Concreate.FacilityRTD;
 using BAL.Interface.FacilityRTD;
+using BAL.Concreate.DocTracking;
+using BAL.Interface.DocTracking;
 
 namespace API
 {
@@ -100,9 +102,15 @@ namespace API
         {
             return new WarehouseBAL();
         }
+
         public static IFacilityRTDBAL GetFacilityRTDBALInstance()
         {
             return new FacilityRTDBAL();
+        }
+
+        public static IDocTracking GetDocTrackInstantce()
+        {
+            return new DocTracking();
         }
     }
 }
