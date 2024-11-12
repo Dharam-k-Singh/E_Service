@@ -307,10 +307,7 @@
                                                 }
 
                                             }
-
-
-                                        </td>
-
+                                        </td> 
                                         <td>
                                             @GetList.ReOpenedComments
                                         </td>
@@ -382,17 +379,19 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="firstname" class="control-label  lfz">Upload</label>
-                                                    @Html.TextBoxFor(m => m.ChangeTicketStatus.UploadPath, new
-                                               {
-                                                   @class = "form-control",
-                                                   @type = "file",
-                                                   @name = "UploadPath",
-                                                   @id = "UploadPath" + "0",
-                                                   @accept = "image/jpeg,image/png,image/jpg,application/pdf",
-                                                   @multiple = "multiple",
-                                                   @onchange = "ShowDynamicFile(0)"
-                                               })
+                                                    @* @Html.TextBoxFor(m => m.ChangeTicketStatus.UploadPath, new
+                                                    {
+                                                    @class = "form-control",
+                                                    @type = "file",
+                                                    @name = "UploadPath",
+                                                    @id = "UploadPath" + "0",
+                                                    @accept = "image/jpeg,image/png,image/jpg,application/pdf",
+                                                    @multiple = "multiple",
+                                                    @onchange = "ShowDynamicFile(0)"
+                                                    })*@
                                                     @*@Html.ValidationMessageFor(model => model.InvestorProfileModel.LogoPath, "", new { @style = "color:red" })*@
+                                                   
+                                                    <input class="form-control" type="file" name="UploadPath" id="UploadPath0" accept="image/jpeg,image/png,image/jpg,application/pdf" multiple="multiple" onchange="ShowDynamicFile(0)" />@*added by Dharam*@   
                                                     <span id='FilePreview_0' name='FilePreview_0'> </span>
                                                     <label for="concept" class="col-sm-12 control-label" id="Uploaderror" style="display:none;color:red;"></label>
                                                 </div>
@@ -402,7 +401,7 @@
                                         <br><br>
                                         <div class="row">
                                             <div class="col-xs-12 text-right">
-                                                <button type="submit" name="Savestatus" id="Savestatus" class="btn btn-primary" onclick="loader();">Submit</button>
+                                                <button type="submit" name="Savestatus" id="Savestatus" value="notNull" class="btn btn-primary" onclick="loader();">Submit</button>
                                             </div>
                                         </div>
                                     </div>

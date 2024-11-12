@@ -30,6 +30,7 @@ namespace DAL
         public string UpdatedBy { get; set; }
         public string CommentsBy { get; set; }
         public string ReOpenedComments { get; set; }
+        public string UploadedDocument { get; set; }
         public string DepartmentUploadPath { get; set; }
     }
 }

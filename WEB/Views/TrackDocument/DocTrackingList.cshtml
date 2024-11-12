@@ -1,7 +1,74 @@
-﻿
+﻿@model List<Model.Models.TrackingDocument.TrackingDocModel>
 @{
     ViewBag.Title = "DocTrackingList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    table.flexx_abc {
+        width: 3000px;
+    }
 
+    tbody.yyyyyyy tr td span {
+        white-space: nowrap;
+        display: block;
+    }
+
+    .tableFixHead thead tr th {
+        white-space: nowrap;
+    }
+</style>
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Home")">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Tracking Document List</li>
+    </ol>
+</div>
+
+<div class="row">
+    <div class="panel-body articles-container table-size">
+        <div class="table-size-a rakeshcc" id="style-3" >
+            <table class="table table-bordered table-hover flexx_a flexx_abc tableFixHead" cellspacing="0" width="100%">
+                <thead class="zzzzzzz">
+                    <tr>
+                        <th>TrackingId</th>
+                        <th>Sender Org. Name</th>
+                        <th>Document Tpye</th>
+                        <th>Received Date</th>
+                        <th>Recipient Emails</th>
+                        <th>Supporting Document</th>
+                        <th>Document Status</th>
+                        <th>Action</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var m in Model)
+                    {
+                        <tr>
+                            <td>@m.TrackDocId</td>
+                            <td>@m.ActionDate</td>
+                            <td>@m.DocType</td>
+                            <td>@m.DocumentStatus</td>
+                            <td>@m.RequiredAction</td>
+                            <td>@m.ReceivedDate</td>
+                            <td>@m.RecipientMailId</td>
+                            <td>
+                                <a href="@Url.Action("", "")" class="fa fa-edit"></a>
+                                <a href="@Url.Action("", "")" class="fa fa-eye"></a>
+                                <a href="@Url.Action("", "")" class="fa fa-trash"></a>
+                            </td>
+                            <td>View History</td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

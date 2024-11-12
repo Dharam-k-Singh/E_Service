@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Interface.DocTracking
+namespace DAL.Interface.TrackDocument
 {
-    public interface IDocTrackingDAL
+    public interface ITrackDocumentDAL
     {
-        ResponseInfo Save(TrackingDocModel model);
+        ResponseInfo SaveOrUpdateDAL(TrackingDocModel model);
+        List<TrackingDocModel> TrackingDocListDAL();
     }
 }

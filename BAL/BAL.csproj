@@ -43,7 +43,6 @@
     <Compile Include="BALFactory.cs" />
     <Compile Include="Concreate\Campaign\CampaignBAL.cs" />
     <Compile Include="Concreate\Department\DepartmentBAL.cs" />
-    <Compile Include="Concreate\DocTracking\DocTracking.cs" />
     <Compile Include="Concreate\FacilityRTD\FacilityRTDBAL.cs" />
     <Compile Include="Concreate\Home\HomeBAL.cs" />
     <Compile Include="Concreate\ListOfCategory\ListOfCategoryBAL.cs" />
@@ -53,6 +52,7 @@
     <Compile Include="Concreate\RequestForm\RequestFormBAL.cs" />
     <Compile Include="Concreate\Role\RoleBAL.cs" />
     <Compile Include="Concreate\Survey\SurveyBAL.cs" />
+    <Compile Include="Concreate\TrackDocument\TrackDocumentBAL.cs" />
     <Compile Include="Concreate\UserCreation\UserCreationBAL.cs" />
     <Compile Include="Concreate\UsersBAL.cs" />
     <Compile Include="Concreate\UsersDetail\UsersDetailBAL.cs" />
@@ -60,7 +60,6 @@
     <Compile Include="Concreate\Warehouse\WarehouseBAL.cs" />
     <Compile Include="Interface\Campaign\ICampaignBAL.cs" />
     <Compile Include="Interface\Department\IDepartmentBAL.cs" />
-    <Compile Include="Interface\DocTracking\IDocTracking.cs" />
     <Compile Include="Interface\FacilityRTD\IFacilityRTDBAL.cs" />
     <Compile Include="Interface\Home\IHomeBAL.cs" />
     <Compile Include="Interface\IMenu.cs" />
@@ -71,6 +70,7 @@
     <Compile Include="Interface\RequestForm\IRequestFormBAL.cs" />
     <Compile Include="Interface\Role\IRoleBAL.cs" />
     <Compile Include="Interface\Survey\ISurveyBAL.cs" />
+    <Compile Include="Interface\TrackDocument\ITrackDocumentBAL.cs" />
     <Compile Include="Interface\UserCreation\IUserCreationBAL.cs" />
     <Compile Include="Interface\UsersDetail\IUsersDetailBAL.cs" />
     <Compile Include="Interface\Utility\IUtilityBAL.cs" />

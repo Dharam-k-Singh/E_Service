@@ -6,11 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BAL.Interface.DocTracking
+namespace BAL.Interface.TrackDocument
 {
-    public interface IDocTracking
+    public interface ITrackDocumentBAL
     {
-        ResponseInfo Save(TrackingDocModel model);
+        ResponseInfo SaveOrUpdateBAL(TrackingDocModel model);
+        List<TrackingDocModel> TrackingDocListBAL();
 
     }
 }

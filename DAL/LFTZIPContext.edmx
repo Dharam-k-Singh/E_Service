@@ -85,7 +85,7 @@
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.M_FoodDetails_RTD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.M_FoodDetails_RTD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="M_FoodDetails_RTD">
           <Key>
             <PropertyRef Name="FDId" />
@@ -162,7 +162,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.M_FoodDetails_RTD' does
           <Property Name="OrganizationId" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.M_MeterDetails_RTD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.M_MeterDetails_RTD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="M_MeterDetails_RTD">
           <Key>
             <PropertyRef Name="MId" />
@@ -325,7 +325,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.M_MeterDetails_RTD' doe
           <Property Name="CheckerId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.M_Weeks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.M_Weeks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="M_Weeks">
           <Key>
             <PropertyRef Name="WeekId" />
@@ -372,7 +372,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.M_Weeks' does not have 
           <Property Name="OrganizationId" Type="tinyint" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_FlatsDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_FlatsDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Map_FlatsDetails">
           <Key>
             <PropertyRef Name="FlatId" />
@@ -415,7 +415,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_FlatsDetails' does 
           <Property Name="DepartmentUploadPath" Type="varchar" MaxLength="1000" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_Request_history' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_Request_history' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Map_Request_history">
           <Key>
             <PropertyRef Name="AllocationId" />
@@ -446,7 +446,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_Request_history' do
           <Property Name="DepartmentUploadPath" Type="varchar" MaxLength="1000" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_RequestFeedback' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_RequestFeedback' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Map_RequestFeedback">
           <Key>
             <PropertyRef Name="RequestId" />
@@ -466,7 +466,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_RequestFeedback' do
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_RoleModule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_RoleModule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Map_RoleModule">
           <Key>
             <PropertyRef Name="RoleId" />
@@ -484,7 +484,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_RoleModule' does no
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserDepartment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserDepartment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Map_UserDepartment">
           <Key>
             <PropertyRef Name="DepartmentId" />
@@ -502,7 +502,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserDepartment' doe
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Map_UserRole">
           <Key>
             <PropertyRef Name="UDID" />
@@ -646,7 +646,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
           <Property Name="isHOD" Type="bit" />
           <Property Name="ProfileImagePath" Type="varchar" MaxLength="1000" />
         </EntityType>
-        <Association Name="FK__Map_Flats__FlatI__7D98A078">
+        <Association Name="FK__Map_Flats__FlatI__75A278F5">
           <End Role="M_ListOfValues" Type="Self.M_ListOfValues" Multiplicity="1" />
           <End Role="Map_FlatsDetails" Type="Self.Map_FlatsDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -658,7 +658,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Map_FlatsD__UDID__7E8CC4B1">
+        <Association Name="FK__Map_FlatsD__UDID__76969D2E">
           <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="1" />
           <End Role="Map_FlatsDetails" Type="Self.Map_FlatsDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -670,7 +670,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Map_RoleM__Modul__7F80E8EA">
+        <Association Name="FK__Map_RoleM__Modul__778AC167">
           <End Role="M_Modules" Type="Self.M_Modules" Multiplicity="1" />
           <End Role="Map_RoleModule" Type="Self.Map_RoleModule" Multiplicity="*" />
           <ReferentialConstraint>
@@ -682,7 +682,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Map_UserD__Depar__00750D23">
+        <Association Name="FK__Map_UserD__Depar__787EE5A0">
           <End Role="M_ListOfValues" Type="Self.M_ListOfValues" Multiplicity="1" />
           <End Role="Map_UserDepartment" Type="Self.Map_UserDepartment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -694,7 +694,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Map_UserDe__UDID__0169315C">
+        <Association Name="FK__Map_UserDe__UDID__797309D9">
           <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="1" />
           <End Role="Map_UserDepartment" Type="Self.Map_UserDepartment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -706,7 +706,7 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Map_UserR__RoleI__025D5595">
+        <Association Name="FK__Map_UserR__RoleI__7A672E12">
           <End Role="M_Role" Type="Self.M_Role" Multiplicity="0..1" />
           <End Role="Map_UserRole" Type="Self.Map_UserRole" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1445,27 +1445,27 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
     [Map_UserRole].[IsActive] AS [IsActive]
     FROM [dbo].[Map_UserRole] AS [Map_UserRole]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Map_Flats__FlatI__7D98A078" Association="Self.FK__Map_Flats__FlatI__7D98A078">
+          <AssociationSet Name="FK__Map_Flats__FlatI__75A278F5" Association="Self.FK__Map_Flats__FlatI__75A278F5">
             <End Role="M_ListOfValues" EntitySet="M_ListOfValues" />
             <End Role="Map_FlatsDetails" EntitySet="Map_FlatsDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Map_FlatsD__UDID__7E8CC4B1" Association="Self.FK__Map_FlatsD__UDID__7E8CC4B1">
+          <AssociationSet Name="FK__Map_FlatsD__UDID__76969D2E" Association="Self.FK__Map_FlatsD__UDID__76969D2E">
             <End Role="UserDetails" EntitySet="UserDetails" />
             <End Role="Map_FlatsDetails" EntitySet="Map_FlatsDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Map_RoleM__Modul__7F80E8EA" Association="Self.FK__Map_RoleM__Modul__7F80E8EA">
+          <AssociationSet Name="FK__Map_RoleM__Modul__778AC167" Association="Self.FK__Map_RoleM__Modul__778AC167">
             <End Role="M_Modules" EntitySet="M_Modules" />
             <End Role="Map_RoleModule" EntitySet="Map_RoleModule" />
           </AssociationSet>
-          <AssociationSet Name="FK__Map_UserD__Depar__00750D23" Association="Self.FK__Map_UserD__Depar__00750D23">
+          <AssociationSet Name="FK__Map_UserD__Depar__787EE5A0" Association="Self.FK__Map_UserD__Depar__787EE5A0">
             <End Role="M_ListOfValues" EntitySet="M_ListOfValues" />
             <End Role="Map_UserDepartment" EntitySet="Map_UserDepartment" />
           </AssociationSet>
-          <AssociationSet Name="FK__Map_UserDe__UDID__0169315C" Association="Self.FK__Map_UserDe__UDID__0169315C">
+          <AssociationSet Name="FK__Map_UserDe__UDID__797309D9" Association="Self.FK__Map_UserDe__UDID__797309D9">
             <End Role="UserDetails" EntitySet="UserDetails" />
             <End Role="Map_UserDepartment" EntitySet="Map_UserDepartment" />
           </AssociationSet>
-          <AssociationSet Name="FK__Map_UserR__RoleI__025D5595" Association="Self.FK__Map_UserR__RoleI__025D5595">
+          <AssociationSet Name="FK__Map_UserR__RoleI__7A672E12" Association="Self.FK__Map_UserR__RoleI__7A672E12">
             <End Role="M_Role" EntitySet="M_Role" />
             <End Role="Map_UserRole" EntitySet="Map_UserRole" />
           </AssociationSet>
@@ -1833,9 +1833,6 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
           <FunctionImport Name="RequestFormEdit_G_Mobile" ReturnType="Collection(LFTZ_InvestorPortalModel.RequestFormEdit_G_Mobile_Result)">
           <Parameter Name="RequestId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="RequestFormEPUserList_G" ReturnType="Collection(LFTZ_InvestorPortalModel.RequestFormEPUserList_G_Result)">
-          <Parameter Name="OrganizationID" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="RequestFormLFZUserList_G" ReturnType="Collection(LFTZ_InvestorPortalModel.RequestFormLFZUserList_G_Result)">
           <Parameter Name="UDID" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1846,9 +1843,6 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
           <Parameter Name="RequestId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="RequestListAdmin_G" ReturnType="Collection(LFTZ_InvestorPortalModel.RequestListAdmin_G_Result)" />
-          <FunctionImport Name="RequestWorkingListAdmin_G" ReturnType="Collection(LFTZ_InvestorPortalModel.RequestWorkingListAdmin_G_Result)">
-          <Parameter Name="UDID" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="RereshToken_Crud_Mobile">
             <Parameter Name="Username" Mode="In" Type="String" />
             <Parameter Name="RefreshToken" Mode="In" Type="String" />
@@ -2079,6 +2073,12 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
             <Parameter Name="EmailId" Mode="In" Type="String" />
             <Parameter Name="Createddate" Mode="In" Type="DateTime" />
             <Parameter Name="Createddate2" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="RequestWorkingListAdmin_G" ReturnType="Collection(LFTZ_InvestorPortalModel.RequestWorkingListAdmin_G_Result)">
+          <Parameter Name="UDID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="RequestFormEPUserList_G" ReturnType="Collection(LFTZ_InvestorPortalModel.RequestFormEPUserList_G_Result)">
+            <Parameter Name="OrganizationID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="ActivityLog">
@@ -3278,26 +3278,6 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
           <Property Type="String" Name="UploadPath" Nullable="false" MaxLength="500" />
         </ComplexType>
-        <ComplexType Name="RequestFormEPUserList_G_Result">
-          <Property Type="Int32" Name="RequestId" Nullable="false" />
-          <Property Type="String" Name="RequestNo" Nullable="true" MaxLength="172" />
-          <Property Type="String" Name="Enterprise" Nullable="true" MaxLength="2000" />
-          <Property Type="String" Name="Category" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="SubCategory" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Severity" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="Topic" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="RequestDescription" Nullable="false" />
-          <Property Type="String" Name="ContactPersonName" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="EmailId" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="MobileNo" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="RequestStatus" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="RaisedOn" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="UpdatedOn" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="300" />
-          <Property Type="String" Name="CommentsBy" Nullable="true" />
-          <Property Type="String" Name="ReOpenedComments" Nullable="true" />
-          <Property Type="String" Name="DepartmentUploadPath" Nullable="false" />
-        </ComplexType>
         <ComplexType Name="RequestFormLFZUserList_G_Result">
           <Property Type="Int32" Name="RequestId" Nullable="false" />
           <Property Type="String" Name="RequestNo" Nullable="true" MaxLength="172" />
@@ -3366,27 +3346,6 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
           <Property Type="String" Name="Priority" Nullable="true" MaxLength="150" />
           <Property Type="String" Name="UploadPath" Nullable="true" />
           <Property Type="String" Name="DepartmentUploadPath" Nullable="false" />
-          <Property Type="String" Name="ReOpenedComments" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="RequestWorkingListAdmin_G_Result">
-          <Property Type="Int32" Name="RequestId" Nullable="false" />
-          <Property Type="String" Name="ReportType" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="RequestStatus" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="Enterprise" Nullable="true" MaxLength="2000" />
-          <Property Type="String" Name="Category" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="SubCategory" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Severity" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="Topic" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="RequestDescription" Nullable="false" />
-          <Property Type="String" Name="ContactPersonName" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="ReportedBy" Nullable="true" MaxLength="300" />
-          <Property Type="String" Name="EmailId" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="MobileNo" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="RaisedOnDate" Nullable="true" MaxLength="30" />
-          <Property Type="String" Name="AllocatorUploadPath" Nullable="false" MaxLength="1000" />
-          <Property Type="String" Name="Department" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="Priority" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="UploadPath" Nullable="true" />
           <Property Type="String" Name="ReOpenedComments" Nullable="true" />
         </ComplexType>
         <ComplexType Name="RereshToken_G_Mobile_Result">
@@ -3745,6 +3704,49 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
           <Property Type="DateTime" Name="Createddate" Nullable="false" Precision="23" />
           <Property Type="String" Name="AverageHandling" Nullable="false" MaxLength="36" />
           <Property Type="String" Name="AverageResponse" Nullable="true" MaxLength="36" />
+        </ComplexType>
+        <ComplexType Name="RequestWorkingListAdmin_G_Result">
+          <Property Type="Int32" Name="RequestId" Nullable="false" />
+          <Property Type="String" Name="ReportType" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="RequestStatus" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Enterprise" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="SubCategory" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Severity" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Topic" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="RequestDescription" Nullable="false" />
+          <Property Type="String" Name="ContactPersonName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ReportedBy" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="EmailId" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RaisedOnDate" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="AllocatorUploadPath" Nullable="false" MaxLength="1000" />
+          <Property Type="String" Name="DepartmentUploadPath" Nullable="false" />
+          <Property Type="String" Name="Department" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Priority" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="UploadPath" Nullable="true" />
+          <Property Type="String" Name="ReOpenedComments" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="RequestFormEPUserList_G_Result">
+          <Property Type="Int32" Name="RequestId" Nullable="false" />
+          <Property Type="String" Name="RequestNo" Nullable="true" MaxLength="172" />
+          <Property Type="String" Name="Enterprise" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="Category" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="SubCategory" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Severity" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Topic" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="RequestDescription" Nullable="false" />
+          <Property Type="String" Name="ContactPersonName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="EmailId" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="MobileNo" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="RequestStatus" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="RaisedOn" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="UpdatedOn" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="CommentsBy" Nullable="true" />
+          <Property Type="String" Name="ReOpenedComments" Nullable="true" />
+          <Property Type="String" Name="UploadedDocument" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="DepartmentUploadPath" Nullable="false" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
@@ -5062,30 +5064,6 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="RequestFormEPUserList_G" FunctionName="LFTZ_InvestorPortalModel.Store.RequestFormEPUserList_G">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="LFTZ_InvestorPortalModel.RequestFormEPUserList_G_Result">
-                <ScalarProperty Name="RequestId" ColumnName="RequestId" />
-                <ScalarProperty Name="RequestNo" ColumnName="RequestNo" />
-                <ScalarProperty Name="Enterprise" ColumnName="Enterprise" />
-                <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
-                <ScalarProperty Name="Severity" ColumnName="Severity" />
-                <ScalarProperty Name="Topic" ColumnName="Topic" />
-                <ScalarProperty Name="RequestDescription" ColumnName="RequestDescription" />
-                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
-                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
-                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
-                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
-                <ScalarProperty Name="RaisedOn" ColumnName="RaisedOn" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CommentsBy" ColumnName="CommentsBy" />
-                <ScalarProperty Name="ReOpenedComments" ColumnName="ReOpenedComments" />
-                <ScalarProperty Name="DepartmentUploadPath" ColumnName="DepartmentUploadPath" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="RequestFormLFZUserList_G" FunctionName="LFTZ_InvestorPortalModel.Store.RequestFormLFZUserList_G">
             <ResultMapping>
               <ComplexTypeMapping TypeName="LFTZ_InvestorPortalModel.RequestFormLFZUserList_G_Result">
@@ -5168,31 +5146,6 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
                 <ScalarProperty Name="Priority" ColumnName="Priority" />
                 <ScalarProperty Name="UploadPath" ColumnName="UploadPath" />
                 <ScalarProperty Name="DepartmentUploadPath" ColumnName="DepartmentUploadPath" />
-                <ScalarProperty Name="ReOpenedComments" ColumnName="ReOpenedComments" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="RequestWorkingListAdmin_G" FunctionName="LFTZ_InvestorPortalModel.Store.RequestWorkingListAdmin_G">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="LFTZ_InvestorPortalModel.RequestWorkingListAdmin_G_Result">
-                <ScalarProperty Name="RequestId" ColumnName="RequestId" />
-                <ScalarProperty Name="ReportType" ColumnName="ReportType" />
-                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
-                <ScalarProperty Name="Enterprise" ColumnName="Enterprise" />
-                <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
-                <ScalarProperty Name="Severity" ColumnName="Severity" />
-                <ScalarProperty Name="Topic" ColumnName="Topic" />
-                <ScalarProperty Name="RequestDescription" ColumnName="RequestDescription" />
-                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
-                <ScalarProperty Name="ReportedBy" ColumnName="ReportedBy" />
-                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
-                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
-                <ScalarProperty Name="RaisedOnDate" ColumnName="RaisedOnDate" />
-                <ScalarProperty Name="AllocatorUploadPath" ColumnName="AllocatorUploadPath" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
-                <ScalarProperty Name="Priority" ColumnName="Priority" />
-                <ScalarProperty Name="UploadPath" ColumnName="UploadPath" />
                 <ScalarProperty Name="ReOpenedComments" ColumnName="ReOpenedComments" />
               </ComplexTypeMapping>
             </ResultMapping>
@@ -5669,6 +5622,57 @@ warning 6002: The table/view 'LFZ_EservicePortal2024.dbo.Map_UserRole' does not 
                 <ScalarProperty Name="Createddate" ColumnName="Createddate" />
                 <ScalarProperty Name="AverageHandling" ColumnName="AverageHandling" />
                 <ScalarProperty Name="AverageResponse" ColumnName="AverageResponse" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RequestWorkingListAdmin_G" FunctionName="LFTZ_InvestorPortalModel.Store.RequestWorkingListAdmin_G">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LFTZ_InvestorPortalModel.RequestWorkingListAdmin_G_Result">
+                <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+                <ScalarProperty Name="ReportType" ColumnName="ReportType" />
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+                <ScalarProperty Name="Enterprise" ColumnName="Enterprise" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+                <ScalarProperty Name="Severity" ColumnName="Severity" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
+                <ScalarProperty Name="RequestDescription" ColumnName="RequestDescription" />
+                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+                <ScalarProperty Name="ReportedBy" ColumnName="ReportedBy" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="RaisedOnDate" ColumnName="RaisedOnDate" />
+                <ScalarProperty Name="AllocatorUploadPath" ColumnName="AllocatorUploadPath" />
+                <ScalarProperty Name="DepartmentUploadPath" ColumnName="DepartmentUploadPath" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="UploadPath" ColumnName="UploadPath" />
+                <ScalarProperty Name="ReOpenedComments" ColumnName="ReOpenedComments" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="RequestFormEPUserList_G" FunctionName="LFTZ_InvestorPortalModel.Store.RequestFormEPUserList_G">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LFTZ_InvestorPortalModel.RequestFormEPUserList_G_Result">
+                <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+                <ScalarProperty Name="RequestNo" ColumnName="RequestNo" />
+                <ScalarProperty Name="Enterprise" ColumnName="Enterprise" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="SubCategory" ColumnName="SubCategory" />
+                <ScalarProperty Name="Severity" ColumnName="Severity" />
+                <ScalarProperty Name="Topic" ColumnName="Topic" />
+                <ScalarProperty Name="RequestDescription" ColumnName="RequestDescription" />
+                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="RequestStatus" ColumnName="RequestStatus" />
+                <ScalarProperty Name="RaisedOn" ColumnName="RaisedOn" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CommentsBy" ColumnName="CommentsBy" />
+                <ScalarProperty Name="ReOpenedComments" ColumnName="ReOpenedComments" />
+                <ScalarProperty Name="UploadedDocument" ColumnName="UploadedDocument" />
+                <ScalarProperty Name="DepartmentUploadPath" ColumnName="DepartmentUploadPath" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

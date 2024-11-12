@@ -23,5 +23,21 @@ namespace Utility
         //    OTP=4
 
         //}
+        
+        public enum LOVId
+        {
+            Closed = 41,
+            Open = 53,
+            Other = 54,
+            Approve = 55,
+            Review = 56,
+            Archive = 57,
+            None = 58,
+            NepzaLetter = 59,
+            Custom = 60,
+            Immigration = 61
+
+
+        }
     }
 }

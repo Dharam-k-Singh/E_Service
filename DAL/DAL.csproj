@@ -83,7 +83,6 @@
     <Compile Include="Concreate\BaseClassDAL.cs" />
     <Compile Include="Concreate\Campaign\CampaignDAL.cs" />
     <Compile Include="Concreate\Department\DepartmentDAL.cs" />
-    <Compile Include="Concreate\DocTracking\DocTrackingDAL.cs" />
     <Compile Include="Concreate\FacilityRTD\FacilityRTDDAL.cs" />
     <Compile Include="Concreate\Home\HomeDAL.cs" />
     <Compile Include="Concreate\ListOfCategory\ListOfCategoryDAL.cs" />
@@ -93,6 +92,7 @@
     <Compile Include="Concreate\RequestForm\RequestFormDAL.cs" />
     <Compile Include="Concreate\Role\RoleDAL.cs" />
     <Compile Include="Concreate\Survey\SurveyDAL.cs" />
+    <Compile Include="Concreate\TrackDocument\TrackDocumentDAL.cs" />
     <Compile Include="Concreate\UserCreation\UserCreationDAL.cs" />
     <Compile Include="Concreate\UsersDAL.cs" />
     <Compile Include="Concreate\UsersDetail\UsersDetailDAL.cs" />
@@ -151,7 +151,6 @@
     </Compile>
     <Compile Include="Interface\Campaign\ICampaignDAL.cs" />
     <Compile Include="Interface\Department\IDepartmentDAL.cs" />
-    <Compile Include="Interface\DocTracking\IDocTrackingDAL.cs" />
     <Compile Include="Interface\FacilityRTD\IFacilityRTDDAL.cs" />
     <Compile Include="Interface\Home\IHomeDAL.cs" />
     <Compile Include="Interface\IMenuDAL.cs" />
@@ -162,6 +161,7 @@
     <Compile Include="Interface\RequestForm\IRequestFormDAL.cs" />
     <Compile Include="Interface\Role\IRoleDAL.cs" />
     <Compile Include="Interface\Survey\ISurveyDAL.cs" />
+    <Compile Include="Interface\TrackDocument\ITrackDocumentDAL.cs" />
     <Compile Include="Interface\UserCreation\IUserCreationDAL.cs" />
     <Compile Include="Interface\UsersDetail\lUsersDetailDAL.cs" />
     <Compile Include="Interface\Utility\IUtilityDAL.cs" />

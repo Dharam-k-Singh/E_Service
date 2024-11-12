@@ -417,7 +417,7 @@ namespace WEB.Controllers
 
             return RedirectToAction("EnterpriseRequestList");
         }
-
+        
         public ActionResult EditRequest(int id)
         {
             //UserDetailModel userdetail = (UserDetailModel)Session["UserDetails"];
@@ -795,7 +795,7 @@ namespace WEB.Controllers
             if (Savestatus != null)
             {
                 string FileName = "";
-                String FilePath = ConfigurationManager.AppSettings["DepartmentUserActionUploadPath"];
+                string FilePath = ConfigurationManager.AppSettings["DepartmentUserActionUploadPath"];
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 if (UploadPath != null)
                 {
@@ -836,10 +836,10 @@ namespace WEB.Controllers
                 SavedinvoiceId.Msg = si.Msg;
             }
 
-            //if (objMain != null)
-            //{
-            //    DepartmentUserChangeStatusTicket(objMain);
-            //}
+            if (objMain != null)
+            {
+                DepartmentUserChangeStatusTicket(objMain);
+            }
 
             TempData["Success"] = SavedinvoiceId.Msg;
 
@@ -995,10 +995,10 @@ namespace WEB.Controllers
 
             ResponseInfo si = WebAPIHelper.CallApi<ResponseInfo>(HttpMethods.Post, "SaveAllocateToTeam", "RequestForm", objModel);
 
-            //if (objModel != null)
-            //{
-            //    HODRequestAssignToDepartmentUser(objModel);
-            //}
+            if (objModel != null)
+            {
+                HODRequestAssignToDepartmentUser(objModel);
+            }
             //TempData["Success"] = si.Msg;
 
             return Json("Status Change Sucessfully.", JsonRequestBehavior.AllowGet);
@@ -1089,7 +1089,7 @@ namespace WEB.Controllers
 
             string EmailHTML = string.Empty;
             string EmailTemplatePath = ConfigurationManager.AppSettings["SubmitRequest"];
-            using (StreamReader reader = new StreamReader(System.Web.HttpContext.Current.Server.MapPath(EmailTemplatePath)))
+            using (StreamReader reader = new StreamReader(EmailTemplatePath))
             {
                 EmailHTML = reader.ReadToEnd();
             }
@@ -1157,7 +1157,7 @@ namespace WEB.Controllers
 
             string EmailHTML = string.Empty;
             string EmailTemplatePath = ConfigurationManager.AppSettings["UpdateRequest"];
-            using (StreamReader reader = new StreamReader(System.Web.HttpContext.Current.Server.MapPath(EmailTemplatePath)))
+            using (StreamReader reader = new StreamReader(EmailTemplatePath))
             {
                 EmailHTML = reader.ReadToEnd();
             }
@@ -1279,7 +1279,7 @@ namespace WEB.Controllers
 
             string EmailHTML = string.Empty;
             string EmailTemplatePath = ConfigurationManager.AppSettings["SubmitAllocationToDepartment"];
-            using (StreamReader reader = new StreamReader(System.Web.HttpContext.Current.Server.MapPath(EmailTemplatePath)))
+            using (StreamReader reader = new StreamReader(EmailTemplatePath))
             {
                 EmailHTML = reader.ReadToEnd();
             }
@@ -1396,7 +1396,7 @@ namespace WEB.Controllers
 
             string EmailHTML = string.Empty;
             string EmailTemplatePath = ConfigurationManager.AppSettings["HODRequestAssignToDepartmentUser"];
-            using (StreamReader reader = new StreamReader(System.Web.HttpContext.Current.Server.MapPath(EmailTemplatePath)))
+            using (StreamReader reader = new StreamReader(EmailTemplatePath))
             {
                 EmailHTML = reader.ReadToEnd();
             }
@@ -1498,7 +1498,7 @@ namespace WEB.Controllers
 
             string EmailHTML = string.Empty;
             string EmailTemplatePath = ConfigurationManager.AppSettings["DepartmentSelfAssignTicket"];
-            using (StreamReader reader = new StreamReader(System.Web.HttpContext.Current.Server.MapPath(EmailTemplatePath)))
+            using (StreamReader reader = new StreamReader(EmailTemplatePath))
             {
                 EmailHTML = reader.ReadToEnd();
             }
@@ -1573,7 +1573,7 @@ namespace WEB.Controllers
 
             string EmailHTML = string.Empty;
             string EmailTemplatePath = ConfigurationManager.AppSettings["DepartmentUserChangeStatusTicket"];
-            using (StreamReader reader = new StreamReader(System.Web.HttpContext.Current.Server.MapPath(EmailTemplatePath)))
+            using (StreamReader reader = new StreamReader(EmailTemplatePath))
             {
                 EmailHTML = reader.ReadToEnd();
             }
@@ -1688,7 +1688,7 @@ namespace WEB.Controllers
 
             string EmailHTML = string.Empty;
             string EmailTemplatePath = ConfigurationManager.AppSettings["ReopenedRequest"];
-            using (StreamReader reader = new StreamReader(System.Web.HttpContext.Current.Server.MapPath(EmailTemplatePath)))
+            using (StreamReader reader = new StreamReader(EmailTemplatePath))
             {
                 EmailHTML = reader.ReadToEnd();
             }

@@ -983,15 +983,6 @@ namespace DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RequestFormEdit_G_Mobile_Result>("RequestFormEdit_G_Mobile", requestIdParameter);
         }
     
-        public virtual ObjectResult<RequestFormEPUserList_G_Result> RequestFormEPUserList_G(Nullable<int> organizationID)
-        {
-            var organizationIDParameter = organizationID.HasValue ?
-                new ObjectParameter("OrganizationID", organizationID) :
-                new ObjectParameter("OrganizationID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RequestFormEPUserList_G_Result>("RequestFormEPUserList_G", organizationIDParameter);
-        }
-    
         public virtual ObjectResult<RequestFormLFZUserList_G_Result> RequestFormLFZUserList_G(Nullable<int> uDID)
         {
             var uDIDParameter = uDID.HasValue ?
@@ -1022,15 +1013,6 @@ namespace DAL
         public virtual ObjectResult<RequestListAdmin_G_Result> RequestListAdmin_G()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RequestListAdmin_G_Result>("RequestListAdmin_G");
-        }
-    
-        public virtual ObjectResult<RequestWorkingListAdmin_G_Result> RequestWorkingListAdmin_G(Nullable<int> uDID)
-        {
-            var uDIDParameter = uDID.HasValue ?
-                new ObjectParameter("UDID", uDID) :
-                new ObjectParameter("UDID", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RequestWorkingListAdmin_G_Result>("RequestWorkingListAdmin_G", uDIDParameter);
         }
     
         public virtual int RereshToken_Crud_Mobile(string username, string refreshToken)
@@ -1808,6 +1790,24 @@ namespace DAL
                 new ObjectParameter("Createddate2", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Eservice_Report_Result>("Eservice_Report", reportTypeParameter, requestStatusParameter, enterpriseParameter, categoryParameter, subCategoryParameter, severityParameter, topicParameter, requestDescriptionParameter, contactPersonNameParameter, emailIdParameter, createddateParameter, createddate2Parameter);
+        }
+    
+        public virtual ObjectResult<RequestWorkingListAdmin_G_Result> RequestWorkingListAdmin_G(Nullable<int> uDID)
+        {
+            var uDIDParameter = uDID.HasValue ?
+                new ObjectParameter("UDID", uDID) :
+                new ObjectParameter("UDID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RequestWorkingListAdmin_G_Result>("RequestWorkingListAdmin_G", uDIDParameter);
+        }
+    
+        public virtual ObjectResult<RequestFormEPUserList_G_Result> RequestFormEPUserList_G(Nullable<int> organizationID)
+        {
+            var organizationIDParameter = organizationID.HasValue ?
+                new ObjectParameter("OrganizationID", organizationID) :
+                new ObjectParameter("OrganizationID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RequestFormEPUserList_G_Result>("RequestFormEPUserList_G", organizationIDParameter);
         }
     }
 }

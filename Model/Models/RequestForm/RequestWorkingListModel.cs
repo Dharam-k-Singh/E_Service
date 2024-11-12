@@ -65,6 +65,7 @@ namespace Model.Models.RequestForm
         public string MobileNo { get; set; }
         public string RaisedOnDate { get; set; }
         public string AllocatorUploadPath { get; set; }
+        public string DepartmentUploadPath { get; set; }
         public string Department { get; set; }
         public string Priority { get; set; }
         public string UploadPath { get; set; }

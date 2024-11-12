@@ -5,8 +5,8 @@
 }
 
 <link rel='stylesheet' href='https://afeld.github.io/emoji-css/emoji.css'>
-@*<style>
-    .bgcols {
+<style>
+@*    .bgcols {
         background: #FFF;
     }
 
@@ -156,8 +156,8 @@
         margin: 0;
         padding: 0;
         font-size: 1.1rem;
-    }
-</style>*@
+    }*@
+</style>
 <style>
     .bgcols {
         background: #FFF;
@@ -390,6 +390,7 @@
                                 @*<th>Updated On</th>
         <th>Updated By</th>*@
                                 <th>Comments</th>
+                                <th>Uploaded Document</th>
                                 <th>Department Supporting Documents</th>
                                 <th>Action</th>
                                 <th>Reopen Request</th>
@@ -446,6 +447,28 @@
                                 <td>
                                     @GetList.CommentsBy
                                 </td>
+                                <td>
+                                    @if (GetList.UploadedDocument.Contains(","))
+                                    {
+                                        string[] img = GetList.UploadedDocument.Split(new string[] { "," }, StringSplitOptions.None);
+                                        for (int j = 0; j < img.Length; j++)
+                                        {
+                                            <span>
+                                                <a href="~/Uploads/DepartmentUserActionUploadPath/@img[j].Trim()" target="_blank">@img[j].Trim()</a>&nbsp;&nbsp;
+                                                <br />
+                                            </span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (GetList.UploadedDocument != null && GetList.UploadedDocument != "")
+                                        {
+                                            <span>
+                                                <a href="~/Uploads/RequestUpload/@GetList.UploadedDocument" target="_blank">@GetList.UploadedDocument</a>&nbsp;&nbsp;
+                                            </span>
+                                        }
+                                    }
+                                </td> @*added by Dharam*@
                                 <td>
                                     @if (GetList.DepartmentUploadPath.Contains(","))
                                     {

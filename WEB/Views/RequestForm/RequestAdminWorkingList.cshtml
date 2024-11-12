@@ -122,6 +122,7 @@
                                 <th>Reported By</th>
                                 <th> Enterprise Supporting Document</th>
                                 <th> Allocator Supporting Document</th>
+                                <th> Department Supporting Document</th>
                                 <th> ReOpened Comments</th>
                                 <th>Action</th>
                             </tr>
@@ -210,22 +211,11 @@
                                                 {
                                                     if (GetList.UploadPath != null && GetList.UploadPath != "")
                                                     {
-
-
-
-
-
                                                         <li style="padding: 5px 0px; list-style-type:none; text-align:left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                                             <span class="text-left" style="text-align:left">
                                                                 <a style="line-height: 1.2; text-decoration:none;" title="@GetList.UploadPath" href="~/Uploads/RequestUpload/@GetList.UploadPath" target="_blank">@GetList.UploadPath</a>
                                                             </span>
                                                         </li>
-
-
-
-
-
-
 
                                                     }
 
@@ -267,8 +257,35 @@
                                                 @GetList.AllocatorUploadPath
                                             </a>*@
 
-
                                     </td>
+                                    <td>
+                                        @if (GetList.DepartmentUploadPath.Contains(","))
+                                        {
+                                            string[] img = GetList.DepartmentUploadPath.Split(new string[] { "," }, StringSplitOptions.None);
+                                            for (int j = 0; j < img.Length; j++)
+                                            {
+                                                <span>
+                                                    <a href="~/Uploads/AllocateActionUpload/@img[j].Trim()" target="_blank">@img[j].Trim()</a>&nbsp;&nbsp;
+
+                                                    <br />
+
+                                                </span>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (GetList.DepartmentUploadPath != null && GetList.DepartmentUploadPath != "")
+                                            {
+
+                                                <span>
+                                                    <a href="~/Uploads/AllocateActionUpload/@GetList.DepartmentUploadPath" target="_blank">@GetList.DepartmentUploadPath</a>&nbsp;&nbsp;
+
+
+                                                </span>
+                                            }
+
+                                        }
+                                    </td> @*added by Dharam*@
                                     <td>
                                         @GetList.ReOpenedComments
                                     </td>

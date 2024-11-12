@@ -27,8 +27,8 @@ using DAL.Interface.Warehouse;
 using DAL.Concreate.Warehouse;
 using DAL.Interface.FacilityRTD;
 using DAL.Concreate.FacilityRTD;
-using DAL.Interface.DocTracking;
-using DAL.Concreate.DocTracking;
+using DAL.Concreate.TrackDocument;
+using DAL.Interface.TrackDocument;
 
 namespace BAL
 {
@@ -113,9 +113,9 @@ namespace BAL
         {
             return new FacilityRTDDAL();
         }
-        public static IDocTrackingDAL GetDocTrackingDALInstance()
+        public static ITrackDocumentDAL GetTrackDocDALInstance()
         {
-            return new DocTrackingDAL();
+            return new TrackDocumentDAL();
         }
     }
 }
