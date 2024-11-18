@@ -24,5 +24,9 @@ namespace API.Controllers
         {
             return Ok(_iTrackDocBAL.TrackingDocListBAL());
         }
+        public IHttpActionResult GetListTrackingDocHistoryListById(int Id)
+        {
+            return Ok(_iTrackDocBAL.TrackingDocHistoryListByIdBAL(Id));
+        }
     }
 }

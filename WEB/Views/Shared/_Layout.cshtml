@@ -436,8 +436,8 @@
                 <a data-toggle="collapse" href="#ser"><em class="fa fa-navicon">&nbsp;</em>Document Tracking <span data-toggle="collapse" href="#ser" class="icon pull-right"><em class="fa fa-plus"></em></span></a>
 
                 <ul class="children collapse" id="ser">
-                    <li><a href="@Url.Action("Add","TrackDocument")" onclick="showLoadingSweetAlert('Loading Add Doc Tracking')"><span class="fa fa-arrow-right">&nbsp;</span>Add Document Tracking</a></li>
-                    <li><a href="@Url.Action("List","TrackDocument")" onclick="showLoadingSweetAlert('Loading List/Update Doc Tracking')"><span class="fa fa-arrow-right">&nbsp;</span>List Document Tracking</a></li>
+                    <li><a href="@Url.Action("Add","TrackDocument")" onclick="showHrefLoader('Loading Add Doc Tracking')"><span class="fa fa-arrow-right">&nbsp;</span>Add Document Tracking</a></li>
+                    <li><a href="@Url.Action("List","TrackDocument")" onclick="showHrefLoader('Loading List/Update Doc Tracking')"><span class="fa fa-arrow-right">&nbsp;</span>List Document Tracking</a></li>
                 </ul>
             </li>
         }
@@ -508,7 +508,7 @@
 
 
 <script>
-    $(document).ready(function () {
+   $(document).ready(function () {
         // Create two variables with names of months and days of the week in the array
         var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -542,4 +542,12 @@
         }, 1000);
 
     });
+    function showHrefLoader(message) {
+        showLoadingSweetAlert(message);
+
+        
+        return;
+    }
+
+
 </script>

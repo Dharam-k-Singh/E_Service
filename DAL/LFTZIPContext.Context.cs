@@ -1809,5 +1809,79 @@ namespace DAL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RequestFormEPUserList_G_Result>("RequestFormEPUserList_G", organizationIDParameter);
         }
+    
+        public virtual int TrackDoc_CU(Nullable<int> tDocId, string senderOrgName, Nullable<int> docType, string otherDocType, string subject, string docSummary, string recipientMailId, string detailDescp, Nullable<int> docStatus, Nullable<int> reqAction, Nullable<System.DateTime> actionDate, Nullable<System.DateTime> receivedDate, Nullable<int> reqAttention, string otherReqAttention, string uploadDoc, Nullable<int> changedById, ObjectParameter outId, ObjectParameter outUserMssg, ObjectParameter outDevMssg, ObjectParameter outIsSuccess)
+        {
+            var tDocIdParameter = tDocId.HasValue ?
+                new ObjectParameter("TDocId", tDocId) :
+                new ObjectParameter("TDocId", typeof(int));
+    
+            var senderOrgNameParameter = senderOrgName != null ?
+                new ObjectParameter("SenderOrgName", senderOrgName) :
+                new ObjectParameter("SenderOrgName", typeof(string));
+    
+            var docTypeParameter = docType.HasValue ?
+                new ObjectParameter("DocType", docType) :
+                new ObjectParameter("DocType", typeof(int));
+    
+            var otherDocTypeParameter = otherDocType != null ?
+                new ObjectParameter("OtherDocType", otherDocType) :
+                new ObjectParameter("OtherDocType", typeof(string));
+    
+            var subjectParameter = subject != null ?
+                new ObjectParameter("Subject", subject) :
+                new ObjectParameter("Subject", typeof(string));
+    
+            var docSummaryParameter = docSummary != null ?
+                new ObjectParameter("DocSummary", docSummary) :
+                new ObjectParameter("DocSummary", typeof(string));
+    
+            var recipientMailIdParameter = recipientMailId != null ?
+                new ObjectParameter("RecipientMailId", recipientMailId) :
+                new ObjectParameter("RecipientMailId", typeof(string));
+    
+            var detailDescpParameter = detailDescp != null ?
+                new ObjectParameter("DetailDescp", detailDescp) :
+                new ObjectParameter("DetailDescp", typeof(string));
+    
+            var docStatusParameter = docStatus.HasValue ?
+                new ObjectParameter("DocStatus", docStatus) :
+                new ObjectParameter("DocStatus", typeof(int));
+    
+            var reqActionParameter = reqAction.HasValue ?
+                new ObjectParameter("ReqAction", reqAction) :
+                new ObjectParameter("ReqAction", typeof(int));
+    
+            var actionDateParameter = actionDate.HasValue ?
+                new ObjectParameter("ActionDate", actionDate) :
+                new ObjectParameter("ActionDate", typeof(System.DateTime));
+    
+            var receivedDateParameter = receivedDate.HasValue ?
+                new ObjectParameter("ReceivedDate", receivedDate) :
+                new ObjectParameter("ReceivedDate", typeof(System.DateTime));
+    
+            var reqAttentionParameter = reqAttention.HasValue ?
+                new ObjectParameter("ReqAttention", reqAttention) :
+                new ObjectParameter("ReqAttention", typeof(int));
+    
+            var otherReqAttentionParameter = otherReqAttention != null ?
+                new ObjectParameter("OtherReqAttention", otherReqAttention) :
+                new ObjectParameter("OtherReqAttention", typeof(string));
+    
+            var uploadDocParameter = uploadDoc != null ?
+                new ObjectParameter("UploadDoc", uploadDoc) :
+                new ObjectParameter("UploadDoc", typeof(string));
+    
+            var changedByIdParameter = changedById.HasValue ?
+                new ObjectParameter("ChangedById", changedById) :
+                new ObjectParameter("ChangedById", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TrackDoc_CU", tDocIdParameter, senderOrgNameParameter, docTypeParameter, otherDocTypeParameter, subjectParameter, docSummaryParameter, recipientMailIdParameter, detailDescpParameter, docStatusParameter, reqActionParameter, actionDateParameter, receivedDateParameter, reqAttentionParameter, otherReqAttentionParameter, uploadDocParameter, changedByIdParameter, outId, outUserMssg, outDevMssg, outIsSuccess);
+        }
+    
+        public virtual ObjectResult<TrackDocList_G_Result> TrackDocList_G()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TrackDocList_G_Result>("TrackDocList_G");
+        }
     }
 }

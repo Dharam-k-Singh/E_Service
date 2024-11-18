@@ -85,7 +85,7 @@
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.M_FoodDetails_RTD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_EservicePortal.dbo.M_FoodDetails_RTD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="M_FoodDetails_RTD">
           <Key>
             <PropertyRef Name="FDId" />
@@ -162,7 +162,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.M_FoodDetails_RTD' does not 
           <Property Name="OrganizationId" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.M_MeterDetails_RTD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_EservicePortal.dbo.M_MeterDetails_RTD' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="M_MeterDetails_RTD">
           <Key>
             <PropertyRef Name="MId" />
@@ -325,7 +325,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.M_MeterDetails_RTD' does not
           <Property Name="CheckerId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.M_Weeks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_EservicePortal.dbo.M_Weeks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="M_Weeks">
           <Key>
             <PropertyRef Name="WeekId" />
@@ -372,7 +372,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.M_Weeks' does not have a pri
           <Property Name="OrganizationId" Type="tinyint" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_FlatsDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_FlatsDetails' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Map_FlatsDetails">
           <Key>
             <PropertyRef Name="FlatId" />
@@ -415,7 +415,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_FlatsDetails' does not h
           <Property Name="DepartmentUploadPath" Type="varchar" MaxLength="1000" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_Request_history' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_Request_history' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Map_Request_history">
           <Key>
             <PropertyRef Name="AllocationId" />
@@ -446,7 +446,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_Request_history' does no
           <Property Name="DepartmentUploadPath" Type="varchar" MaxLength="1000" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_RequestFeedback' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_RequestFeedback' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Map_RequestFeedback">
           <Key>
             <PropertyRef Name="RequestId" />
@@ -466,7 +466,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_RequestFeedback' does no
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_RoleModule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_RoleModule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Map_RoleModule">
           <Key>
             <PropertyRef Name="RoleId" />
@@ -484,7 +484,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_RoleModule' does not hav
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserDepartment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_UserDepartment' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Map_UserDepartment">
           <Key>
             <PropertyRef Name="DepartmentId" />
@@ -502,7 +502,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserDepartment' does not
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_UserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Map_UserRole">
           <Key>
             <PropertyRef Name="UDID" />
@@ -646,7 +646,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have 
           <Property Name="isHOD" Type="bit" />
           <Property Name="ProfileImagePath" Type="varchar" MaxLength="1000" />
         </EntityType>
-        <Association Name="FK__Map_Flats__FlatI__75A278F5">
+        <Association Name="FK__Map_Flats__FlatI__797309D9">
           <End Role="M_ListOfValues" Type="Self.M_ListOfValues" Multiplicity="1" />
           <End Role="Map_FlatsDetails" Type="Self.Map_FlatsDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -658,7 +658,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Map_FlatsD__UDID__76969D2E">
+        <Association Name="FK__Map_FlatsD__UDID__7A672E12">
           <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="1" />
           <End Role="Map_FlatsDetails" Type="Self.Map_FlatsDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -670,7 +670,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Map_RoleM__Modul__778AC167">
+        <Association Name="FK__Map_RoleM__Modul__7B5B524B">
           <End Role="M_Modules" Type="Self.M_Modules" Multiplicity="1" />
           <End Role="Map_RoleModule" Type="Self.Map_RoleModule" Multiplicity="*" />
           <ReferentialConstraint>
@@ -682,7 +682,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Map_UserD__Depar__787EE5A0">
+        <Association Name="FK__Map_UserD__Depar__7C4F7684">
           <End Role="M_ListOfValues" Type="Self.M_ListOfValues" Multiplicity="1" />
           <End Role="Map_UserDepartment" Type="Self.Map_UserDepartment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -694,7 +694,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Map_UserDe__UDID__797309D9">
+        <Association Name="FK__Map_UserDe__UDID__7D439ABD">
           <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="1" />
           <End Role="Map_UserDepartment" Type="Self.Map_UserDepartment" Multiplicity="*" />
           <ReferentialConstraint>
@@ -706,7 +706,7 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Map_UserR__RoleI__7A672E12">
+        <Association Name="FK__Map_UserR__RoleI__7E37BEF6">
           <End Role="M_Role" Type="Self.M_Role" Multiplicity="0..1" />
           <End Role="Map_UserRole" Type="Self.Map_UserRole" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1172,6 +1172,29 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have 
           <Parameter Name="RequestId" Type="int" Mode="In" />
         </Function>
         <Function Name="TOP3_SLA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="TrackDoc_CU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TDocId" Type="int" Mode="In" />
+          <Parameter Name="SenderOrgName" Type="varchar" Mode="In" />
+          <Parameter Name="DocType" Type="int" Mode="In" />
+          <Parameter Name="OtherDocType" Type="varchar" Mode="In" />
+          <Parameter Name="Subject" Type="varchar" Mode="In" />
+          <Parameter Name="DocSummary" Type="varchar" Mode="In" />
+          <Parameter Name="RecipientMailId" Type="varchar" Mode="In" />
+          <Parameter Name="DetailDescp" Type="varchar" Mode="In" />
+          <Parameter Name="DocStatus" Type="int" Mode="In" />
+          <Parameter Name="ReqAction" Type="int" Mode="In" />
+          <Parameter Name="ActionDate" Type="date" Mode="In" />
+          <Parameter Name="ReceivedDate" Type="date" Mode="In" />
+          <Parameter Name="ReqAttention" Type="int" Mode="In" />
+          <Parameter Name="OtherReqAttention" Type="varchar" Mode="In" />
+          <Parameter Name="UploadDoc" Type="varchar" Mode="In" />
+          <Parameter Name="ChangedById" Type="int" Mode="In" />
+          <Parameter Name="OutId" Type="int" Mode="InOut" />
+          <Parameter Name="OutUserMssg" Type="varchar" Mode="InOut" />
+          <Parameter Name="OutDevMssg" Type="varchar" Mode="InOut" />
+          <Parameter Name="OutIsSuccess" Type="bit" Mode="InOut" />
+        </Function>
+        <Function Name="TrackDocList_G" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UpdateAssignSurveyStatus_CRUD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="AssignSurveyId" Type="int" Mode="In" />
           <Parameter Name="AssignSurveyIds" Type="varchar" Mode="In" />
@@ -1445,27 +1468,27 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have 
     [Map_UserRole].[IsActive] AS [IsActive]
     FROM [dbo].[Map_UserRole] AS [Map_UserRole]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Map_Flats__FlatI__75A278F5" Association="Self.FK__Map_Flats__FlatI__75A278F5">
+          <AssociationSet Name="FK__Map_Flats__FlatI__797309D9" Association="Self.FK__Map_Flats__FlatI__797309D9">
             <End Role="M_ListOfValues" EntitySet="M_ListOfValues" />
             <End Role="Map_FlatsDetails" EntitySet="Map_FlatsDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Map_FlatsD__UDID__76969D2E" Association="Self.FK__Map_FlatsD__UDID__76969D2E">
+          <AssociationSet Name="FK__Map_FlatsD__UDID__7A672E12" Association="Self.FK__Map_FlatsD__UDID__7A672E12">
             <End Role="UserDetails" EntitySet="UserDetails" />
             <End Role="Map_FlatsDetails" EntitySet="Map_FlatsDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__Map_RoleM__Modul__778AC167" Association="Self.FK__Map_RoleM__Modul__778AC167">
+          <AssociationSet Name="FK__Map_RoleM__Modul__7B5B524B" Association="Self.FK__Map_RoleM__Modul__7B5B524B">
             <End Role="M_Modules" EntitySet="M_Modules" />
             <End Role="Map_RoleModule" EntitySet="Map_RoleModule" />
           </AssociationSet>
-          <AssociationSet Name="FK__Map_UserD__Depar__787EE5A0" Association="Self.FK__Map_UserD__Depar__787EE5A0">
+          <AssociationSet Name="FK__Map_UserD__Depar__7C4F7684" Association="Self.FK__Map_UserD__Depar__7C4F7684">
             <End Role="M_ListOfValues" EntitySet="M_ListOfValues" />
             <End Role="Map_UserDepartment" EntitySet="Map_UserDepartment" />
           </AssociationSet>
-          <AssociationSet Name="FK__Map_UserDe__UDID__797309D9" Association="Self.FK__Map_UserDe__UDID__797309D9">
+          <AssociationSet Name="FK__Map_UserDe__UDID__7D439ABD" Association="Self.FK__Map_UserDe__UDID__7D439ABD">
             <End Role="UserDetails" EntitySet="UserDetails" />
             <End Role="Map_UserDepartment" EntitySet="Map_UserDepartment" />
           </AssociationSet>
-          <AssociationSet Name="FK__Map_UserR__RoleI__7A672E12" Association="Self.FK__Map_UserR__RoleI__7A672E12">
+          <AssociationSet Name="FK__Map_UserR__RoleI__7E37BEF6" Association="Self.FK__Map_UserR__RoleI__7E37BEF6">
             <End Role="M_Role" EntitySet="M_Role" />
             <End Role="Map_UserRole" EntitySet="Map_UserRole" />
           </AssociationSet>
@@ -2078,8 +2101,31 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have 
           <Parameter Name="UDID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="RequestFormEPUserList_G" ReturnType="Collection(LFTZ_InvestorPortalModel.RequestFormEPUserList_G_Result)">
-            <Parameter Name="OrganizationID" Mode="In" Type="Int32" />
+          <Parameter Name="OrganizationID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="TrackDoc_CU">
+            <Parameter Name="TDocId" Mode="In" Type="Int32" />
+            <Parameter Name="SenderOrgName" Mode="In" Type="String" />
+            <Parameter Name="DocType" Mode="In" Type="Int32" />
+            <Parameter Name="OtherDocType" Mode="In" Type="String" />
+            <Parameter Name="Subject" Mode="In" Type="String" />
+            <Parameter Name="DocSummary" Mode="In" Type="String" />
+            <Parameter Name="RecipientMailId" Mode="In" Type="String" />
+            <Parameter Name="DetailDescp" Mode="In" Type="String" />
+            <Parameter Name="DocStatus" Mode="In" Type="Int32" />
+            <Parameter Name="ReqAction" Mode="In" Type="Int32" />
+            <Parameter Name="ActionDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ReceivedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ReqAttention" Mode="In" Type="Int32" />
+            <Parameter Name="OtherReqAttention" Mode="In" Type="String" />
+            <Parameter Name="UploadDoc" Mode="In" Type="String" />
+            <Parameter Name="ChangedById" Mode="In" Type="Int32" />
+            <Parameter Name="OutId" Mode="InOut" Type="Int32" />
+            <Parameter Name="OutUserMssg" Mode="InOut" Type="String" />
+            <Parameter Name="OutDevMssg" Mode="InOut" Type="String" />
+            <Parameter Name="OutIsSuccess" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="TrackDocList_G" ReturnType="Collection(LFTZ_InvestorPortalModel.TrackDocList_G_Result)" />
         </EntityContainer>
         <EntityType Name="ActivityLog">
           <Key>
@@ -3747,6 +3793,28 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have 
           <Property Type="String" Name="ReOpenedComments" Nullable="true" />
           <Property Type="String" Name="UploadedDocument" Nullable="true" MaxLength="2000" />
           <Property Type="String" Name="DepartmentUploadPath" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="TrackDocList_G_Result">
+          <Property Type="Int32" Name="TrackDocId" Nullable="false" />
+          <Property Type="String" Name="SenderOrgName" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="DocType" Nullable="false" />
+          <Property Type="String" Name="DocTypeName" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="OtherDocType" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Subject" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="DocSummary" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="ToMailIds" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="DetailedDescription" Nullable="false" MaxLength="500" />
+          <Property Type="Int32" Name="DocumentStatus" Nullable="false" />
+          <Property Type="String" Name="DocStatusName" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="ReceivedDate" Nullable="false" />
+          <Property Type="Int32" Name="RequiredAction" Nullable="false" />
+          <Property Type="String" Name="ReqActionName" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="RequiredAttention" Nullable="false" />
+          <Property Type="String" Name="OthersReqAttention" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="ReqAttentionName" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="ActionDate" Nullable="false" />
+          <Property Type="String" Name="UploadDoc" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="ChangedBy" Nullable="false" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
@@ -5673,6 +5741,33 @@ warning 6002: The table/view 'LFZ_Eservice_PROD.dbo.Map_UserRole' does not have 
                 <ScalarProperty Name="ReOpenedComments" ColumnName="ReOpenedComments" />
                 <ScalarProperty Name="UploadedDocument" ColumnName="UploadedDocument" />
                 <ScalarProperty Name="DepartmentUploadPath" ColumnName="DepartmentUploadPath" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TrackDoc_CU" FunctionName="LFTZ_InvestorPortalModel.Store.TrackDoc_CU" />
+          <FunctionImportMapping FunctionImportName="TrackDocList_G" FunctionName="LFTZ_InvestorPortalModel.Store.TrackDocList_G">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LFTZ_InvestorPortalModel.TrackDocList_G_Result">
+                <ScalarProperty Name="TrackDocId" ColumnName="TrackDocId" />
+                <ScalarProperty Name="SenderOrgName" ColumnName="SenderOrgName" />
+                <ScalarProperty Name="DocType" ColumnName="DocType" />
+                <ScalarProperty Name="DocTypeName" ColumnName="DocTypeName" />
+                <ScalarProperty Name="OtherDocType" ColumnName="OtherDocType" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="DocSummary" ColumnName="DocSummary" />
+                <ScalarProperty Name="ToMailIds" ColumnName="ToMailIds" />
+                <ScalarProperty Name="DetailedDescription" ColumnName="DetailedDescription" />
+                <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
+                <ScalarProperty Name="DocStatusName" ColumnName="DocStatusName" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+                <ScalarProperty Name="RequiredAction" ColumnName="RequiredAction" />
+                <ScalarProperty Name="ReqActionName" ColumnName="ReqActionName" />
+                <ScalarProperty Name="RequiredAttention" ColumnName="RequiredAttention" />
+                <ScalarProperty Name="OthersReqAttention" ColumnName="OthersReqAttention" />
+                <ScalarProperty Name="ReqAttentionName" ColumnName="ReqAttentionName" />
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+                <ScalarProperty Name="UploadDoc" ColumnName="UploadDoc" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

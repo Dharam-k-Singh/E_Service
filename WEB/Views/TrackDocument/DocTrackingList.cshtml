@@ -32,7 +32,7 @@
 
 <div class="row">
     <div class="panel-body articles-container table-size">
-        <div class="table-size-a rakeshcc" id="style-3" >
+        <div class="table-size-a rakeshcc" id="style-3">
             <table class="table table-bordered table-hover flexx_a flexx_abc tableFixHead" cellspacing="0" width="100%">
                 <thead class="zzzzzzz">
                     <tr>
@@ -52,18 +52,50 @@
                     {
                         <tr>
                             <td>@m.TrackDocId</td>
-                            <td>@m.ActionDate</td>
-                            <td>@m.DocType</td>
-                            <td>@m.DocumentStatus</td>
-                            <td>@m.RequiredAction</td>
-                            <td>@m.ReceivedDate</td>
-                            <td>@m.RecipientMailId</td>
+                            <td>@m.SenderOrgName</td>
+                            <td>@m.DocTypeName</td>
+                            <td>@m.ReceivedDate.ToString("dd-MM-yyyy")</td>
                             <td>
-                                <a href="@Url.Action("", "")" class="fa fa-edit"></a>
-                                <a href="@Url.Action("", "")" class="fa fa-eye"></a>
-                                <a href="@Url.Action("", "")" class="fa fa-trash"></a>
+                                @if (m.ToMailIds != null)
+                                {
+                                    if (m.ToMailIds.Contains(","))
+                                    {
+                                        foreach (var mailId in m.RecipientMailId)
+                                        {
+                                            <span>@mailId <br /></span>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @m.ToMailIds;
+                                    }
+                                }
                             </td>
-                            <td>View History</td>
+                            <td>
+                                @if (m.UploadDoc != null)
+                                {
+                                    if (m.UploadDoc.Contains(','))
+                                    {
+                                        var docs = m.UploadDoc.Split(',').Select(doc => doc.Trim()).ToList();
+
+                                        foreach (var doc in docs)
+                                        {
+                                            <a href="~/Uploads/DocumentTracking/@doc" target="_blank">@doc <br /></a>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @m.UploadDoc
+                                    }
+                                }
+                            </td>
+                            <td>@m.DocStatusName</td>
+                            <td class="">
+                                <a href="@Url.Action("", "TrackDocument")" onclick="showHrefLoader('Loading ...')" class="fa fa-edit"></a>
+                                <a href="@Url.Action("", "TrackDocument")" onclick="showHrefLoader('Loading View ...')" class="fa fa-eye"></a>
+                                <span type="button" onclick="deleteTrackDoc(@(m.TrackDocId))" class="fa fa-trash"></span>
+                            </td>
+                            <td><span type="button" onclick="getHistoryTrackDocPage(@(m.TrackDocId))"></span>Track History</td>
                         </tr>
 
                     }
@@ -72,3 +104,42 @@
         </div>
     </div>
 </div>
+
+<div class="tab-content" id="historyTrackDoc">
+
+</div>
+
+<script>
+     function getHistoryTrackDocPage(trackDocId) {
+
+        $.ajax({
+            url: "@Url.Action("TrackDocHistory", "TrackDocument")",
+            type: "POST",
+            data: { id : trackDocId },
+            dataType: "html",
+            contentType: 'application/json; charset=utf-8',
+            success: function (html) { $("#historyTrackDoc").append(html); },
+            error: function (e) { console.error(e); }
+
+        });
+
+    }
+
+    function deleteTrackDoc(trackDocId) {
+
+        showConfirmSweetAlert('Are you sure ?', 'Data will removed.', 'warning', '', 'Remove', 'Cancel',
+            function () {
+                $.ajax({
+                    url: "@Url.Action("", "")",
+                    type: "GET",
+                    data: { id: trackDocId },
+                    dataType: "json",
+                    contentType: 'application/json; charset=utf-8',
+                    success: function () { showSweetAlert('Data Removed Successfully', '', 'success', 'Ok'); },
+                    error: function (e) { showSweetAlert('Error Occured!', 'Error during removing data', 'error', 'Ok'); }
+                });
+            },
+            function () { closeSweetAlert(); }
+        );
+    }
+</script>

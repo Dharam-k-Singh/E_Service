@@ -9,12 +9,13 @@
         height: 35px;
     }
 
-    .select2-container .select2-selection--single {
+    .select2-container .select2-selection--multiple {
         height: 35px !important;
     }
 
     .select2-selection__rendered {
-        line-height: 35px !important;
+        line-height: 24px !important;
+        padding-left: 15px !important;
     }
 
     .select2-selection__placeholder {
@@ -72,7 +73,7 @@
                         </div>
                         <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.DocumentStatus)" class="control-label  lfz">Document Status</label>
-                            @Html.DropDownListFor(m => m.DocumentStatus, (SelectList)ViewBag.DocStatus, "--  Select Type --", new { @class = "form-control" })
+                            @Html.DropDownListFor(m => m.DocumentStatus, new SelectList((IEnumerable<SelectListItem>)ViewBag.DocStatus,"Value","Text","54"  ), new { @class = "form-control", @readonly = "readonly" })
                             @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group lfzab col-md-4">
@@ -91,29 +92,29 @@
                             @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group lfzab col-md-4">
-                            <label for="@Html.IdFor(m => m.RecipientMailId)" class="control-label  lfz">Recipient's Email Id</label>
-                            @Html.DropDownListFor(m => m.RequiredAttention, (SelectList)ViewBag.RecipientList, "--  Select Attention --", new { @id = "idls", @class = "form-control", @multiple = "multiple" })
-                            @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
-                        </div>
-                        <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.RequiredAttention)" class="control-label  lfz">Attention Required</label>
                             @Html.DropDownListFor(m => m.RequiredAttention, (SelectList)ViewBag.AttentionStatus, "--  Select Attention --", new { @class = "form-control", @id = "othS_AR" })
                         </div>
                         <div class="form-group lfzab col-md-4" id="othAR" hidden>
-                            <label for="@Html.IdFor(m => m.OtherReqAttention)" class="control-label">Other's Attention Required</label>
-                            @Html.EditorFor(m => m.OtherReqAttention, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(m => m.OtherReqAttention, "", new { @class = "text-danger" })
+                            <label for="@Html.IdFor(m => m.CCMailIds)" class="control-label">Other's Attention Required</label>
+                            @Html.EditorFor(m => m.CCMailIds, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(m => m.CCMailIds, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group lfzab col-md-4">
-                            <label for="@Html.IdFor(m => m.DetailedDescription)" class="control-label  lfz">Detialed Description</label>
+                            <label for="@Html.IdFor(m => m.DetailedDescription)" class="control-label  lfz">Detailed Description</label>
                             @Html.TextAreaFor(m => m.DetailedDescription, new { @class = "form-control" })
-                            
+
                         </div>
                         <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.AttachDoc)" class="control-label  lfz">Attach Document</label>
                             @Html.TextBoxFor(m => m.AttachDoc, new { @class = "form-control", @type = "file", @multiple = "multiple", @id = "attDoc" })
                             @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
                             <span id="selectedFile"></span>
+                        </div>
+                        <div class="form-group lfzab col-md-4">
+                            <label for="@Html.IdFor(m => m.RecipientMailId)" class="control-label  lfz">Recipient's Email Id</label>
+                            @Html.DropDownListFor(m => m.RecipientMailId, (SelectList)ViewBag.RecipientList, "--  Select Attention --", new { @id = "idls", @class = "form-control", @multiple = "multiple" })
+                            @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -130,6 +131,10 @@
 
 }
 
+
+
+
+
 <script src="~/Scripts/select2.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -139,8 +144,17 @@
         });
     });
 
+   
+
+    $("#idls").change(function () {
+        console.log($(this).val());
+
+    })
+
+
     var divODT = $("#othDT").children().detach();
     var divOAR = $("#othAR").children().detach();
+
     $("#othS_DT").change(function () {
         if ($(this).val() == 54) { $("#othDT").show(); $("#othDT").append(divODT); }
         else { $("#othDT").hide(); $("#othDT").children().remove(); }
@@ -148,6 +162,8 @@
 
     $("#othS_AR").change(function () {
         if ($(this).val() == 54) { $("#othAR").show(); $("#othAR").append(divOAR); }
-        else { $("#othAR").hide(); $("#othDT").children().remove(); }
+        else { $("#othAR").hide(); $("#othAR").children().remove(); }
     })
+
+
 </script>

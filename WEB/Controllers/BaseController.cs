@@ -49,9 +49,9 @@ namespace WEB.Controllers
             else
             {
                 throw new Exception("Problem while deserilization");
-#pragma warning disable CS0162 // Unreachable code detected
+                #pragma warning disable CS0162 // Unreachable code detected
                 return null;
-#pragma warning restore CS0162 // Unreachable code detected
+                #pragma warning restore CS0162 // Unreachable code detected
             }
         }
 
@@ -93,7 +93,6 @@ namespace WEB.Controllers
 
             }
         }
-
 
         public async Task<T> JsonToObject<T>(HttpResponseMessage resp, T className) where T : class
         {

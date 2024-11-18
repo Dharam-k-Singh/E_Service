@@ -1,0 +1,50 @@
+﻿@model List<Model.Models.TrackingDocument.TrackDocStatusModel>
+
+@{
+    byte i = 1;
+}
+
+<style>
+    table.flexx_abc {
+        width: 3000px;
+    }
+
+    tbody.yyyyyyy tr td span {
+        white-space: nowrap;
+        display: block;
+    }
+
+    .tableFixHead thead tr th {
+        white-space: nowrap;
+    }
+</style>
+
+<div class="row">
+    <div class="panel-body articles-container table-size">
+        <div class="table-size-a rakeshcc" id="style-3">
+            <table class="table table-bordered table-hover flexx_a flexx_abc tableFixHead" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Status</th>
+                        <th>Status Changed By</th>
+                        <th>Status Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        @foreach (var m in Model)
+                        {
+
+                            <td>@(i++)</td>
+                            <td>@(m.StatusName)</td>
+                            <td>@(m.EmployeeName)</td>
+                            <td>@(m.ChangedDate.ToString("yyyy-MMM-dd"))</td>
+                        }
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

@@ -127,6 +127,7 @@
     <Compile Include="Models\Survey\SurveyDashboardModel.cs" />
     <Compile Include="Models\Survey\SurveyModel.cs" />
     <Compile Include="Models\Survey\UserSurveyAnswerModel.cs" />
+    <Compile Include="Models\TrackingDocument\TrackDocStatusModel.cs" />
     <Compile Include="Models\TrackingDocument\TrackingDocModel.cs" />
     <Compile Include="Models\UserCreation\EnterpriseCreationModel.cs" />
     <Compile Include="Models\UserCreation\GetEPUserCreationModel.cs" />

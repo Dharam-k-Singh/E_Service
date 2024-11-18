@@ -12,6 +12,7 @@ namespace BAL.Interface.TrackDocument
     {
         ResponseInfo SaveOrUpdateBAL(TrackingDocModel model);
         List<TrackingDocModel> TrackingDocListBAL();
+        List<TrackDocStatusModel> TrackingDocHistoryListByIdBAL(int trackDocId);
 
     }
 }

@@ -3429,6 +3429,8 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Views\TrackDocument\Add.cshtml" />
     <Content Include="Views\TrackDocument\DocTrackingList.cshtml" />
+    <Content Include="Views\TrackDocument\_TrackingDocumentHistory.cshtml" />
+    <Content Include="Views\TrackDocument\_TrackDocHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -3444,6 +3446,7 @@
     <Folder Include="Documents\" />
     <Folder Include="img\icon\" />
     <Folder Include="Uploads\AllocateActionUpload\" />
+    <Folder Include="Uploads\DocumentTracking\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Category\" />
     <Folder Include="Views\Menu\" />
@@ -3492,8 +3495,6 @@
           <DevelopmentServerPort>63827</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:63829/</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost:63829/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

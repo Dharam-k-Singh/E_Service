@@ -17,17 +17,33 @@ namespace DAL.Concreate.TrackDocument
         public ResponseInfo SaveOrUpdateDAL(TrackingDocModel model)
         {
             ObjectParameter outId = new ObjectParameter("OutId", typeof(int));
-            ObjectParameter outDevMssg = new ObjectParameter("OutId", typeof(string));
-            ObjectParameter outUserMssg = new ObjectParameter("OutId", typeof(string));
-            ObjectParameter outIsSuccess = new ObjectParameter("OutId", typeof(bool));
+            ObjectParameter outDevMssg = new ObjectParameter("OutDevMssg", typeof(string));
+            ObjectParameter outUserMssg = new ObjectParameter("OutUserMssg", typeof(string));
+            ObjectParameter outIsSuccess = new ObjectParameter("OutIsSuccess", typeof(bool));
 
-            return new ResponseInfo();
+            entities.TrackDoc_CU(model.TrackDocId, model.SenderOrgName, model.DocType, model.OtherDocType, model.Subject, model.DocSummary
+                                , model.ToMailIds, model.DetailedDescription, model.DocumentStatus, model.RequiredAction, model.ActionDate
+                                , model.ReceivedDate, model.RequiredAttention, model.CCMailIds, model.UploadDoc, model.ChangedBy
+                                , outId, outUserMssg, outDevMssg, outIsSuccess);
+
+            return new ResponseInfo() 
+            {
+                ID = (int)outId.Value,
+                Msg = outUserMssg.Value.ToString(),
+                Status = outDevMssg.Value.ToString(),
+                IsSuccess = (bool)outIsSuccess.Value
+            };
         }
 
         public List<TrackingDocModel> TrackingDocListDAL()
         {
-            var result = entities.EnterpriseRole_G().ToList();
+            var result = entities.TrackDocList_G().ToList();
             return Mapping<List<TrackingDocModel>>(result);
+        }
+        public List<TrackDocStatusModel> TrackingDocHistoryListByIdDAL(int trackDocId)
+        {
+            var result = entities.EnterpriseRole_G().ToList();
+            return Mapping<List<TrackDocStatusModel>>(result);
         }
 
     }

@@ -1,0 +1,67 @@
+﻿
+@model List<Model.Models.TrackingDocument.TrackDocStatusModel>
+
+@{
+    byte i = 1;
+}
+
+<style>
+  @*  table.flexx_abc {
+        width: 3000px;
+    }*@
+
+    tbody.yyyyyyy tr td span {
+        white-space: nowrap;
+        display: block;
+    }
+
+    .tableFixHead thead tr th {
+        white-space: nowrap;
+        color : white;
+    }
+</style>
+
+<div class="modal fade bd-example-modal" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <strong class="modal-title">
+                    Document Tracking History
+                    <span aria-hidden="true" type="button" class="close" onclick="location.reload()" data-dismiss="modal" aria-label="Close">&times;</span>
+                </strong>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="panel-body articles-container table-size">
+                        <div class="table-size-a rakeshcc" id="style-3">
+                            <table class="table table-bordered table-hover flexx_a flexx_abc tableFixHead" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Sr. No</th>
+                                        <th>Status</th>
+                                        <th>Status Changed By</th>
+                                        <th>Status Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        @foreach (var m in Model)
+                                        {
+
+                                            <td>@(i++)</td>
+                                            <td>@(m.StatusName)</td>
+                                            <td>@(m.EmployeeName)</td>
+                                            <td>@(m.ChangedDate.ToString("yyyy-MMM-dd"))</td>
+                                        }
+                                    </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -12,5 +12,6 @@ namespace DAL.Interface.TrackDocument
     {
         ResponseInfo SaveOrUpdateDAL(TrackingDocModel model);
         List<TrackingDocModel> TrackingDocListDAL();
+        List<TrackDocStatusModel> TrackingDocHistoryListByIdDAL(int trackDocId);
     }
 }

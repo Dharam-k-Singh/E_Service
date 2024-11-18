@@ -4,6 +4,7 @@ using Model.Models.TrackingDocument;
 using Model.Models.UserDetail;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -33,7 +34,7 @@ namespace WEB.Controllers
             ViewBag.DocStatus = new SelectList(docStatus, "Key", "Value");
 
             var recipientList = WebAPIHelper.CallApi<List<UserDetailModel>>(HttpMethods.Get, "GetUserDetails", "UsersDetail");
-            ViewBag.RecipientList = new SelectList(recipientList, "UDID", "EmailId");
+            ViewBag.RecipientList = new SelectList(recipientList, "EmailId", "EmailId");
 
         }
 
@@ -50,14 +51,34 @@ namespace WEB.Controllers
         public ActionResult Save(TrackingDocModel model)
         {
             model.ChangedBy = UserDetail.UDID;
-            string attDoc = "";
-            for(int i = 0; i < model.AttachDoc.Count; i++)
-            {
-                if (i > 0) { attDoc += ","; }
 
-                attDoc += model.AttachDoc[i].FileName;
+            if (model.RecipientMailId != null)
+            {
+                string mailIds = "";
+                for (int i = 0; i < model.RecipientMailId.Count; i++)
+                {
+                    if (i > 0) { mailIds += ","; }
+
+                    mailIds += model.RecipientMailId[i];
+                }
+                model.ToMailIds = mailIds;
             }
-            model.UploadDoc = attDoc;   
+
+            if (model.AttachDoc != null)
+            {
+                string uploadPath = ConfigurationManager.AppSettings["DocTrackUploadPath"];
+                string attDoc = "";
+                for (int i = 0; i < model.AttachDoc.Count; i++)
+                {
+                    if (i > 0) { attDoc += ","; }
+                    attDoc += model.AttachDoc[i].FileName;
+                    string fullpath = uploadPath + model.AttachDoc[i].FileName;
+
+                    model.AttachDoc[i].SaveAs(Server.MapPath(fullpath));
+                }
+                model.UploadDoc = attDoc;
+            }
+
 
             ResponseInfo res = WebAPIHelper.CallApi<ResponseInfo>(HttpMethods.Post, "SaveOrUpdate", "TrackDoc", obj: model);
 
@@ -65,12 +86,24 @@ namespace WEB.Controllers
         }
         public ActionResult List()
         {
-            List<TrackingDocModel> lst = new List<TrackingDocModel>();
+            List<TrackingDocModel> lst = WebAPIHelper.CallApi<List<TrackingDocModel>>(HttpMethods.Get, "GetTrackDocList", "TrackDoc");
+
+            foreach(var list in lst)
+            {
+                list.RecipientMailId = list.ToMailIds.Split(',').Select(id => id.Trim()).ToList();
+            }
+
             return View("DocTrackingList", lst);
         }
         public void UpdateDocTracking()
         {
 
+        }
+        [HttpPost]
+        public PartialViewResult TrackDocHistory(int id)
+        {
+            var historyList = WebAPIHelper.CallApi<List<TrackDocStatusModel>>(HttpMethods.Get, "", "TrackDoc", Id: id);
+            return PartialView("_TrackDocHistory", historyList);
         }
     }
 }
