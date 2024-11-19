@@ -3431,6 +3431,7 @@
     <Content Include="Views\TrackDocument\DocTrackingList.cshtml" />
     <Content Include="Views\TrackDocument\_TrackingDocumentHistory.cshtml" />
     <Content Include="Views\TrackDocument\_TrackDocHistory.cshtml" />
+    <Content Include="Views\TrackDocument\UpdateTrackDoc.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

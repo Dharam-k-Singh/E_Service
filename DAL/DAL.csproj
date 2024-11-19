@@ -405,7 +405,13 @@
     <Compile Include="TOP_3_ComplaintDrivers_Result.cs">
       <DependentUpon>LFTZIPContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="TrackDocHistory_G_Id_Result.cs">
+      <DependentUpon>LFTZIPContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="TrackDocList_G_Result.cs">
+      <DependentUpon>LFTZIPContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrackDoc_G_Id_Result.cs">
       <DependentUpon>LFTZIPContext.tt</DependentUpon>
     </Compile>
     <Compile Include="T_SurveyStatus.cs">

@@ -11,7 +11,7 @@ namespace Model.Models.TrackingDocument
 {
     public class TrackingDocModel
     {
-        public int TrackDocId { get; set; }
+        public int? TrackDocId { get; set; }
         [Required(ErrorMessage = "Sender Name is required")]
         public string SenderOrgName { get; set; }
         [Required(ErrorMessage = "Document Type is required")]
@@ -32,7 +32,7 @@ namespace Model.Models.TrackingDocument
         public int DocumentStatus { get; set; }
         public string  DocStatusName { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: yyyy-MM-dd}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [Required(ErrorMessage = "Received Date is required")]
         public DateTime ReceivedDate { get; set; }
         [Required(ErrorMessage = "Please select the Required Action")]
@@ -43,15 +43,15 @@ namespace Model.Models.TrackingDocument
         [Required(ErrorMessage = "Please fill the Other's Attention Required")]
         public string CCMailIds { get; set; }
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0: yyyy-MM-dd}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         [Required(ErrorMessage = "Action Date is required")]
         public DateTime ActionDate { get; set; }
         [IgnoreDataMember]
         [Required(ErrorMessage = "At least One Document is Required")]
         public List<HttpPostedFileBase> AttachDoc { get; set; }
-        [Required(ErrorMessage = "")]
         public string UploadDoc { get; set; }
         public int ChangedBy { get; set; }
+        public byte RoleId { get; set; }
         public int IsActive { get; set; }
     }
 }

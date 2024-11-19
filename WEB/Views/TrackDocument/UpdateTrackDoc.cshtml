@@ -1,9 +1,9 @@
 ﻿@model Model.Models.TrackingDocument.TrackingDocModel
 @{
-    ViewBag.Title = "TrackDocument";
+    ViewBag.Title = "UpdateTrackDoc";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/select2.min.css" rel="stylesheet" />
+
 <style>
     .form-control {
         height: 35px;
@@ -29,7 +29,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"> <em class="fa fa-home"></em></li>
                 <li class="breadcrumb-item"><a href="/">Document Tracking</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Add</li>
+                <li class="breadcrumb-item active" aria-current="page">Update</li>
             </ol>
         </nav>
     </div>
@@ -40,82 +40,75 @@
     <div class="panel panel-default articles">
         <div class="panel-body">
             <div class="row">
-
+                            @Html.HiddenFor(m => m.TrackDocId)
                 <div class="col-12 tab-content">
                     <div class="row">
 
                         <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.SenderOrgName)" class="control-label  lfz">Sender's Name/ Organization</label>
                             @Html.EditorFor(m => m.SenderOrgName, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(m => m.SenderOrgName, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group lfzab col-md-4">
-                            <label for="@Html.IdFor(m => m.DocType)" class="control-label  lfz">Document Type</label>
-                            @Html.DropDownListFor(m => m.DocType, (SelectList)ViewBag.DocType, "--  Select Type --", new { @class = "form-control", @id = "othS_DT" })
-                            @Html.ValidationMessageFor(m => m.DocType, "", new { @class = "text-danger" })
+                            <label for="@Html.IdFor(m => m.DocTypeName)" class="control-label  lfz">Document Type</label>
+                            @*@Html.EditorFor(m => m.DocType, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.DropDownListFor(m => m.DocType, (SelectList)ViewBag.DocType, "---  Select Type  ---", new { @class = "form-control"})
                         </div>
-                        <div class="form-group lfzab col-md-4" id="othDT" hidden>
+                        @if(Model.DocType == 54)
+                {
+                        <div class="form-group lfzab col-md-4" id="othDT">
                             <label for="@Html.IdFor(m => m.OtherDocType)" class="control-label">Other Document Type</label>
                             @Html.EditorFor(m => m.OtherDocType, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(m => m.OtherDocType, "", new { @class = "text-danger" })
                         </div>
+                }
 
                         <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.ReceivedDate)" class="control-label  lfz">Received Date</label>
-                            @Html.EditorFor(m => m.ReceivedDate, new { htmlAttributes = new { @class = "form-control", @max = DateTime.Now.ToString("yyyy-MM-dd") } })
-                            @Html.ValidationMessageFor(m => m.ReceivedDate, "", new { @class = "text-danger" })
+                            @Html.EditorFor(m => m.ReceivedDate, new { htmlAttributes = new { @class = "form-control" } })
                         </div>
 
                         <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.Subject)" class="control-label  lfz">Subject</label>
                             @Html.EditorFor(m => m.Subject, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.DocumentStatus)" class="control-label  lfz">Document Status</label>
-                            @Html.DropDownListFor(m => m.DocumentStatus, new SelectList((IEnumerable<SelectListItem>)ViewBag.DocStatus,"Value","Text","54"), new { @class = "form-control", @disabled = "disabled" })
-                            @Html.ValidationMessageFor(m => m.DocumentStatus, "", new { @class = "text-danger" })
+                            @Html.DropDownListFor(m => m.DocumentStatus, (SelectList)ViewBag.DocStatus,  new { @class = "form-control", @id = "docStatus", @disabled = "disabled" })
                         </div>
                         <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.DocSummary)" class="control-label  lfz">Document Summary</label>
                             @Html.EditorFor(m => m.DocSummary, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(m => m.DocSummary, "", new { @class = "text-danger" })
                         </div>
                         <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.ActionDate)" class="control-label  lfz">Action Date</label>
-                            @Html.EditorFor(m => m.ActionDate, new { htmlAttributes = new { @class = "form-control", @min = DateTime.Now.ToString("yyyy-MM-dd") } })
-                            @Html.ValidationMessageFor(m => m.ActionDate, "", new { @class = "text-danger" })
+                            @Html.EditorFor(m => m.ActionDate, new { htmlAttributes = new { @class = "form-control", @value = Model.ActionDate.ToString("dd-MM-yyyy") } })
                         </div>
                         <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.RequiredAction)" class="control-label  lfz">Action Required</label>
-                            @Html.DropDownListFor(m => m.RequiredAction, (SelectList)ViewBag.ActionReq, "--  Select Action --", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.RequiredAction, "", new { @class = "text-danger" })
+                            @Html.DropDownListFor(m => m.RequiredAction, (SelectList)ViewBag.ActionReq, new { @class = "form-control" })
                         </div>
                         <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.RequiredAttention)" class="control-label  lfz">Attention Required</label>
-                            @Html.DropDownListFor(m => m.RequiredAttention, (SelectList)ViewBag.AttentionStatus, "--  Select Attention --", new { @class = "form-control", @id = "othS_AR" })
-                            @Html.ValidationMessageFor(m => m.RequiredAttention, "", new { @class = "text-danger" })
+                            @Html.DropDownListFor(m => m.RequiredAttention, (SelectList)ViewBag.AttentionStatus, "--  Select Action --", new { @class = "form-control" })
                         </div>
-                        <div class="form-group lfzab col-md-4" id="othAR" hidden>
+                        @if(Model.RequiredAttention == 54)
+                {
+                        <div class="form-group lfzab col-md-4" id="othAR" >
                             <label for="@Html.IdFor(m => m.CCMailIds)" class="control-label">Other's Attention Required</label>
                             @Html.EditorFor(m => m.CCMailIds, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(m => m.CCMailIds, "", new { @class = "text-danger" })
                         </div>
+                }
                         <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.DetailedDescription)" class="control-label  lfz">Detailed Description</label>
                             @Html.TextAreaFor(m => m.DetailedDescription, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.DetailedDescription, "", new { @class = "text-danger"})
+
                         </div>
                         <div class="form-group lfzab col-md-4">
-                            <label for="@Html.IdFor(m => m.AttachDoc)" class="control-label  lfz">Attach Document</label>
-                            @Html.TextBoxFor(m => m.AttachDoc, new { @class = "form-control", @type = "file", @multiple = "multiple", @id = "attDoc" })
-                            @Html.ValidationMessageFor(m => m.AttachDoc, "", new { @class = "text-danger" })
-                            <span id="selectedFile"></span>
+                            <label for="@Html.IdFor(m => m.UploadDoc)" class="control-label  lfz">Attach Document</label>
+                            @Html.EditorFor(m => m.UploadDoc, new { htmlAttributes = new { @class = "form-control" } })
                         </div>
                         <div class="form-group lfzab col-md-4">
-                            <label for="@Html.IdFor(m => m.RecipientMailId)" class="control-label  lfz">Recipient's Email Id</label>
-                            @Html.DropDownListFor(m => m.RecipientMailId, (SelectList)ViewBag.RecipientList, "--  Select Attention --", new { @id = "idls", @class = "form-control", @multiple = "multiple" })
-                            @Html.ValidationMessageFor(m => m.RecipientMailId, "", new { @class = "text-danger" })
+                            <label for="@Html.IdFor(m => m.ToMailIds)" class="control-label  lfz">Recipient's Email Id</label>
+                            @Html.EditorFor(m => m.ToMailIds, new { htmlAttributes = new { @class = "form-control" } })
                         </div>
                     </div>
 
@@ -132,39 +125,14 @@
 
 }
 
-
-
-
-
-<script src="~/Scripts/select2.min.js"></script>
 <script>
     $(document).ready(function () {
-        $("#idls").select2({
-            placeholder: "-- Select Email Recipient --",
-            allowClear: true
-        });
-    });
+        if (@Model.RoleId == 10) {
+            $("#docStatus").removeAttr('disabled');
+        }
+        else if (@Model.RoleId < 10) {
+            $("#docStatus").attr('disabled', true);
 
-   
-
-    $("#idls").change(function () {
-        console.log($(this).val());
-
+        }
     })
-
-
-    var divODT = $("#othDT").children().detach();
-    var divOAR = $("#othAR").children().detach();
-
-    $("#othS_DT").change(function () {
-        if ($(this).val() == 54) { $("#othDT").show(); $("#othDT").append(divODT); }
-        else { $("#othDT").hide(); $("#othDT").children().remove(); }
-    });
-
-    $("#othS_AR").change(function () {
-        if ($(this).val() == 54) { $("#othAR").show(); $("#othAR").append(divOAR); }
-        else { $("#othAR").hide(); $("#othAR").children().remove(); }
-    })
-
-
 </script>

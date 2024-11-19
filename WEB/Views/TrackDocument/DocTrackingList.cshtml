@@ -60,6 +60,7 @@
                                 {
                                     if (m.ToMailIds.Contains(","))
                                     {
+                                        m.RecipientMailId = m.ToMailIds.Split(',').Select(mailId => mailId.Trim()).ToList();
                                         foreach (var mailId in m.RecipientMailId)
                                         {
                                             <span>@mailId <br /></span>
@@ -91,7 +92,7 @@
                             </td>
                             <td>@m.DocStatusName</td>
                             <td class="">
-                                <a href="@Url.Action("", "TrackDocument")" onclick="showHrefLoader('Loading ...')" class="fa fa-edit"></a>
+                                <a href="@Url.Action("Update", "TrackDocument", new { id = m.TrackDocId })" onclick="showHrefLoader('Loading Update Page...')" class="fa fa-edit"></a>
                                 <a href="@Url.Action("", "TrackDocument")" onclick="showHrefLoader('Loading View ...')" class="fa fa-eye"></a>
                                 <span type="button" onclick="deleteTrackDoc(@(m.TrackDocId))" class="fa fa-trash"></span>
                             </td>

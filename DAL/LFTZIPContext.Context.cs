@@ -1883,5 +1883,36 @@ namespace DAL
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TrackDocList_G_Result>("TrackDocList_G");
         }
+    
+        public virtual ObjectResult<TrackDocHistory_G_Id_Result> TrackDocHistory_G_Id(Nullable<int> trackDocId)
+        {
+            var trackDocIdParameter = trackDocId.HasValue ?
+                new ObjectParameter("TrackDocId", trackDocId) :
+                new ObjectParameter("TrackDocId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TrackDocHistory_G_Id_Result>("TrackDocHistory_G_Id", trackDocIdParameter);
+        }
+    
+        public virtual int TrackDoc_D(Nullable<int> changedId, Nullable<int> trackDocId, ObjectParameter outId, ObjectParameter outUserMssg, ObjectParameter outDevMssg, ObjectParameter outIsSuccess)
+        {
+            var changedIdParameter = changedId.HasValue ?
+                new ObjectParameter("ChangedId", changedId) :
+                new ObjectParameter("ChangedId", typeof(int));
+    
+            var trackDocIdParameter = trackDocId.HasValue ?
+                new ObjectParameter("TrackDocId", trackDocId) :
+                new ObjectParameter("TrackDocId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TrackDoc_D", changedIdParameter, trackDocIdParameter, outId, outUserMssg, outDevMssg, outIsSuccess);
+        }
+    
+        public virtual ObjectResult<TrackDoc_G_Id_Result> TrackDoc_G_Id(Nullable<int> trackDocId)
+        {
+            var trackDocIdParameter = trackDocId.HasValue ?
+                new ObjectParameter("TrackDocId", trackDocId) :
+                new ObjectParameter("TrackDocId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TrackDoc_G_Id_Result>("TrackDoc_G_Id", trackDocIdParameter);
+        }
     }
 }

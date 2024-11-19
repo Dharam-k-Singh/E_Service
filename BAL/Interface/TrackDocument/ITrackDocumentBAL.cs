@@ -13,6 +13,8 @@ namespace BAL.Interface.TrackDocument
         ResponseInfo SaveOrUpdateBAL(TrackingDocModel model);
         List<TrackingDocModel> TrackingDocListBAL();
         List<TrackDocStatusModel> TrackingDocHistoryListByIdBAL(int trackDocId);
+        ResponseInfo RemoveTrackingDocByIdBAL(int trackDocId, int userId);
+        TrackingDocModel TrackingDocByIdBAL(int trackDocId);
 
     }
 }

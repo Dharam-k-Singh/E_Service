@@ -28,5 +28,13 @@ namespace API.Controllers
         {
             return Ok(_iTrackDocBAL.TrackingDocHistoryListByIdBAL(Id));
         }
+        public IHttpActionResult RemoveTrackingDocData(int Id, int UserId)
+        {
+            return Ok(_iTrackDocBAL.RemoveTrackingDocByIdBAL(Id, UserId));
+        }
+        public IHttpActionResult GetTrackingDocDataById(int Id)
+        {
+            return Ok(_iTrackDocBAL.TrackingDocByIdBAL(Id));
+        }
     }
 }

@@ -41,5 +41,13 @@ namespace BAL.Concreate.TrackDocument
         {
             return _iTrackDocDAL.TrackingDocHistoryListByIdDAL(trackDocId);
         }
+        public ResponseInfo RemoveTrackingDocByIdBAL(int trackDocId, int userId)
+        {
+            return _iTrackDocDAL.RemoveTrackingDocByIdDAL(trackDocId, userId);
+        }
+        public TrackingDocModel TrackingDocByIdBAL(int trackDocId)
+        {
+            return _iTrackDocDAL.TrackingDocByIdDAL(trackDocId);
+        }
     }
 }

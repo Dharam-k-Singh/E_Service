@@ -42,8 +42,29 @@ namespace DAL.Concreate.TrackDocument
         }
         public List<TrackDocStatusModel> TrackingDocHistoryListByIdDAL(int trackDocId)
         {
-            var result = entities.EnterpriseRole_G().ToList();
+            var result = entities.TrackDocHistory_G_Id(trackDocId).ToList();
             return Mapping<List<TrackDocStatusModel>>(result);
+        }
+        public ResponseInfo RemoveTrackingDocByIdDAL(int trackDocId, int userId)
+        {
+            ObjectParameter outId = new ObjectParameter("OutId", typeof(int));
+            ObjectParameter outDevMssg = new ObjectParameter("OutDevMssg", typeof(string));
+            ObjectParameter outUserMssg = new ObjectParameter("OutUserMssg", typeof(string));
+            ObjectParameter outIsSuccess = new ObjectParameter("OutIsSuccess", typeof(bool));
+
+            entities.TrackDoc_D(userId, trackDocId, outId, outUserMssg, outDevMssg, outIsSuccess);
+
+            return new ResponseInfo() 
+            {
+                ID = (int)outId.Value,
+                Msg = (string)outUserMssg.Value.ToString(),
+                IsSuccess = (bool)outIsSuccess.Value
+            };
+        }
+        public TrackingDocModel TrackingDocByIdDAL(int trackDocId)
+        {
+            var result = entities.TrackDoc_G_Id(trackDocId).FirstOrDefault();
+            return Mapping<TrackingDocModel>(result);
         }
 
     }

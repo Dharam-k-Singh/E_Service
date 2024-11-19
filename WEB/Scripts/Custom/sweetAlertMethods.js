@@ -92,8 +92,8 @@ function showAlert(title, body, icon, isHTML, confirmBtnText, confirmCallback) {
     });
 }
 
-window.addEventListener('beforeunload', function (event) {
+/*window.addEventListener('beforeunload', function (event) {
     if (swal && swal.isVisible()) {
         swal.close();
     }
-});
+});*/
