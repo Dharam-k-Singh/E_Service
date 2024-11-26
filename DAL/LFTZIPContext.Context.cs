@@ -1810,7 +1810,29 @@ namespace DAL
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RequestFormEPUserList_G_Result>("RequestFormEPUserList_G", organizationIDParameter);
         }
     
-        public virtual int TrackDoc_CU(Nullable<int> tDocId, string senderOrgName, Nullable<int> docType, string otherDocType, string subject, string docSummary, string recipientMailId, string detailDescp, Nullable<int> docStatus, Nullable<int> reqAction, Nullable<System.DateTime> actionDate, Nullable<System.DateTime> receivedDate, Nullable<int> reqAttention, string otherReqAttention, string uploadDoc, Nullable<int> changedById, ObjectParameter outId, ObjectParameter outUserMssg, ObjectParameter outDevMssg, ObjectParameter outIsSuccess)
+        public virtual ObjectResult<TrackDocHistory_G_Id_Result> TrackDocHistory_G_Id(Nullable<int> trackDocId)
+        {
+            var trackDocIdParameter = trackDocId.HasValue ?
+                new ObjectParameter("TrackDocId", trackDocId) :
+                new ObjectParameter("TrackDocId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TrackDocHistory_G_Id_Result>("TrackDocHistory_G_Id", trackDocIdParameter);
+        }
+    
+        public virtual int TrackDoc_D(Nullable<int> changedId, Nullable<int> trackDocId, ObjectParameter outId, ObjectParameter outUserMssg, ObjectParameter outDevMssg, ObjectParameter outIsSuccess)
+        {
+            var changedIdParameter = changedId.HasValue ?
+                new ObjectParameter("ChangedId", changedId) :
+                new ObjectParameter("ChangedId", typeof(int));
+    
+            var trackDocIdParameter = trackDocId.HasValue ?
+                new ObjectParameter("TrackDocId", trackDocId) :
+                new ObjectParameter("TrackDocId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TrackDoc_D", changedIdParameter, trackDocIdParameter, outId, outUserMssg, outDevMssg, outIsSuccess);
+        }
+    
+        public virtual int TrackDoc_CU(Nullable<int> tDocId, string senderOrgName, Nullable<int> docType, string otherDocType, string subject, string docSummary, Nullable<int> recipientMailId, string detailDescp, Nullable<int> docStatus, Nullable<int> reqAction, Nullable<System.DateTime> actionDate, Nullable<System.DateTime> receivedDate, Nullable<int> reqAttention, string otherReqAttention, string uploadDoc, Nullable<int> changedById, ObjectParameter outId, ObjectParameter outUserMssg, ObjectParameter outDevMssg, ObjectParameter outIsSuccess)
         {
             var tDocIdParameter = tDocId.HasValue ?
                 new ObjectParameter("TDocId", tDocId) :
@@ -1836,9 +1858,9 @@ namespace DAL
                 new ObjectParameter("DocSummary", docSummary) :
                 new ObjectParameter("DocSummary", typeof(string));
     
-            var recipientMailIdParameter = recipientMailId != null ?
+            var recipientMailIdParameter = recipientMailId.HasValue ?
                 new ObjectParameter("RecipientMailId", recipientMailId) :
-                new ObjectParameter("RecipientMailId", typeof(string));
+                new ObjectParameter("RecipientMailId", typeof(int));
     
             var detailDescpParameter = detailDescp != null ?
                 new ObjectParameter("DetailDescp", detailDescp) :
@@ -1882,28 +1904,6 @@ namespace DAL
         public virtual ObjectResult<TrackDocList_G_Result> TrackDocList_G()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TrackDocList_G_Result>("TrackDocList_G");
-        }
-    
-        public virtual ObjectResult<TrackDocHistory_G_Id_Result> TrackDocHistory_G_Id(Nullable<int> trackDocId)
-        {
-            var trackDocIdParameter = trackDocId.HasValue ?
-                new ObjectParameter("TrackDocId", trackDocId) :
-                new ObjectParameter("TrackDocId", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TrackDocHistory_G_Id_Result>("TrackDocHistory_G_Id", trackDocIdParameter);
-        }
-    
-        public virtual int TrackDoc_D(Nullable<int> changedId, Nullable<int> trackDocId, ObjectParameter outId, ObjectParameter outUserMssg, ObjectParameter outDevMssg, ObjectParameter outIsSuccess)
-        {
-            var changedIdParameter = changedId.HasValue ?
-                new ObjectParameter("ChangedId", changedId) :
-                new ObjectParameter("ChangedId", typeof(int));
-    
-            var trackDocIdParameter = trackDocId.HasValue ?
-                new ObjectParameter("TrackDocId", trackDocId) :
-                new ObjectParameter("TrackDocId", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TrackDoc_D", changedIdParameter, trackDocIdParameter, outId, outUserMssg, outDevMssg, outIsSuccess);
         }
     
         public virtual ObjectResult<TrackDoc_G_Id_Result> TrackDoc_G_Id(Nullable<int> trackDocId)

@@ -15,11 +15,12 @@ namespace DAL
     {
         public int TrackDocId { get; set; }
         public string SenderOrgName { get; set; }
+        public string DocSummary { get; set; }
         public int DocType { get; set; }
         public string DocTypeName { get; set; }
         public string OtherDocType { get; set; }
         public string Subject { get; set; }
-        public string DocSummary { get; set; }
+        public int RecipientMailId { get; set; }
         public string ToMailIds { get; set; }
         public string DetailedDescription { get; set; }
         public int DocumentStatus { get; set; }

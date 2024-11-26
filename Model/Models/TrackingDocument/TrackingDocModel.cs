@@ -24,8 +24,8 @@ namespace Model.Models.TrackingDocument
         [Required(ErrorMessage = "Document is required")]
         public string DocSummary { get; set; }
         [Required(ErrorMessage = "Recipient's Email Id is required")]
-        public List<string> RecipientMailId { get; set; }
-        public string  ToMailIds { get; set; }
+        public int RecipientMailId { get; set; }
+        public string ToMailIds { get; set; }
         [Required(ErrorMessage = "Detailed Description is required")]
         public string DetailedDescription { get; set; }
         [Required(ErrorMessage = "Document Status is required")]
@@ -41,6 +41,8 @@ namespace Model.Models.TrackingDocument
         [Required(ErrorMessage = "Please select the Required Attention")]
         public int RequiredAttention { get; set; }
         [Required(ErrorMessage = "Please fill the Other's Attention Required")]
+        public string ReqAttentionName { get; set; }
+        public string OthersReqAttention { get; set; }
         public string CCMailIds { get; set; }
         [DataType(DataType.Date)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
@@ -50,8 +52,11 @@ namespace Model.Models.TrackingDocument
         [Required(ErrorMessage = "At least One Document is Required")]
         public List<HttpPostedFileBase> AttachDoc { get; set; }
         public string UploadDoc { get; set; }
+        public bool IsEditable { get; set; }
         public int ChangedBy { get; set; }
         public byte RoleId { get; set; }
-        public int IsActive { get; set; }
+        public int UDID { get; set; }
+        public string ActionResult { get; set; }
+
     }
 }

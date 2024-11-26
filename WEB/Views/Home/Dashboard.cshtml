@@ -559,10 +559,10 @@
                         </div>
                     }
 
-                    @if (roleid == 10)
+                    @if (roleid == 10 || roleid < 10)
                     {
                         <div class="col-md-6" style="margin-bottom: 10px;">
-                            <a class="achp" href="@Url.Action("Index", "Home")" onclick="showLoadingSweetAlert('Loading Document Tracking')">
+                            <a class="achp" href="@Url.Action("Index", "TrackDocument")" onclick="showLoadingSweetAlert('Loading Document Tracking')">
                                 <div class="wrap">
                                     <div class="ico-wrap">
                                         <div class="demo" style="margin: 15px;">

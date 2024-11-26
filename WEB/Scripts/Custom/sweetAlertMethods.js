@@ -6,6 +6,26 @@
     }
 }
 
+function showMessageSweetAlert(title, body, icon, isHTML, confirmBtnText, confirmCallback) {
+    let swalConfig = {
+        icon: icon,
+        title: title,
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: confirmBtnText,
+        allowOutsideClick: false,
+        allowEscapeKey: false
+    };
+
+    swalConfig = $.extend(swalConfig, baseConfig);
+
+    swalConfig[isHTML ? "html" : "text"] = body;
+
+    swal.fire(swalConfig).then((result) => {
+        if (result.value) confirmCallback();
+    });
+
+}
+
 function showSweetAlert(title, body, icon, isHTML) {
     let swalConfig = {
         icon: icon,

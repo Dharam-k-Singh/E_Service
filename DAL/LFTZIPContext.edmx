@@ -1179,7 +1179,7 @@ warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_UserRole' does not have
           <Parameter Name="OtherDocType" Type="varchar" Mode="In" />
           <Parameter Name="Subject" Type="varchar" Mode="In" />
           <Parameter Name="DocSummary" Type="varchar" Mode="In" />
-          <Parameter Name="RecipientMailId" Type="varchar" Mode="In" />
+          <Parameter Name="RecipientMailId" Type="int" Mode="In" />
           <Parameter Name="DetailDescp" Type="varchar" Mode="In" />
           <Parameter Name="DocStatus" Type="int" Mode="In" />
           <Parameter Name="ReqAction" Type="int" Mode="In" />
@@ -2117,6 +2117,17 @@ warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_UserRole' does not have
           <FunctionImport Name="RequestFormEPUserList_G" ReturnType="Collection(LFTZ_InvestorPortalModel.RequestFormEPUserList_G_Result)">
           <Parameter Name="OrganizationID" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="TrackDocHistory_G_Id" ReturnType="Collection(LFTZ_InvestorPortalModel.TrackDocHistory_G_Id_Result)">
+          <Parameter Name="TrackDocId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TrackDoc_D">
+            <Parameter Name="ChangedId" Mode="In" Type="Int32" />
+            <Parameter Name="TrackDocId" Mode="In" Type="Int32" />
+            <Parameter Name="OutId" Mode="InOut" Type="Int32" />
+            <Parameter Name="OutUserMssg" Mode="InOut" Type="String" />
+            <Parameter Name="OutDevMssg" Mode="InOut" Type="String" />
+            <Parameter Name="OutIsSuccess" Mode="InOut" Type="Boolean" />
+          </FunctionImport>
           <FunctionImport Name="TrackDoc_CU">
             <Parameter Name="TDocId" Mode="In" Type="Int32" />
             <Parameter Name="SenderOrgName" Mode="In" Type="String" />
@@ -2124,7 +2135,7 @@ warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_UserRole' does not have
             <Parameter Name="OtherDocType" Mode="In" Type="String" />
             <Parameter Name="Subject" Mode="In" Type="String" />
             <Parameter Name="DocSummary" Mode="In" Type="String" />
-            <Parameter Name="RecipientMailId" Mode="In" Type="String" />
+            <Parameter Name="RecipientMailId" Mode="In" Type="Int32" />
             <Parameter Name="DetailDescp" Mode="In" Type="String" />
             <Parameter Name="DocStatus" Mode="In" Type="Int32" />
             <Parameter Name="ReqAction" Mode="In" Type="Int32" />
@@ -2140,17 +2151,6 @@ warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_UserRole' does not have
             <Parameter Name="OutIsSuccess" Mode="InOut" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="TrackDocList_G" ReturnType="Collection(LFTZ_InvestorPortalModel.TrackDocList_G_Result)" />
-          <FunctionImport Name="TrackDocHistory_G_Id" ReturnType="Collection(LFTZ_InvestorPortalModel.TrackDocHistory_G_Id_Result)">
-          <Parameter Name="TrackDocId" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="TrackDoc_D">
-            <Parameter Name="ChangedId" Mode="In" Type="Int32" />
-            <Parameter Name="TrackDocId" Mode="In" Type="Int32" />
-            <Parameter Name="OutId" Mode="InOut" Type="Int32" />
-            <Parameter Name="OutUserMssg" Mode="InOut" Type="String" />
-            <Parameter Name="OutDevMssg" Mode="InOut" Type="String" />
-            <Parameter Name="OutIsSuccess" Mode="InOut" Type="Boolean" />
-          </FunctionImport>
           <FunctionImport Name="TrackDoc_G_Id" ReturnType="Collection(LFTZ_InvestorPortalModel.TrackDoc_G_Id_Result)">
             <Parameter Name="TrackDocId" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -3822,15 +3822,24 @@ warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_UserRole' does not have
           <Property Type="String" Name="UploadedDocument" Nullable="true" MaxLength="2000" />
           <Property Type="String" Name="DepartmentUploadPath" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="TrackDocHistory_G_Id_Result">
+          <Property Type="Int32" Name="TDocHId" Nullable="false" />
+          <Property Type="Int32" Name="StatusId" Nullable="false" />
+          <Property Type="String" Name="StatusName" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="ChangedById" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+        </ComplexType>
         <ComplexType Name="TrackDocList_G_Result">
           <Property Type="Int32" Name="TrackDocId" Nullable="false" />
           <Property Type="String" Name="SenderOrgName" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="DocSummary" Nullable="false" MaxLength="200" />
           <Property Type="Int32" Name="DocType" Nullable="false" />
           <Property Type="String" Name="DocTypeName" Nullable="true" MaxLength="150" />
           <Property Type="String" Name="OtherDocType" Nullable="true" MaxLength="200" />
           <Property Type="String" Name="Subject" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="DocSummary" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="ToMailIds" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="RecipientMailId" Nullable="false" />
+          <Property Type="String" Name="ToMailIds" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="DetailedDescription" Nullable="false" MaxLength="500" />
           <Property Type="Int32" Name="DocumentStatus" Nullable="false" />
           <Property Type="String" Name="DocStatusName" Nullable="true" MaxLength="150" />
@@ -3844,23 +3853,16 @@ warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_UserRole' does not have
           <Property Type="String" Name="UploadDoc" Nullable="false" MaxLength="200" />
           <Property Type="Int32" Name="ChangedBy" Nullable="false" />
         </ComplexType>
-        <ComplexType Name="TrackDocHistory_G_Id_Result">
-          <Property Type="Int32" Name="TDocHId" Nullable="false" />
-          <Property Type="Int32" Name="StatusId" Nullable="false" />
-          <Property Type="String" Name="StatusName" Nullable="true" MaxLength="150" />
-          <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="300" />
-          <Property Type="Int32" Name="ChangedById" Nullable="false" />
-          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
-        </ComplexType>
         <ComplexType Name="TrackDoc_G_Id_Result">
           <Property Type="Int32" Name="TrackDocId" Nullable="false" />
           <Property Type="String" Name="SenderOrgName" Nullable="false" MaxLength="150" />
-          <Property Type="Int32" Name="DocType" Nullable="false" />
           <Property Type="String" Name="DocSummary" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="DocTypeName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="DocType" Nullable="false" />
+          <Property Type="String" Name="DocTypeName" Nullable="true" MaxLength="150" />
           <Property Type="String" Name="OtherDocType" Nullable="true" MaxLength="200" />
           <Property Type="String" Name="Subject" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="ToMailIds" Nullable="false" MaxLength="150" />
+          <Property Type="Int32" Name="RecipientMailId" Nullable="false" />
+          <Property Type="String" Name="ToMailIds" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="DetailedDescription" Nullable="false" MaxLength="500" />
           <Property Type="Int32" Name="DocumentStatus" Nullable="false" />
           <Property Type="String" Name="DocStatusName" Nullable="true" MaxLength="150" />
@@ -5802,17 +5804,31 @@ warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_UserRole' does not have
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TrackDocHistory_G_Id" FunctionName="LFTZ_InvestorPortalModel.Store.TrackDocHistory_G_Id">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="LFTZ_InvestorPortalModel.TrackDocHistory_G_Id_Result">
+                <ScalarProperty Name="TDocHId" ColumnName="TDocHId" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="ChangedById" ColumnName="ChangedById" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TrackDoc_D" FunctionName="LFTZ_InvestorPortalModel.Store.TrackDoc_D" />
           <FunctionImportMapping FunctionImportName="TrackDoc_CU" FunctionName="LFTZ_InvestorPortalModel.Store.TrackDoc_CU" />
           <FunctionImportMapping FunctionImportName="TrackDocList_G" FunctionName="LFTZ_InvestorPortalModel.Store.TrackDocList_G">
             <ResultMapping>
               <ComplexTypeMapping TypeName="LFTZ_InvestorPortalModel.TrackDocList_G_Result">
                 <ScalarProperty Name="TrackDocId" ColumnName="TrackDocId" />
                 <ScalarProperty Name="SenderOrgName" ColumnName="SenderOrgName" />
+                <ScalarProperty Name="DocSummary" ColumnName="DocSummary" />
                 <ScalarProperty Name="DocType" ColumnName="DocType" />
                 <ScalarProperty Name="DocTypeName" ColumnName="DocTypeName" />
                 <ScalarProperty Name="OtherDocType" ColumnName="OtherDocType" />
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="DocSummary" ColumnName="DocSummary" />
+                <ScalarProperty Name="RecipientMailId" ColumnName="RecipientMailId" />
                 <ScalarProperty Name="ToMailIds" ColumnName="ToMailIds" />
                 <ScalarProperty Name="DetailedDescription" ColumnName="DetailedDescription" />
                 <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />
@@ -5829,29 +5845,17 @@ warning 6002: The table/view 'LFZ_EservicePortal.dbo.Map_UserRole' does not have
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="TrackDocHistory_G_Id" FunctionName="LFTZ_InvestorPortalModel.Store.TrackDocHistory_G_Id">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="LFTZ_InvestorPortalModel.TrackDocHistory_G_Id_Result">
-                <ScalarProperty Name="TDocHId" ColumnName="TDocHId" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
-                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
-                <ScalarProperty Name="ChangedById" ColumnName="ChangedById" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="TrackDoc_D" FunctionName="LFTZ_InvestorPortalModel.Store.TrackDoc_D" />
           <FunctionImportMapping FunctionImportName="TrackDoc_G_Id" FunctionName="LFTZ_InvestorPortalModel.Store.TrackDoc_G_Id">
             <ResultMapping>
               <ComplexTypeMapping TypeName="LFTZ_InvestorPortalModel.TrackDoc_G_Id_Result">
                 <ScalarProperty Name="TrackDocId" ColumnName="TrackDocId" />
                 <ScalarProperty Name="SenderOrgName" ColumnName="SenderOrgName" />
-                <ScalarProperty Name="DocType" ColumnName="DocType" />
                 <ScalarProperty Name="DocSummary" ColumnName="DocSummary" />
+                <ScalarProperty Name="DocType" ColumnName="DocType" />
                 <ScalarProperty Name="DocTypeName" ColumnName="DocTypeName" />
                 <ScalarProperty Name="OtherDocType" ColumnName="OtherDocType" />
                 <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="RecipientMailId" ColumnName="RecipientMailId" />
                 <ScalarProperty Name="ToMailIds" ColumnName="ToMailIds" />
                 <ScalarProperty Name="DetailedDescription" ColumnName="DetailedDescription" />
                 <ScalarProperty Name="DocumentStatus" ColumnName="DocumentStatus" />

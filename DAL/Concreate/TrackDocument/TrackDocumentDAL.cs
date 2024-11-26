@@ -22,7 +22,7 @@ namespace DAL.Concreate.TrackDocument
             ObjectParameter outIsSuccess = new ObjectParameter("OutIsSuccess", typeof(bool));
 
             entities.TrackDoc_CU(model.TrackDocId, model.SenderOrgName, model.DocType, model.OtherDocType, model.Subject, model.DocSummary
-                                , model.ToMailIds, model.DetailedDescription, model.DocumentStatus, model.RequiredAction, model.ActionDate
+                                , model.RecipientMailId, model.DetailedDescription, model.DocumentStatus, model.RequiredAction, model.ActionDate
                                 , model.ReceivedDate, model.RequiredAttention, model.CCMailIds, model.UploadDoc, model.ChangedBy
                                 , outId, outUserMssg, outDevMssg, outIsSuccess);
 

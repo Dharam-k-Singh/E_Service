@@ -28,7 +28,7 @@ namespace API.Controllers
         {
             return Ok(_iTrackDocBAL.TrackingDocHistoryListByIdBAL(Id));
         }
-        public IHttpActionResult RemoveTrackingDocData(int Id, int UserId)
+        public IHttpActionResult RemoveData(int Id, int UserId)
         {
             return Ok(_iTrackDocBAL.RemoveTrackingDocByIdBAL(Id, UserId));
         }

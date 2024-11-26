@@ -1,7 +1,9 @@
 ﻿@model List<Model.Models.TrackingDocument.TrackingDocModel>
+@using Model.Models.UserDetail
 @{
     ViewBag.Title = "DocTrackingList";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    UserDetailModel userdetail = (UserDetailModel)Session["UserDetails"];
 }
 
 <style>
@@ -36,6 +38,7 @@
             <table class="table table-bordered table-hover flexx_a flexx_abc tableFixHead" cellspacing="0" width="100%">
                 <thead class="zzzzzzz">
                     <tr>
+                        <th>Action</th>
                         <th>TrackingId</th>
                         <th>Sender Org. Name</th>
                         <th>Document Tpye</th>
@@ -43,61 +46,66 @@
                         <th>Recipient Emails</th>
                         <th>Supporting Document</th>
                         <th>Document Status</th>
-                        <th>Action</th>
-                        <th></th>
+                       
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var m in Model)
                     {
-                        <tr>
-                            <td>@m.TrackDocId</td>
-                            <td>@m.SenderOrgName</td>
-                            <td>@m.DocTypeName</td>
-                            <td>@m.ReceivedDate.ToString("dd-MM-yyyy")</td>
-                            <td>
-                                @if (m.ToMailIds != null)
-                                {
-                                    if (m.ToMailIds.Contains(","))
-                                    {
-                                        m.RecipientMailId = m.ToMailIds.Split(',').Select(mailId => mailId.Trim()).ToList();
-                                        foreach (var mailId in m.RecipientMailId)
-                                        {
-                                            <span>@mailId <br /></span>
-                                        }
-                                    }
-                                    else
-                                    {
-                                        @m.ToMailIds;
-                                    }
-                                }
-                            </td>
-                            <td>
-                                @if (m.UploadDoc != null)
-                                {
-                                    if (m.UploadDoc.Contains(','))
-                                    {
-                                        var docs = m.UploadDoc.Split(',').Select(doc => doc.Trim()).ToList();
+                        m.RoleId = (byte)userdetail.RoleId;
+                    <tr>
+                        <td class="">
+                            @if (m.DocumentStatus != 41)
+                            {
 
-                                        foreach (var doc in docs)
-                                        {
-                                            <a href="~/Uploads/DocumentTracking/@doc" target="_blank">@doc <br /></a>
-                                        }
-                                    }
-                                    else
+                                if (m.RoleId == 10)
+                                {
+                                    <a href="@Url.Action("Update", "TrackDocument", new { id = m.TrackDocId })" onclick="showHrefLoader('Loading Update Page...')" class="fa fa-edit"></a>
+
+                                    <span type="button" onclick="deleteTrackDoc(@(m.TrackDocId))" class="fa fa-trash"></span>
+                                }
+                                else if (m.RoleId == 1)
+                                {
+                                    <a href="@Url.Action("View", "TrackDocument", new { id = m.TrackDocId })" onclick="showHrefLoader('Loading View ...')" class="fa fa-eye"></a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("Update", "TrackDocument", new { id = m.TrackDocId })" onclick="showHrefLoader('Loading Update Page...')" class="fa fa-edit"></a>
+                                }
+
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("View", "TrackDocument", new { id = m.TrackDocId })" onclick="showHrefLoader('Loading View ...')" class="fa fa-eye"></a>
+                            }
+                        </td>
+                        <td>@m.TrackDocId</td>
+                        <td>@m.SenderOrgName</td>
+                        <td>@m.DocTypeName</td>
+                        <td>@m.ReceivedDate.ToString("dd-MM-yyyy")</td>
+                        <td>@m.ToMailIds</td>
+                        <td>
+                            @if (m.UploadDoc != null)
+                            {
+                                if (m.UploadDoc.Contains(','))
+                                {
+                                    var docs = m.UploadDoc.Split(',').Select(doc => doc.Trim()).ToList();
+
+                                    foreach (var doc in docs)
                                     {
-                                        @m.UploadDoc
+                                        <a href="~/Uploads/DocumentTracking/@doc" target="_blank">@doc <br /></a>
                                     }
                                 }
-                            </td>
-                            <td>@m.DocStatusName</td>
-                            <td class="">
-                                <a href="@Url.Action("Update", "TrackDocument", new { id = m.TrackDocId })" onclick="showHrefLoader('Loading Update Page...')" class="fa fa-edit"></a>
-                                <a href="@Url.Action("", "TrackDocument")" onclick="showHrefLoader('Loading View ...')" class="fa fa-eye"></a>
-                                <span type="button" onclick="deleteTrackDoc(@(m.TrackDocId))" class="fa fa-trash"></span>
-                            </td>
-                            <td><span type="button" onclick="getHistoryTrackDocPage(@(m.TrackDocId))"></span>Track History</td>
-                        </tr>
+                                else
+                                {
+                                    @m.UploadDoc
+                                }
+                            }
+                        </td>
+                        <td>@m.DocStatusName</td>
+
+
+                    </tr>
 
                     }
                 </tbody>
@@ -111,6 +119,14 @@
 </div>
 
 <script>
+
+    $(document).ready(function () {
+        var mssg = "@TempData["Update"]";
+        if (mssg.length > 0) {
+            showSweetAlert(mssg, '', 'success');
+        }
+    });
+
      function getHistoryTrackDocPage(trackDocId) {
 
         $.ajax({
@@ -131,12 +147,12 @@
         showConfirmSweetAlert('Are you sure ?', 'Data will removed.', 'warning', '', 'Remove', 'Cancel',
             function () {
                 $.ajax({
-                    url: "@Url.Action("", "")",
+                    url: "@Url.Action("Remove", "TrackDocument")",
                     type: "GET",
                     data: { id: trackDocId },
                     dataType: "json",
                     contentType: 'application/json; charset=utf-8',
-                    success: function () { showSweetAlert('Data Removed Successfully', '', 'success', 'Ok'); },
+                    success: function (resp) { showMessageSweetAlert('Data Removed Successfully', '', 'success', '', 'Ok', function () { location.reload(); }); },
                     error: function (e) { showSweetAlert('Error Occured!', 'Error during removing data', 'error', 'Ok'); }
                 });
             },

@@ -1531,6 +1531,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\Custom\collapse-multiselect.js" />
     <Content Include="Scripts\Custom\FAQ.js" />
     <Content Include="Scripts\Custom\Menu\Menu.js" />
     <Content Include="Scripts\Custom\sweetalert2\sweetalert2.all.min.js" />
@@ -3432,6 +3433,8 @@
     <Content Include="Views\TrackDocument\_TrackingDocumentHistory.cshtml" />
     <Content Include="Views\TrackDocument\_TrackDocHistory.cshtml" />
     <Content Include="Views\TrackDocument\UpdateTrackDoc.cshtml" />
+    <Content Include="Views\TrackDocument\Index.cshtml" />
+    <Content Include="Views\TrackDocument\TrackDocView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

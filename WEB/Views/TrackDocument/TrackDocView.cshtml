@@ -1,0 +1,151 @@
+﻿@model Model.Models.TrackingDocument.TrackingDocModel
+@{
+    ViewBag.Title = "TrackDocView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .form-control {
+        height: 35px;
+    }
+
+    .select2-container .select2-selection--multiple {
+        height: 35px !important;
+    }
+
+    .select2-selection__rendered {
+        line-height: 24px !important;
+        padding-left: 15px !important;
+    }
+
+    .select2-selection__placeholder {
+        font-family: inherit !important;
+        color: #555 !important;
+    }
+</style>
+<div class="card">
+    <div class="breadcrumb">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"> <em class="fa fa-home"></em></li>
+                <li class="breadcrumb-item"><a href="/">Document Tracking</a></li>
+                <li class="breadcrumb-item active" aria-current="page">View</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="panel panel-default articles">
+    <div class="panel-body">
+        <div class="row">
+            @Html.HiddenFor(m => m.TrackDocId)
+            <div class="col-12 tab-content">
+                <div class="row">
+
+                    <div class="form-group lfzab col-md-4">
+                        <label for="@Html.IdFor(m => m.SenderOrgName)" class="control-label  lfz">Sender's Name/ Organization</label>
+                        @Html.EditorFor(m => m.SenderOrgName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="form-group lfzab col-md-4">
+                        <label for="@Html.IdFor(m => m.DocTypeName)" class="control-label  lfz">Document Type</label>
+                        @Html.EditorFor(m => m.DocTypeName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @if (Model.DocType == 54)
+                    {
+                        <div class="form-group lfzab col-md-4" id="othDT">
+                            <label for="@Html.IdFor(m => m.OtherDocType)" class="control-label">Other Document Type</label>
+                            @Html.EditorFor(m => m.OtherDocType, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    }
+
+                    <div class="form-group lfzab col-md-4">
+                        <label for="@Html.IdFor(m => m.ReceivedDate)" class="control-label  lfz">Received Date</label>
+                        @Html.EditorFor(m => m.ReceivedDate, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="form-group lfzab col-md-4">
+                        <label for="@Html.IdFor(m => m.Subject)" class="control-label  lfz">Subject</label>
+                        @Html.EditorFor(m => m.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="form-group lfzab col-md-4">
+                        <label for="@Html.IdFor(m => m.DocumentStatus)" class="control-label  lfz">Document Status</label>
+                        @Html.EditorFor(m => m.DocStatusName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="form-group lfzab col-md-4">
+                        <label for="@Html.IdFor(m => m.DocSummary)" class="control-label  lfz">Document Summary</label>
+                        @Html.EditorFor(m => m.DocSummary, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="form-group lfzab col-md-4">
+                        <label for="@Html.IdFor(m => m.ActionDate)" class="control-label  lfz">Action Date</label>
+                        @Html.EditorFor(m => m.ActionDate, new { htmlAttributes = new { @class = "form-control", @value = Model.ActionDate.ToString("dd-MM-yyyy") } })
+                    </div>
+                    <div class="form-group lfzab col-md-4">
+                        <label for="@Html.IdFor(m => m.ReqActionName)" class="control-label  lfz">Action Required</label>
+                        @Html.EditorFor(m => m.ReqActionName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="form-group lfzab col-md-4">
+                        <label for="@Html.IdFor(m => m.ReqAttentionName)" class="control-label  lfz">Attention Required</label>
+                        @Html.EditorFor(m => m.ReqAttentionName, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    @if (Model.RequiredAttention == 54)
+                    {
+                        <div class="form-group lfzab col-md-4" id="othAR">
+                            <label for="@Html.IdFor(m => m.OthersReqAttention)" class="control-label">Other's Attention Required</label>
+                            @Html.EditorFor(m => m.OthersReqAttention, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                    }
+                    <div class="form-group lfzab col-md-4">
+                        <label for="@Html.IdFor(m => m.DetailedDescription)" class="control-label  lfz">Detailed Description</label>
+                        @Html.TextAreaFor(m => m.DetailedDescription, new { @class = "form-control" })
+
+                    </div>
+                    <div class="form-group lfzab col-md-4">
+                        <label for="@Html.IdFor(m => m.UploadDoc)" class="control-label  lfz">Attach Document</label>
+                        @Html.EditorFor(m => m.UploadDoc, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                    <div class="form-group lfzab col-md-4">
+                        <label for="@Html.IdFor(m => m.ToMailIds)" class="control-label  lfz">Recipient's Email Id</label><br />
+                        @Html.EditorFor(m => m.ToMailIds, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly"}})
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  @*  $(document).ready(function () {
+        $('input,textarea').attr('readonly', 'readonly');
+
+        var mailIds = '@string.Join(",", @Model.ToMailIds.Split(',').Select(mailId => "\"" + mailId.Trim() + "\""))';
+        mailIds = mailIds.replace(/["]/g, '');
+        console.log(mailIds);
+        mailIds = mailIds.split(',');
+        mailIds.forEach(function (mailId, index) {
+            console.log(mailId);
+            $("#mailIds").append((index + 1) + ". "+ mailId + "<br>");
+        });
+    });*@
+
+    $(document).ready(function () {
+    // Set inputs and textareas to readonly
+    $('input,textarea').attr('readonly', 'readonly');
+
+    // Pass the comma-separated email string from Razor to JavaScript
+    var mailIds = '@Html.Raw(Json.Encode(Model.ToMailIds))';  // Safely inject the string
+        mailIds = mailIds.replace(/"/g, '');
+
+    // Split the string into an array of email addresses
+    mailIds = mailIds.split(',');
+
+    // Log mailIds for debugging
+    console.log(mailIds);
+
+    // Append email addresses to the #mailIds element
+    mailIds.forEach(function (mailId, index) {
+        console.log(mailId);  // Log each email address for debugging
+        $("#mailIds").append((index + 1) + ". " + mailId + "<br>");
+    });
+});
+</script>
+

@@ -19,18 +19,6 @@ namespace BAL.Concreate.TrackDocument
         }
         public ResponseInfo SaveOrUpdateBAL(TrackingDocModel model)
         {
-            if (model.RecipientMailId != null)
-            {
-                string mailIds = "";
-                for (int i = 0; i < model.RecipientMailId.Count; i++)
-                {
-                    if (i > 0) { mailIds += ","; }
-
-                    mailIds += model.RecipientMailId[i];
-                }
-                model.ToMailIds = mailIds;
-            }
-
             return _iTrackDocDAL.SaveOrUpdateDAL(model);
         }
         public List<TrackingDocModel> TrackingDocListBAL()
