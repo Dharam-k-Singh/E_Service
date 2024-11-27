@@ -118,7 +118,7 @@
                         <div class="form-group lfzab col-md-4">
                             <label for="@Html.IdFor(m => m.RecipientMailId)" class="control-label  lfz">Recipient's Email Id</label>
                             @Html.DropDownListFor(m => m.RecipientMailId, (SelectList)ViewBag.RecipientList, "--  Select Recipient --", new { @id = "idls", @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.RecipientMailId, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(m => m.RecipientMailId, "", new { @class = "text-danger", @id = "eIdls" })
                         </div>
                     </div>
 
@@ -139,11 +139,17 @@
 
     $(document).ready(function () {
         $('#idls').select2();
+        if ($('#idls').val() != '') { console.log($('#idls').val()); $("#eIdls").hide(); }
+        else { $("#eIdls").show(); }
 
         var mssg = "@TempData["Update"]";
         if (mssg.length > 0) {
             showSweetAlert(mssg, '', 'success');
         }
+    });
+    $('#idls').change(function () {
+        if ($(this).val() != '') { $("#eIdls").hide(); }
+        else { $("#eIdls").show(); }
     });
 
     var divODT = $("#othDT").children().detach();
@@ -159,5 +165,11 @@
         else { $("#othAR").hide(); $("#othAR").children().remove(); }
     })
 
+    $('#attDoc').change(function () {
+        $('#selectedFile').text('');
+        for (var i = 0; i < this.files.length; i++) {
+            $('#selectedFile').append((i + 1)+ ". "+ this.files[i].name + '<br />');
+        }
 
+    })
 </script>

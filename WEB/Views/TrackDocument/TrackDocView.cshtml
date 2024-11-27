@@ -99,8 +99,21 @@
 
                     </div>
                     <div class="form-group lfzab col-md-4">
-                        <label for="@Html.IdFor(m => m.UploadDoc)" class="control-label  lfz">Attach Document</label>
-                        @Html.EditorFor(m => m.UploadDoc, new { htmlAttributes = new { @class = "form-control" } })
+                        <label for="@Html.IdFor(m => m.UploadDoc)" class="form-check-label lfz">Attach Document</label>
+                        @if (Model.UploadDoc.Contains(','))
+                        {
+                            var docs = Model.UploadDoc.Split(',').Select(doc => doc.Trim()).ToList();
+                            int i = 0;
+                            <br />
+                            foreach (var doc in docs)
+                            {
+                                <a readonly class="form-control" href="~/Uploads/DocumentTracking/@doc" target="_blank">@((1 + i++)+". " + doc) <br /></a>
+                            }
+                        }
+                        else
+                        {
+                            <a readonly="readonly" class="form-control" href="~/Uploads/DocumentTracking/@Model.UploadDoc" target="_blank">@Model.UploadDoc</a>
+                        }
                     </div>
                     <div class="form-group lfzab col-md-4">
                         <label for="@Html.IdFor(m => m.ToMailIds)" class="control-label  lfz">Recipient's Email Id</label><br />
@@ -132,7 +145,7 @@
     $('input,textarea').attr('readonly', 'readonly');
 
     // Pass the comma-separated email string from Razor to JavaScript
-    var mailIds = '@Html.Raw(Json.Encode(Model.ToMailIds))';  // Safely inject the string
+    var mailIds = '@Html.Raw(Json.Encode(Model.UploadDoc))';  // Safely inject the string
         mailIds = mailIds.replace(/"/g, '');
 
     // Split the string into an array of email addresses
@@ -144,7 +157,7 @@
     // Append email addresses to the #mailIds element
     mailIds.forEach(function (mailId, index) {
         console.log(mailId);  // Log each email address for debugging
-        $("#mailIds").append((index + 1) + ". " + mailId + "<br>");
+        $("#docs").append((index + 1) + ". " + mailId + "<br>");
     });
 });
 </script>
